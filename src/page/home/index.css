@@ -1,0 +1,84 @@
+.img-content {
+	height: 160px;
+	align-items: center;
+}
+.grid-demo-item-block {
+  border: solid 1px #999999;
+  background: #f5f5f5;
+  text-align: center;
+  color: #999999;
+  height: 100%;
+}
+
+.adm-tabs-tab-active {
+	color: #e80101;
+}
+.adm-tab-bar-item-active{
+	color: #e80101;
+}
+.adm-tabs-tab-line {
+	background: #e80101;
+}
+.adm-tabs-content{
+	padding: 0;
+}
+.adm-tabs-header{
+	background: #fff;
+}
+.button{
+	font-size: 35px;
+	margin-bottom: 5px;
+	color: #1e90ff;
+}
+.button-txt{
+	color: #1e90ff;
+}
+.button-list{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	background: #fff;
+	margin: 2px 0px;
+}
+.img-list{
+	margin: auto;
+	height: 55px;
+	width: 55px;
+}
+/* .app-header {
+  color: white;
+  background:#e53333;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	padding: 0px;
+} */
+.adm-nav-bar-left{
+	padding-left: 12px;
+}
+.adm-nav-bar-right{
+	padding-right: 12px;
+}
+.body-content{
+	
+	top: 45px;
+	padding-bottom: 50px;
+	position: relative;
+}
+.footer{
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	bottom: 0;
+	background-color: white;
+	border-top: 0.01rem solid #dcdcdc;
+}
+.home-hot{
+	background: unset;
+	width: 20px;
+	height: 20px;
+}
+.home-game-name{
+	padding-top:5px;
+	font-size: 15px;
+}

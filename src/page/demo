@@ -1,0 +1,31 @@
+
+		return (
+			<div className='App-main'>
+				<header className="App-header"  >
+				</header>
+				<div className='App-content' style={{height:window.innerHeight-95}}>
+				</div>
+				<div className='App-footer'>
+				</div>
+			</div>
+		)
+		
+		return (
+			<div className='App-main'>
+				<header className="App-header"  >
+				</header>
+				<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+				</div>
+			</div>
+		)
+
+		import { setLoading } from '../../store'
+		import {useDispatch } from 'react-redux'
+		
+		const dispatch = useDispatch()
+		dispatch(setLoading(true))
+		dispatch(setLoading(false))
+
+		.catch(function (error) {
+			dispatch(setLoading(false))
+		})

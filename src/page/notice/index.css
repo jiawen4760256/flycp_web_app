@@ -1,0 +1,15 @@
+.notice-body{
+    padding-top:45px;
+}
+.notice-empty{
+    padding-top:45px;
+}
+.notice-title{
+    font-size: 16px;
+    color: #333;
+}
+.notice-time{
+    font-size: 14px;
+    color:#989898;
+    margin-top: 5px;
+}

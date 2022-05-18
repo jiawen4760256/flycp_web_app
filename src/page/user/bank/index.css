@@ -1,0 +1,26 @@
+.bank-body{
+    padding-top: 45px;
+}
+.bank-item{
+    font-size: 15px;
+    color: #fff;
+    background-image: linear-gradient(90deg,#ffa870,#ff6167,#ffa970);
+    margin: 10px;
+    padding: 0px 20px;
+    box-shadow: 0 0.02rem 0.08rem 0 rgb(0 0 0 / 20%);
+}
+
+.bank-item1{
+    font-size: 15px;
+    color: #fff;
+    background: #888;
+    margin: 10px;
+    padding: 0px 20px;
+    box-shadow: 0 0.02rem 0.08rem 0 rgb(0 0 0 / 20%);
+}
+.bank-state-0{
+    color: #87d068;
+}
+.bank-state-2{
+    color: #f00;
+}

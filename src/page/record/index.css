@@ -1,0 +1,39 @@
+.record-date{
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+.record-date-left{
+    border-right: 2px solid #eee;
+}
+.record-type{
+    background: #eee;
+}
+/* .record-list{
+    margin-top: 10px;
+} */
+.record-cptitle{
+    text-align: left;
+}
+.record-status-str{
+    text-align: right;
+}
+.record-status-str1{
+    color:red;;
+}
+.record-status-str2{
+    color:green;;
+}
+.record-expect{
+    text-align: left;
+    font-size: 15px;
+    color: #888;
+    padding-top: 3px;
+}
+.record-amount{
+    text-align: right;
+    font-size: 15px;
+    color: #888;
+    padding-top: 3px;
+
+}

@@ -1,0 +1,39 @@
+
+.fuddetail-type{
+    background: #fff;
+}
+
+.fuddetail-body{
+    margin-top: 10px;
+    background: #eee;
+    font-size: var(--title-font-size);
+}
+
+.fuddetail-typename{
+    text-align: left;
+}
+
+.fuddetail-amount-str{
+    text-align: right;
+}
+.fuddetail-amount-str1{
+    color:red;;
+}
+.fuddetail-amount-str2{
+    color:green;;
+}
+
+.fuddetail-oddtime{
+    text-align: left;
+    font-size: 15px;
+    color: #888;
+    padding-top: 3px;
+}
+.fuddetail-amountafter{
+    text-align: right;
+    font-size: 15px;
+    color: #888;
+    padding-top: 3px;
+
+}
+

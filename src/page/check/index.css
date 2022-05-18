@@ -1,0 +1,85 @@
+.check-titel{
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  margin-top:10px;
+}
+.check-color{
+  height: 10px;
+  width: 10px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+.check-type{
+  color:#fff;
+  font-size: 15px;
+}
+.check-type-list{
+  text-align: center;
+  margin-top: 15px;
+}
+.check-update{
+  color: #66bbd1;
+  font-size: 20px;
+}
+.check-line{
+  width: 85%;
+  background: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #3290b1;
+  padding-bottom: 25px;
+  margin-top: 20px;
+}
+.check-status-txt{
+  color: #fff;
+}
+
+.check-status-progress{
+  padding-top: 8px;
+}
+.check-status-button{
+  text-align: right;
+  line-height: 30px;
+}
+.check-line-txt{
+  padding-bottom: 0px;
+}
+.check-row > .adm-space-item{
+  padding-bottom: 0px !important;;
+}
+
+.check-title-img{
+  width: 45%;
+  margin: auto;
+  padding-top: 120px;
+}
+.check-code{
+  border-radius: 30px;
+  width: 75%;
+  margin: auto;
+  margin-top: -25px;
+  height: 40px;
+  background-color: #fff;
+}
+
+
+.check-button{
+  border-radius: 30px;
+  width: 75%;
+  margin: auto;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin-top: 20px;
+}
+.check-zt-img{
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+}

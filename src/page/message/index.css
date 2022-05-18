@@ -1,0 +1,50 @@
+.message-send{
+    font-size: 16px;
+}
+.message-accept{
+    font-size: 16px;
+    text-align: right;
+    margin: 10px;
+    line-height: 28px;
+}
+.message-accept-list{
+    text-align: left;
+}
+.message-add-button{
+    font-size: 28px;
+    color: #fff;
+    background: #ff6c00;
+    border-radius: 50%;
+}
+.message-p{
+    /* color:#ff6c00; */
+    font-weight: bolder;
+}
+.message-user{
+    background: #eee;
+    border-radius: 5px;
+    padding: 0 5px;
+
+}
+.message-text{
+    margin: 0 12px;
+    width: auto;
+}
+
+.message-info{
+    margin: 12px;
+}
+.message-info-name{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.message-info-time{
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+.message-info-txt{
+    font-size: 16px;
+    color: #333;
+    word-break: break-all;
+}

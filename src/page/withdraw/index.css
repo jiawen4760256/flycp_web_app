@@ -1,0 +1,72 @@
+.withdraw-span{
+    color: #cccccc;
+    /* font-size: 14px; */
+}
+.withdraw-bank{
+    width: 100px;
+    text-align: center;
+}
+.withdraw-info-head{
+    color: #f5791f;
+    margin: 0 12px;
+}
+.withdraw-info{
+    margin: 10px 12px;
+    
+    border-top: 1px solid #f5791f;
+    border-right: 1px solid #f5791f;
+}
+.withdraw-info-key{
+    background: #fffdec;
+    color: #f5791f;
+    border-left: 1px solid #f5791f;
+    border-bottom: 1px solid #f5791f;
+    padding: 5px;
+    text-align: center;
+}
+.withdraw-info-value{
+    border-left: 1px solid #f5791f;
+    border-bottom: 1px solid #f5791f;
+    padding: 5px;
+    padding-left: 10px;
+    /* text-align: center; */
+}
+.history-day{
+    text-align: center;
+    margin-top: 5px;
+}
+.history-limit{
+    text-align: center;
+    margin: 10px 3px;
+}
+.history-button{
+    text-align: center;
+    margin: 5px;
+    background: #e53333;
+}
+.history-empty{
+    margin-top: 50px;
+}
+.history-list{
+    margin-top: 10px;
+}
+.history-list-name{
+    text-align: left;
+    font-size: 16px;
+}
+.history-list-amount{
+    text-align: right;
+    color: #f00;
+}
+.history-list-date{
+    text-align: left;
+    font-size: 14px;
+    color:#555;
+    margin-top:5px ;
+    padding-top:6px ;
+}
+.history-list-state{
+    text-align: right;
+    color:#555;
+    margin-top:5px ;
+}

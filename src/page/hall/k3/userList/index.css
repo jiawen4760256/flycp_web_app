@@ -1,0 +1,49 @@
+.userlist-up {
+	width:100px;
+	height:80px;
+	line-height: 80px;
+	/*动画的过渡效果*/
+	transition: all  .25s  ease-in;
+	border:0;
+	margin:10px;
+	background-color: pink;
+	float: left;
+	font-size: 12px;
+	text-align: center;
+}
+/*鼠标移入，向上移动8个像素*/
+.userlist-up-activity {
+	transform:translateY(-8px);
+}
+
+.userlist-list{
+	text-align: center;
+	font-size: 15px;
+	padding: 2px 0px;
+}
+.userlist-list-activity {
+	transform:translateY(-24px);
+	transition: all  .25s  ease-in;	
+}
+.userlist-title {
+	text-align: center;
+	color: #e53333;
+	border: 0.01rem solid #ccc;
+	margin: 0 15px;
+	font-weight:bolder;
+	padding: 5px 0;
+	font-size: 16px;	
+}
+
+.userlist-content {
+	height: 400px;
+	
+	border: 0.01rem solid #ccc;
+	border-top: 0rem solid #ccc;
+	margin: 0 15px;
+	overflow: hidden;
+}
+.userlist-body{
+	
+	padding-bottom: 10px;
+}

@@ -1,38 +1,78 @@
-.App {
+.App-loading{
+  color: #f00;
   text-align: center;
+  margin: auto;
+  padding-top: 60%;
+  font-size: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-main{
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 600px;
+  margin: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  background: #e53333;
+  width: 100%;
+  position: absolute;
+  padding: 0px;
+}
+.App-header>.adm-nav-bar{
+  padding: 0px;
+}
+.App-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 45px;
+  overflow: auto;
+  display: block;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.App-footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid #dcdcdc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button{
+  color: #e53333;
+}
+.adm-dialog-wrap{
+  width: 90vw !important;
+}
+
+
+.slide-enter,
+.slide-exit {
+  transition: transform 300ms ease-out;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter-active {
+  transform: translateX(0%);
+}
+
+.slide-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
 }

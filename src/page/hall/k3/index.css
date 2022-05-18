@@ -1,0 +1,249 @@
+.k3-popup{
+    padding-top: 45px;
+}
+.k3-name-button{
+    color: #e53333;
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.k3-name-list{
+    text-align: center;
+}
+
+.k3-name-list-body{
+    margin: 5px;
+}
+.k3-name-list-head{
+    box-shadow: 0 0 0.2rem rgb(0 0 0 / 20%);
+}
+
+.k3-name-list-button{
+    color: #555;
+    --border-color: #555;
+    --border-radius: 0px;
+    font-size: 100%;
+    border-color: #aaa;
+    width: 100%;
+}
+.k3-name-list-button-active{
+    --border-radius: 0px;
+    font-size: 100%;
+    width: 100%;
+    background: #e53333;
+    color: #fff;
+    border-color: #e53333;
+}
+.k3-kj{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.k3-kj-qs{
+    font-size: 15px;
+}
+.k3-kj-time{
+    margin-top: 12px;
+    color: #fe0b22;
+    font-size: 20px;
+}
+.k3-kj-img{
+    width: 80px;
+    margin: auto;
+    margin-top: 10px;
+}
+.ks-kj-history{
+    text-align: center;
+    padding: 10px 0px;
+    background: #ecebe6;
+    margin-top: 10px;
+}
+.ks-kj-history-qs{
+    border-right: 1px solid #d6dad6;
+}
+
+.k3-kj-history-img{
+    width: 80px;
+    margin: auto;
+}
+.k3-kj-history-row-0{
+    background: #fff;
+    line-height: 25px;
+    padding: 5px 0px;
+    text-align: center;
+}
+.k3-kj-history-row-1{
+    background: #f8f7f2;
+    line-height: 25px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.ks-alert-body{
+    text-align: center;
+    color: #888;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    margin: auto;
+    margin-top: 70%;
+}
+.ks-alert-body button{
+    background-color: #e53333;
+    color: #fff;
+    border: 1px solid #e53333;
+    /* height: 32px; */
+    margin-top: 5px;
+}
+.ks-alert-qs1{
+    font-size: 16px;
+}
+.ks-alert-number{
+    font-size: 100px;
+}
+.ks-alert-qs2{
+    font-size: 14px;
+}
+
+.hz-playinfo{
+    float: right;
+    color: #a3aac3;
+    margin: 0px 15px;
+    font-size: 14px;
+}
+.hz-card-body{
+    
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.hz-card{
+    text-align: center;
+    margin: 2px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 1px 0;
+    font-size: 15px;
+    
+} 
+.hz-card-activity{
+    text-align: center;
+    margin: 2px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 1px 0;
+    font-size: 15px;
+    background: #f30000;
+    border-color: #fff;
+    box-shadow: 0 0 5px #fff;
+    color: #fff;
+    
+} 
+.hz-card-number{
+    font-weight: initial;
+    color: #555;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.hz-card-number-activity{
+    font-weight: initial;
+    color: #555;
+    margin-top: 5px;
+    font-size: 13px;
+
+    color: #fff;
+}
+
+
+
+.touzhu-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    /* line-height: 50px; */
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #dcdcdc;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.touzhu-button-left{
+    text-align: left;
+    height: 50px;
+    line-height: 50px;
+}
+.touzhu-button-left button{
+    background-color: #fff3f3;
+    color: #e53333;
+    border: 1px solid #e53333;
+    height: 32px;
+}
+
+.touzhu-button-right{
+    text-align: right;
+    height: 50px;
+    line-height: 50px;
+}
+.touzhu-button-right button{
+    background-color: #e53333;
+    color: #fff;
+    border: 1px solid #e53333;
+    height: 32px;
+    vertical-align: unset;
+}
+
+.touzhu-button-glod{
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+.touzhu-button-number{
+    color: #ff0e14;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+}
+
+.touzhu-number{
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    overflow: hidden;
+    /* line-height: 50px; */
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #dcdcdc;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 15px;
+    box-shadow: 0 0 5px #888;
+}
+
+.touzhu-number-row{
+    margin: 10px 0px;
+}
+.touzhu-number-select{
+    color: #e74d4f;
+    font-size: 16px;
+    font-weight: bolder;
+    height: 20px;
+    line-height: 20px;
+    padding-top: 1px;
+}
+.k3-howplay-title{
+    font-weight: bolder;
+}
+.k3-howplay-txt{
+    color: #555;
+}
