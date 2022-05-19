@@ -37,3 +37,32 @@
     padding-top: 3px;
 
 }
+
+.record-info-body{
+    text-align: center;
+}
+.record-info-img{
+    margin: auto;
+    margin-top: 20px;
+}
+.record-info-title{
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top: 15px;
+}
+.record-info-expect{
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+.record-info-key{
+    text-align: right;
+    font-size: 15px;
+}
+.record-info-value{
+    text-align: left;
+    font-size: 15px;
+    color: #888;
+}
+
+

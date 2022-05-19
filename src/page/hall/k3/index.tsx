@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading} from 'antd-mobile'
+import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover} from 'antd-mobile'
 import {
   useNavigate,useParams
 } from 'react-router-dom'
@@ -7,11 +7,18 @@ import axios from 'axios';
 import Qs from 'qs'
 import './index.css'
 import { 
-	DownOutline,QuestionCircleOutline
+	DownOutline,QuestionCircleOutline,MoreOutline
 } from 'antd-mobile-icons'
-// import Hz from "./hz"
 import UserList from "./userList"
 import Api from '../../../lib/Api';
+import { Action } from 'antd-mobile/es/components/popover'
+import {
+  UnorderedListOutline,
+  FileOutline,
+  ScanningOutline,
+  TransportQRcodeOutline,
+} from 'antd-mobile-icons'
+
 
 export default () => {
 	const params = useParams() 
@@ -19,6 +26,7 @@ export default () => {
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
 	const [gameData, setGameData] = useState<any>({})
   const [visible2, setVisible2] = useState(false)
+	const [visibleSheet, setVisibleSheet] = useState(false)
   const [countdownTime, setCountdownTime] = useState<number>(0)
   const [showTime, setShowTime] = useState("-- : --")
   const [showHistory, setShowHistory] = useState("none")
@@ -42,8 +50,12 @@ export default () => {
 	let touzhuHtml = (<></>)
 	let loadingHtml = (<></>)
 	let previousOpen = (<></>)
+	let rightHtml = (<></>)
   // 使用 useEffect 监听 countDown 变化
   useEffect(() => {
+		if(!visibleSheet){
+			setVisibleSheet(true)
+		}
     if (countdownTime > 0) {
       const newTimer = window.setInterval(() => {
 				let t = countdownTime-1;
@@ -512,14 +524,50 @@ export default () => {
 	}else if(Object.keys(gameData).length){
 		qishu = gameData.qishu+"期"
 	}
+	
+	const actions: Action[] = [
+		{ key: '/record', icon:  <></>, text: '任务记录' },
+		{ key: '/open/history', icon: <></>, text: '开奖记录' }
+	]
+	//报错？？？ 需要后加载组件
+	if(visibleSheet){
+		rightHtml = (				
+		<Popover.Menu
+			actions={actions}
+			placement='bottom-start'
+			onAction={node =>{ 
+				// Toast.show(`选择了 ${node.text}`)
+				if(node.key == '/record' ){
+					if(!localStorage.getItem('token')){
+						Toast.show({
+							icon: 'fail',
+							content: '您尚未登录',
+						})
+						return
+					}
+					navigate('/record')
+				}
+				if(node.key == '/open/history'){
+					navigate('/open/history')
+				}
+			}}
+			trigger='click'
+		>
+			<div style={{ fontSize: 35 }} onClick={()=>setVisibleSheet(true)}>
+				<MoreOutline />
+			</div>
+		</Popover.Menu>
+		)
+	}
   return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar className='app-header' onBack={back}>
+				<NavBar className='app-header' onBack={back} right={rightHtml}>
 					{selectGameHtml}
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95,background:"#fff"}}>
+				
 				<>
 					<Mask visible={visible} 
 						// onMaskClick={() => setVisible(false)}

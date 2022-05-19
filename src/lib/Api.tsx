@@ -25,7 +25,9 @@ function homeList(params:any,dispatch:any){
 	.then(function (response) {
 		if(response.data.code == 0){
 			// console.log("data",response.data.data);
+			
 			dispatch(setHomeList(response.data.data))
+			setRecordType(response.data.data.list)
 		}
 		// handle success
 		// console.log(response);
@@ -35,7 +37,19 @@ function homeList(params:any,dispatch:any){
 		console.log(error);
 	})
 }
-
+const setRecordType = function(list:any){
+	let tmp = new Array()
+	let row:any
+	for (var i=0;i<list.length;i++)
+	{ 	
+		row = {label: list[i].title, value: list[i].name}
+		// console.log(row)
+		tmp.push(row)
+	}
+	let tmp1 = new Array()
+	tmp1.push(tmp)
+	localStorage.setItem("list", JSON.stringify(tmp1))
+}
 function address(url:any=''){
 	if(url == ''){
 		url = localStorage.getItem("apiUrl")

@@ -3,7 +3,6 @@ import React, { useEffect,useState } from 'react'
 import { Routes, Route,useLocation} from "react-router-dom";
 import {TransitionGroup, CSSTransition } from 'react-transition-group';
 import {Mask,DotLoading} from 'antd-mobile'
-import homeList from './lib/Api'
 import {useDispatch,useSelector } from 'react-redux';
 import Login from './page/login';
 import Home from './page/home';
@@ -22,7 +21,9 @@ import Notice from './page/notice';
 import NoticeInfo from './page/notice/info';
 import Hall from './page/hall/k3';
 import Record from './page/record';
+import RecordInfo from './page/record/info';
 import Open from './page/open';
+import OpenHistory from './page/open/history';
 import Fuddetail from './page/fuddetail';
 import RechargeHistory from './page/recharge/history';
 import UserPassword from './page/user/password';
@@ -34,7 +35,6 @@ import CheckLine from './page/check/line';
 import {getLoading} from './store';
 import "./App.css"
 import Api from './lib/Api';
-
 
 
 function App() {
@@ -68,6 +68,7 @@ function App() {
             <Route path="/notice/info/:id"  element={<NoticeInfo />} />
             <Route path="/hall/k3/:name"  element={<Hall />} />
             <Route path="/record"  element={<Record />} />
+            <Route path="/record/info/:id"  element={<RecordInfo />} />
             <Route path="/open"  element={<Open />} />
             <Route path="/fuddetail"  element={<Fuddetail />} />
             <Route path="/recharge/history"  element={<RechargeHistory />} />
@@ -77,7 +78,7 @@ function App() {
             <Route path="/message/info/:id"  element={<MessageInfo />} />
             <Route path="/check/code"  element={<CheckCode />} />
             <Route path="/check/line"  element={<CheckLine />} />
-            
+            <Route path="/open/history"  element={<OpenHistory />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

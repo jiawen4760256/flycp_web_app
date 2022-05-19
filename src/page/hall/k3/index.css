@@ -247,3 +247,14 @@
 .k3-howplay-txt{
     color: #555;
 }
+
+.k3-menu{
+    background: #fff;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    border: 1px solid #bfbfbf;
+    margin: 0px 5px;
+    border-radius: 5px;
+    z-index: 1;
+}

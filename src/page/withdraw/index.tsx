@@ -7,9 +7,9 @@ import Auth from '../../lib/Auth';
 import './index.css'
 import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
-
-
-
+import { 
+	FileOutline,
+} from 'antd-mobile-icons'
 
 export default () => {
 	
@@ -106,14 +106,19 @@ export default () => {
 			setVisible(true)
 		}
 	}
+	const right = (
+    <div style={{ fontSize: 24 }} onClick={()=>{Auth.navigate(navigate, "/withdraw/history")}}>
+			<FileOutline />
+    </div>
+  )
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar onBack={back}>兑换申请</NavBar>
+      	<NavBar onBack={back} right={right}>兑换申请</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<List header=''>
-					<List.Item prefix={(<div className='withdraw-bank'>兑换银行</div>)} onClick={selectBank}>
+					<List.Item prefix={(<div className='withdraw-bank'>兑换银行</div>)} onClick={selectBank} >
 						<Picker
 							columns={basicColumns}
 							visible={visible}
