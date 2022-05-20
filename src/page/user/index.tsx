@@ -27,6 +27,7 @@ export default () => {
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	const [userData, setUserData] = useState<any>("")
+	const demoSrc = '/app/vip.png';
   const back = () =>{
 		navigate(-1);
 	}
@@ -69,7 +70,18 @@ export default () => {
 				<NavBar className='app-header' onBack={back}>个人中心</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
-				<List className='user-info'>
+				<div className='user-info' >
+					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '60px'}} onClick={()=>{navigate("/user/edit")}} />
+          <div className='user-account'>
+						<div className='user-name'>账号：{userData['username']}</div>
+						<div className='user-name'>余额：{userData['balance']}</div>
+					</div>
+          <div className='user-vip'>
+						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
+						<div className='user-vip-txt'>vip</div>
+					</div>
+        </div>
+				{/* <List className='user-info'>
 					<List.Item
 						style={{background: "#e53333",color: "#fff"}} 
 						prefix={<Avatar src={userData['face']} style={{ borderRadius: "50%",'--size': '60px', margin:"15px 0",border: "solid #fff"}} onClick={()=>{navigate("/user/edit")}} />}
@@ -77,7 +89,7 @@ export default () => {
 						<div className='user-name'>账号：{userData['username']}</div>
 						<div className='user-name'>余额：{userData['balance']}</div>
 					</List.Item>
-				</List>
+				</List> */}
 				
 				<div>
 					<Grid columns={2} gap={8} className="user-button">

@@ -158,5 +158,5 @@
   "devDependencies": {
     "@types/js-md5": "^0.4.3"
   },
-  "--proxy": "http://192.168.1.188"
+  "proxy": "http://192.168.1.188"
 }

@@ -30,6 +30,7 @@ export default () => {
   const [countdownTime, setCountdownTime] = useState<number>(0)
   const [showTime, setShowTime] = useState("-- : --")
   const [showHistory, setShowHistory] = useState("none")
+  const [historyList, setHistoryList] = useState<any[]>([])
   const [alertNumber, setAlertNumber] = useState(5)
   const [loading, setLoading] = useState(false)
 	const [visible, setVisible] = useState(false)
@@ -102,7 +103,9 @@ export default () => {
 
 
   const back = () =>{
-		navigate(-1);
+		
+		navigate("/")
+		// navigate(-1);
 	}
 
 	// 号码html
@@ -153,8 +156,12 @@ export default () => {
 			if(response.data.code == 0){
 				setGameList(response.data.data.hall)
 				setGameData(response.data.data.game)
+				setHistoryList(response.data.data.game.history)
 				setCountdownTime(response.data.data.game.countdown)
 				setK3Wanfa(response.data.data.game.wanfa)
+				setTimeout(()=>{
+					updateOpenData()
+				},20000)
 			}else{
 				Toast.show({
 					icon: 'fail',
@@ -168,6 +175,25 @@ export default () => {
 				icon: 'fail',
 				content: '服务繁忙，稍后再试！',
 			})
+		})
+	}
+	const updateOpenData = ()=>{
+		const values={
+			"page": 1,
+			"cptitel": gameName,
+			"limit": 10
+		}
+		axios.post(Api.address()+'home/history', Qs.stringify(values))
+		.then(function (response) {
+			setLoading(false)
+			if(response.data.code == 0){
+				setHistoryList(response.data.data)
+			}else{
+				Toast.show({
+					icon: 'fail',
+					content: response.data.msg,
+				})
+			}
 		})
 	}
 
@@ -324,8 +350,9 @@ export default () => {
 						<Button 
 							onClick={(p)=>{
 								setVisible2(false)
-								getHtmlData(item.name)
-								setGameName(item.name)
+								// getHtmlData(item.name)
+								// setGameName(item.name)
+								navigate("/hall/k3/"+item.name)
 							}}
 							color='primary' 
 							fill='outline' 
@@ -354,8 +381,8 @@ export default () => {
 				{gameData.title}<DownOutline />
 			</Button>
 		)
-		if(gameData.history.length > 0){
-			let item = gameData.history[0]
+		if(historyList.length > 0){
+			let item = historyList[0]
 			previousOpen = (<>
 				<div className='k3-kj-qs' 
 					onClick={()=>{
@@ -380,36 +407,37 @@ export default () => {
 
 		}
 		// 历史开奖
-		kjHistoryList = gameData.history.map((item:any,index:any)=>{return(
-			<Grid columns={7} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
-				<Grid.Item span={2} >
-					{item.expect}
-				</Grid.Item>
-				<Grid.Item span={2}>
-					<Grid columns={3} gap={5} className='k3-kj-history-img'>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[0]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[1]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[2]+".png"} />
-						</Grid.Item>
-					</Grid>
-				</Grid.Item>
-				<Grid.Item >
-					{item.hz}
-				</Grid.Item>
-				<Grid.Item >
-					{item.dx}
-				</Grid.Item>
-				<Grid.Item>
-					{item.ds}
-				</Grid.Item>
-			
-			</Grid>
-		)})
+		kjHistoryList =(<>{
+			historyList.map((item:any,index:any)=>{return(
+				<Grid columns={7} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
+					<Grid.Item span={2} >
+						{item.expect}
+					</Grid.Item>
+					<Grid.Item span={2}>
+						<Grid columns={3} gap={5} className='k3-kj-history-img'>
+							<Grid.Item>
+								<Image  src={"/k3/"+item.opencode[0]+".png"} />
+							</Grid.Item>
+							<Grid.Item>
+								<Image  src={"/k3/"+item.opencode[1]+".png"} />
+							</Grid.Item>
+							<Grid.Item>
+								<Image  src={"/k3/"+item.opencode[2]+".png"} />
+							</Grid.Item>
+						</Grid>
+					</Grid.Item>
+					<Grid.Item >
+						{item.hz}
+					</Grid.Item>
+					<Grid.Item >
+						{item.dx}
+					</Grid.Item>
+					<Grid.Item>
+						{item.ds}
+					</Grid.Item>
+				</Grid>
+			)})
+		}</>) 
 		kjHistoryHtml = (<div className='ks-kj-history'>
 			<Grid columns={7} gap={15}>
 				<Grid.Item span={2} className='ks-kj-history-qs'>
@@ -548,7 +576,7 @@ export default () => {
 					navigate('/record')
 				}
 				if(node.key == '/open/history'){
-					navigate('/open/history')
+					navigate('/open/history/'+gameName)
 				}
 			}}
 			trigger='click'

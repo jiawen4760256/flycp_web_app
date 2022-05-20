@@ -36,8 +36,7 @@
 }
 
 .userlist-content {
-	height: 400px;
-	
+	height: 300px;
 	border: 0.01rem solid #ccc;
 	border-top: 0rem solid #ccc;
 	margin: 0 15px;

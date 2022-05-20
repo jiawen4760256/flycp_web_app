@@ -4,11 +4,10 @@ import {
 	DownOutline,BankcardOutline
 } from 'antd-mobile-icons'
 import {
-  useNavigate,
+  useNavigate,useParams
 } from 'react-router-dom'
 import moment from "moment";
 import './index.css'
-import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
 import axios from 'axios';
@@ -17,6 +16,7 @@ import Api from '../../lib/Api'
 let now1 = new Date()
 export default () => {
 	
+	const params = useParams() 
 	const [date1, setDate1] = useState(now1)
 	const [page, setPage] = useState(1)
 	const [dateformat1, setformatDate1] = useState(moment(now1).format('YYYY-MM-DD'))
@@ -26,7 +26,7 @@ export default () => {
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
 	const recordTypeList = JSON.parse(localStorage.getItem("list")??"[]")
-	const [recordType, setRecordType] = useState<string>(recordTypeList[0][0].label)
+	const [recordName, setRecordName] = useState<string>(params['name']??"")
 	let tmp1 = date1;
 	let historyHtml
 	let historyHeadHtml = <></>
@@ -49,7 +49,7 @@ export default () => {
 			dateformatTmp = dateformat1
 		}
 		if(!cptitel){
-			cptitel = recordType
+			cptitel = recordName
 		}
 		let values = {
 			page:tpage,
@@ -187,7 +187,12 @@ export default () => {
 						{dateformat1}&nbsp;&nbsp;&nbsp;<BankcardOutline />
 					</Grid.Item>
 					<Grid.Item onClick={()=>{setVisible(true)}}>
-						{recordType}&nbsp;&nbsp;&nbsp;<DownOutline />
+						{recordTypeList[0].map((item:any,index:any)=>{
+							// console.log(v[0],item)
+							if( recordName== item.value){
+								return item.label
+							}
+						})}&nbsp;&nbsp;&nbsp;<DownOutline />
 					</Grid.Item>
 				</Grid>
 				<div >
@@ -206,8 +211,8 @@ export default () => {
 						recordTypeList[0].map((item:any,index:any)=>{
 							// console.log(v[0],item)
 							if(v[0] == item.value){
-								setRecordType(item.label)
-								onSelect('',item.label)
+								setRecordName(item.value)
+								onSelect('',item.value)
 							}
 						})
 					}}

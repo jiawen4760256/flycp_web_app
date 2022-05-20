@@ -1,9 +1,43 @@
 .user-info{
     --border-top: 0px;
+    overflow:hidden;
+    background: #e53333;
+    color:#fff;
 }
 .user-name{
     font-size: 14px;
     margin: 5px 0;
+}
+.user-img{
+    float: left;
+    margin:10px;
+    border: solid #fff;
+    margin-left:15px;
+}
+.user-account{
+    float: left;
+    margin-left: 5px;
+    margin-top: 10px;
+    line-height: 25px;
+}
+.user-vip{
+    overflow:hidden;
+    margin-top: 18px;
+    float:right;
+    font-size: 16px;
+    background: linear-gradient(45deg,#ff4646,#ffaf5c);
+    width: 100px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 30px;
+    line-height: 30px;
+}
+.user-vip-img{
+    float: left;
+}
+.user-vip-txt{
+    float: left;
+    margin-left: 10px;
 }
 .user-button{
     text-align: center;

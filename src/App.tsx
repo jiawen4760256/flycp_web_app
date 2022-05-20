@@ -78,7 +78,7 @@ function App() {
             <Route path="/message/info/:id"  element={<MessageInfo />} />
             <Route path="/check/code"  element={<CheckCode />} />
             <Route path="/check/line"  element={<CheckLine />} />
-            <Route path="/open/history"  element={<OpenHistory />} />
+            <Route path="/open/history/:name"  element={<OpenHistory />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
