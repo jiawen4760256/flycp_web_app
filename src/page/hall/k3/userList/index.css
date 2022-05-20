@@ -20,6 +20,7 @@
 	text-align: center;
 	font-size: 15px;
 	padding: 2px 0px;
+	height: 26px;
 }
 .userlist-list-activity {
 	transform:translateY(-24px);
@@ -45,4 +46,27 @@
 .userlist-body{
 	
 	padding-bottom: 10px;
+}
+
+.container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.container > .scroll-list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	animation: scroll 18s linear infinite normal;
+}
+
+@keyframes scroll {
+	100% {
+			/* 需要滚动内容的总高度 */
+			top: -300px;
+	}
 }

@@ -40,7 +40,7 @@ export default () => {
 	const submit = function(values:any){
 		setLoading(true)
 		Auth.ajax(navigate,"user/bankadd",values)
-		.then(function (response) {
+		.then(function (response:any) {
 			if(localStorage.getItem("userInfo")){
 				let userinfo = JSON.parse(localStorage.getItem("userInfo")??"")
 				userinfo.tradepassword = response.tradepassword

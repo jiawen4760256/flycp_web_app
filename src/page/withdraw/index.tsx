@@ -34,7 +34,7 @@ export default () => {
 	const getUserBank = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'user/bank-use')
-		.then(function (response) {
+		.then(function (response:any) {
 			dispatch(setLoading(false))
 			setBasicColumns(response['bankname'])
 			setBasicColumns1(response['accountname'])

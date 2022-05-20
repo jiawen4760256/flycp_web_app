@@ -52,7 +52,7 @@ export default () => {
 		}
 		
 		dispatch(setLoading(true))
-		let response = await Auth.ajax(navigate,'record/fuddetail',values)
+		let response:any = await Auth.ajax(navigate,'record/fuddetail',values)
 		dispatch(setLoading(false))
 		if(init){
 			setPage(2)

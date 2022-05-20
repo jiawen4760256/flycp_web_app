@@ -29,7 +29,7 @@ export default () => {
 
   const getMessageContact = function(){
 		Auth.ajax(navigate,'message/contact')
-		.then(function (response) {
+		.then(function (response:any) {
 			setMessageContact(response)
 		})
 	}  

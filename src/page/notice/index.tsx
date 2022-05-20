@@ -24,7 +24,7 @@ export default () => {
 	const getHtmlData = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'notice/list')
-		.then(function (response) {
+		.then(function (response:any) {
 			dispatch(setLoading(false))
 			setHtmlData(response)
 		}).catch(function (error) {

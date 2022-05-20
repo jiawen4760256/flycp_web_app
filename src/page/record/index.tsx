@@ -65,7 +65,7 @@ export default () => {
 			status:statusTmp,
 		}
 		dispatch(setLoading(true))
-		let response = await Auth.ajax(navigate,"record/list",values)
+		let response:any = await Auth.ajax(navigate,"record/list",values)
 		dispatch(setLoading(false))
 		if(init){
 			setPage(2)

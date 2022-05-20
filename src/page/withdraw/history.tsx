@@ -44,7 +44,7 @@ export default () => {
 		let values = {token:localStorage.getItem("token"),page:tpage,date1:dateformat1,date2:dateformat2}
 		
 		dispatch(setLoading(true))
-		let response = await Auth.ajax(navigate,'withdraw/history',values)
+		let response:any = await Auth.ajax(navigate,'withdraw/history',values)
 		dispatch(setLoading(false))
 		if(init){
 			setPage(2)
@@ -93,7 +93,7 @@ export default () => {
 
 	}else{
 		historyHtml = (
-			<Empty className='history-empty' description='暂无数据' />
+			<Empty className='history-empty' description='' />
 		)
 	}
 	const selectDate=()=>{

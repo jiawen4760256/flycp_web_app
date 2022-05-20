@@ -22,7 +22,7 @@ export default () => {
 	const getBank = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'user/bank')
-		.then(function (response) {
+		.then(function (response:any) {
 			dispatch(setLoading(false))
 			setBankList(response);
 		}).catch(function (error) {

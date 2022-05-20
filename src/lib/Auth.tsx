@@ -56,12 +56,13 @@ const Auth = {
 			}
 		})
 		.catch(function (error) {
-      
-      // console.log('error',error)
-			Toast.show({
-				icon: 'fail',
-				content: error.message,
-			})
+      if(path != 'user/ping'){
+        // console.log('error',error)
+        Toast.show({
+          icon: 'fail',
+          content: error.message,
+        })
+      }
       throw error
 		})
   }
