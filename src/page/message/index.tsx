@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar, Image,Form,Button,Input,Picker,Toast,Grid,InfiniteScroll,List,Empty,Tabs,Tag,Badge } from 'antd-mobile'
 import { 
-	DownOutline,EditSFill
+	SoundOutline,EditSFill
 } from 'antd-mobile-icons'
 import {
   useNavigate,
@@ -70,14 +70,26 @@ export default () => {
 					if(item.read == '0'){
 						newTag = (<Tag round  color='danger'>新</Tag>)
 					}
-					let prefix = (
-						<Image
-							src={item.face}
-							style={{ borderRadius: 20 }}
-							fit='cover'
-							width={40}
-							height={40}
-						/>)
+					let prefix
+					if(item.face){
+						prefix = (
+							<Image
+								src={item.face}
+								style={{ borderRadius: 20 }}
+								fit='cover'
+								width={40}
+								height={40}
+							/>)
+
+					}else{
+						prefix = (
+							<SoundOutline 
+								style={{ padding: 5 }}
+								width={30}
+								height={30}
+							/>)
+
+					}
 					return (
 						<List.Item
 							onClick={()=>{Auth.navigate(navigate,"/message/info/"+item['id'])}}

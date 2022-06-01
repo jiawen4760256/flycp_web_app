@@ -33,6 +33,7 @@ export default () => {
 		})
 	}
 
+	
 	if(htmlData){
 		html = (<div className='message-info'>
 			<div className='message-info-name'>
@@ -42,9 +43,10 @@ export default () => {
 				{htmlData.PDate}
 			</div><Divider />
 			<div className='message-info-txt'>
-				<p>
-					{htmlData.text}
-				</p>
+				<div 
+					dangerouslySetInnerHTML={{__html:htmlData['text']}}
+				>
+				</div>
 			</div>
 		</div>)
 

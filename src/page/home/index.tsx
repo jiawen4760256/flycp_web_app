@@ -17,20 +17,21 @@ import {
 import {useNavigate} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import {
-  getHomeList,
+  getHomeList,getMsgCount
 } from '../../store';
 import "./index.css"
 import Auth from '../../lib/Auth';
 import Check from '../../lib/Check'
-import { setLoading } from '../../store';		
+import { setLoading,setMsgCount } from '../../store';		
 import {useDispatch } from 'react-redux';
 let interval:any = 0
 export default () => {
 	const {notice,img,list,kefu} = useSelector(getHomeList);
-	const [pingInfo, setPingInfo] = useState<any>({})
+	const msgCount = useSelector(getMsgCount)
 	const dispatch = useDispatch()
   const navigate = useNavigate()
 	Check(navigate)
+	console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
 	// 		navigate(path)
@@ -75,7 +76,9 @@ export default () => {
 		if(localStorage.getItem("token")){
 			Auth.ajax(navigate,'user/ping')
 			.then(function (response:any) {
-				setPingInfo(response);
+				if(msgCount != response.message){
+					dispatch(setMsgCount(response.message))
+				}
 				let userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
 				userInfo.balance = response.balance
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
@@ -138,7 +141,7 @@ export default () => {
       key: '/message',
       title: '消息',
       icon: <MessageOutline />,
-			badge: pingInfo.message,
+			badge: msgCount,
     },
     {
       key: '/user',

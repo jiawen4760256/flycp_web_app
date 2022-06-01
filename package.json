@@ -5,7 +5,6 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
-    "@reduxjs/toolkit": "^1.8.1",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -54,7 +53,6 @@
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
     "react-dom": "^18.1.0",
-    "react-redux": "^8.0.1",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.3.0",
     "react-transition-group": "^4.4.2",
@@ -156,7 +154,10 @@
     ]
   },
   "devDependencies": {
-    "@types/js-md5": "^0.4.3"
+    "@reduxjs/toolkit": "^1.8.2",
+    "@types/js-md5": "^0.4.3",
+    "react-redux": "^8.0.2",
+    "redux-devtools": "^3.7.0"
   },
   "proxy": "http://192.168.1.188"
 }
