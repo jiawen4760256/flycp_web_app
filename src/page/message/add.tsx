@@ -91,7 +91,7 @@ export default () => {
                 }
                 let user:any
                 messageContact.map((item1:any,index1)=>{
-                  if(item1.id == item){
+                  if(item1.username == item){
                     user = item1
                   }
                 })
@@ -129,7 +129,7 @@ export default () => {
             }}>
               <CheckList.Item value="-1" className='message-p'>上级</CheckList.Item>
               {messageContact.map((item:any,index)=>{
-                return (<CheckList.Item value={item.id} key={index} >{item.username}</CheckList.Item>)
+                return (<CheckList.Item value={item.username} key={index} >{item.username}</CheckList.Item>)
               })}
             </CheckList>
           </div>

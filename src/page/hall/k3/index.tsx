@@ -239,13 +239,7 @@ export default () => {
 			})
 			return
 		}
-		if(amount<2){
-			Toast.show({
-				icon: 'fail',
-				content: "最低投注金额2元！",
-			})
-			return
-		}
+
 		
 		setLoading(true)
 		axios.post(Api.address()+'user/touzhu', Qs.stringify(values))
