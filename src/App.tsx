@@ -34,6 +34,7 @@ import CheckCode from './page/check/code';
 import CheckLine from './page/check/line';
 import {getLoading} from './store';
 import "./App.css"
+import "./style.css"
 import Api from './lib/Api';
 
 
@@ -84,7 +85,7 @@ function App() {
       </TransitionGroup>
       	
       <Mask visible={loading} className='App-loading'>
-        <DotLoading style={{color:"#f00"}} />
+        <DotLoading  />
       </Mask>
     
     </div>

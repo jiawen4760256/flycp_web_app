@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    homeList: {notice:"",list:[],img:[],kefu:"",checkCode:"",appUrl:[]},
+    homeList: {notice:"",list:[],img:[],kefu:"",checkCode:"",appUrl:[],about:[]},
     k3Wanfa: [],
     k3Touzhu: {},
     loading:false,
@@ -25,8 +25,6 @@ export const counterSlice = createSlice({
     setMsgCount: (state, action) => {
       state.msgCount = action.payload
     },
-
-
   },
 })
 

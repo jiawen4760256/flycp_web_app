@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavBar,Swiper,Badge,NoticeBar,Grid,Image,Tabs,TabBar} from 'antd-mobile'
+import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Divider} from 'antd-mobile'
 import { 
 	AlipaySquareFill,
 	EditSFill,
@@ -11,7 +11,10 @@ import {
 	ContentOutline,
 	MessageOutline,
 	UserOutline,
-	CheckShieldFill
+	CheckShieldFill,
+	SoundOutline,
+	RightOutline,
+	GiftOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -22,6 +25,7 @@ import {
 import "./index.css"
 import Auth from '../../lib/Auth';
 import Check from '../../lib/Check'
+import About from '../about'
 import { setLoading,setMsgCount } from '../../store';		
 import {useDispatch } from 'react-redux';
 let interval:any = 0
@@ -45,16 +49,21 @@ export default () => {
 		</Swiper.Item>
 	))
 	const hotImg = (<Image lazy src="/app/hot.gif" width={15} fit='none' />)
-	const gameList = list.map((game:any, index:any) => (
-		<Badge content={hotImg} className='home-hot' style={{'--right':'20px','--top':'15px'}} key={index}>
-			<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
-					<div style={{margin:"10px",textAlign:"center"}}>
-						<Image className={"img-list"} lazy src={game.img} />
-						<div className='home-game-name'>{game.title}</div>
-					</div>
+	// const gameList = list.map((game:any, index:any) => (
+	// 	<Badge content={hotImg} className='home-hot' style={{'--right':'20px','--top':'15px'}} key={index}>
+	// 		<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
+	// 				<div style={{margin:"10px",textAlign:"center"}}>
+	// 					<Image className={"img-list"} lazy src={game.img} />
+	// 					<div className='home-game-name'>{game.title}</div>
+	// 				</div>
 
-			</Grid.Item>
-			</Badge>
+	// 		</Grid.Item>
+	// 	</Badge>
+	// ))
+	const gameList = list.map((game:any, index:any) => (
+		<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
+			<Image  src={game.img} />
+		</Grid.Item>
 	))
 	useEffect(() => {
 		if(list.length == 0){
@@ -109,22 +118,30 @@ export default () => {
 		</div>
 	)
 	let left = (
-		<div 
-			onClick={() => {
+		<>
+		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+				navigate("/login/null");
+			}}  >
+			登录
+		</Button>
+		&nbsp;&nbsp;
+		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/register");
-			}} style={{ fontSize: 16 }}
-		>
+			}}   >
 			注册
-		</div>
+		</Button>
+		</>
+		
 	)
 	if(localStorage.getItem("token")){
 		right = (<></>)
+		// left = (<><UserOutline style={{fontSize:"20px"}} /></>)
 		left = (<></>)
 	}
 	const tabs = [
     {
       key: '/',
-      title: '任务大厅',
+      title: '项目大厅',
       icon: <AppstoreOutline />,
     },
     {
@@ -153,55 +170,41 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className={"App-header"}  >
-				<NavBar backArrow={false} right={right} left={left}>
-					<div style={{ fontSize: 20 }}>彩虹公益社</div>
+				<NavBar backArrow={false} left={<Image className='home-logo' fit='contain' src={'/app/logo.png'} />} right={left}>
+					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95}}>
-			
 				<div className='img-content'>
 					<Swiper autoplay loop >{items}</Swiper>
 				</div>
 				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
-					<NoticeBar style={{ fontSize: 14,'--height':'32px'}} content={notice} color='alert' />
+					<NoticeBar 
+						icon={<div style={{ fontSize: 14}}><SoundOutline  /> 公告：</div>} style={{ fontSize: 14,'--height':'32px'}} 
+						content={notice} 
+						extra={<RightOutline />}
+						color='alert' />
 				</div>
-				< >
-					<Grid columns={4} gap={2} >
-						<Grid.Item className={"button-list"} onClick={()=>{Auth.navigate(navigate,"/withdraw")}}>
-							<CheckShieldFill  className={"button"} style={{color:"#ff6700"}}/>
-							<div className={"button-txt"}>兑换</div>
-						</Grid.Item>
-						<Grid.Item className={"button-list"} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							<EditSFill className={"button"} style={{color:"#5abec3"}} />
-							<div className={"button-txt"}>任务记录</div>
-						</Grid.Item>
-						<Grid.Item className={"button-list"} onClick={()=>{Auth.navigate(navigate,"/activity")}}> 
-							<HeartFill className={"button"} style={{color:"#ff0000"}}/>
-							<div className={"button-txt"}>公益活动</div>
-						</Grid.Item>
-						<Grid.Item className={"button-list"} onClick={()=>{window.location.href = kefu}}>
-							<MessageFill className={"button"} style={{color:"#005aff"}}/>
-							<div className={"button-txt"}>在线客服</div>
-						</Grid.Item>
+				<div className='home-game-body'>
+					<div style={{overflow:"hidden"}}>
+						<div className='home-game-left'>
+							<><FireFill />&nbsp;热门项目</>
+						</div>
+						<div className='home-game-right' onClick={()=>{window.location.href = kefu}}>
+							<><MessageFill className='home-game-righ-icon' /> 在线客服</>
+						</div>
+						<div className='home-game-right'>
+							<><Divider direction='vertical' style={{borderLeft:"1px solid #777"}} /></>
+						</div>
+						
+						<div className='home-game-right' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
+							<><GiftOutline  className='home-game-righ-icon' /> 公益活动</>
+						</div>
+					</div>
+					<Grid columns={2} gap={10} style={{marginTop:10}}>
+						{gameList}
 					</Grid>
-				</>
-				<div>
-					<Tabs>
-						<Tabs.Tab style={{ fontSize: 16 }} title={<><FireFill />&nbsp;热门任务</>} key='1'>
-							<div style={{background: "#fff",paddingTop:12}}>
-								<Grid columns={3} gap={8}>
-									{gameList}
-								</Grid>
-							</div>
-						</Tabs.Tab>
-						<Tabs.Tab style={{ fontSize: 16 }} title={<><AppstoreOutline />&nbsp;任务大厅</>} key='2'>
-							<div style={{background: "#fff",paddingTop:12}}>
-								<Grid columns={3} gap={8}>
-									{gameList}
-								</Grid>
-							</div>
-						</Tabs.Tab>
-					</Tabs>
+					<About/>
 				</div>
 			</div>
 			<div className='App-footer'>

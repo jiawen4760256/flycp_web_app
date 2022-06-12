@@ -1,0 +1,55 @@
+
+.about-list{
+	text-align: center;
+	font-size: 15px;
+	padding: 2px 0px;
+	height: 26px;
+}
+.about-list-activity {
+	transform:translateY(-24px);
+	transition: all  .25s  ease-in;	
+}
+.about-title {
+	text-align: center;
+	color: #e53333;
+	border: 0.01rem solid #ccc;
+	font-weight:bolder;
+	padding: 5px 0;
+	font-size: 16px;	    
+	margin-bottom: 0px;
+}
+
+.about-content {
+	height: 525px;
+	border: 0.01rem solid #ccc;
+	border-top: 0rem solid #ccc;
+	overflow: hidden;
+}
+.about-body{
+	padding: 10px 0px;
+}
+
+.about-container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.about-container > .about-scroll-list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	animation: about-scroll 25s linear infinite normal;
+}
+.about-row{
+	padding: 5px;
+}
+@keyframes about-scroll {
+	100% {
+			/* 需要滚动内容的总高度 */
+			top: -525px;
+	}
+}

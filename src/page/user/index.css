@@ -5,8 +5,12 @@
     color:#fff;
 }
 .user-name{
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.user-balance{
+    font-size: 15px;
+    margin-top: 5px;
 }
 .user-img{
     float: left;
@@ -64,6 +68,10 @@
     text-align: center;
     color: #e53333;
     margin-bottom: 30px;
+    padding: 10px 40px;
 }
-
+.user-button-list img{
+    height: 25px;
+    width: 25px;
+}
 

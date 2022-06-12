@@ -14,8 +14,8 @@ import {
 	UserOutline,
 	TagOutline,
 	GlobalOutline,
-	UnlockOutline,
-	MailOpenOutline,
+	CloseCircleOutline,
+	BankcardOutline,
 } from 'antd-mobile-icons'
 import './index.css'
 import Auth from '../../lib/Auth';
@@ -73,13 +73,14 @@ export default () => {
 				<div className='user-info' >
 					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '60px'}} onClick={()=>{navigate("/user/edit")}} />
           <div className='user-account'>
-						<div className='user-name'>账号：{userData['username']}</div>
-						<div className='user-name'>余额：{userData['balance']}</div>
+						<div className='user-name'>{userData['username']} &nbsp;</div>
+						<div className='user-balance'>余额：{userData['balance']}</div>
+						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  余额：{userData['balance']}</div> */}
 					</div>
-          <div className='user-vip'>
+          {/* <div className='user-vip'>
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
 						<div className='user-vip-txt'>vip</div>
-					</div>
+					</div> */}
         </div>
 				{/* <List className='user-info'>
 					<List.Item
@@ -109,46 +110,51 @@ export default () => {
 				</div>
 				<div className='user-button-list'>
 					<List header=''>
-						<List.Item prefix={<FileOutline />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							任务记录
+						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
+							项目记录
 						</List.Item>
-						<List.Item prefix={<ContentOutline />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
 							账单明细
 						</List.Item>
 						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
 							个人报表
 						</List.Item> */}
-						<List.Item prefix={<ReceiptOutline />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
 							充值记录
 						</List.Item>
-						<List.Item prefix={<PayCircleOutline />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录
 						</List.Item>
 					</List>
 				</div>
 				<div className='user-button-list'>
 					<List header=''>
-						<List.Item prefix={<UserOutline />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
 							个人信息
 						</List.Item>
-						<List.Item prefix={<TagOutline />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/bank.png' />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
 							银行卡管理
 						</List.Item>
-						<List.Item prefix={<GlobalOutline />} onClick={() => {Auth.navigate(navigate,"/notice")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/notice.png' />} onClick={() => {Auth.navigate(navigate,"/notice")}}>
 							网站公告
 						</List.Item>
-						<List.Item prefix={<UnlockOutline />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
 							密码设置
 						</List.Item>
-						<List.Item prefix={<MailOpenOutline />} onClick={() => {Auth.navigate(navigate,"/message")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} onClick={() => {Auth.navigate(navigate,"/message")}}>
 							站内信
 						</List.Item>
 					</List>
 				</div>
 				<div className='user-button-list user-button-logout'>
-					<List>
-						<List.Item onClick={logout}>退出登录</List.Item>
-					</List>
+					
+					<Button block shape='rounded' color='primary' onClick={logout}>
+						
+						<Space>
+							{/* <CloseCircleOutline /> */}
+							<span>退 出 登 录</span>
+						</Space>
+					</Button>
 				</div>
 			</div>
 		</div>

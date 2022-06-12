@@ -1,0 +1,111 @@
+.code-body{
+  background-color: #0abbb5 !important;
+}
+.code-body .adm-grid-item{
+  color: #0abbb5 !important;
+}
+.App-header{
+  background-color: #0abbb5 !important;
+}
+.adm-tab-bar-item-active{
+  color: #0abbb5 !important;
+}
+.adm-notice-bar.adm-notice-bar-alert {
+  --background-color: #fff;
+  --border-color: #fff;
+  --text-color: #0abbb5;
+}
+.adm-notice-bar-content {
+  color: #727272 !important;
+}
+.withdraw-info-head{
+  color: #727272 !important;
+}
+.withdraw-info{
+  border-top: 1px solid #727272 !important;
+  border-right: 1px solid #727272 !important;
+}
+.withdraw-info-key {
+  color: #727272;
+  border-left: 1px solid #727272;
+  border-bottom: 1px solid #727272;
+  background:#eee;
+}
+.withdraw-info-value {
+  border-left: 1px solid #727272;
+  border-bottom: 1px solid #727272;
+}
+.adm-button.adm-button-large{
+  background-color: #0abbb5 !important;
+  border-color: #0abbb5 !important;
+}
+.kefu a{
+  color: #0abbb5 !important;
+}
+.k3-name-button{
+  color: #0abbb5 !important;
+}
+.k3-name-list-button-active{
+  background-color: #0abbb5 !important;
+  border-color: #0abbb5 !important;
+}
+.k3-kj-time{
+  color: #0abbb5 !important;
+}
+.userlist-title{
+  color: #0abbb5 !important;
+
+}
+.touzhu-button-left button{
+  color: #0abbb5 !important;
+  border-color: #0abbb5 !important;
+  background-color: #fff !important;
+}
+.touzhu-button-number{
+  color: #0abbb5 !important;
+}
+.touzhu-button-right button{
+  border-color: #0abbb5 !important;
+  background-color: #0abbb5 !important;
+}
+.adm-tabs-tab-active{
+  color: #0abbb5 !important;
+}
+.adm-tabs-tab-line{
+  background: #0abbb5 !important;
+}
+.adm-picker-header-button{
+  color: #0abbb5 !important;
+}
+.adm-calendar-arrow-button{
+  color: #0abbb5 !important;
+}
+.adm-dialog-button{
+  color: #0abbb5 !important;
+}
+.hz-card-activity{
+  background: #0abbb5 !important;
+}
+.touzhu-number-select{
+  color: #0abbb5 !important;
+}
+.adm-dot-loading{
+  color: #0abbb5 !important;
+}
+.user-info{
+  background: #0abbb5 !important;
+}
+.user-button g{
+  color: #0abbb5 !important;
+}
+.history-button{
+  border-color: #0abbb5 !important;
+  background-color: #0abbb5 !important;
+}
+.user-button-logout button{
+  border-color: #0abbb5 !important;
+  background-color: #0abbb5 !important;
+}
+.about-title{
+  color: #0abbb5 !important;
+}

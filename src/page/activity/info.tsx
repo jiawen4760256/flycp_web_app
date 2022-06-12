@@ -52,8 +52,10 @@ export default () => {
 		<header className="App-header"  >
       <NavBar className='app-header' onBack={back}>公益活动</NavBar>
 		</header>
-		<div className='App-content' style={{height:window.innerHeight-95,background:'#fff'}}>	
+		<div className='App-content' style={{height:window.innerHeight-45,background:'#fff'}}>	
+			<div className='activity-body'>
 				{html}	
+			</div>
 		</div>
 	</div>
   )

@@ -488,15 +488,15 @@ export default () => {
 						value={value}
 						type="number"
 						onChange={val => {
-							if(Number(val) > 1000000){
-								setValue('')
-								Toast.show({
-									content: '最高投注金额100万',
-									afterClose: () => {
-										console.log('after')
-									},
-								})
-							}
+							// if(Number(val) > 1000000){
+							// 	setValue('')
+							// 	Toast.show({
+							// 		content: '最高投注金额100万',
+							// 		afterClose: () => {
+							// 			console.log('after')
+							// 		},
+							// 	})
+							// }
 							setValue(val)
 						}}
 					/>
@@ -548,7 +548,7 @@ export default () => {
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '任务记录' },
+		{ key: '/record', icon:  <></>, text: '项目记录' },
 		{ key: '/open/history', icon: <></>, text: '开奖记录' }
 	]
 	//报错？？？ 需要后加载组件

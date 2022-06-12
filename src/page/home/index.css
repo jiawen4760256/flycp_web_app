@@ -82,3 +82,34 @@
 	padding-top:5px;
 	font-size: 15px;
 }
+.home-game-body{
+	margin-top: 5px;
+	background-color: #fff;
+	padding: 10px;
+}
+
+.home-game-left{
+	float: left;
+	font-size: 16px;
+	background-color: #0abbb5;
+	color: #fff;
+	line-height: 25px;
+	border-radius: 25px;
+	padding: 3px 12px;
+}
+.home-game-right{
+	float: right;
+	color: #727272;
+	line-height: 30px;
+	height: 30px;
+	font-size: 16px;
+}
+.home-game-righ-icon{
+	color: #0abbb5;
+}
+
+.home-logo{
+	height: 45px;
+	width: 150px;
+	margin-left: -15px;
+}

@@ -35,7 +35,7 @@ export default () => {
 
 	if( Object.keys(htmlData).length != 0){
 		html = (<div className='record-info-body'>
-      <Image lazy src={htmlData.img} width={80} className='record-info-img'/>
+      <Image lazy src={htmlData.img} width={220} className='record-info-img'/>
 			<div className='record-info-title'>{htmlData.cptitle}</div>
 			<div className='record-info-expect'>{htmlData.expect}</div>
 			<br/>
@@ -97,7 +97,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>任务详情</NavBar>
+      	<NavBar  onBack={back}>项目详情</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}
