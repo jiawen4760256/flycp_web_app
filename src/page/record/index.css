@@ -18,21 +18,21 @@
 .record-status-str{
     text-align: right;
 }
-.record-status-str1{
-    color:red;;
+.record-status-str span{
+    font-size: 14px;
 }
-.record-status-str2{
-    color:green;;
+.record-info-value span{
+    font-size: 14px;
 }
 .record-expect{
     text-align: left;
-    font-size: 15px;
+    font-size: 14px;
     color: #888;
     padding-top: 3px;
 }
 .record-amount{
     text-align: right;
-    font-size: 15px;
+    font-size: 14px;
     color: #888;
     padding-top: 3px;
 

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,TextArea,Toast,Grid,InfiniteScroll,List,Empty,Space,Dialog,Calendar } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,TextArea,Tag,Grid,InfiniteScroll,List,Empty,Space,Dialog,Calendar } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -73,7 +73,7 @@ export default () => {
 								<div>{item["title"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}</div>
+								<div>{item["amount"]}元</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>
@@ -81,7 +81,9 @@ export default () => {
 								<div>{item["oddtime"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-state">
-								<div>{item["state"]}</div>
+								<Tag color='success' fill='outline'>
+									{item["state"]}
+								</Tag>
 							</Grid.Item>
 						</Grid>
 					</List.Item>

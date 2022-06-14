@@ -22,14 +22,13 @@
     float: left;
     margin-left: 5px;
     margin-top: 10px;
-    line-height: 25px;
 }
 .user-vip{
     overflow:hidden;
     margin-top: 18px;
     float:right;
-    font-size: 16px;
-    background: linear-gradient(45deg,#ff4646,#ffaf5c);
+    font-size: 14px;
+    background: linear-gradient(45deg,#f8c661,#6dbc88);
     width: 100px;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;

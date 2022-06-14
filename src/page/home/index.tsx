@@ -35,7 +35,7 @@ export default () => {
 	const dispatch = useDispatch()
   const navigate = useNavigate()
 	Check(navigate)
-	console.log('msgCount',msgCount)
+	// console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
 	// 		navigate(path)

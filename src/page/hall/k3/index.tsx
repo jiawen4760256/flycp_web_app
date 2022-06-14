@@ -12,12 +12,7 @@ import {
 import UserList from "./userList"
 import Api from '../../../lib/Api';
 import { Action } from 'antd-mobile/es/components/popover'
-import {
-  UnorderedListOutline,
-  FileOutline,
-  ScanningOutline,
-  TransportQRcodeOutline,
-} from 'antd-mobile-icons'
+import { ExclamationCircleOutline} from 'antd-mobile-icons'
 
 
 export default () => {
@@ -164,7 +159,7 @@ export default () => {
 				},20000)
 			}else{
 				Toast.show({
-					icon: 'fail',
+					icon: <ExclamationCircleOutline />,
 					content: response.data.msg,
 				})
 			}
@@ -172,7 +167,7 @@ export default () => {
 		.catch(function (error) {
 			setLoading(false)	
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '服务繁忙，稍后再试！',
 			})
 		})
@@ -190,7 +185,7 @@ export default () => {
 				setHistoryList(response.data.data)
 			}else{
 				Toast.show({
-					icon: 'fail',
+					icon: <ExclamationCircleOutline />,
 					content: response.data.msg,
 				})
 			}
@@ -201,8 +196,8 @@ export default () => {
 	const submit = ()=>{
 		if(gameData.qishu == '0'){
 			Toast.show({
-				icon: 'fail',
-				content: "封盘中，无法投注",
+				icon: <ExclamationCircleOutline />,
+				content: "封盘中，无法操作",
 			})
 			return
 			
@@ -219,14 +214,14 @@ export default () => {
 		// console.log(values)
 		if(Object.keys(touzhu).length == 0){
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: "请选择号码！",
 			})
 			return
 		}
 		if(!values.token){
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: "您尚未登陆！",
 			})
 			return
@@ -234,8 +229,8 @@ export default () => {
 		
 		if(!amount){
 			Toast.show({
-				icon: 'fail',
-				content: "请输入投注金额！",
+				icon: <ExclamationCircleOutline />,
+				content: "请输入金额！",
 			})
 			return
 		}
@@ -251,18 +246,18 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "投注成功",
+					content: "恭喜您完成操作",
 				})
 			}else{
 				if(212 == response.data.code){
 					getHtmlData(gameName)
 					Toast.show({
-						icon: 'fail',
-						content: "当前期号已更新，请重新投注！",
+						icon: <ExclamationCircleOutline />,
+						content: "当前期号已更新，请重新操作！",
 					})
 				}else{
 					Toast.show({
-						icon: 'fail',
+						icon: <ExclamationCircleOutline />,
 						content: response.data.msg,
 					})
 				}
@@ -271,7 +266,7 @@ export default () => {
 		.catch(function (error) {
 			setLoading(false)
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '服务繁忙，稍后再试！',
 			})
 		})
@@ -323,13 +318,13 @@ export default () => {
 				距 {gameData.qishu} 期
 			</div>
 			<div className='ks-alert-qs1'>
-				投注截至
+				项目截至
 			</div>
 			<div className='ks-alert-number'>
 				{alertNumber}
 			</div>
 			<div className='ks-alert-qs2'>
-				投注时请注意当前期号
+				提交时请注意当前期号
 			</div>
 			<Button  size='small' color='danger' onClick={()=>setVisible(false)}>知道了</Button>
 		</div>
@@ -562,7 +557,7 @@ export default () => {
 				if(node.key == '/record' ){
 					if(!localStorage.getItem('token')){
 						Toast.show({
-							icon: 'fail',
+							icon: <ExclamationCircleOutline />,
 							content: '您尚未登录',
 						})
 						return

@@ -109,3 +109,7 @@
 .about-title{
   color: #0abbb5 !important;
 }
+.ks-alert-body button{
+  border-color: #0abbb5 !important;
+  background-color: #0abbb5 !important;
+}

@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react'
 import axios from 'axios';
 import { NavBar, Image,Form,Button,Input,Checkbox,Toast } from 'antd-mobile'
+import { ExclamationCircleOutline } from 'antd-mobile-icons'
 import {
   useNavigate,useParams
 } from 'react-router-dom'
@@ -47,7 +48,7 @@ export default () => {
 			}else{
 				
 				Toast.show({
-					icon: 'fail',
+					icon: <ExclamationCircleOutline />,
 					content: response.data.msg,
 				})
 				setLoading(false)
@@ -55,7 +56,7 @@ export default () => {
 		})
 		.catch(function (error) {
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '服务繁忙，稍后再试！',
 			})
 			setLoading(false)

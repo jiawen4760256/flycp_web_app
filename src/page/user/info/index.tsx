@@ -71,7 +71,7 @@ export default () => {
 
 				<br></br>
 				<List header='' >
-					<List.Item className='user-info-name' extra="vip" clickable={false}>
+					<List.Item className='user-info-name' extra={userInfo['jinjijilu']} clickable={false}>
 						用户等级
 					</List.Item>
 				</List>

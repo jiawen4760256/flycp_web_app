@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar,Grid,Empty,Card } from 'antd-mobile'
+import { NavBar,Grid,Empty,Card,Tag } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -44,9 +44,11 @@ export default () => {
 		data = bankList.map((item, index)=>{
 			let state = (<></>)
 			if(item['state']==0){
-				state = (<span className='bank-state-0'>（审核中）</span>)
+				state = (<Tag className='bank-state' color='primary' fill='outline'>正在审核</Tag>)
 			}else if(item['state']==2){
-				state = (<span className='bank-state-2'>（审核未通过）</span>)
+				state = (<Tag className='bank-state' color='danger' fill='outline'>审核失败</Tag>)
+			}else if(item['state']==1){
+				state = (<Tag className='bank-state' color='success' fill='outline'>审核通过</Tag>)
 			}
 			return ( 
 				<Card  key={index}  className={item['state']==1?"bank-item":"bank-item"} onClick={()=>{}}>
@@ -57,12 +59,12 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item span={2}>
 							<div>
-								{item['bankname']}
+								{item['bankname']}&nbsp;&nbsp;
 								{state}
 							</div>
 						</Grid.Item>
 						<Grid.Item>
-							<div>姓名：</div>
+							<div>开户姓名：</div>
 						</Grid.Item>
 						<Grid.Item span={2}>
 							<div>{item['accountname']}</div>

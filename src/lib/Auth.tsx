@@ -2,6 +2,8 @@
 import axios from 'axios';
 import Qs from 'qs'
 import {Toast} from 'antd-mobile'
+import { ExclamationCircleOutline} from 'antd-mobile-icons'
+
 import Api from './Api'
 const Auth = {
   navigate : (navigate:any,path:string) => {
@@ -25,7 +27,7 @@ const Auth = {
         resolve({})
       });
       Toast.show({
-        icon: 'fail',
+        icon: <ExclamationCircleOutline />,
         content: "您尚未登录",
       })
       navigate('/')
@@ -43,7 +45,7 @@ const Auth = {
 				// })
         if(201 == response.data.code){
           Toast.show({
-          	icon: 'fail',
+          	icon: <ExclamationCircleOutline />,
           	content: response.data.msg,
           })
           localStorage.removeItem('token')
@@ -59,7 +61,7 @@ const Auth = {
       if(path != 'user/ping'){
         // console.log('error',error)
         Toast.show({
-          icon: 'fail',
+          icon: <ExclamationCircleOutline />,
           content: error.message,
         })
       }

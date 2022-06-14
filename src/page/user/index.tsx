@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,TextArea,Toast,List,Avatar,Space,Grid,Divider } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,TextArea,Toast,List,Avatar,Space,Grid,Tag } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -73,14 +73,19 @@ export default () => {
 				<div className='user-info' >
 					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '60px'}} onClick={()=>{navigate("/user/edit")}} />
           <div className='user-account'>
-						<div className='user-name'>{userData['username']} &nbsp;</div>
+						<div className='user-name'>
+							{userData['username']}&nbsp;
+							{/* <Tag color='#fff' fill='outline'>
+								{userData['jinjijilu']}
+							</Tag>	 */}
+						</div>
 						<div className='user-balance'>余额：{userData['balance']}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  余额：{userData['balance']}</div> */}
 					</div>
-          {/* <div className='user-vip'>
+          <div className='user-vip'>
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
-						<div className='user-vip-txt'>vip</div>
-					</div> */}
+						<div className='user-vip-txt'>{userData['jinjijilu']}</div>
+					</div>
         </div>
 				{/* <List className='user-info'>
 					<List.Item

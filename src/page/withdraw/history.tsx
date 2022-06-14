@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,TextArea,Toast,Grid,InfiniteScroll,List,Empty,Space,Dialog,Calendar } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,TextArea,Tag,Grid,InfiniteScroll,List,Empty,Space,Dialog,Calendar } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -71,10 +71,10 @@ export default () => {
 					<List.Item key={index}>
 						<Grid columns={3} gap={8}>
 							<Grid.Item span={2} className="history-list-name">
-								<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>
+								{(item["bankname"]=='无'?"兑换":<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>)}
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}</div>
+								<div>{item["amount"]}元</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>
@@ -82,7 +82,15 @@ export default () => {
 								<div>{item["oddtime"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-state">
-								<div>{item["state"]}</div>
+								{(item["state"]=="1"?<Tag color='success' fill='outline'>
+									兑换成功 
+								</Tag>:"")}
+								{(item["state"]=="0"?<Tag color='primary' fill='outline'>
+									正在审核
+								</Tag>:"")}
+								{(item["state"]=="-1"?<Tag color='danger' fill='outline'>
+									兑换失败
+								</Tag>:"")}
 							</Grid.Item>
 						</Grid>
 					</List.Item>

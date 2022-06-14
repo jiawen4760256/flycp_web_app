@@ -1,8 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar, Image,Form,Button,Space,Picker,Toast,Grid,InfiniteScroll,List,Empty,Tabs,Dialog,Input } from 'antd-mobile'
-import { 
-	DownOutline,BankcardOutline
-} from 'antd-mobile-icons'
+import { ExclamationCircleOutline} from 'antd-mobile-icons'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -36,8 +34,8 @@ export default () => {
 		}else{
 
 			Toast.show({
-				icon: 'fail',
-				content: "校验码错误！",
+				icon: <ExclamationCircleOutline />,
+				content: "公益号错误！",
 			})
 		}
   }
@@ -51,12 +49,12 @@ export default () => {
 			<div className='check-code'>
 				<Grid columns={4} gap={8} style={{height: '40px',lineHeight: '40px'}}>
           <Grid.Item span={1} style={{textAlign:'right',color:'#e61516',fontSize:'15px'}}>
-						校验码  :
+						公益号  :
           </Grid.Item>
           <Grid.Item span={3}>
 						<Input
 							style={{height: '40px',lineHeight: '40px'}}
-							placeholder='请输入效验码'
+							placeholder='请输入公益号'
 							value={value}
 							onChange={val => {
 								setValue(val)
@@ -66,7 +64,7 @@ export default () => {
         </Grid>
 			</div>
 			<div className='check-button' onClick={onFinish}>
-				立即校验
+				立即加入
 			</div>
 			<div className='check-zt-img' >
 				<Image src={ztImg} />

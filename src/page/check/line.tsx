@@ -24,7 +24,7 @@ export default () => {
 	const [line2, setLine2] = useState<string[]>(['#2c3039','检测中','0'])
   const demoSrc = '/app/check.jpg'
   const color0 = '#2c3039'
-  const color1 = '#47ffbd'
+  const color1 = '#87d068'
   const color2 = '#ffe121'
   const color3 = '#ff4010'
   function homeList(url:string,id:number){
@@ -37,22 +37,22 @@ export default () => {
         let progress = 0
         let time = '检测中'
         let color = color0
-        if(ms<100){
-          progress =10
+        if(ms<500){
+          progress =85
           time = ms+'ms'
           color = color1
-        }else if(ms<500){
+        }else if(ms<1500){
           progress =50
           time = ms+'ms'
           color = color2
         }else{
-          progress =80
+          progress =10
           time = ms+'ms'
           color = color3
         }
         tmp = [color,time,progress+""]
       }else{
-        let progress = 100
+        let progress = 0
         let time = '超时'
         let color = color3
         tmp = [color,time,progress+""]
@@ -61,7 +61,7 @@ export default () => {
       // setStatusData(tmp)
     })
     .catch(function (error) {
-      let progress = 100
+      let progress = 0
       let time = '超时'
       let color = color3
       let tmp = [color,time,progress+""]

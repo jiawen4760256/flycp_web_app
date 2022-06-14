@@ -113,3 +113,6 @@
 	width: 150px;
 	margin-left: -15px;
 }
+.adm-tab-bar-icon-badge {
+  --top: 6px !important;
+}

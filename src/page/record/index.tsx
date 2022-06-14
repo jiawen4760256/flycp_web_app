@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,Picker,Toast,Grid,InfiniteScroll,List,Empty,Tabs,Dialog,Calendar } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,Picker,Toast,Grid,InfiniteScroll,List,Empty,Tabs,Dialog,Calendar,Tag } from 'antd-mobile'
 import { 
 	DownOutline,BankcardOutline
 } from 'antd-mobile-icons'
@@ -38,7 +38,7 @@ export default () => {
 	}
 	const getRecordType = function(){
 		Auth.ajax(navigate,'record/type')
-		.then(function (response) {
+		.then(function (response:any) {
 			setRecordTypeList(response)
 		})
 	}
@@ -95,8 +95,17 @@ export default () => {
 							<Grid.Item className="record-cptitle">
 								<div>{item["cptitle"]}</div>
 							</Grid.Item>
-							<Grid.Item className={"record-status-str"+(item["isdraw"]=="1"?" record-status-str1":"")+(item["isdraw"]=="-1"?" record-status-str2":"")}>
-								<div>{item["statusStr"]}</div>
+							<Grid.Item className="record-status-str">
+								{(item["isdraw"]=="1"?<Tag color='danger' fill='outline'>
+									{item["statusStr"]} 
+								</Tag>:"")}
+								{(item["isdraw"]=="0"?<Tag color='primary' fill='outline'>
+									{item["statusStr"]} 
+								</Tag>:"")}
+								{(item["isdraw"]=="-1"?<Tag color='success' fill='outline'>
+									{item["statusStr"]} 
+								</Tag>:"")}
+								
 							</Grid.Item>
 						</Grid>
 						<Grid columns={2} gap={8}>

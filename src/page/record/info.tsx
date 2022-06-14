@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar,Toast,Ellipsis,Image,Empty,Grid} from 'antd-mobile'
+import { NavBar,Toast,Tag,Image,Empty,Grid} from 'antd-mobile'
 import {
   useNavigate,
 	useParams,
@@ -42,10 +42,24 @@ export default () => {
 			<br/>
 			<Grid columns={7} gap={16} >
 				<Grid.Item span={3} className='record-info-key'>
-					投注状态:
+					项目状态:
 				</Grid.Item>
-				<Grid.Item span={4} className='record-info-value'>
-					{htmlData.isdraw}
+				<Grid.Item span={4} className='record-info-value'>					
+					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
+						已中奖 
+					</Tag>:"")}
+					{(htmlData.isdraw=="0"?<Tag color='primary' fill='outline'>
+						未开奖
+					</Tag>:"")}
+					{(htmlData.isdraw=="-1"?<Tag color='success' fill='outline'>
+						未中奖
+					</Tag>:"")}
+					{(htmlData.isdraw=="-2"?<Tag color='default' fill='outline'>
+						已撤单
+					</Tag>:"")}
+					{(htmlData.isdraw=="-3"?<Tag color='default' fill='outline'>
+						已作废
+					</Tag>:"")}
 				</Grid.Item>
 				
 				<Grid.Item span={3} className='record-info-key'>
@@ -55,7 +69,7 @@ export default () => {
 					{htmlData.okamount}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				投注号码:
+				项目号码:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.ztcode}
@@ -67,7 +81,7 @@ export default () => {
 					{htmlData.opencode}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				投注时间:
+				操作时间:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.oddtime}
@@ -79,7 +93,7 @@ export default () => {
 					{htmlData.playtitle}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				投注金额:
+				项目金额:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}

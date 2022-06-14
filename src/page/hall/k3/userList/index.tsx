@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar,Toast,Ellipsis,List,Empty,Grid,Card} from 'antd-mobile'
+import { ExclamationCircleOutline} from 'antd-mobile-icons'
 import axios from 'axios';
 import Qs from 'qs'
 import './index.css'
@@ -53,14 +54,14 @@ export default () => {
 				setHtmlData(tmp)
 			}else{
 				Toast.show({
-					icon: 'fail',
+					icon: <ExclamationCircleOutline />,
 					content: response.data.msg,
 				})
 			}
 		})
 		.catch(function (error) {
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '服务繁忙，稍后再试！',
 			})
 		})
@@ -69,8 +70,8 @@ export default () => {
 	if( htmlData.length != 0){
 		userListHtml = (<div className={up?"userlist-list-activity":""}>
 				{htmlData.map((item:any, index:any) => (<>
-					<Grid columns={8} gap={0} className={"userlist-list"} key={index}>
-						<Grid.Item key={index+"1"} span={2}>
+					<Grid columns={9} gap={0} className={"userlist-list"} key={index}>
+						<Grid.Item key={index+"1"} span={3}>
 							{item.username}
 						</Grid.Item>
 						<Grid.Item key={index+"2"} span={3}>

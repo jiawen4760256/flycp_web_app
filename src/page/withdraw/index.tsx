@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar, Image,Form,Button,Input,TextArea,Toast,DatePicker,Picker,List,Grid } from 'antd-mobile'
+import { ExclamationCircleOutline} from 'antd-mobile-icons'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -48,14 +49,14 @@ export default () => {
 	const submit = function(){
 		if(!value[0]){
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '请选择兑换银行卡',
 			})
 			return
 		}
 		if(!amount){
 			Toast.show({
-				icon: 'fail',
+				icon: <ExclamationCircleOutline />,
 				content: '请输入兑换金额',
 			})
 			return
@@ -67,7 +68,7 @@ export default () => {
 		
 		setLoading1(true)
 		Auth.ajax(navigate,'withdraw/submit',values)
-		.then(function (response) {
+		.then(function (response:any) {
 			Toast.show({
 				icon: 'success',
 				content: '申请兑换成功！',
