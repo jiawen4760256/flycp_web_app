@@ -2,7 +2,7 @@
 
 try {
   if(is_dir('build')){
-    rename('flycp_web_app','flycp_web_app'.time());
+    rename('flycp_web_app','tmp/flycp_web_app'.time());
     rename('build','flycp_web_app');
   }
   $zip = new ZipArchive();

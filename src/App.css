@@ -7,7 +7,7 @@
 }
 
 .App-main{
-  overflow: hidden;
+  overflow: scroll;
   position: absolute;
   top: 0;
   left: 0;

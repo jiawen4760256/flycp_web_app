@@ -48,7 +48,8 @@ export default () => {
 			}else if(item['state']==2){
 				state = (<Tag className='bank-state' color='danger' fill='outline'>审核失败</Tag>)
 			}else if(item['state']==1){
-				state = (<Tag className='bank-state' color='success' fill='outline'>审核通过</Tag>)
+				//state = (<Tag className='bank-state' color='success' fill='outline'>审核通过</Tag>)
+				//state = (<></>)
 			}
 			return ( 
 				<Card  key={index}  className={item['state']==1?"bank-item":"bank-item"} onClick={()=>{}}>

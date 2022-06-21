@@ -3,6 +3,7 @@ import {
 	setHomeList
 } from '../store';
 
+import Auth from './Auth'
 // async/await 方式使用
 // async function getUser() {
 //   try {
@@ -20,7 +21,8 @@ import {
 // Promise 方式调用
 function homeList(params:any,dispatch:any){
 	axios.get(address()+'home/list', {
-		params: params
+		params: params,
+		...Auth.verify(params)
 	})
 	.then(function (response) {
 		if(response.data.code == 0){

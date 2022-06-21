@@ -5,6 +5,8 @@ import axios from 'axios';
 import Qs from 'qs'
 import './index.css'
 import Api from '../../../../lib/Api';
+import Auth from '../../../../lib/Auth';
+
 export default () => {
 	const [htmlData, setHtmlData] = useState<any>([])
 	const [up, setUp] = useState(false)
@@ -45,7 +47,7 @@ export default () => {
 	},[])
 	const getHtmlData = function(){
 		let values = {typeid:"k3"}
-		axios.post(Api.address()+'home/user-list', Qs.stringify(values))
+		axios.post(Api.address()+'home/user-list', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
 				let tmp = []

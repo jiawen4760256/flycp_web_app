@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useCallback } from 'react'
 import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover} from 'antd-mobile'
 import {
   useNavigate,useParams
@@ -11,6 +11,7 @@ import {
 } from 'antd-mobile-icons'
 import UserList from "./userList"
 import Api from '../../../lib/Api';
+import Auth from '../../../lib/Auth';
 import { Action } from 'antd-mobile/es/components/popover'
 import { ExclamationCircleOutline} from 'antd-mobile-icons'
 
@@ -145,7 +146,7 @@ export default () => {
 		if(showLoading){
 			setLoading(true)
 		}
-		axios.post(Api.address()+'home/hall', Qs.stringify(values))
+		axios.post(Api.address()+'home/hall', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
@@ -178,7 +179,7 @@ export default () => {
 			"cptitel": gameName,
 			"limit": 10
 		}
-		axios.post(Api.address()+'home/history', Qs.stringify(values))
+		axios.post(Api.address()+'home/history', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
@@ -237,7 +238,7 @@ export default () => {
 
 		
 		setLoading(true)
-		axios.post(Api.address()+'user/touzhu', Qs.stringify(values))
+		axios.post(Api.address()+'user/touzhu', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
@@ -481,7 +482,14 @@ export default () => {
 					<Input
 						placeholder='请输每注金额'
 						value={value}
-						type="number"
+						type="number"       
+						onBlur={()=>{
+							// alert(window.screen.availHeight)
+						}}
+						onFocus={()=>{
+							// alert(window.screen.availHeight)
+						}}
+
 						onChange={val => {
 							// if(Number(val) > 1000000){
 							// 	setValue('')

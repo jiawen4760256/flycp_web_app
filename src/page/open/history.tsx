@@ -13,6 +13,8 @@ import {useDispatch } from 'react-redux'
 import axios from 'axios';
 import Qs from 'qs'
 import Api from '../../lib/Api'
+import Auth from '../../lib/Auth'
+
 let now1 = new Date()
 export default () => {
 	
@@ -60,7 +62,7 @@ export default () => {
 		// let response = await Auth.ajax(navigate,"home/history",values)
 
 
-		let response = await axios.post(Api.address()+"home/history", Qs.stringify(values))
+		let response = await axios.post(Api.address()+"home/history", Qs.stringify(values),Auth.verify(values))
 
 		
 		dispatch(setLoading(false))

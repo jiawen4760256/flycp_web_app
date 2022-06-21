@@ -13,8 +13,8 @@ import {
 } from '../../store';
 import axios from 'axios';
 import Api from '../../lib/Api'
+import Auth from '../../lib/Auth'
 let LineTimeout = false 
-// let LineUrl = 'http://192.168.1.188:3000' 
 let LineUrl = '' 
 export default () => {
 
@@ -29,7 +29,7 @@ export default () => {
   const color3 = '#ff4010'
   function homeList(url:string,id:number){
     let startTime = (new Date()).valueOf()
-    axios.get(Api.address(url)+'home/ping', {params:{id:startTime}})
+    axios.get(Api.address(url)+'home/ping', {params:{id:startTime},...Auth.verify({id:startTime})})
     .then(function (response) {
       let tmp
       if(response.data.code == 0){
@@ -69,7 +69,7 @@ export default () => {
     })
   }
   const updateData=(id:number,data:any)=>{
-    if(LineUrl == ''){
+    if(LineUrl == '' && data[2] != '0'){
       LineUrl = appUrl[id]
     }
     if(id==0){
@@ -94,8 +94,13 @@ export default () => {
       },500)
       
       setTimeout(()=>{
-        if(LineUrl != ''){
-          window.location.href = LineUrl
+        if(LineUrl == ''){
+          let LineUrl1 = localStorage.getItem('apiUrl')?.toString()
+          if(LineUrl1){
+            window.location.href = LineUrl1+'?c=1'
+          }
+        }else{
+          window.location.href = LineUrl+'?c=1'
         }
       },5000)
 
@@ -121,7 +126,7 @@ export default () => {
     // })
   }
   const selectLine = (id:number)=>{
-    window.location.href = appUrl[id]
+    window.location.href = appUrl[id]+"?c=1"
   }
   return (
 		<div className='App-main' style={{backgroundImage:`url(${demoSrc})`,backgroundSize:'100% 100%'}}>

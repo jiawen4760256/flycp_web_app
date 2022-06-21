@@ -12,6 +12,7 @@ import {
   getHomeList,
 } from '../../store';
 import Api from '../../lib/Api';
+import Auth from '../../lib/Auth';
 export default () => {
 	useEffect(() => {
 	},[])
@@ -28,7 +29,7 @@ export default () => {
 	const demoSrc3 = '/app/logo_bottom.png'
 	const submit = function(values:any){
 		setLoading(true)
-		axios.post(Api.address()+'home/login', Qs.stringify(values))
+		axios.post(Api.address()+'home/login', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
 				localStorage.setItem("userInfo", JSON.stringify(response.data.data))

@@ -13,6 +13,7 @@ import {
 } from '../../store';
 import './index.css'
 import Api from '../../lib/Api';
+import Auth from '../../lib/Auth';
 export default () => {
 	
 	const [loading, setLoading] = useState(false)
@@ -27,7 +28,7 @@ export default () => {
 	const submit = function(values:any){
 		setLoading(true)
 		console.log(values);
-		axios.post(Api.address()+'home/register', Qs.stringify(values))
+		axios.post(Api.address()+'home/register', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
 				Toast.show({
