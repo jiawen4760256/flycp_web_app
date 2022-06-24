@@ -113,3 +113,15 @@
   border-color: #0abbb5 !important;
   background-color: #0abbb5 !important;
 }
+.home-game-left{
+  background: #0abbb5 !important;
+}
+.home-game-right svg{
+  color: #0abbb5 !important;
+}
+
+.adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
+  border-color: #0abbb5 !important;
+  background-color: #0abbb5 !important;
+  border: 1px solid #0abbb5 !important;
+}

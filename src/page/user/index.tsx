@@ -6,7 +6,7 @@ import {
 import { 
 	HandPayCircleOutline,
 	GiftOutline,
-	FileOutline,
+	TeamOutline,
 	ContentOutline,
 	ReceiptOutline,
 	UnorderedListOutline,
@@ -63,7 +63,17 @@ export default () => {
 		userinfo()
   },[])
 
-
+	// let proxyHtml = <></>
+	// if(userData['proxy'] == 1){
+	// 	proxyHtml = (
+	// 		<div className='user-button-list'>
+	// 			<List header=''>
+	// 				<List.Item prefix={<TeamOutline style={{fontSize: "24px;"}} />}  onClick={() => {Auth.navigate(navigate,"/proxy")}}>
+	// 					代理中
+	// 				</List.Item>
+	// 			</List>
+	// 		</div>)
+	// }
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
@@ -151,6 +161,7 @@ export default () => {
 						</List.Item>
 					</List>
 				</div>
+				{/* {proxyHtml} */}
 				<div className='user-button-list user-button-logout'>
 					
 					<Button block shape='rounded' color='primary' onClick={logout}>

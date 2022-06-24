@@ -126,9 +126,9 @@ export default () => {
 					<a href={kefu}>在线客服</a>
 				</div>
 				
-				<div className='login-img2'>
+				{/* <div className='login-img2'>
 					<Image lazy src={demoSrc3} />
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)

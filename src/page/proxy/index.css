@@ -1,0 +1,76 @@
+.user-info{
+    --border-top: 0px;
+    overflow:hidden;
+    background: #e53333;
+    color:#fff;
+}
+.user-name{
+    font-size: 20px;
+    margin-top: 5px;
+}
+.user-balance{
+    font-size: 15px;
+    margin-top: 5px;
+}
+.user-img{
+    float: left;
+    margin:10px;
+    border: solid #fff;
+    margin-left:15px;
+}
+.user-account{
+    float: left;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.user-vip{
+    overflow:hidden;
+    margin-top: 18px;
+    float:right;
+    font-size: 14px;
+    background: linear-gradient(45deg,#f8c661,#6dbc88);
+    width: 100px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 30px;
+    line-height: 30px;
+}
+.user-vip-img{
+    float: left;
+}
+.user-vip-txt{
+    float: left;
+    margin-left: 10px;
+}
+.user-button{
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    background: #fff;
+}
+.user-button-left{
+
+    border-right: solid 1px var(--adm-border-color);
+}
+.user-button-icon{
+    --item-span: 1;
+    font-size: 32px;
+    /* text-align: center; */
+    color: #de3d54;
+}
+
+.user-button-list{
+    margin-top: 10px;
+}
+
+.user-button-logout{
+    text-align: center;
+    color: #e53333;
+    margin-bottom: 30px;
+    padding: 10px 40px;
+}
+.user-button-list img{
+    height: 25px;
+    width: 25px;
+}
+

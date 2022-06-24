@@ -32,6 +32,7 @@ import MessageAdd from './page/message/add';
 import MessageInfo from './page/message/info';
 import CheckCode from './page/check/code';
 import CheckLine from './page/check/line';
+import Proxy from './page/proxy';
 import {getLoading} from './store';
 import "./App.css"
 import "./style.css"
@@ -80,6 +81,8 @@ function App() {
             <Route path="/check/code"  element={<CheckCode />} />
             <Route path="/check/line"  element={<CheckLine />} />
             <Route path="/open/history/:name"  element={<OpenHistory />} />
+            <Route path="/proxy"  element={<Proxy />} />
+            
           </Routes>
         </CSSTransition>
       </TransitionGroup>
