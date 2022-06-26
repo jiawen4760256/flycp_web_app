@@ -1,12 +1,12 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,TextArea,Toast,List,Avatar,Space,Grid,Tag } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
 import { 
 	HandPayCircleOutline,
 	GiftOutline,
-	TeamOutline,
+	AaOutline,
 	ContentOutline,
 	ReceiptOutline,
 	UnorderedListOutline,
@@ -63,17 +63,17 @@ export default () => {
 		userinfo()
   },[])
 
-	// let proxyHtml = <></>
-	// if(userData['proxy'] == 1){
-	// 	proxyHtml = (
-	// 		<div className='user-button-list'>
-	// 			<List header=''>
-	// 				<List.Item prefix={<TeamOutline style={{fontSize: "24px;"}} />}  onClick={() => {Auth.navigate(navigate,"/proxy")}}>
-	// 					代理中
-	// 				</List.Item>
-	// 			</List>
-	// 		</div>)
-	// }
+	let proxyHtml = <></>
+	if(userData['proxy'] == 1){
+		proxyHtml = (
+			<div className='user-button-list'>
+				<List header=''>
+					<List.Item prefix={<AaOutline style={{fontSize: "24px",color: "#e80101"}} />}  onClick={() => {Auth.navigate(navigate,"/proxy")}}>
+						代理中心  
+					</List.Item>
+				</List>
+			</div>)
+	}
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
@@ -161,7 +161,7 @@ export default () => {
 						</List.Item>
 					</List>
 				</div>
-				{/* {proxyHtml} */}
+				{proxyHtml}
 				<div className='user-button-list user-button-logout'>
 					
 					<Button block shape='rounded' color='primary' onClick={logout}>
