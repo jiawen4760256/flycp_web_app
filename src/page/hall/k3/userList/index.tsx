@@ -72,14 +72,14 @@ export default () => {
 	if( htmlData.length != 0){
 		userListHtml = (<div className={up?"userlist-list-activity":""}>
 				{htmlData.map((item:any, index:any) => (<>
-					<Grid columns={9} gap={0} className={"userlist-list"} key={index}>
+					<Grid columns={11} gap={0} className={"userlist-list"} key={index}>
 						<Grid.Item key={index+"1"} span={3}>
 							{item.username}
 						</Grid.Item>
-						<Grid.Item key={index+"2"} span={3}>
+						<Grid.Item key={index+"2"} span={4}>
 							{item.cptitle}
 						</Grid.Item>
-						<Grid.Item key={index+"3"} span={3}>
+						<Grid.Item key={index+"3"} span={4}>
 							{item.okamount}
 						</Grid.Item>
 					</Grid>
