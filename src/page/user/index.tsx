@@ -89,8 +89,8 @@ export default () => {
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>余额：{userData['balance']}</div>
-						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  余额：{userData['balance']}</div> */}
+						<div className='user-balance'>积分：{userData['balance']}</div>
+						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
           <div className='user-vip'>
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
@@ -103,7 +103,7 @@ export default () => {
 						prefix={<Avatar src={userData['face']} style={{ borderRadius: "50%",'--size': '60px', margin:"15px 0",border: "solid #fff"}} onClick={()=>{navigate("/user/edit")}} />}
 					>
 						<div className='user-name'>账号：{userData['username']}</div>
-						<div className='user-name'>余额：{userData['balance']}</div>
+						<div className='user-name'>积分：{userData['balance']}</div>
 					</List.Item>
 				</List> */}
 				
@@ -112,7 +112,7 @@ export default () => {
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
 								<HandPayCircleOutline className='user-button-icon' />
-								支付
+								上分
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/withdraw")}}>
@@ -129,13 +129,13 @@ export default () => {
 							项目记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
-							账单明细
+							积分明细
 						</List.Item>
 						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							充值记录
+							上分记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录

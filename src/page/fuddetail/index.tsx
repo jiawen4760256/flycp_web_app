@@ -91,7 +91,7 @@ export default () => {
 								<div>{item["oddtime"]}</div>
 							</Grid.Item>
 							<Grid.Item className="fuddetail-amountafter">
-								<div>余额：{item["amountafter"]}</div>
+								<div>积分：{item["amountafter"]}</div>
 							</Grid.Item>
 						</Grid>
 					</List.Item>
@@ -108,7 +108,7 @@ export default () => {
   return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>账单明细</NavBar>
+      	<NavBar className='app-header' onBack={back}>积分明细</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<Grid columns={5} gap={0}>
@@ -121,8 +121,8 @@ export default () => {
 							}}
 						>
 							<Tabs.Tab title='全部' key='0' />
-							<Tabs.Tab title='收入' key='1' />
-							<Tabs.Tab title='支出' key='2' />
+							<Tabs.Tab title='奖励' key='1' />
+							<Tabs.Tab title='助力' key='2' />
 						</Tabs>	
           </Grid.Item>
 					<Grid.Item span={1} className='adm-tabs fuddetail-type'>

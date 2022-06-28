@@ -122,7 +122,7 @@ export default () => {
 					期数
 				</Grid.Item>
 				<Grid.Item span={2}>
-					开奖号码
+					公益号码
 				</Grid.Item>
 				<Grid.Item>
 					和值
@@ -181,7 +181,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>开奖记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>公益记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Grid columns={2} gap={0} className='record-date'>

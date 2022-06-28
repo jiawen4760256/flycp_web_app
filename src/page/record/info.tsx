@@ -46,24 +46,24 @@ export default () => {
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>					
 					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
-						已中奖 
+						项目奖励 
 					</Tag>:"")}
 					{(htmlData.isdraw=="0"?<Tag color='primary' fill='outline'>
-						未开奖
+						项目筹备
 					</Tag>:"")}
 					{(htmlData.isdraw=="-1"?<Tag color='success' fill='outline'>
-						未中奖
+						项目助力
 					</Tag>:"")}
 					{(htmlData.isdraw=="-2"?<Tag color='default' fill='outline'>
-						已撤单
+						取消
 					</Tag>:"")}
 					{(htmlData.isdraw=="-3"?<Tag color='default' fill='outline'>
-						已作废
+						取消
 					</Tag>:"")}
 				</Grid.Item>
 				
 				<Grid.Item span={3} className='record-info-key'>
-				中奖金额:
+				项目积分:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.okamount}
@@ -75,7 +75,7 @@ export default () => {
 					{htmlData.ztcode}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				开奖号码:
+				公益号码:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.opencode}
@@ -87,13 +87,13 @@ export default () => {
 					{htmlData.oddtime}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				游戏玩法:
+				项目详情:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.playtitle}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				项目金额:
+				项目积分:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}

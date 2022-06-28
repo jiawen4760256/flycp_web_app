@@ -74,7 +74,7 @@ export default () => {
 								{(item["bankname"]=='无'?"兑换":<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>)}
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}元</div>
+								<div>{item["amount"]}积分</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>

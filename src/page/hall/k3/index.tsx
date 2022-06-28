@@ -231,7 +231,7 @@ export default () => {
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请输入金额！",
+				content: "请输入积分！",
 			})
 			return
 		}
@@ -288,22 +288,22 @@ export default () => {
 	const howPlay=() =>
 		Dialog.alert({
 			content: (<>
-				<div className='k3-howplay-title'>&diams;	玩法提示</div>
-				<div className='k3-howplay-txt'>至少选择1个和值（3个号码之和）进行投注。</div>
+				<div className='k3-howplay-title'>&diams;	项目提示</div>
+				<div className='k3-howplay-txt'>至少选择1个和值（3个号码之和）参与项目。</div>
 				<Divider />
-				<div className='k3-howplay-title'>&diams;	返佣说明</div>
-				<div className='k3-howplay-txt'>所选和值与开奖的3个号码的和值相同即中奖。</div>
+				<div className='k3-howplay-title'>&diams;	奖励说明</div>
+				<div className='k3-howplay-txt'>所选和值与公益号的3个号码的和值相同即可获得奖励。</div>
 				<Divider />
 				<div className='k3-howplay-title'>&diams;	范例</div>
 				<div className='k3-howplay-txt'>
 					选号：和大 <br/>
-					开奖结果数字相加在11－18的范围内即为中奖。 <br/>
-					开奖号码：3 4 6 <br/>
+					公益号码数字相加在11－18的范围内即可获得奖励。 <br/>
+					公益号码：3 4 6 <br/>
 					和值为13 <br/>
 					----------------<br/>
 					选号：和小 <br/>
-					开奖结果数字相加在3－10的范围内即为中奖。 <br/>
-					开奖号码：1 2 4<br/>
+					公益号码数字相加在3－10的范围内即可获得奖励。 <br/>
+					公益号码：1 2 4<br/>
 					和值为7 <br/>
 				</div>
 			</>),
@@ -379,7 +379,7 @@ export default () => {
 						showHistory=="none"?setShowHistory("block"):setShowHistory("none")
 					}}
 				>
-					{item.expect} 期开奖&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
+					{item.expect} 期结果&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
 				<div>
 					<Grid columns={3} gap={5} className='k3-kj-img'>
 						<Grid.Item>
@@ -434,7 +434,7 @@ export default () => {
 					期数
 				</Grid.Item>
 				<Grid.Item span={2}>
-					开奖号码
+					公益号码
 				</Grid.Item>
 				<Grid.Item>
 					和值
@@ -453,7 +453,7 @@ export default () => {
 	HzHtml = (<>
 		<div style={{overflow: "hidden"}}>
 			<div className='hz-playinfo' onClick={howPlay}>
-				<QuestionCircleOutline />&nbsp;玩法说明
+				<QuestionCircleOutline />&nbsp;项目说明
 			</div>
 		</div>
 		{cardHtml}
@@ -478,9 +478,9 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<Space  className='touzhu-number-row'>
-					每注金额
+					每份积分
 					<Input
-						placeholder='请输每注金额'
+						placeholder='请输每份积分'
 						value={value}
 						type="number"       
 						onBlur={()=>{
@@ -494,7 +494,7 @@ export default () => {
 							// if(Number(val) > 1000000){
 							// 	setValue('')
 							// 	Toast.show({
-							// 		content: '最高投注金额100万',
+							// 		content: '最高投注积分100万',
 							// 		afterClose: () => {
 							// 			console.log('after')
 							// 		},
@@ -511,7 +511,7 @@ export default () => {
 				<Grid.Item className='touzhu-button-left'>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
 						{
-							Object.keys(touzhu).length==0?'机选':"删除"
+							Object.keys(touzhu).length==0?'随机':"删除"
 						}
             
           </Button>
@@ -519,13 +519,13 @@ export default () => {
 				<Grid.Item span={2}>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
-							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>注</div>
-							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length}</div><div>元</div>
+							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>份</div>
+							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length}</div><div>积分</div>
 						</Space>
 					</div>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
-							<div>余额：</div>
+							<div>积分：</div>
 							<div className='touzhu-button-number'>{userInfo.balance}</div>
 						</Space>
 					</div>
@@ -552,7 +552,7 @@ export default () => {
 	
 	const actions: Action[] = [
 		{ key: '/record', icon:  <></>, text: '项目记录' },
-		{ key: '/open/history', icon: <></>, text: '开奖记录' }
+		{ key: '/open/history', icon: <></>, text: '公益记录' }
 	]
 	//报错？？？ 需要后加载组件
 	if(visibleSheet){

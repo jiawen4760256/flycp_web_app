@@ -184,9 +184,9 @@ export default () => {
 						onSelect('','',key)
 					}}
 				>
-          <Tabs.Tab title='全部订单' key='0' />
-          <Tabs.Tab title='已开奖' key='1' />
-          <Tabs.Tab title='待开奖' key='2' />
+          <Tabs.Tab title='全部项目' key='0' />
+          <Tabs.Tab title='项目实施' key='1' />
+          <Tabs.Tab title='项目筹备' key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}
         </Tabs>
 				<div >

@@ -57,7 +57,7 @@ export default () => {
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '请输入兑换金额',
+				content: '请输入兑换积分',
 			})
 			return
 		}
@@ -189,9 +189,9 @@ export default () => {
 						</Picker>
 					</List.Item>
 
-					<List.Item  prefix={(<div className='withdraw-bank'>兑换金额</div>)} >
+					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
 						<Input
-							placeholder='请输入兑换金额'
+							placeholder='请输入兑换积分'
 							onChange={setAmount}
 							value={amount}
 						/>

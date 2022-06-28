@@ -68,7 +68,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar className='app-header'  onBack={back}>开奖结果</NavBar>
+				<NavBar className='app-header'  onBack={back}>公益号码</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 					{openHtml}

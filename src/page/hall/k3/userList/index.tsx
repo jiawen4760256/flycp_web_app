@@ -90,7 +90,7 @@ export default () => {
 
   return (<>
 		<div className='userlist-body'>
-			<h2 className='userlist-title'>盈利实时播报</h2>
+			<h2 className='userlist-title'>奖励实时播报</h2>
 			<div className="userlist-content" >
 				<div className="container">
        	 	<div className="scroll-list">

@@ -73,7 +73,7 @@ export default () => {
 								<div>{item["title"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}元</div>
+								<div>{item["amount"]}积分</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>
@@ -138,7 +138,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>充值记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>上分记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				<div className='history-day'>

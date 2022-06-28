@@ -88,7 +88,7 @@ export default () => {
 							label='账号'
 							rules={[{ required: true, message: '账号不能为空' }]}
 						>
-							<Input  placeholder='请输入账号' />
+							<Input  placeholder='请输入6到10位字母和数字' />
 						</Form.Item>
 						<Form.Item
 							name='pwd'
