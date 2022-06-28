@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /tmp
+
+/flycp_web_app
+/flycp_web_app.zip
