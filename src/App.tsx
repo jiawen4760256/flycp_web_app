@@ -33,6 +33,8 @@ import MessageInfo from './page/message/info';
 import CheckCode from './page/check/code';
 import CheckLine from './page/check/line';
 import Proxy from './page/proxy';
+import ProxyTim from './page/proxy/tim';
+import ProxyMember from './page/proxy/member';
 import {getLoading} from './store';
 import "./App.css"
 import "./style.css"
@@ -82,7 +84,9 @@ function App() {
             <Route path="/check/line"  element={<CheckLine />} />
             <Route path="/open/history/:name"  element={<OpenHistory />} />
             <Route path="/proxy"  element={<Proxy />} />
-            
+            <Route path="/proxy/tim"  element={<ProxyTim />} />
+            <Route path="/proxy/member"  element={<ProxyMember />} />
+              
           </Routes>
         </CSSTransition>
       </TransitionGroup>
