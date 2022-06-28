@@ -1,0 +1,15 @@
+.proxy-member-list .adm-collapse-panel-header .adm-list-item-content-main{
+    padding: 5px 0;
+    text-align: left;
+}
+.proxy-member-list .adm-list-item-content{
+    border-top: 0;
+}
+.proxy-member-list .adm-collapse-panel-header{
+    border-top: solid 1px var(--adm-border-color);
+    padding-left: 0px;
+}
+.proxy-member-info{
+    border-top: 1px solid #0abbb5  !important;
+    border-right: 1px solid #0abbb5  !important;
+}

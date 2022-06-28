@@ -1,6 +1,7 @@
 .proxy-info{
     border-top: 1px solid #0abbb5  !important;
     border-right: 1px solid #0abbb5  !important;
+    margin: 10px;
 }
 .proxy-key{
     color: #727272;
@@ -20,6 +21,6 @@
     color: #0abbb5;
 }
 .proxy-total{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
