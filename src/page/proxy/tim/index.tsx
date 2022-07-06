@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import { NavBar, Image,Form,Button,Input,TextArea,Tag,Grid,SearchBar,List,Empty,Space,Dialog,Calendar } from 'antd-mobile'
 import {
   useNavigate,
@@ -8,7 +8,6 @@ import './index.css'
 import Auth from '../../../lib/Auth';
 import { setLoading } from '../../../store'
 import {useDispatch } from 'react-redux'
-import { time } from 'console';
 
 let now1 = new Date()
 // now1.setDate(now1.getDate()-2)
@@ -26,16 +25,25 @@ export default () => {
 	Auth.page(navigate)
 	let tmp1 = date1;
 	let tmp2 = date2;
-
 	useEffect(() => {
 		getHistory()
+		console.log('useEffect')
+		let timerTim = setInterval(() => {
+			Auth.ajax(navigate,'proxy/tim',{auto:1})
+			.then(function (response:any) {
+				setData(response)
+			}).catch(function (error) {
+			})
+		}, 10000);
+		return () => clearInterval(timerTim);
+	
 	},[])
   const back = () =>{
 		navigate(-1);
 	}
-	const getHistory = async function(init=false){
+	const getHistory = function(){
 		dispatch(setLoading(true))
-		Auth.ajax(navigate,'proxy/tim',{date1:dateformat1,date2:dateformat2})
+		Auth.ajax(navigate,'proxy/tim',{time1:dateformat1,time2:dateformat2})
 		.then(function (response:any) {
 			setData(response)
 			dispatch(setLoading(false))
@@ -43,15 +51,14 @@ export default () => {
 			dispatch(setLoading(false))
 		})
 	}
-	
-	useEffect(() => {
-		// getHistory();
-  },[])
 	const onSelect =()=>{
+		// reInterval()
+		localStorage.setItem('dateformat1',dateformat1)
+		localStorage.setItem('dateformat2',dateformat2)
 		setPage(1)
 		console.log(page,"page");
 		setData({})
-		getHistory(true)
+		getHistory()
 	}
 	const selectDate=()=>{
 		Dialog.show({

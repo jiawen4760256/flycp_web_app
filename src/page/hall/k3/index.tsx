@@ -525,7 +525,7 @@ export default () => {
 					</div>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
-							<div>积分：</div>
+							<div>我的积分：</div>
 							<div className='touzhu-button-number'>{userInfo.balance}</div>
 						</Space>
 					</div>

@@ -35,6 +35,7 @@ import CheckLine from './page/check/line';
 import Proxy from './page/proxy';
 import ProxyTim from './page/proxy/tim';
 import ProxyMember from './page/proxy/member';
+import ProxyDay from './page/proxy/day';
 import {getLoading} from './store';
 import "./App.css"
 import "./style.css"
@@ -86,7 +87,8 @@ function App() {
             <Route path="/proxy"  element={<Proxy />} />
             <Route path="/proxy/tim"  element={<ProxyTim />} />
             <Route path="/proxy/member"  element={<ProxyMember />} />
-              
+            <Route path="/proxy/day"  element={<ProxyDay />} />
+            
           </Routes>
         </CSSTransition>
       </TransitionGroup>

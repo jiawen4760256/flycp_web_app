@@ -38,7 +38,7 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar className='app-header' onBack={back}>代理中心</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-95,background:"#fff"}}>
 
 			<br/>
 				<div className='proxy-info'>
@@ -103,6 +103,9 @@ export default () => {
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/proxy/member")}}>
 							下级报表
+						</List.Item>
+						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/proxy/day")}}>
+							实时报表
 						</List.Item>
 						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
 							个人报表
