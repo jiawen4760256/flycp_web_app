@@ -1,19 +1,13 @@
 .code-body{
-  background-color: #0abbb5 !important;
-}
-.code-body .adm-grid-item{
-  color: #0abbb5 !important;
+  /* background-color: #d4d0ff !important; */
+  background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB);
 }
 .App-header{
-  background-color: #0abbb5 !important;
-}
-.adm-tab-bar-item-active{
-  color: #0abbb5 !important;
+  background-color: #d4d0ff !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
-  --background-color: #fff;
-  --border-color: #fff;
-  --text-color: #0abbb5;
+  --background-color: #f5fbf9;
+  --border-color: #f5fbf9;
 }
 .adm-notice-bar-content {
   color: #727272 !important;
@@ -36,104 +30,83 @@
   border-bottom: 1px solid #727272;
 }
 .adm-button.adm-button-large{
-  background-color: #0abbb5 !important;
-  border-color: #0abbb5 !important;
-}
-.kefu a{
-  color: #0abbb5 !important;
-}
-.k3-name-button{
-  color: #0abbb5 !important;
+  background-color: #d4d0ff !important;
+  border-color: #d4d0ff !important;
 }
 .k3-name-list-button-active{
-  background-color: #0abbb5 !important;
-  border-color: #0abbb5 !important;
-}
-.k3-kj-time{
-  color: #0abbb5 !important;
-}
-.userlist-title{
-  color: #0abbb5 !important;
-
+  background-color: #d4d0ff !important;
+  border-color: #d4d0ff !important;
 }
 .touzhu-button-left button{
-  color: #0abbb5 !important;
-  border-color: #0abbb5 !important;
+  border-color: #d4d0ff !important;
   background-color: #fff !important;
 }
-.touzhu-button-number{
-  color: #0abbb5 !important;
-}
 .touzhu-button-right button{
-  border-color: #0abbb5 !important;
-  background-color: #0abbb5 !important;
-}
-.adm-tabs-tab-active{
-  color: #0abbb5 !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .adm-tabs-tab-line{
-  background: #0abbb5 !important;
-}
-.adm-picker-header-button{
-  color: #0abbb5 !important;
-}
-.adm-calendar-arrow-button{
-  color: #0abbb5 !important;
-}
-.adm-dialog-button{
-  color: #0abbb5 !important;
+  background: #d4d0ff !important;
 }
 .hz-card-activity{
-  background: #0abbb5 !important;
-}
-.touzhu-number-select{
-  color: #0abbb5 !important;
-}
-.adm-mask-content .adm-dot-loading{
-  color: #0abbb5 !important;
+  background: #d4d0ff !important;
 }
 .user-info{
-  background: #0abbb5 !important;
-}
-.user-button g{
-  color: #0abbb5 !important;
+  background: #d4d0ff !important;
 }
 .history-button{
-  border-color: #0abbb5 !important;
-  background-color: #0abbb5 !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .user-button-logout button{
-  border-color: #0abbb5 !important;
-  background-color: #0abbb5 !important;
-}
-.about-title{
-  color: #0abbb5 !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .ks-alert-body button{
-  border-color: #0abbb5 !important;
-  background-color: #0abbb5 !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .home-game-left{
-  background: #0abbb5 !important;
-}
-.home-game-right svg{
-  color: #0abbb5 !important;
+  background: #d4d0ff !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
-  border-color: #0abbb5 !important;
-  background-color: #0abbb5 !important;
-  border: 1px solid #0abbb5 !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
+  border: 1px solid #d4d0ff !important;
 }
 .withdraw-info {
-  border-top: 1px solid #0abbb5 !important;
-  border-right: 1px solid #0abbb5 !important;
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #0abbb5 !important;
-  border-bottom: 1px solid #0abbb5 !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #0abbb5 !important;
-  border-bottom: 1px solid #0abbb5 !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
+}
+.proxy-info {
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
+}
+.proxy-value {
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
+}
+.proxy-key {
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
+}
+.proxy-member-info {
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
+}
+
+.user-button g{
+  color: #d4d0ff !important;
+}
+.user-vip{
+  background: linear-gradient(45deg,#f8c661,#d4d0ff) !important;
 }

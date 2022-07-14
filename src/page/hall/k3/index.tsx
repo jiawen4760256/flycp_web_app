@@ -1,5 +1,5 @@
 import React, { useState,useEffect,useCallback } from 'react'
-import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover} from 'antd-mobile'
+import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover,Picker} from 'antd-mobile'
 import {
   useNavigate,useParams
 } from 'react-router-dom'
@@ -7,9 +7,9 @@ import axios from 'axios';
 import Qs from 'qs'
 import './index.css'
 import { 
-	DownOutline,QuestionCircleOutline,MoreOutline
+	DownOutline,DownFill,MoreOutline
 } from 'antd-mobile-icons'
-import UserList from "./userList"
+// import UserList from "./userList"
 import Api from '../../../lib/Api';
 import Auth from '../../../lib/Auth';
 import { Action } from 'antd-mobile/es/components/popover'
@@ -23,6 +23,8 @@ export default () => {
 	const [gameData, setGameData] = useState<any>({})
   const [visible2, setVisible2] = useState(false)
 	const [visibleSheet, setVisibleSheet] = useState(false)
+	const [visibleNum, setVisibleNum] = useState(false)
+	const [visibleNumSelect, setVisibleNumSelect] = useState(1)
   const [countdownTime, setCountdownTime] = useState<number>(0)
   const [showTime, setShowTime] = useState("-- : --")
   const [showHistory, setShowHistory] = useState("none")
@@ -107,12 +109,12 @@ export default () => {
 	// 号码html
 	if( k3Wanfa.length != 0){
 		cardHtml = (<>
-			<Grid columns={4} gap={8} className='hz-card-body'>
+			<Grid columns={2} gap={8} className='hz-card-body'>
 				{k3Wanfa.map((item:any, index:any) => (
 					<Grid.Item key={index} onClick={()=>{selectNumber(item.playid,item.title)}}>
 						<div className={touzhu[item.playid]?"hz-card-activity":"hz-card"}>
 							{item.title}
-							<div className={touzhu[item.playid]?"hz-card-number-activity":"hz-card-number"}>{item.rate}</div>
+							{/* <div className={touzhu[item.playid]?"hz-card-number-activity":"hz-card-number"}>{item.rate}</div> */}
 						</div>
 					</Grid.Item>
 				))}
@@ -198,12 +200,12 @@ export default () => {
 		if(gameData.qishu == '0'){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "封盘中，无法操作",
+				content: "暂停中，无法操作",
 			})
 			return
 			
 		}
-		let amount = Number(value)
+		let amount = Number(value)*visibleNumSelect
 		let values = {
 			token:localStorage.getItem("token"),
 			touzhu:touzhu,
@@ -247,14 +249,14 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "恭喜您完成操作",
+					content: "完成订单",
 				})
 			}else{
 				if(212 == response.data.code){
 					getHtmlData(gameName)
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: "当前期号已更新，请重新操作！",
+						content: "当前订单号已更新，请重新操作！",
 					})
 				}else{
 					Toast.show({
@@ -316,7 +318,7 @@ export default () => {
 	alertHtml = (<>
 		<div className='ks-alert-body'>
 			<div className='ks-alert-qs1'>
-				距 {gameData.qishu} 期
+				距 {gameData.qishu} 件
 			</div>
 			<div className='ks-alert-qs1'>
 				项目截至
@@ -325,7 +327,7 @@ export default () => {
 				{alertNumber}
 			</div>
 			<div className='ks-alert-qs2'>
-				提交时请注意当前期号
+				提交时请注意当前单号
 			</div>
 			<Button  size='small' color='danger' onClick={()=>setVisible(false)}>知道了</Button>
 		</div>
@@ -379,19 +381,11 @@ export default () => {
 						showHistory=="none"?setShowHistory("block"):setShowHistory("none")
 					}}
 				>
-					{item.expect} 期结果&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
+					{item.expect} 匹配结果&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
 				<div>
-					<Grid columns={3} gap={5} className='k3-kj-img'>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[0]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[1]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[2]+".png"} />
-						</Grid.Item>
-					</Grid>
+					<div className='k3-kj-img'>
+							{item.dx}，{item.ds}
+					</div>
 				</div>
 			</>)
 
@@ -399,25 +393,9 @@ export default () => {
 		// 历史开奖
 		kjHistoryList =(<>{
 			historyList.map((item:any,index:any)=>{return(
-				<Grid columns={7} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
-					<Grid.Item span={2} >
+				<Grid columns={3} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
+					<Grid.Item>
 						{item.expect}
-					</Grid.Item>
-					<Grid.Item span={2}>
-						<Grid columns={3} gap={5} className='k3-kj-history-img'>
-							<Grid.Item>
-								<Image  src={"/k3/"+item.opencode[0]+".png"} />
-							</Grid.Item>
-							<Grid.Item>
-								<Image  src={"/k3/"+item.opencode[1]+".png"} />
-							</Grid.Item>
-							<Grid.Item>
-								<Image  src={"/k3/"+item.opencode[2]+".png"} />
-							</Grid.Item>
-						</Grid>
-					</Grid.Item>
-					<Grid.Item >
-						{item.hz}
 					</Grid.Item>
 					<Grid.Item >
 						{item.dx}
@@ -429,21 +407,15 @@ export default () => {
 			)})
 		}</>) 
 		kjHistoryHtml = (<div className='ks-kj-history'>
-			<Grid columns={7} gap={15}>
-				<Grid.Item span={2} className='ks-kj-history-qs'>
-					期数
-				</Grid.Item>
-				<Grid.Item span={2}>
-					公益号码
+			<Grid columns={3} gap={15}>
+				<Grid.Item className='ks-kj-history-qs'>
+					订单号
 				</Grid.Item>
 				<Grid.Item>
-					和值
+					品牌Ad+1/臻选Ax+1
 				</Grid.Item>
 				<Grid.Item>
-					大小
-				</Grid.Item>
-				<Grid.Item>
-					单双
+           单件/双件
 				</Grid.Item>
 			</Grid>
 		</div>)
@@ -452,9 +424,9 @@ export default () => {
 	// 和值html
 	HzHtml = (<>
 		<div style={{overflow: "hidden"}}>
-			<div className='hz-playinfo' onClick={howPlay}>
+			{/* <div className='hz-playinfo' onClick={howPlay}>
 				<QuestionCircleOutline />&nbsp;项目说明
-			</div>
+			</div> */}
 		</div>
 		{cardHtml}
 	</>)
@@ -465,7 +437,7 @@ export default () => {
 		<div className='touzhu-number' style={{'display':Object.keys(touzhu).length==0?"none":"block"}}> 
 			<div>
 				<Space wrap className='touzhu-number-row'>
-					<div>当前选号</div>
+					<div>当前选择</div>
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  (
@@ -477,33 +449,38 @@ export default () => {
 			</div>
 			<Divider style={{margin: "5px 0"}} />
 			<div>
-				<Space  className='touzhu-number-row'>
-					每份积分
-					<Input
-						placeholder='请输每份积分'
-						value={value}
-						type="number"       
-						onBlur={()=>{
-							// alert(window.screen.availHeight)
-						}}
-						onFocus={()=>{
-							// alert(window.screen.availHeight)
-						}}
+				<div  className='touzhu-number-row'  >
+					<div style={{float:"left"}}>每件积分</div>
+					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
+						<Input
+							placeholder='请输每件积分'
+							value={value}
+							type="number"       
+							onBlur={()=>{
+								// alert(window.screen.availHeight)
+							}}
+							onFocus={()=>{
+								// alert(window.screen.availHeight)
+							}}
 
-						onChange={val => {
-							// if(Number(val) > 1000000){
-							// 	setValue('')
-							// 	Toast.show({
-							// 		content: '最高投注积分100万',
-							// 		afterClose: () => {
-							// 			console.log('after')
-							// 		},
-							// 	})
-							// }
-							setValue(val)
-						}}
-					/>
-				</Space>
+							onChange={val => {
+								// if(Number(val) > 1000000){
+								// 	setValue('')
+								// 	Toast.show({
+								// 		content: '最高投注积分100万',
+								// 		afterClose: () => {
+								// 			console.log('after')
+								// 		},
+								// 	})
+								// }
+								setValue(val)
+							}}
+						/>
+
+					</div>
+					
+					<div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div>
+				</div>
 			</div>
 		</div>
 		<div className='touzhu-footer'>
@@ -519,8 +496,9 @@ export default () => {
 				<Grid.Item span={2}>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
-							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>份</div>
-							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length}</div><div>积分</div>
+							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
+							<div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div>
+							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>积分</div>
 						</Space>
 					</div>
 					<div>
@@ -543,16 +521,16 @@ export default () => {
 			<DotLoading style={{color:"#f00"}} />
 		</Mask>
 	</>)
-	let qishu = '0 期';
+	let qishu = '';
 	if(gameData.qishu == '0'){
-		qishu="封盘中"
+		qishu=""
 	}else if(Object.keys(gameData).length){
-		qishu = gameData.qishu+"期"
+		qishu = gameData.qishu+" 距匹配"
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '项目记录' },
-		{ key: '/open/history', icon: <></>, text: '公益记录' }
+		{ key: '/record', icon:  <></>, text: '购单记录' },
+		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件
 	if(visibleSheet){
@@ -627,13 +605,55 @@ export default () => {
 					{kjHistoryList}
 				</div>
 				<Divider className='k3-name-list-head' />
+				
+				<div className='k3-title'>品种</div>
 				{HzHtml}
 				<Divider/>
-				<UserList/>
+				<div className='k3-title'>赞助商</div>
+				<Grid columns={4} gap={8} className='k3-kj'>
+					{[
+					"/sc/361d.png",
+					"/sc/at.png",
+					"/sc/bskl.png",
+					"/sc/gmdq.png",
+					"/sc/hw.png",
+					"/sc/mdkt.png",
+					"/sc/sfkd.png",
+					"/sc/tb.png",
+					"/sc/whhjt.png",
+					"/sc/xm.png",
+					"/sc/yynf.png",
+					"/sc/zrt.png",
+					].map((item,index:number)=>{
+          return <Grid.Item>
+						<Image className='k3-mall-img' src={item} />
+          </Grid.Item>
+					})}
+        </Grid>
+				{/* <UserList/> */}
 			</div>
 			<div className='App-footer'>
 				{touzhuHtml}
 			</div>
+			<Picker
+        columns={[
+					[
+						{ label: '1 倍', value: '1' },
+						{ label: '2 倍', value: '2' },
+						{ label: '4 倍', value: '4' },
+						{ label: '5 倍', value: '5' },
+						{ label: '10 倍', value: '10' },
+					]
+				]}
+        visible={visibleNum}
+        onClose={() => {
+          setVisibleNum(false)
+        }}
+        onConfirm={v => {
+					const select = Number(v[0]) 
+					setVisibleNumSelect(select)
+        }}
+      />
 		</div>
   )
 }

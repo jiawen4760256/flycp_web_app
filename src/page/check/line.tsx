@@ -161,7 +161,7 @@ export default () => {
                 <div className='check-status-txt'>
                   {line0[1]}
                 </div>
-                <Button color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff'}} onClick={()=>{selectLine(0)}}>
+                <Button className='check-button-login' color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff '}} onClick={()=>{selectLine(0)}}>
                   立即登录
                 </Button>
 
@@ -190,7 +190,7 @@ export default () => {
                 <div className='check-status-txt'>
                   {line1[1]}
                 </div>
-                <Button color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff'}} onClick={()=>{selectLine(1)}}>
+                <Button className='check-button-login' color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff'}} onClick={()=>{selectLine(1)}}>
                   立即登录
                 </Button>
 
@@ -219,7 +219,7 @@ export default () => {
                 <div className='check-status-txt'>
                   {line2[1]}
                 </div>
-                <Button color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff'}} onClick={()=>{selectLine(2)}}>
+                <Button className='check-button-login' color='primary' fill='outline' size='mini' style={{'--border-color': '#31a0c0','--text-color': '#fff'}} onClick={()=>{selectLine(2)}}>
                   立即登录
                 </Button>
 

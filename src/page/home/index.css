@@ -1,5 +1,5 @@
 .img-content {
-	height: 160px;
+	/* height: 220px; */
 	align-items: center;
 }
 .grid-demo-item-block {
@@ -84,7 +84,7 @@
 }
 .home-game-body{
 	margin-top: 5px;
-	background-color: #fff;
+	background-color: #f5fbf9;
 	padding: 10px;
 }
 
@@ -109,10 +109,72 @@
 }
 
 .home-logo{
-	height: 45px;
-	width: 150px;
+	height: 35px;
+	/* width: 150px; */
+	/* padding: 5px 0px; */
 	margin-left: -15px;
+	text-align: left;
 }
 .adm-tab-bar-icon-badge {
   --top: 6px !important;
+}
+
+.sc-button{
+	text-align: center;
+	font-size: 15px;
+	color: #727272;
+}
+.sc-button-img{
+	width: 50px;
+	margin: auto;
+	margin-bottom: 3px;
+}
+
+.sc-youhui{
+	margin: 5px;
+	margin-top: 10px;
+}
+
+.sc-jxhw{
+	margin: 25px auto;
+	width: 200px;
+}
+
+.sc-itme{
+	background-color: #fff;
+	padding:10px 0px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.sc-itme-img{
+	width: 110px;
+	margin: auto;
+	margin-top: 5px;
+}
+.sc-itme-title{
+	font-size: 16px;
+	color: #555;
+	padding: 3px 0px;
+	/* font-weight: 700; */
+}
+.sc-itme-desc{
+	font-size: 14px;
+	color: #a2a2a2;
+}
+.sc-type-list{
+	padding: 5px;
+	padding-bottom: 0px;
+}
+.sc-type{
+	text-align: center;
+	color: #fff;
+	/* background-size:100% 100%; */
+	/* height: 90px; */
+}
+.sc-type-name{
+	padding-top: 15px;
+}
+.sc-badge{
+	padding: 5px;
 }

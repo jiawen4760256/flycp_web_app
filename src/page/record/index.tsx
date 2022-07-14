@@ -110,9 +110,11 @@ export default () => {
 						</Grid>
 						<Grid columns={2} gap={8}>
 							<Grid.Item  className="record-expect">
+								<div>{item["tzcode"]}</div>
 								<div>{item["expect"]}</div>
 							</Grid.Item>
 							<Grid.Item className="record-amount">
+								<div>{item["okamount"]}</div>
 								<div>{item["amount"]}</div>
 							</Grid.Item>
 						</Grid>
@@ -166,7 +168,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>项目记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>购单记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Grid columns={2} gap={0} className='record-date'>
@@ -184,9 +186,9 @@ export default () => {
 						onSelect('','',key)
 					}}
 				>
-          <Tabs.Tab title='全部项目' key='0' />
-          <Tabs.Tab title='项目实施' key='1' />
-          <Tabs.Tab title='项目筹备' key='2' />
+          <Tabs.Tab title='全部购单' key='0' />
+          <Tabs.Tab title='已匹配' key='1' />
+          <Tabs.Tab title='匹配中' key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}
         </Tabs>
 				<div >

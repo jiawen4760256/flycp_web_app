@@ -36,9 +36,11 @@ import Proxy from './page/proxy';
 import ProxyTim from './page/proxy/tim';
 import ProxyMember from './page/proxy/member';
 import ProxyDay from './page/proxy/day';
+import Mall from './page/mall';
 import {getLoading} from './store';
 import "./App.css"
 import "./style.css"
+import "./font.css"
 import Api from './lib/Api';
 
 
@@ -88,6 +90,7 @@ function App() {
             <Route path="/proxy/tim"  element={<ProxyTim />} />
             <Route path="/proxy/member"  element={<ProxyMember />} />
             <Route path="/proxy/day"  element={<ProxyDay />} />
+            <Route path="/mall/:type"  element={<Mall />} />
             
           </Routes>
         </CSSTransition>

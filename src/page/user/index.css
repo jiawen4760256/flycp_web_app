@@ -5,12 +5,12 @@
     color:#fff;
 }
 .user-name{
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 5px;
 }
 .user-balance{
-    font-size: 15px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: 3px;
 }
 .user-img{
     float: left;
@@ -28,7 +28,7 @@
     margin-top: 18px;
     float:right;
     font-size: 14px;
-    background: linear-gradient(45deg,#f8c661,#6dbc88);
+    background: linear-gradient(45deg,#f8c661,#f4635e);
     width: 100px;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;

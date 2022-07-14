@@ -18,7 +18,7 @@ export default () => {
 	},[])
 	let navigate = useNavigate()
 	const params = useParams() 
-	const {kefu} = useSelector(getHomeList);
+	const {kefu,website_logo3} = useSelector(getHomeList);
 	
 	const [loading, setLoading] = useState(false)
 	let nameAndPwd = {name:(params['name']=='null'?"":params['name']),pwd:''}
@@ -66,6 +66,7 @@ export default () => {
 	if(localStorage.getItem("nameAndPwd")){
 		nameAndPwd = JSON.parse(localStorage.getItem("nameAndPwd")??"")
 	}
+	console.log(website_logo3)
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
@@ -73,7 +74,7 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
-					<Image lazy height={50} fit='scale-down'  src={demoSrc2} />
+					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={website_logo3} />}
 				</div>
 				<div>
 					<Form

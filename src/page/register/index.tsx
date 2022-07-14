@@ -17,7 +17,7 @@ import Auth from '../../lib/Auth';
 export default () => {
 	
 	const [loading, setLoading] = useState(false)
-	const {kefu} = useSelector(getHomeList);
+	const {kefu,website_logo3} = useSelector(getHomeList);
 	let navigate = useNavigate()
 	useEffect(() => {
 	},[])
@@ -64,7 +64,7 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
-					<Image lazy height={50} fit='scale-down' src={demoSrc2} />
+					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={website_logo3} />}
 				</div>
 				<div>
 					<Form

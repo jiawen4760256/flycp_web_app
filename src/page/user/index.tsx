@@ -81,15 +81,15 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='user-info' >
-					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '60px'}} onClick={()=>{navigate("/user/edit")}} />
+					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} onClick={()=>{navigate("/user/edit")}} />
           <div className='user-account'>
 						<div className='user-name'>
-							{userData['username']}&nbsp;
+							账号:{userData['username']}&nbsp;
 							{/* <Tag color='#fff' fill='outline'>
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>积分：{userData['balance']}</div>
+						<div className='user-balance'>积分:{userData['balance']}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
           <div className='user-vip'>
@@ -112,13 +112,13 @@ export default () => {
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
 								<HandPayCircleOutline className='user-button-icon' />
-								上分
+								<div style={{color:'#525252'}}>预购</div>
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/withdraw")}}>
 							<Space wrap align='center'>
 								<GiftOutline className='user-button-icon' />
-								兑换
+								<div style={{color:'#525252'}}>兑换</div>
 							</Space>
 						</Grid.Item>
 					</Grid>
@@ -126,7 +126,7 @@ export default () => {
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							项目记录
+							购单记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
 							积分明细
@@ -135,7 +135,7 @@ export default () => {
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							上分记录
+						  预购记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录

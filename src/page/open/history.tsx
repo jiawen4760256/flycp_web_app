@@ -87,25 +87,9 @@ export default () => {
 	}
 	if(historyData.length > 0){
 		historyHtml = historyData.map((item:any,index:any)=>{return(
-			<Grid columns={7} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
-				<Grid.Item span={2} >
-					{item.expect}
-				</Grid.Item>
-				<Grid.Item span={2}>
-					<Grid columns={3} gap={5} className='k3-kj-history-img'>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[0]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[1]+".png"} />
-						</Grid.Item>
-						<Grid.Item>
-							<Image  src={"/k3/"+item.opencode[2]+".png"} />
-						</Grid.Item>
-					</Grid>
-				</Grid.Item>
+			<Grid columns={3} gap={15} className={"k3-kj-history-row-"+(index%2)} key={index}>
 				<Grid.Item >
-					{item.hz}
+					{item.expect}
 				</Grid.Item>
 				<Grid.Item >
 					{item.dx}
@@ -117,21 +101,15 @@ export default () => {
 			</Grid>
 		)})
 		historyHeadHtml = (<div className='ks-kj-history'>
-			<Grid columns={7} gap={15}>
-				<Grid.Item span={2} className='ks-kj-history-qs'>
-					期数
-				</Grid.Item>
-				<Grid.Item span={2}>
-					公益号码
+			<Grid columns={3} gap={15}>
+				<Grid.Item className='ks-kj-history-qs'>
+					订单号
 				</Grid.Item>
 				<Grid.Item>
-					和值
+					品牌Ad+1/臻选Ax+1
 				</Grid.Item>
 				<Grid.Item>
-					大小
-				</Grid.Item>
-				<Grid.Item>
-					单双
+           单件/双件
 				</Grid.Item>
 			</Grid>
 		</div>)
@@ -181,7 +159,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>公益记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>品牌记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Grid columns={2} gap={0} className='record-date'>

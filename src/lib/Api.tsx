@@ -27,7 +27,7 @@ function homeList(params:any,dispatch:any){
 	.then(function (response) {
 		if(response.data.code == 0){
 			// console.log("data",response.data.data);
-			
+			document.title = response.data.data.website_name
 			dispatch(setHomeList(response.data.data))
 			setRecordType(response.data.data.list)
 		}

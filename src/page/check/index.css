@@ -51,7 +51,7 @@
 }
 
 .check-title-img{
-  width: 45%;
+  /* width: 45%; */
   margin: auto;
   padding-top: 120px;
 }
@@ -82,4 +82,10 @@
   width: 80%;
   margin: auto;
   margin-top: 60px;
+}
+.code-title{
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-family: cursive;
 }

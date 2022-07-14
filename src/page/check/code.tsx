@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar, Image,Form,Button,Space,Picker,Toast,Grid,InfiniteScroll,List,Empty,Tabs,Dialog,Input } from 'antd-mobile'
-import { ExclamationCircleOutline} from 'antd-mobile-icons'
+import { ExclamationCircleOutline,CheckShieldFill,CheckCircleOutline} from 'antd-mobile-icons'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -35,7 +35,7 @@ export default () => {
 
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "公益号错误！",
+				content: "vip编号错误！",
 			})
 		}
   }
@@ -43,18 +43,22 @@ export default () => {
 		<div className='App-main code-body' style={{"backgroundColor": "#e02c2c"}}>
 			<div style={{backgroundImage:`url(${demoSrc})`,backgroundSize:'100% 100%',width: "100%",height: "200px",marginTop:40}}>
 				<div  className='check-title-img'>
-					<Image src={titleImg} fit='scale-down' />
+					{/* <Image src={titleImg} fit='scale-down' /> */}
+					<div className='code-title'>
+						<CheckShieldFill /> vip编号
+						 
+					</div>
 				</div>
 			</div>
 			<div className='check-code'>
 				<Grid columns={4} gap={8} style={{height: '40px',lineHeight: '40px'}}>
           <Grid.Item span={1} style={{textAlign:'right',color:'#e61516',fontSize:'15px'}}>
-						公益号  :
+					编 号 :
           </Grid.Item>
           <Grid.Item span={3}>
 						<Input
 							style={{height: '40px',lineHeight: '40px'}}
-							placeholder='请输入公益号'
+							placeholder='请输入vip编号'
 							value={value}
 							onChange={val => {
 								setValue(val)

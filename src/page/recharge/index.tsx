@@ -40,14 +40,14 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='recharge-empty' description='请联系客服上分' />
+			<Empty className='recharge-empty' description='请联系客服预购' />
 		)
 	}
 	
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>上分选择</NavBar>
+      	<NavBar className='app-header' onBack={back}>预购选择</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}	

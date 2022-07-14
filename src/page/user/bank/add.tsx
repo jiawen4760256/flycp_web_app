@@ -118,10 +118,10 @@ export default () => {
 					</Form.Item>
 					<Form.Item
 						name='accountname'
-						label='姓名'
-						rules={[{ required: true, message: '姓名不能为空' }]}
+						label='开户姓名'
+						rules={[{ required: true, message: '开户姓名不能为空' }]}
 					>
-						<Input  placeholder='请输入姓名' />
+						<Input  placeholder='请输入开户姓名' />
 					</Form.Item>
 					<Form.Item
 						name='banknumber'
