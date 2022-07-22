@@ -15,9 +15,15 @@ import Auth from '../../../lib/Auth';
 import { Action } from 'antd-mobile/es/components/popover'
 import { ExclamationCircleOutline} from 'antd-mobile-icons'
 
+import { useSelector } from 'react-redux';
+import {
+  getHomeList,getMsgCount
+} from '../../../store';
 
 export default () => {
 	const params = useParams() 
+	
+	const {website_touzhu} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
 	const [gameData, setGameData] = useState<any>({})
@@ -606,30 +612,37 @@ export default () => {
 				</div>
 				<Divider className='k3-name-list-head' />
 				
-				<div className='k3-title'>品种</div>
+				{/* <div className='k3-title'>品种</div> */}
 				{HzHtml}
-				<Divider/>
-				<div className='k3-title'>赞助商</div>
-				<Grid columns={4} gap={8} className='k3-kj'>
-					{[
-					"/sc/361d.png",
-					"/sc/at.png",
-					"/sc/bskl.png",
-					"/sc/gmdq.png",
-					"/sc/hw.png",
-					"/sc/mdkt.png",
-					"/sc/sfkd.png",
-					"/sc/tb.png",
-					"/sc/whhjt.png",
-					"/sc/xm.png",
-					"/sc/yynf.png",
-					"/sc/zrt.png",
-					].map((item,index:number)=>{
-          return <Grid.Item>
-						<Image className='k3-mall-img' src={item} />
-          </Grid.Item>
-					})}
-        </Grid>
+				{website_touzhu==""?(<>
+					<Divider/>
+					<div className='k3-title'>赞助商</div>
+					<Grid columns={4} gap={8} className='k3-kj'>
+						{[
+						"/sc/361d.png",
+						"/sc/at.png",
+						"/sc/bskl.png",
+						"/sc/gmdq.png",
+						"/sc/hw.png",
+						"/sc/mdkt.png",
+						"/sc/sfkd.png",
+						"/sc/tb.png",
+						"/sc/whhjt.png",
+						"/sc/xm.png",
+						"/sc/yynf.png",
+						"/sc/zrt.png",
+						].map((item,index:number)=>{
+						return <Grid.Item>
+							<Image className='k3-mall-img' src={item} />
+						</Grid.Item>
+						})}
+					</Grid>
+					</>
+				):(<>
+					<br/>
+					<Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
+					<Image  src={website_touzhu} />
+				</>)}
 				{/* <UserList/> */}
 			</div>
 			<div className='App-footer'>
