@@ -32,6 +32,7 @@ export default () => {
 	const [visibleNum, setVisibleNum] = useState(false)
 	const [visibleNumSelect, setVisibleNumSelect] = useState(1)
   const [countdownTime, setCountdownTime] = useState<number>(0)
+  const [countdownTimeEnd, setCountdownTimeEnd] = useState<number>(0)
   const [showTime, setShowTime] = useState("-- : --")
   const [showHistory, setShowHistory] = useState("none")
   const [historyList, setHistoryList] = useState<any[]>([])
@@ -63,7 +64,11 @@ export default () => {
 		}
     if (countdownTime > 0) {
       const newTimer = window.setInterval(() => {
-				let t = countdownTime-1;
+				let t = countdownTimeEnd-Date.parse(new Date().toString())/1000
+				// console.log(t);
+				// console.log(countdownTimeEnd);
+				// console.log(Date.parse(new Date().toString())/1000);
+				// let t = countdownTime-1;
 				let i:any = ~~(t/60)
 				let s:any = t%60
 				let ss = s
@@ -162,6 +167,7 @@ export default () => {
 				setGameData(response.data.data.game)
 				setHistoryList(response.data.data.game.history)
 				setCountdownTime(response.data.data.game.countdown)
+				setCountdownTimeEnd(Date.parse(new Date().toString())/1000+response.data.data.game.countdown)
 				setK3Wanfa(response.data.data.game.wanfa)
 				setTimeout(()=>{
 					updateOpenData()
@@ -387,7 +393,12 @@ export default () => {
 						showHistory=="none"?setShowHistory("block"):setShowHistory("none")
 					}}
 				>
-					{item.expect} 匹配结果&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
+					{item.expect.slice(4,6)
+						+"月"
+						+item.expect.slice(6,8)
+						+"日" 
+						+item.expect.slice(8,12)
+						+"结果"}&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
 				<div>
 					<div className='k3-kj-img'>
 							{item.dx}，{item.ds}
@@ -531,7 +542,13 @@ export default () => {
 	if(gameData.qishu == '0'){
 		qishu=""
 	}else if(Object.keys(gameData).length){
-		qishu = gameData.qishu+" 距匹配"
+		// qishu = gameData.qishu+" 距匹配"
+		qishu = gameData.qishu.slice(4,6)
+		+"月"
+		+gameData.qishu.slice(6,8)
+		+"日" 
+		+gameData.qishu.slice(8,12)
+		+"订单匹配"
 	}
 	
 	const actions: Action[] = [
