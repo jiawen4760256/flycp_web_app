@@ -66,7 +66,7 @@ export default () => {
 	if(localStorage.getItem("nameAndPwd")){
 		nameAndPwd = JSON.parse(localStorage.getItem("nameAndPwd")??"")
 	}
-	console.log(website_logo3)
+	// console.log(website_logo3)
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >

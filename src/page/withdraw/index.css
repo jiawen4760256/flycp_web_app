@@ -70,3 +70,16 @@
     color:#555;
     margin-top:5px ;
 }
+.withdraw-info-body{
+    text-align: left;
+    padding: 20px;
+    font-size: 15px;
+}
+.withdraw-info-body span{
+    margin-left: 10px;
+    float: right;
+    max-width: 85%;
+}
+.withdraw-info-value1{
+    color: #757575;
+}

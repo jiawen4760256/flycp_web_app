@@ -68,7 +68,7 @@ export default () => {
 		historyHtml = (<>
 			<List className='history-list'>
 				{historyData.map((item:any, index) => (
-					<List.Item key={index}>
+					<List.Item key={index} onClick={()=>{Auth.navigate(navigate,'/withdraw/info/'+item.id)}} >
 						<Grid columns={3} gap={8}>
 							<Grid.Item span={2} className="history-list-name">
 								{(item["bankname"]=='无'?"兑换":<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>)}

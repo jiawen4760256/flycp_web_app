@@ -1,0 +1,14 @@
+.vip-title{
+    padding: 10px;
+    background-color: #eee;
+    text-align: center;
+}
+.vip-list{
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+.vip-my{
+    text-align: center;
+}

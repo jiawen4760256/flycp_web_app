@@ -14,7 +14,8 @@ import {
 	CheckShieldFill,
 	SoundOutline,
 	RightOutline,
-	ShopbagOutline
+	ShopbagOutline,
+	GiftOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -80,7 +81,7 @@ export default () => {
 			)
 		}
 	} )
-	console.log(website_hot)
+	// console.log(website_hot)
 	const gameList2 = list.map((game:any, index:any) =>{
 		if(index>7){
 			return (
@@ -190,15 +191,15 @@ export default () => {
     //   icon: <ContentOutline />,
     // },
     {
-      key: '/mall/0',
-      title: '商城',
-      icon: <ShopbagOutline />,
+      key: '/activity',
+      title: '活动',
+      icon: <GiftOutline />,
     },
     {
-      key: '/message',
-      title: '消息',
+      key: '/kefu',
+      title: '客服',
       icon: <MessageOutline />,
-			badge: msgCount,
+			// badge: msgCount,
     },
     {
       key: '/user',
@@ -215,7 +216,7 @@ export default () => {
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95}}>
-				<div className='img-content'>
+				{/* <div className='img-content'>
 					<Swiper autoplay loop >{items}</Swiper>
 				</div>
 				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
@@ -224,9 +225,9 @@ export default () => {
 						content={notice} 
 						extra={<RightOutline />}
 						color='alert' />
-				</div>
+				</div> */}
 				<div className='home-game-body'>
-					<Grid columns={4} gap={10} style={{marginTop:10}}>
+					{/* <Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
 							<div>热销商家</div>
@@ -243,29 +244,25 @@ export default () => {
 							<Image className='sc-button-img' src="/sc/button3.png" />
 							<div>在线客服</div>
 						</Grid.Item>
-					</Grid>
+					</Grid> */}
 				
-					<Image className='sc-youhui'  src="/sc/youhui.png" />
+					{/* <Image className='sc-youhui'  src="/sc/youhui.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							{/* <div className='sc-type-name' >公益专区</div> */}
 							<Image className='sc-type-img' src="/sc/type1.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							{/* <div className='sc-type-name'>品牌专区</div> */}
 							<Image className='sc-type-img' src="/sc/type2.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							{/* <div className='sc-type-name'>海外专区</div> */}
 							<Image className='sc-type-img' src="/sc/type3.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
-							{/* <div className='sc-type-name'>直播专区</div> */}
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
-					<br/>
+					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} /> */}
+					{/* <br/> */}
 					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
@@ -279,11 +276,19 @@ export default () => {
 			<div className='App-footer'>
 				<TabBar 			
 					onChange={(key: string) => {
-						Auth.navigate(navigate,key);
+						if(key == '/'){
+							return
+						}
+						if(key == '/kefu'){
+							window.location.href = kefu
+						}else{
+							Auth.navigate(navigate,key);
+						}
 					}}  
 				>
           {tabs.map(item => (
-            <TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge} />
+            // <TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge} />
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title}  />
           ))}
         </TabBar>
 			</div>

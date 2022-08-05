@@ -121,8 +121,8 @@ export default () => {
 							}}
 						>
 							<Tabs.Tab title='全部' key='0' />
-							<Tabs.Tab title='奖励' key='1' />
-							<Tabs.Tab title='购单' key='2' />
+							<Tabs.Tab title='收入' key='1' />
+							<Tabs.Tab title='支出' key='2' />
 						</Tabs>	
           </Grid.Item>
 					<Grid.Item span={1} className='adm-tabs fuddetail-type'>

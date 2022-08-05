@@ -38,10 +38,10 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar className='app-header' onBack={back}>代理中心</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-95,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 
 			<br/>
-				<div className='proxy-info'>
+				{/* <div className='proxy-info'>
 				<Grid columns={24} gap={0}>
           <Grid.Item span={5} className='proxy-key'>
 						我的下级
@@ -94,8 +94,8 @@ export default () => {
 						{data.recharge}
           </Grid.Item>
         </Grid>
-				</div>
-				<br/>
+				</div> */}
+				{/* <br/> */}
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/proxy/tim")}}>

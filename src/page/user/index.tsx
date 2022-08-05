@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag,Badge } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -21,12 +21,17 @@ import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux';
+import {
+  getHomeList,getMsgCount
+} from '../../store';
 
 export default () => {
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	const [userData, setUserData] = useState<any>("")
+	const [msgCount, setMsgCount] = useState(0)
 	const demoSrc = '/app/vip.png';
   const back = () =>{
 		navigate(-1);
@@ -37,6 +42,7 @@ export default () => {
 		.then(function (response) {
 			dispatch(setLoading(false))
 			setUserData(response);
+			setMsgCount(response.message)
 			localStorage.setItem("userInfo", JSON.stringify(response))
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -61,7 +67,7 @@ export default () => {
 	}
 	useEffect(() => {
 		userinfo()
-  },[])
+  },[msgCount])
 
 	let proxyHtml = <></>
 	if(userData['proxy'] == 1){
@@ -92,10 +98,12 @@ export default () => {
 						<div className='user-balance'>积分:{userData['balance']}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
+					{userData['jinjijilu_id']>0?<>
           <div className='user-vip'>
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
-						<div className='user-vip-txt'>{userData['jinjijilu']}</div>
+						<div className='user-vip-txt'>{userData['jinjijilu_name']}</div>
 					</div>
+					</>:<></>}
         </div>
 				{/* <List className='user-info'>
 					<List.Item
@@ -147,6 +155,9 @@ export default () => {
 						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
 							个人信息
 						</List.Item>
+						<List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
+							vip等级
+						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/bank.png' />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
 							银行卡管理
 						</List.Item>
@@ -156,7 +167,7 @@ export default () => {
 						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
 							密码设置
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} onClick={() => {Auth.navigate(navigate,"/message")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} extra={msgCount?<><Badge content={msgCount} /></>:<></>}  onClick={() => {Auth.navigate(navigate,"/message")}}>
 							站内信
 						</List.Item>
 					</List>

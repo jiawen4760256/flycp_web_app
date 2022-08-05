@@ -143,7 +143,7 @@ export default () => {
 		}else{
 			tmp[typeid] = value
 		}
-		console.log(tmp)
+		// console.log(tmp)
 		setTouzhu(tmp)
 	}
 

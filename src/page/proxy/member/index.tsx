@@ -148,27 +148,59 @@ export default () => {
 					<div  className='proxy-member-info'>
 						<Grid columns={24} gap={0}>
 							<Grid.Item span={5} className='proxy-key'>
-								总彩金
+								存款总额
 							</Grid.Item>
 							<Grid.Item span={19} className='proxy-value'>
-								{(item.addAmount-item.reduceAmount).toFixed(2)}
+								{(item.type1Total).toFixed(2)}
 							</Grid.Item>
+							{item.type1.map((item1:any,index:number)=>{
+								return <>
+								<Grid.Item span={5} className='proxy-key'>
+									{item1.typename}
+								</Grid.Item>
+								<Grid.Item span={7} className='proxy-value'>
+									{item1.amount}
+								</Grid.Item>
+								<Grid.Item span={5} className='proxy-key'>
+									次数
+								</Grid.Item>
+								<Grid.Item span={7} className='proxy-value'>
+									{item1.count}
+								</Grid.Item>
+								</>
 
-							<Grid.Item span={5} className='proxy-key'>
-								加彩金
-							</Grid.Item>
-							<Grid.Item span={7} className='proxy-value'>
-								{item.addAmount}
-							</Grid.Item>
-							<Grid.Item span={5} className='proxy-key'>
-								减金额
-							</Grid.Item>
-							<Grid.Item span={7} className='proxy-value'>
-								{item.reduceAmount}
-							</Grid.Item>
+							})}
 						</Grid>
 					</div>
-					</Collapse.Panel>
+					<br/>
+					<div  className='proxy-member-info'>
+						<Grid columns={24} gap={0}>
+							<Grid.Item span={5} className='proxy-key'>
+								提款总额
+							</Grid.Item>
+							<Grid.Item span={19} className='proxy-value'>
+								{(item.type2Total).toFixed(2)}
+							</Grid.Item>
+							{item.type2.map((item1:any,index:number)=>{
+								return <>
+								<Grid.Item span={5} className='proxy-key'>
+									{item1.typename}
+								</Grid.Item>
+								<Grid.Item span={7} className='proxy-value'>
+									{item1.amount}
+								</Grid.Item>
+								<Grid.Item span={5} className='proxy-key'>
+									次数
+								</Grid.Item>
+								<Grid.Item span={7} className='proxy-value'>
+									{item1.count}
+								</Grid.Item>
+								</>
+
+							})}
+						</Grid>
+					</div>
+				</Collapse.Panel>
 				))}
 			</Collapse>
 			

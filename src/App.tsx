@@ -10,10 +10,12 @@ import Register from './page/register';
 import User from './page/user';
 import UserInfo from './page/user/info';
 import UserEdit from './page/user/edit';
+import UserVip from './page/user/vip';
 import Bank from './page/user/bank';
 import BankAdd from './page/user/bank/add';
 import Withdraw from './page/withdraw';
 import WithdrawHistory from './page/withdraw/history';
+import WithdrawInfo from './page/withdraw/info';
 import Activity from './page/activity';
 import ActivityInfo from './page/activity/info';
 import Recharge from './page/recharge';
@@ -64,10 +66,12 @@ function App() {
             <Route path="/user"  element={<User />} />
             <Route path="/user/info"  element={<UserInfo />} />
             <Route path="/user/edit"  element={<UserEdit />} />
+            <Route path="/user/vip"  element={<UserVip />} />
             <Route path="/bank"  element={<Bank />} />
             <Route path="/bank/add"  element={<BankAdd />} />
             <Route path="/withdraw"  element={<Withdraw />} />
             <Route path="/withdraw/history"  element={<WithdrawHistory />} />
+            <Route path="/withdraw/info/:id" element={<WithdrawInfo />} />
             <Route path="/activity"  element={<Activity />} />
             <Route path="/activity/info/:id"  element={<ActivityInfo />} />
             <Route path="/recharge"  element={<Recharge />} />

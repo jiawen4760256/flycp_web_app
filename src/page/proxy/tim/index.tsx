@@ -19,7 +19,7 @@ export default () => {
 	const [page, setPage] = useState(1)
 	const [dateformat1, setformatDate1] = useState(moment(now1).format('YYYY-MM-DD'))
 	const [dateformat2, setformatDate2] = useState(moment(now2).format('YYYY-MM-DD'))
-	const [data, setData] = useState<any>({})
+	const [data, setData] = useState<any>({rechargeType:[],withdrawType:[]})
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
 	Auth.page(navigate)
@@ -57,7 +57,7 @@ export default () => {
 		localStorage.setItem('dateformat2',dateformat2)
 		setPage(1)
 		console.log(page,"page");
-		setData({})
+		setData({rechargeType:[],withdrawType:[]})
 		getHistory()
 	}
 	const selectDate=()=>{
@@ -103,7 +103,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>团队报表</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-95,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				<div className='history-day'>
 					<Space wrap	>	
 						<>
@@ -244,23 +244,54 @@ export default () => {
 				<div  className='proxy-info'>
 					<Grid columns={24} gap={0}>
 						<Grid.Item span={5} className='proxy-key'>
-							总彩金
+							存款总额
 						</Grid.Item>
 						<Grid.Item span={19} className='proxy-value proxy-total'>
-							{(data.add-data.reduce).toFixed(2)}
+							{data.rechargeTotal}
 						</Grid.Item>
+						{data.rechargeType.map((item:any,index:number)=>{
+							return <>
+							<Grid.Item span={5} className='proxy-key'>
+								{item.typename}
+							</Grid.Item>
+							<Grid.Item span={7} className='proxy-value'>
+								{item.amount}
+							</Grid.Item>
+							<Grid.Item span={5} className='proxy-key'>
+								次数
+							</Grid.Item>
+							<Grid.Item span={7} className='proxy-value'>
+								{item.count}
+							</Grid.Item>
+							</>
+						})}
+					</Grid>
+				</div>
+				<br/>
+				<div  className='proxy-info'>
+					<Grid columns={24} gap={0}>
 						<Grid.Item span={5} className='proxy-key'>
-							加彩金
+							提款总额
 						</Grid.Item>
-						<Grid.Item span={7} className='proxy-value'>
-							{data.add}
+						<Grid.Item span={19} className='proxy-value proxy-total'>
+							{data.withdrawTotal}
 						</Grid.Item>
-						<Grid.Item span={5} className='proxy-key'>
-							减彩金
-						</Grid.Item>
-						<Grid.Item span={7} className='proxy-value'>
-							{data.reduce}
-						</Grid.Item>
+						{data.withdrawType.map((item:any,index:number)=>{
+							return <>
+							<Grid.Item span={5} className='proxy-key'>
+								{item.typename}
+							</Grid.Item>
+							<Grid.Item span={7} className='proxy-value'>
+								{item.amount}
+							</Grid.Item>
+							<Grid.Item span={5} className='proxy-key'>
+								次数
+							</Grid.Item>
+							<Grid.Item span={7} className='proxy-value'>
+								{item.count}
+							</Grid.Item>
+							</>
+						})}
 					</Grid>
 				</div>
 			</div>
