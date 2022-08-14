@@ -94,13 +94,14 @@ export default () => {
       },500)
       
       setTimeout(()=>{
+        let p = localStorage.getItem('p')?.toString()
         if(LineUrl == ''){
           let LineUrl1 = localStorage.getItem('apiUrl')?.toString()
           if(LineUrl1){
-            window.location.href = LineUrl1+'?c=1'
+            window.location.href = LineUrl1+'?c=1&p='+p
           }
         }else{
-          window.location.href = LineUrl+'?c=1'
+          window.location.href = LineUrl+'?c=1&p='+p
         }
       },5000)
 
@@ -126,7 +127,8 @@ export default () => {
     // })
   }
   const selectLine = (id:number)=>{
-    window.location.href = appUrl[id]+"?c=1"
+    let p = localStorage.getItem('p')?.toString()
+    window.location.href = appUrl[id]+"?c=1&p="+p
   }
   return (
 		<div className='App-main' style={{backgroundImage:`url(${demoSrc})`,backgroundSize:'100% 100%'}}>

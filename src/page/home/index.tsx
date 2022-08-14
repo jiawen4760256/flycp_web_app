@@ -35,7 +35,6 @@ export default () => {
 	const msgCount = useSelector(getMsgCount)
 	const dispatch = useDispatch()
   const navigate = useNavigate()
-	Check(navigate)
 	// console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
@@ -103,6 +102,7 @@ export default () => {
 		}
 	} )
 	useEffect(() => {
+		Check(navigate)
 		if(list.length == 0){
 			dispatch(setLoading(true))
 		}else{

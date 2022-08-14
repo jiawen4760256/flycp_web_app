@@ -9,6 +9,11 @@ function getQueryVariable(variable:string)
   return(false);
 }
 export default (navigate:any)=>{
+  let p = getQueryVariable('p')
+  console.log(p,'p')
+  if(p){
+    localStorage.setItem('p',p)
+  }
   if(!localStorage.getItem("checkCode")){
     let checkCode = getQueryVariable('c')
     if(checkCode){

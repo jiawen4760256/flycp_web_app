@@ -18,6 +18,7 @@ export default () => {
 	
 	const [loading, setLoading] = useState(false)
 	const {kefu,website_logo3} = useSelector(getHomeList);
+	const [parentid, setParentid] = useState(localStorage.getItem('p')?.toString())
 	let navigate = useNavigate()
 	useEffect(() => {
 	},[])
@@ -28,6 +29,9 @@ export default () => {
 	const submit = function(values:any){
 		setLoading(true)
 		console.log(values);
+		if(parentid){
+			values.parentid = parentid
+		}
 		axios.post(Api.address()+'home/register', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
@@ -76,6 +80,7 @@ export default () => {
 							</Button>
 						}
 					>
+						{(!parentid || parentid=="0")?<>
 						<Form.Item
 							name='pid'
 							label='邀请码'
@@ -83,6 +88,7 @@ export default () => {
 						>
 							<Input placeholder='请输入邀请码' />
 						</Form.Item>
+						</>:<></>}
 						<Form.Item
 							name='name'
 							label='账号'
