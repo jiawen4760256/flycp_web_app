@@ -94,7 +94,7 @@ export default () => {
       },500)
       
       setTimeout(()=>{
-        let p = localStorage.getItem('p')?.toString()
+        let p = localStorage.getItem('p')?.toString()??""
         if(LineUrl == ''){
           let LineUrl1 = localStorage.getItem('apiUrl')?.toString()
           if(LineUrl1){
@@ -127,7 +127,7 @@ export default () => {
     // })
   }
   const selectLine = (id:number)=>{
-    let p = localStorage.getItem('p')?.toString()
+    let p = localStorage.getItem('p')?.toString()??""
     window.location.href = appUrl[id]+"?c=1&p="+p
   }
   return (

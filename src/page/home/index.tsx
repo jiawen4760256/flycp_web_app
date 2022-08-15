@@ -191,15 +191,15 @@ export default () => {
     //   icon: <ContentOutline />,
     // },
     {
-      key: '/activity',
-      title: '活动',
-      icon: <GiftOutline />,
+      key: '/mall/0',
+      title: '商城',
+      icon: <ShopbagOutline />,
     },
     {
-      key: '/kefu',
-      title: '客服',
+			key: '/message',
+      title: '消息',
       icon: <MessageOutline />,
-			// badge: msgCount,
+			badge: msgCount,
     },
     {
       key: '/user',
@@ -216,7 +216,7 @@ export default () => {
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95}}>
-				{/* <div className='img-content'>
+				<div className='img-content'>
 					<Swiper autoplay loop >{items}</Swiper>
 				</div>
 				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
@@ -225,9 +225,9 @@ export default () => {
 						content={notice} 
 						extra={<RightOutline />}
 						color='alert' />
-				</div> */}
+				</div>
 				<div className='home-game-body'>
-					{/* <Grid columns={4} gap={10} style={{marginTop:10}}>
+					<Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
 							<div>热销商家</div>
@@ -244,9 +244,9 @@ export default () => {
 							<Image className='sc-button-img' src="/sc/button3.png" />
 							<div>在线客服</div>
 						</Grid.Item>
-					</Grid> */}
+					</Grid>
 				
-					{/* <Image className='sc-youhui'  src="/sc/youhui.png" />
+					<Image className='sc-youhui'  src="/sc/youhui.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							<Image className='sc-type-img' src="/sc/type1.png" />
@@ -261,7 +261,7 @@ export default () => {
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} /> */}
+					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
@@ -287,8 +287,8 @@ export default () => {
 					}}  
 				>
           {tabs.map(item => (
-            // <TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge} />
-            <TabBar.Item key={item.key} icon={item.icon} title={item.title}  />
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge} />
+            // <TabBar.Item key={item.key} icon={item.icon} title={item.title}  />
           ))}
         </TabBar>
 			</div>

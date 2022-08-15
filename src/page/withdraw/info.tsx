@@ -42,15 +42,15 @@ export default () => {
 		html = (<div className='withdraw-info-body' style={{}}>
 			<>
 				<div>
-					单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
+					订单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
         </div>
 				<br/>
 				<div >
-					金额:<span className='withdraw-info-value1'>{htmlData.amount}</span>
+					兑换金额:<span className='withdraw-info-value1'>{htmlData.amount}</span>
         </div>
 				<br/>
 				<div >
-					状态:			
+					兑换状态:			
 					{(htmlData.state=="1"?<Tag color='primary' fill='outline'>
 						正在审核
 					</Tag>:"")}
@@ -63,19 +63,27 @@ export default () => {
         </div>
 				<br/>
 				<div >
-				姓名:<span className='withdraw-info-value1'>{htmlData.accountname}</span>
+				银行卡姓名:<span className='withdraw-info-value1'>{htmlData.accountname}</span>
         </div>
 				<br/>
 				<div >
-				卡号:<span className='withdraw-info-value1'>{htmlData.banknumber}</span>
+				银行卡名称:<span className='withdraw-info-value1'>{htmlData.bankname}</span>
         </div>
 				<br/>
 				<div >
-				时间:<span className='withdraw-info-value1'>{htmlData.oddtime}</span>
+				银行卡支行:<span className='withdraw-info-value1'>{htmlData.bankbranch}</span>
         </div>
 				<br/>
 				<div >
-				详情:<span className='withdraw-info-value1'>{htmlData.remark1}</span>
+				银行卡号:<span className='withdraw-info-value1'>{htmlData.banknumber}</span>
+        </div>
+				<br/>
+				<div >
+				兑换时间:<span className='withdraw-info-value1'>{htmlData.oddtime}</span>
+        </div>
+				<br/>
+				<div >
+				兑换详情:<span className='withdraw-info-value1'>{htmlData.remark1}</span>
         </div>
 			</>
 		</div>)
