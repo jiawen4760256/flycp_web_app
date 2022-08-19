@@ -143,7 +143,7 @@ export default () => {
 							}}
 						</Picker>
 					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>银行卡号</div>)} onClick={selectBank}>
+					<List.Item  prefix={(<div className='withdraw-bank'>收款人</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns1}
 							visible={visible1}
@@ -158,14 +158,14 @@ export default () => {
 						>
 							{items => {
 								if (items.every(item => item === null)) {
-									return (<span className='withdraw-span'>请选择银行卡号</span>)
+									return (<span className='withdraw-span'>请选择收款人</span>)
 								} else {
-									return items.map(item => item?.label ?? '请选择银行卡号').join(' - ')
+									return items.map(item => item?.label ?? '请选择收款人').join(' - ')
 								}
 							}}
 						</Picker>
 					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>收款人</div>)} onClick={selectBank}>
+					<List.Item  prefix={(<div className='withdraw-bank'>银行卡号</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns2}
 							visible={visible2}
@@ -181,9 +181,9 @@ export default () => {
 						>
 							{items => {
 								if (items.every(item => item === null)) {
-									return (<span className='withdraw-span'>请选择收款人</span>)
+									return (<span className='withdraw-span'>请选择银行卡号</span>)
 								} else {
-									return items.map(item => item?.label ?? '请选择收款人').join(' - ')
+									return items.map(item => item?.label ?? '请选择银行卡号').join(' - ')
 								}
 							}}
 						</Picker>

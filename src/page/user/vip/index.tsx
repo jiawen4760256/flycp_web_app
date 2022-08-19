@@ -33,6 +33,36 @@ export default () => {
 	useEffect(() => {
 		getUserVip()
   },[])
+	return (
+		<div className='App-main'>
+			<header className="App-header"  >
+      	<NavBar className='app-header' onBack={back}>vip等级</NavBar>
+			</header>
+			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+						
+						<Grid columns={2} gap={8} className='vip-title'>
+							<Grid.Item>
+								 等级名称
+							</Grid.Item>
+							<Grid.Item>
+								 等级积分
+							</Grid.Item>
+						</Grid>
+						<Grid columns={2} gap={0} >
+							{vipData['vip'].map((item:any,index:number)=>{
+								return <>
+									<Grid.Item className='vip-list'>
+										{item.groupname}
+									</Grid.Item>
+									<Grid.Item className='vip-list'>
+										{item.shengjiedu}
+									</Grid.Item>
+								</>
+							})}
+						</Grid>
+			</div>
+		</div>
+	)
 
 	return (
 		<div className='App-main'>
