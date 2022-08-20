@@ -74,6 +74,7 @@ export default () => {
 					<Form
 						onFinish = {submit}
 						layout='horizontal'
+						// layout='vertical'
 						footer={
 							<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
 								创建账户
@@ -94,7 +95,7 @@ export default () => {
 							label='账号'
 							rules={[{ required: true, message: '账号不能为空' }]}
 						>
-							<Input  placeholder='请输入6到10位字母和数字' />
+							<Input  placeholder='需要字母+数字，最多10位数' />
 						</Form.Item>
 						<Form.Item
 							name='pwd'
