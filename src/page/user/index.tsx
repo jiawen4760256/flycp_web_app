@@ -39,7 +39,7 @@ export default () => {
 	const userinfo = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'user/info')
-		.then(function (response) {
+		.then(function (response:any) {
 			dispatch(setLoading(false))
 			setUserData(response);
 			setMsgCount(response.message)
@@ -123,7 +123,17 @@ export default () => {
 								<div style={{color:'#525252'}}>预购</div>
 							</Space>
 						</Grid.Item>
-						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/withdraw")}}>
+						<Grid.Item onClick={()=>{
+							
+							dispatch(setLoading(true))
+							Auth.ajax(navigate,'user/ban-withdraw')
+							.then(function (response) {
+								dispatch(setLoading(false))
+								Auth.navigate(navigate,"/withdraw")
+							}).catch(function (error) {
+								dispatch(setLoading(false))
+							})
+						}}>
 							<Space wrap align='center'>
 								<GiftOutline className='user-button-icon' />
 								<div style={{color:'#525252'}}>兑换</div>
