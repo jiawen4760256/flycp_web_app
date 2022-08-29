@@ -18,7 +18,7 @@ try {
     "Authorization: Basic " . base64_encode("admin:admin168"),
     );
     
-    $url = "http://202.95.15.135:8080/remote.php/dav/files/admin/flycp/".$file;
+    $url = "http://137.220.219.23:8080/remote.php/dav/files/admin/flycp/".$file;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
