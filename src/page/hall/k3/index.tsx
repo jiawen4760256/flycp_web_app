@@ -511,13 +511,13 @@ export default () => {
           </Button>
 				</Grid.Item>
 				<Grid.Item span={2}>
-					<div>
+					{/* <div>
 						<Space wrap className='touzhu-button-glod'>
 							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
 							<div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div>
 							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>积分</div>
 						</Space>
-					</div>
+					</div> */}
 					<div>
 						<Space wrap className='touzhu-button-glod'>
 							<div>我的积分：</div>

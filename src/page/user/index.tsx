@@ -16,6 +16,7 @@ import {
 	GlobalOutline,
 	CloseCircleOutline,
 	BankcardOutline,
+	HeartOutline,
 } from 'antd-mobile-icons'
 import './index.css'
 import Auth from '../../lib/Auth';
@@ -119,8 +120,8 @@ export default () => {
 					<Grid columns={2} gap={8} className="user-button">
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
-								<HandPayCircleOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>预购</div>
+								<HeartOutline className='user-button-icon' />
+								<div style={{color:'#525252'}}>捐赠助力</div>
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{
@@ -153,7 +154,7 @@ export default () => {
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-						  预购记录
+							捐赠助力记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录
