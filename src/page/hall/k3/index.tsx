@@ -207,8 +207,62 @@ export default () => {
 		})
 	}
 
+
+	const showSubmit=()=>{
+		if(gameData.qishu == '0'){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "暂停中，无法操作",
+			})
+			return
+			
+		}
+		let amount = Number(value)*visibleNumSelect
+
+		// console.log(values)
+		if(Object.keys(touzhu).length == 0){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "请选择号码！",
+			})
+			return
+		}
+		if(!localStorage.getItem("token")){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "您尚未登陆！",
+			})
+			return
+		}
+		
+		if(!amount){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "请输入积分！",
+			})
+			return
+		}
+		
+		Dialog.confirm({
+			content: <>
+				<div className='k3-confirm-title'>购单确认</div>
+				<Divider />
+				<div className='k3-confirm-text'>公益活动：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>购单总额：{amount*Object.keys(touzhu).length}元</div>
+				<div className='k3-confirm-text'>购单内容：
+					{k3Wanfa.map((item:any,index:number)=>{
+						if(touzhu[item.playid]){
+							return  item.title+" "
+						}
+					})}
+				</div>
+			</>,
+			onConfirm: submit
+		})
+	}
+
 	//投注提交
-	const submit = ()=>{
+	const submit =async()=>{
 		if(gameData.qishu == '0'){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -252,7 +306,7 @@ export default () => {
 
 		
 		setLoading(true)
-		axios.post(Api.address()+'user/touzhu', Qs.stringify(values),Auth.verify(values))
+		await	axios.post(Api.address()+'user/touzhu', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
@@ -526,7 +580,7 @@ export default () => {
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right'>
-					<Button color='danger'  size='small' onClick={submit} loading={loading}>确定</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>确定</Button>
 				</Grid.Item>
 			</Grid>
 		</div>

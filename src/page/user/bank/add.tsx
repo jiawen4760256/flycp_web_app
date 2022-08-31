@@ -151,13 +151,6 @@ export default () => {
 						<Input placeholder='请输入卡号' />
 					</Form.Item>
 					<Form.Item
-						name='banknumber2'
-						label='确认卡号'
-						rules={[{ required: true, message: '确认卡号不能为空' }]}
-					>
-						<Input placeholder='请输入确认卡号' />
-					</Form.Item>
-					<Form.Item
 						name='pwd'
 						label='资密'
 						rules={[{ required: true, message: '资密不能为空' }]}
