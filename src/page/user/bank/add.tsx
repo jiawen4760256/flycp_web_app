@@ -129,13 +129,13 @@ export default () => {
 							}}
 						</Picker> */}
 					</Form.Item>
-					<Form.Item
+					{/* <Form.Item
 						name='bankaddress'
 						label='开户地点'
 						rules={[{ required: true, message: '开户地点不能为空' }]}
 					>
 						<Input placeholder='请输入开户地点' />
-					</Form.Item>
+					</Form.Item> */}
 					<Form.Item
 						name='accountname'
 						label='开户姓名'

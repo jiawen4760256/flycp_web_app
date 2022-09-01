@@ -70,12 +70,12 @@ export default () => {
 						<Grid.Item span={2}>
 							<div>{item['accountname']}</div>
 						</Grid.Item>
-						<Grid.Item>
+						{/* <Grid.Item>
 							<div>开户支行：</div>
 						</Grid.Item>
 						<Grid.Item span={2}>
 							<div>{item['bankaddress']}</div>
-						</Grid.Item>
+						</Grid.Item> */}
 						<Grid.Item>
 							<div>银行卡号：</div>
 						</Grid.Item>
