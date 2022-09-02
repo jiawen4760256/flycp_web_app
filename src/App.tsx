@@ -44,16 +44,48 @@ import "./App.css"
 import "./style.css"
 import "./font.css"
 import Api from './lib/Api';
+import Auth from './lib/Auth';
+import {useNavigate} from 'react-router-dom'
 
+import { setLoading,setMsgCount,setBalance,getMsgCount } from './store';	
+let intervalApp:any = 0
 
 function App() {
   const dispatch = useDispatch();
 	const loading = useSelector(getLoading);
+  
+	const msgCount = useSelector(getMsgCount)
+  const navigate = useNavigate()
   // console.log('loading',loading)
   useEffect(() => {
     Api.homeList({},dispatch)
   },[])
+	const getPingInfo = function(){
+		if(localStorage.getItem("token")){
+			Auth.ajax(navigate,'user/ping')
+			.then(function (response:any) {
+				if(msgCount != response.message){
+					dispatch(setMsgCount(response.message))
+				}
+				let userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
+				userInfo.balance = response.balance
+				dispatch(setBalance(response.balance))
+				localStorage.setItem("userInfo", JSON.stringify(userInfo))
+			})
 
+		}
+	}
+  useEffect(() => {
+		
+		getPingInfo()
+		if(!intervalApp){
+			console.log('启动定时器')
+			window.clearInterval(intervalApp)
+			intervalApp = window.setInterval(() => {
+				getPingInfo()
+			}, 10000);
+		}
+  },[])
   let location = useLocation();
   return (
     <div>

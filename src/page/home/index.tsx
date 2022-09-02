@@ -27,7 +27,7 @@ import "./index.css"
 import Auth from '../../lib/Auth';
 import Check from '../../lib/Check'
 import About from '../about'
-import { setLoading,setMsgCount } from '../../store';		
+import { setLoading,setMsgCount,setBalance } from '../../store';		
 import {useDispatch } from 'react-redux';
 let interval:any = 0
 export default () => {
@@ -127,22 +127,23 @@ export default () => {
 				}
 				let userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
 				userInfo.balance = response.balance
+				dispatch(setBalance(response.balance))
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
 			})
 
 		}
 	}
-  useEffect(() => {
+  // useEffect(() => {
 		
-		getPingInfo()
-		if(!interval){
-			console.log('启动定时器')
-			window.clearInterval(interval)
-			interval = window.setInterval(() => {
-				getPingInfo()
-			}, 10000);
-		}
-  },[])
+	// 	getPingInfo()
+	// 	if(!interval){
+	// 		console.log('启动定时器')
+	// 		window.clearInterval(interval)
+	// 		interval = window.setInterval(() => {
+	// 			getPingInfo()
+	// 		}, 10000);
+	// 	}
+  // },[])
 	let right = (
 		<div 
 			onClick={() => {

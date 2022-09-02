@@ -17,11 +17,14 @@ import { ExclamationCircleOutline} from 'antd-mobile-icons'
 
 import { useSelector } from 'react-redux';
 import {
-  getHomeList,getMsgCount
+  getHomeList,getMsgCount,getBalance,setBalance
 } from '../../../store';
+import {useDispatch } from 'react-redux';
 
 export default () => {
 	const params = useParams() 
+	const balance = useSelector(getBalance)
+	const dispatch = useDispatch()
 	
 	const {website_touzhu} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
@@ -107,6 +110,12 @@ export default () => {
 
 
 	useEffect(() => {
+		if(localStorage.getItem("token")){
+				let userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
+				dispatch(setBalance(userInfo.balance))
+		}else{
+			dispatch(setBalance("-"))
+		}
 		getHtmlData(gameName)
 	},[])
 
@@ -311,6 +320,7 @@ export default () => {
 			setLoading(false)
 			if(response.data.code == 0){
 				userInfo.balance = response.data.data.balance
+				dispatch(setBalance(userInfo.balance))
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
 				setTouzhu({})
 				Toast.show({
@@ -573,9 +583,11 @@ export default () => {
 						</Space>
 					</div> */}
 					<div>
-						<Space wrap className='touzhu-button-glod'>
+						<Space wrap className='touzhu-button-glod' onClick={()=>{
+
+						}}>
 							<div>我的积分：</div>
-							<div className='touzhu-button-number'>{userInfo.balance}</div>
+							<div className='touzhu-button-number'>{balance}</div>
 						</Space>
 					</div>
 				</Grid.Item>

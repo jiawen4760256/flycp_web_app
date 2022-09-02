@@ -24,11 +24,12 @@ import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux';
 import {
-  getHomeList,getMsgCount
+  getHomeList,getMsgCount,getBalance,setBalance
 } from '../../store';
 
 export default () => {
 	const dispatch = useDispatch()
+	const balance = useSelector(getBalance)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	const [userData, setUserData] = useState<any>("")
@@ -44,6 +45,8 @@ export default () => {
 			dispatch(setLoading(false))
 			setUserData(response);
 			setMsgCount(response.message)
+			
+			dispatch(setBalance(response.balance))
 			localStorage.setItem("userInfo", JSON.stringify(response))
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -61,6 +64,7 @@ export default () => {
 			})
 			localStorage.removeItem("userInfo")
 			localStorage.removeItem("token")
+			dispatch(setBalance("-"))
 			navigate(-1);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -96,7 +100,7 @@ export default () => {
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>积分:{userData['balance']}</div>
+						<div className='user-balance'>积分:{balance}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
 					{userData['jinjijilu_id']>0?<>
