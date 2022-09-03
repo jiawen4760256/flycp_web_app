@@ -23,7 +23,7 @@ import {
 export default () => {
 	const params = useParams() 
 	
-	const {website_touzhu} = useSelector(getHomeList);
+	const {website_touzhu,wanfaName} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
 	const [gameData, setGameData] = useState<any>({})
@@ -429,10 +429,10 @@ export default () => {
 					订单号
 				</Grid.Item>
 				<Grid.Item>
-					品牌Ad+1/臻选Ax+1
+					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
 				</Grid.Item>
 				<Grid.Item>
-           单件/双件
+					{wanfaName?.k3hzodd}/{wanfaName?.k3hzeven}
 				</Grid.Item>
 			</Grid>
 		</div>)

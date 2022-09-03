@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 import moment from "moment";
 import './index.css'
-import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getHomeList } from '../../store'
+import {useDispatch,useSelector } from 'react-redux'
 import axios from 'axios';
 import Qs from 'qs'
 import Api from '../../lib/Api'
@@ -26,6 +26,8 @@ export default () => {
 	const [hasMore, setHasMore] = useState(true)
 	const [visible, setVisible] = useState(false)
 	const dispatch = useDispatch()
+	
+	const {wanfaName} = useSelector(getHomeList);
 	let navigate = useNavigate()
 	const recordTypeList = JSON.parse(localStorage.getItem("list")??"[]")
 	const [recordName, setRecordName] = useState<string>(params['name']??"")
@@ -106,10 +108,10 @@ export default () => {
 					订单号
 				</Grid.Item>
 				<Grid.Item>
-					品牌Ad+1/臻选Ax+1
+					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
 				</Grid.Item>
 				<Grid.Item>
-           单件/双件
+					{wanfaName?.k3hzodd}/{wanfaName?.k3hzeven}
 				</Grid.Item>
 			</Grid>
 		</div>)
