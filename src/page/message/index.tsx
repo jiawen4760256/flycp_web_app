@@ -120,7 +120,8 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' right={right} onBack={back}>站内信</NavBar>
+      	{/* <NavBar className='app-header' right={right} onBack={back}>站内信</NavBar> */}
+      	<NavBar className='app-header'  onBack={back}>站内信</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Tabs className='record-type' 

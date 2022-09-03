@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge} from 'antd-mobile'
+import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Dialog} from 'antd-mobile'
 import { 
 	AlipaySquareFill,
 	EditSFill,
@@ -60,10 +60,26 @@ export default () => {
 	// 		</Grid.Item>
 	// 	</Badge>
 	// ))
+	const checkLogin=()=>{
+		if(localStorage.getItem("token")){
+			return true;
+		}else{
+			Dialog.alert({
+				content: <div className='check-login'>
+					<h3>温馨提示</h3>
+					<div>请先登录才能查看</div>
+				</div>,
+				onConfirm: () => {
+					// console.log('Confirmed')
+				},
+			})
+		}
+	}
+
 	const gameList1 = list.map((game:any, index:any) =>{
 		if(index < 8){
 			return (
-				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
+				<Grid.Item  onClick={()=>{if(checkLogin())navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
@@ -84,7 +100,7 @@ export default () => {
 	const gameList2 = list.map((game:any, index:any) =>{
 		if(index>7){
 			return (
-				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
+				<Grid.Item  onClick={()=>{if(checkLogin())navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
@@ -219,7 +235,7 @@ export default () => {
 				<div className='img-content'>
 					<Swiper autoplay loop >{items}</Swiper>
 				</div>
-				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
+				<div onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/notice")}}>
 					<NoticeBar 
 						icon={<div style={{ fontSize: 14}}><SoundOutline  /> 公告：</div>} style={{ fontSize: 14,'--height':'32px'}} 
 						content={notice} 
@@ -228,15 +244,15 @@ export default () => {
 				</div>
 				<div className='home-game-body'>
 					<Grid columns={4} gap={10} style={{marginTop:10}}>
-						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
+						<Grid.Item className='sc-button'  onClick={()=>{if(checkLogin())navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
 							<div>热销商家</div>
 						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
+						<Grid.Item className='sc-button' onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
 							<div>本周特惠</div>
 						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
+						<Grid.Item className='sc-button' onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
 							<div>我的订单</div>
 						</Grid.Item>
@@ -248,20 +264,20 @@ export default () => {
 				
 					<Image className='sc-youhui'  src="/sc/youhui.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
-						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
+						<Grid.Item className='sc-type'  onClick={()=>{if(checkLogin())navigate("/mall/1")}}>
 							<Image className='sc-type-img' src="/sc/type1.png" />
 						</Grid.Item>
-						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
+						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/2")}}>
 							<Image className='sc-type-img' src="/sc/type2.png" />
 						</Grid.Item>
-						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
+						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/3")}}>
 							<Image className='sc-type-img' src="/sc/type3.png" />
 						</Grid.Item>
-						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
+						<Grid.Item className='sc-type'  onClick={()=>{if(checkLogin())navigate("/mall/4")}}>
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
+					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{if(checkLogin())navigate("/mall/0")}} />
 					{/* <br/> */}
 					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
@@ -282,7 +298,7 @@ export default () => {
 						if(key == '/kefu'){
 							window.location.href = kefu
 						}else{
-							Auth.navigate(navigate,key);
+							if(checkLogin())Auth.navigate(navigate,key);
 						}
 					}}  
 				>
