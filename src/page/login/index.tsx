@@ -14,7 +14,16 @@ import {
 import Api from '../../lib/Api';
 import Auth from '../../lib/Auth';
 export default () => {
+	const [isMobile, setIsMobile] = useState<boolean>(false);
+
+	const ua = navigator.userAgent.toLowerCase();
+	const agents = ['iphone', 'ipad', 'ipod', 'android', 'linux', 'windows phone']; // 所有可能是移动端设备的字段
 	useEffect(() => {
+		for (let i = 0; i < agents.length; i++) {
+      if (ua.indexOf(agents[i]) !== -1) {
+        setIsMobile(true);
+      }
+    }
 	},[])
 	let navigate = useNavigate()
 	const params = useParams() 
@@ -28,6 +37,7 @@ export default () => {
 	const demoSrc2 = '/app/logo_top.png'
 	const demoSrc3 = '/app/logo_bottom.png'
 	const submit = function(values:any){
+		values.isMobile = isMobile
 		setLoading(true)
 		axios.post(Api.address()+'home/login', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
