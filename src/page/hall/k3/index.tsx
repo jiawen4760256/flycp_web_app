@@ -565,7 +565,7 @@ export default () => {
 			</div>
 		</div>
 		<div className='touzhu-footer'>
-			<Grid columns={4} gap={8}>
+			<Grid columns={5} gap={8}>
 				<Grid.Item className='touzhu-button-left'>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
 						{
@@ -574,7 +574,7 @@ export default () => {
             
           </Button>
 				</Grid.Item>
-				<Grid.Item span={2}>
+				<Grid.Item span={3}>
 					{/* <div>
 						<Space wrap className='touzhu-button-glod'>
 							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
