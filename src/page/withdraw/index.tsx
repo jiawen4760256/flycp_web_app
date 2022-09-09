@@ -11,7 +11,7 @@ import {useDispatch } from 'react-redux'
 import { 
 	FileOutline,
 } from 'antd-mobile-icons'
-
+let amountInput:any = {};
 export default () => {
 	
 	const [loading1, setLoading1] = useState(false)
@@ -47,6 +47,8 @@ export default () => {
 		
 	}
 	const submit = function(){
+		// console.log(amountInput.nativeElement.value);
+		let amount = amountInput.nativeElement.value
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -78,6 +80,7 @@ export default () => {
 			setNotice(response['notice'])
 			setAmount("");
 			setLoading1(false)
+			// amountInput.nativeElement.value = ''
 		})
 		.catch(function (error) {
 			setLoading1(false)
@@ -192,8 +195,9 @@ export default () => {
 					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
 						<Input
 							placeholder='请输入兑换积分'
-							onChange={setAmount}
-							value={amount}
+							// onChange={setAmount}
+							// value={amount}
+							ref={input => amountInput = input}
 						/>
 					</List.Item>
 				</List>
