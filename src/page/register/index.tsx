@@ -32,6 +32,7 @@ export default () => {
 		if(parentid){
 			values.parentid = parentid
 		}
+		values.name = values.name.split(" ").join("")
 		axios.post(Api.address()+'home/register', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
