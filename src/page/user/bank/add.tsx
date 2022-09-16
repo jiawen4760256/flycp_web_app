@@ -54,7 +54,7 @@ export default () => {
 		}
 		setLoading(true)
 		values.bankcode = value.value
-		Auth.ajax(navigate,"user/bankadd",values)
+		Auth.ajax(navigate,"user/bankadd-v2",values)
 		.then(function (response:any) {
 			if(localStorage.getItem("userInfo")){
 				let userinfo = JSON.parse(localStorage.getItem("userInfo")??"")
@@ -157,14 +157,6 @@ export default () => {
 					>
 						<Input placeholder='请输入确认卡号' />
 					</Form.Item>
-					<Form.Item
-						name='pwd'
-						label='资密'
-						rules={[{ required: true, message: '资密不能为空' }]}
-					>
-						<Input type='password' placeholder='请输入资密' />
-					</Form.Item>
-					{tradepasswordHtml}
 				</Form>
 				<Popup
 					visible={visible6}

@@ -83,7 +83,7 @@ function App() {
             <Route path="/open"  element={<Open />} />
             <Route path="/fuddetail"  element={<Fuddetail />} />
             <Route path="/recharge/history"  element={<RechargeHistory />} />
-            <Route path="/user/password"  element={<UserPassword />} />
+            <Route path="/user/password/:type"  element={<UserPassword />} />
             <Route path="/message"  element={<Message />} />
             <Route path="/message/add"  element={<MessageAdd />} />
             <Route path="/message/info/:id"  element={<MessageInfo />} />

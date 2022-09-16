@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag,Badge } from 'antd-mobile'
+import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag,Badge,Dialog } from 'antd-mobile'
 import {
   useNavigate,
 } from 'react-router-dom'
@@ -129,7 +129,21 @@ export default () => {
 							Auth.ajax(navigate,'user/ban-withdraw')
 							.then(function (response) {
 								dispatch(setLoading(false))
-								Auth.navigate(navigate,"/withdraw")
+								if(!response.tradepassword){
+									
+									Dialog.alert({
+										content: <div className='check-login'>
+											<h3>温馨提示</h3>
+											<div>请先设置资金密码</div>
+										</div>,
+										onConfirm: () => {
+											Auth.navigate(navigate,"/user/password/2")
+											// console.log('Confirmed')
+										},
+									})
+								}else{
+									Auth.navigate(navigate,"/withdraw")
+								}
 							}).catch(function (error) {
 								dispatch(setLoading(false))
 							})
@@ -174,7 +188,7 @@ export default () => {
 						<List.Item prefix={<Image fit='contain' src='/app/notice.png' />} onClick={() => {Auth.navigate(navigate,"/notice")}}>
 							网站公告
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
+						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password/1")}}>
 							密码设置
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} extra={msgCount?<><Badge content={msgCount} /></>:<></>}  onClick={() => {Auth.navigate(navigate,"/message")}}>

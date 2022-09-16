@@ -23,6 +23,7 @@ export default () => {
 	const [visible2, setVisible2] = useState(false)
   const [value, setValue] = useState<(string | null)[]>([])
   const [amount, setAmount] = useState("")
+  const [tradepassword, setTradepassword] = useState("")
 	const [notice, setNotice] = useState([])
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
@@ -61,13 +62,21 @@ export default () => {
 			})
 			return
 		}
+		if(!tradepassword){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: '请输入资金密码',
+			})
+			return
+		}
 		let values = {
 			bankId:value[0],
-			amount:amount
+			amount:amount,
+			tradepassword:tradepassword,
 		}
 		
 		setLoading1(true)
-		Auth.ajax(navigate,'withdraw/submit',values)
+		Auth.ajax(navigate,'withdraw/submit-v2',values)
 		.then(function (response:any) {
 			Toast.show({
 				icon: 'success',
@@ -77,6 +86,7 @@ export default () => {
 
 			setNotice(response['notice'])
 			setAmount("");
+			setTradepassword('')
 			setLoading1(false)
 		})
 		.catch(function (error) {
@@ -194,6 +204,14 @@ export default () => {
 							placeholder='请输入兑换积分'
 							onChange={setAmount}
 							value={amount}
+						/>
+					</List.Item>
+					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
+						<Input
+							placeholder='请输入资金密码'
+							onChange={setTradepassword}
+							value={tradepassword}
+							type="password"
 						/>
 					</List.Item>
 				</List>

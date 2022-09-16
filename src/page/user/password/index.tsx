@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { NavBar, Tabs,Form,Button,Input,TextArea,Toast,DatePicker,Picker } from 'antd-mobile'
 import {
-  useNavigate,
+  useNavigate,useParams
 } from 'react-router-dom'
 import Auth from '../../../lib/Auth';
 import './index.css'
@@ -9,6 +9,7 @@ export default () => {
 	
 	const [loading, setLoading] = useState(false)
 	
+	const params = useParams() 
 	const userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"tradepassword":false}')
 	let navigate = useNavigate()
 	Auth.page(navigate)
@@ -70,7 +71,7 @@ export default () => {
       	<NavBar className='app-header' onBack={back}>密码设置</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
-				<Tabs>
+				<Tabs defaultActiveKey={params['type']}>
 					<Tabs.Tab title='登录密码' key='1'>
 						<Form
 							onFinish = {submitUser}
