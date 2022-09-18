@@ -141,21 +141,21 @@ export default () => {
 						label='开户姓名'
 						rules={[{ required: true, message: '开户姓名不能为空' }]}
 					>
-						<Input  placeholder='请输入开户姓名' />
+						<Input  placeholder='请输入开户姓名' autoComplete="off" />
 					</Form.Item>
 					<Form.Item
 						name='banknumber'
 						label='卡号'
 						rules={[{ required: true, message: '卡号不能为空' }]}
 					>
-						<Input placeholder='请输入卡号' />
+						<Input placeholder='请输入卡号'  autoComplete="off" />
 					</Form.Item>
 					<Form.Item
 						name='pwd'
 						label='资密'
 						rules={[{ required: true, message: '资密不能为空' }]}
 					>
-						<Input type='password' placeholder='请输入资密' />
+						<Input type='password' placeholder='请输入资密'  autoComplete="off" />
 					</Form.Item>
 					{tradepasswordHtml}
 				</Form>
