@@ -204,6 +204,7 @@ export default () => {
 							placeholder='请输入兑换积分'
 							onChange={setAmount}
 							value={amount}
+							autoComplete='off'
 						/>
 					</List.Item>
 					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
@@ -212,6 +213,7 @@ export default () => {
 							onChange={setTradepassword}
 							value={tradepassword}
 							type="password"
+							autoComplete='off'
 						/>
 					</List.Item>
 				</List>
