@@ -92,6 +92,7 @@ export default () => {
 							确认绑定
 						</Button>
 					}
+					className='prefix-width'
 				>
 					<Form.Item
 						name='bankcode'

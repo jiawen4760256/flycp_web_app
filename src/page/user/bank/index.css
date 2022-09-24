@@ -26,3 +26,6 @@
     margin: 10px;
     /* background-color: #a2a2a2; */
 }
+.prefix-width .adm-list-item-content-prefix{
+    --prefix-width:4.6em
+}
