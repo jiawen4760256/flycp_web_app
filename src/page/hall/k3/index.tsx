@@ -26,7 +26,7 @@ export default () => {
 	const balance = useSelector(getBalance)
 	const dispatch = useDispatch()
 	
-	const {website_touzhu} = useSelector(getHomeList);
+	const {website_touzhu,wanfaName} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
 	const [gameData, setGameData] = useState<any>({})
@@ -256,7 +256,7 @@ export default () => {
 			content: <>
 				<div className='k3-confirm-title'>购单确认</div>
 				<Divider />
-				<div className='k3-confirm-text'>公益活动：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>购单活动：{gameData.qishu}</div>
 				<div className='k3-confirm-text'>购单总额：{amount*Object.keys(touzhu).length}元</div>
 				<div className='k3-confirm-text'>购单内容：
 					{k3Wanfa.map((item:any,index:number)=>{
@@ -394,7 +394,7 @@ export default () => {
 	alertHtml = (<>
 		<div className='ks-alert-body'>
 			<div className='ks-alert-qs1'>
-				距 {gameData.qishu} 件
+				距 {gameData.qishu}
 			</div>
 			<div className='ks-alert-qs1'>
 				项目截至
@@ -493,10 +493,10 @@ export default () => {
 					订单号
 				</Grid.Item>
 				<Grid.Item>
-					品牌Ad+1/臻选Ax+1
+					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
 				</Grid.Item>
 				<Grid.Item>
-           单件/双件
+					{wanfaName?.k3hzodd}/{wanfaName?.k3hzeven}
 				</Grid.Item>
 			</Grid>
 		</div>)
@@ -531,10 +531,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>每件积分</div>
+					<div style={{float:"left"}}>购单金额</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输每件积分'
+							placeholder='请输购单金额'
 							value={value}
 							type="number"       
 							onBlur={()=>{
@@ -560,13 +560,14 @@ export default () => {
 
 					</div>
 					
-					<div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div>
+					<div style={{float:"right"}} >  元&nbsp;&nbsp;</div>
+					{/* <div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div> */}
 				</div>
 			</div>
 		</div>
 		<div className='touzhu-footer'>
-			<Grid columns={5} gap={8}>
-				<Grid.Item className='touzhu-button-left'>
+			<Grid columns={9} gap={8}>
+				<Grid.Item className='touzhu-button-left' span={2}>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
 						{
 							Object.keys(touzhu).length==0?'随机':"删除"
@@ -574,25 +575,25 @@ export default () => {
             
           </Button>
 				</Grid.Item>
-				<Grid.Item span={3}>
-					{/* <div>
+				<Grid.Item span={4}>
+					<div>
 						<Space wrap className='touzhu-button-glod'>
-							<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
-							<div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div>
-							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>积分</div>
+							共<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
+							{/* <div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div> */}
+							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>元</div>
 						</Space>
-					</div> */}
+					</div>
 					<div>
 						<Space wrap className='touzhu-button-glod' onClick={()=>{
 
 						}}>
-							<div>我的积分：</div>
+							<div>余额：</div>
 							<div className='touzhu-button-number'>{balance}</div>
 						</Space>
 					</div>
 				</Grid.Item>
-				<Grid.Item  className='touzhu-button-right'>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>确定</Button>
+				<Grid.Item  className='touzhu-button-right' span={3}>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购单</Button>
 				</Grid.Item>
 			</Grid>
 		</div>

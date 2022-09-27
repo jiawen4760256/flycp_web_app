@@ -205,15 +205,15 @@
 .touzhu-button-glod{
     margin-top: 3px;
     font-size: 15px;
-    line-height: 50px;
+    line-height: 20px;
 }
 
 .touzhu-button-number{
     color: #ff0e14;
     height: 20px;
-    /* line-height: 20px; */
+    line-height: 20px;
     margin-top: 1px;
-    line-height: 50px;
+    /* line-height: 50px; */
 }
 
 .touzhu-number{
