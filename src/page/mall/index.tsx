@@ -70,7 +70,7 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '公益专区'
+		if(params['type'] == '1')title = '电影专区'
 		if(params['type'] == '2')title = '品牌专区'
 		if(params['type'] == '3')title = '海外专区'
 		if(params['type'] == '4')title = '直播专区'
