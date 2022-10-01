@@ -71,8 +71,8 @@ export default () => {
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
 		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '品牌专区'
-		if(params['type'] == '3')title = '海外专区'
+		if(params['type'] == '2')title = '线上影视'
+		if(params['type'] == '3')title = '腾讯专区'
 		if(params['type'] == '4')title = '直播专区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
@@ -98,7 +98,7 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热销商家'
+		title = '热销电影'
 		gameList = <>
 			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 			<Grid columns={2} gap={10} style={{marginTop:10}}>

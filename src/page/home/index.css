@@ -178,3 +178,11 @@
 .sc-badge{
 	padding: 5px;
 }
+.dy-type{
+	font-size: 16px;
+  color: #16ba63;
+  margin: 20px 0;
+	font-weight: bold;
+	border-color: #85daae;
+	padding: 0 50px;
+}

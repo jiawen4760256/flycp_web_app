@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge} from 'antd-mobile'
+import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Divider} from 'antd-mobile'
 import { 
 	AlipaySquareFill,
 	EditSFill,
@@ -15,7 +15,8 @@ import {
 	SoundOutline,
 	RightOutline,
 	ShopbagOutline,
-	GiftOutline
+	GiftOutline,
+	MovieOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -193,8 +194,8 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '商城',
-      icon: <ShopbagOutline />,
+      title: '院线',
+      icon: <MovieOutline />,
     },
     {
 			key: '/message',
@@ -231,7 +232,7 @@ export default () => {
 					<Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>热销商家</div>
+							<div>热销电影</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
@@ -247,28 +248,31 @@ export default () => {
 						</Grid.Item>
 					</Grid>
 				
-					<Image className='sc-youhui'  src="/sc/youhui.png" />
+					<Image className='sc-youhui'  src="/sc/tjpq.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							<Image className='sc-type-img' src="/sc/type-dy.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<Image className='sc-type-img' src="/sc/type2.png" />
+							<Image className='sc-type-img' src="/sc/xsyy.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<Image className='sc-type-img' src="/sc/type3.png" />
+							<Image className='sc-type-img' src="/sc/txsp.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
+					<Image className='sc-youhui'  src="/sc/zypwt.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
-					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
+					<Divider className='dy-type'>已上映</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
-					<Image className='sc-jxhw'  src="/sc/hdzq.png" />
+					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
+					
+					<Divider className='dy-type'>即将上映</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>
