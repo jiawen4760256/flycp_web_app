@@ -125,7 +125,7 @@ export default () => {
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
 								<HeartOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>捐赠助力</div>
+								<div style={{color:'#525252'}}>影票冲量</div>
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{
@@ -158,7 +158,7 @@ export default () => {
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							捐赠助力记录
+							影票冲量记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录

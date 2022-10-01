@@ -168,7 +168,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>购单记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>购票记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Grid columns={2} gap={0} className='record-date'>
@@ -186,7 +186,7 @@ export default () => {
 						onSelect('','',key)
 					}}
 				>
-          <Tabs.Tab title='全部购单' key='0' />
+          <Tabs.Tab title='全部购票' key='0' />
           <Tabs.Tab title='已匹配' key='1' />
           <Tabs.Tab title='匹配中' key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}
