@@ -100,11 +100,14 @@ export default () => {
 	}else{
 		title = '热销电影'
 		gameList = <>
-			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
+			
+			<Divider className='dy-type'>已上映</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
-			<Image className='sc-jxhw'  src="/sc/hdzq.png" />
+			{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
+			<Divider className='dy-type'>即将上映</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>
