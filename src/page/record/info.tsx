@@ -69,7 +69,7 @@ export default () => {
 					{htmlData.okamount}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购单详情:
+				购票详情:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.ztcode}
@@ -81,7 +81,7 @@ export default () => {
 					{htmlData.dx}，{htmlData.ds}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购单时间:
+				购票时间:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.oddtime}
@@ -93,7 +93,7 @@ export default () => {
 					{htmlData.playtitle}
 				</Grid.Item> */}
 				<Grid.Item span={3} className='record-info-key'>
-				购单积分:
+					购票积分:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}

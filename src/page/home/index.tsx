@@ -194,7 +194,7 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '院线',
+      title: '购票中心',
       icon: <MovieOutline />,
     },
     {
@@ -236,7 +236,7 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>本周特惠</div>
+							<div>电影简介</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
@@ -266,7 +266,7 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/zypwt.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>已上映</Divider>
+					<Divider className='dy-type'>正在热映</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>

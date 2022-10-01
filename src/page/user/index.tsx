@@ -149,7 +149,7 @@ export default () => {
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							购单记录
+							购票记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
 							积分明细
