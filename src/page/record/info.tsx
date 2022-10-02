@@ -42,7 +42,7 @@ export default () => {
 			<br/>
 			<Grid columns={7} gap={16} >
 				<Grid.Item span={3} className='record-info-key'>
-					订单状态:
+					票单状态:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>					
 					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
@@ -111,7 +111,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>订单详情</NavBar>
+      	<NavBar  onBack={back}>票单详情</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}

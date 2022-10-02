@@ -16,7 +16,7 @@ let now1 = new Date()
 export default () => {
 	
 	const [date1, setDate1] = useState(now1)
-	const [recordType, setRecordType] = useState<string>('全部订单')
+	const [recordType, setRecordType] = useState<string>('全部票单')
 	const [recordTypeList, setRecordTypeList] = useState<(any | null)[]>([])
 	const [page, setPage] = useState(1)
 	const [dateformat1, setformatDate1] = useState(moment(now1).format('YYYY-MM-DD'))

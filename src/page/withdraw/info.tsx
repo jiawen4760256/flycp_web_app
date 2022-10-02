@@ -42,7 +42,7 @@ export default () => {
 		html = (<div className='withdraw-info-body' style={{}}>
 			<>
 				<div>
-					订单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
+					票单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
         </div>
 				<br/>
 				<div >

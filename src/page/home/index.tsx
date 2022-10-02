@@ -240,7 +240,7 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的订单</div>
+							<div>我的票单</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 							<Image className='sc-button-img' src="/sc/button3.png" />

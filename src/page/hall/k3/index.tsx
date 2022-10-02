@@ -325,14 +325,14 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "完成订单",
+					content: "完成票单",
 				})
 			}else{
 				if(212 == response.data.code){
 					getHtmlData(gameName)
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: "当前订单号已更新，请重新操作！",
+						content: "当前票单号已更新，请重新操作！",
 					})
 				}else{
 					Toast.show({
@@ -490,7 +490,7 @@ export default () => {
 		kjHistoryHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					订单号
+					票单号
 				</Grid.Item>
 				<Grid.Item>
 					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
@@ -615,7 +615,7 @@ export default () => {
 		+gameData.qishu.slice(6,8)
 		+"日" 
 		+gameData.qishu.slice(8,12)
-		+"订单匹配"
+		+"票单匹配"
 	}
 	
 	const actions: Action[] = [
