@@ -208,13 +208,16 @@ export default () => {
 						/>
 					</List.Item>
 					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
-						<Input
-							placeholder='请输入资金密码'
-							onChange={setTradepassword}
-							value={tradepassword}
-							type="password"
-							autoComplete='off'
-						/>
+						<form className='null'>
+							<Input
+								placeholder='请输入资金密码'
+								onChange={setTradepassword}
+								value={tradepassword}
+								type="password"
+								autoComplete='off'
+							/>
+
+						</form>
 					</List.Item>
 				</List>
 
