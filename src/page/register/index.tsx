@@ -56,7 +56,7 @@ export default () => {
 		.catch(function (error) {
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '服务繁忙，稍后再试！',
+				content: '服务繁忙，稍后再试！'+"("+error.message+")",
 			})
 			setLoading(false)
 		})
