@@ -4,4 +4,7 @@
 .recharge-empty{
     padding-top:45px;
 }
-
+.info-copy{
+    color: #337ab7;
+    float: right;
+}

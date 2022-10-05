@@ -28,6 +28,7 @@ import Open from './page/open';
 import OpenHistory from './page/open/history';
 import Fuddetail from './page/fuddetail';
 import RechargeHistory from './page/recharge/history';
+import RechargeInfo from './page/recharge/info';
 import UserPassword from './page/user/password';
 import Message from './page/message';
 import MessageAdd from './page/message/add';
@@ -115,6 +116,7 @@ function App() {
             <Route path="/open"  element={<Open />} />
             <Route path="/fuddetail"  element={<Fuddetail />} />
             <Route path="/recharge/history"  element={<RechargeHistory />} />
+            <Route path="/recharge/info/:id"  element={<RechargeInfo />} />
             <Route path="/user/password"  element={<UserPassword />} />
             <Route path="/message"  element={<Message />} />
             <Route path="/message/add"  element={<MessageAdd />} />
