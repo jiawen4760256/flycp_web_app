@@ -199,6 +199,16 @@ export default () => {
 						</Picker>
 					</List.Item>
 
+						
+					<div style={{height: "0px"}} >
+						<Input
+							autoComplete='off'
+						/>
+						<Input
+							type="password"
+							autoComplete='off'
+						/>
+					</div>
 					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
 						<Input
 							placeholder='请输入兑换积分'
@@ -208,7 +218,7 @@ export default () => {
 						/>
 					</List.Item>
 					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
-						<form className='null'>
+						<form >
 							<Input
 								placeholder='请输入资金密码'
 								onChange={setTradepassword}
