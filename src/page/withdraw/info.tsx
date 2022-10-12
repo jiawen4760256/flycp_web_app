@@ -24,7 +24,7 @@ export default () => {
 	}
 	const getHtmlData = function(){
 		dispatch(setLoading(true))
-		Auth.ajax(navigate,'withdraw/info',{id:params['id']})
+		Auth.ajax(navigate,'withdraw/info-v2',{id:params['id']})
 		.then(function (response) {
 			dispatch(setLoading(false))
 			setHtmlData(response)
@@ -51,17 +51,18 @@ export default () => {
 				<br/>
 				<div >
 					兑换状态:			
-					{(htmlData.state=="1"?<Tag color='primary' fill='outline'>
+					{/* 0未审核 1已审核 -1退回取消;2代付出款中；3代付出款成功；4代付出款失败；5代付异常;6锁定 */}
+					{(htmlData.state=="0"?<Tag color='primary' fill='outline'>
 						正在审核
 					</Tag>:"")}
-					{(htmlData.state=="6"?<Tag color='primary' fill='outline'>
+					{((htmlData.state=="1" || htmlData.state=="3")?<Tag color='success' fill='outline'>
+						兑换成功 
+					</Tag>:"")}
+					{(htmlData.state=="-1"?<Tag color='danger' fill='outline'>
+						兑换失败
+					</Tag>:"")}
+					{((htmlData.state=="2" || htmlData.state=="4" || htmlData.state=="5" || htmlData.state=="6")?<Tag color='primary' fill='outline'>
 						预备出款
-					</Tag>:"")}
-					{(htmlData.state=="2"?<Tag color='success' fill='outline'>
-						兑换成功
-					</Tag>:"")}
-					{(htmlData.state=="3"?<Tag color='danger' fill='outline'>
-					  兑换失败
 					</Tag>:"")}
         </div>
 				<br/>
