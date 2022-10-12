@@ -13,7 +13,7 @@ import {
 import Api from '../../../lib/Api';
 import Auth from '../../../lib/Auth';
 import { Action } from 'antd-mobile/es/components/popover'
-import { ExclamationCircleOutline} from 'antd-mobile-icons'
+import { ExclamationCircleOutline,UndoOutline} from 'antd-mobile-icons'
 
 import { useSelector } from 'react-redux';
 import {
@@ -39,12 +39,14 @@ export default () => {
   const [alertNumber, setAlertNumber] = useState(5)
   const [loading, setLoading] = useState(false)
 	const [visible, setVisible] = useState(false)
+	const [balance, setBalance] = useState('-')
 	const [gameName, setGameName] = useState(params['name'])
   let [timer, setTimer] = useState(0);
 	let [touzhu, setTouzhu] = useState<any>({})
 	const [k3hzsmall, setK3hzsmall] = useState(false)
 	const [value, setValue] = useState('')
 	const userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
+	
 	let navigate = useNavigate()
 	let gameListHtml = (<></>)
 	let selectGameHtml = (<></>)
@@ -59,6 +61,9 @@ export default () => {
 	let rightHtml = (<></>)
   // 使用 useEffect 监听 countDown 变化
   useEffect(() => {
+		if(localStorage.getItem("userInfo")){
+			setBalance(JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}').balance)
+		}
 		if(!visibleSheet){
 			setVisibleSheet(true)
 		}
@@ -207,8 +212,62 @@ export default () => {
 		})
 	}
 
+
+	const showSubmit=()=>{
+		if(gameData.qishu == '0'){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "暂停中，无法操作",
+			})
+			return
+			
+		}
+		let amount = Number(value)*visibleNumSelect
+
+		// console.log(values)
+		if(Object.keys(touzhu).length == 0){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "请选择号码！",
+			})
+			return
+		}
+		if(!localStorage.getItem("token")){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "您尚未登陆！",
+			})
+			return
+		}
+		
+		if(!amount){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: "请输入积分！",
+			})
+			return
+		}
+		
+		Dialog.confirm({
+			content: <>
+				<div className='k3-confirm-title'>购单确认</div>
+				<Divider />
+				<div className='k3-confirm-text'>{gameData.title}：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>购单总额：{amount*Object.keys(touzhu).length}元</div>
+				<div className='k3-confirm-text'>购单内容：
+					{k3Wanfa.map((item:any,index:number)=>{
+						if(touzhu[item.playid]){
+							return  item.title+" "
+						}
+					})}
+				</div>
+			</>,
+			onConfirm: submit
+		})
+	}
+
 	//投注提交
-	const submit = ()=>{
+	const submit = async ()=>{
 		if(gameData.qishu == '0'){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -252,10 +311,11 @@ export default () => {
 
 		
 		setLoading(true)
-		axios.post(Api.address()+'user/touzhu', Qs.stringify(values),Auth.verify(values))
+		await axios.post(Api.address()+'user/touzhu', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
+				setBalance(response.data.data.balance)
 				userInfo.balance = response.data.data.balance
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
 				setTouzhu({})
@@ -277,6 +337,25 @@ export default () => {
 					})
 				}
 			}
+		})
+		.catch(function (error) {
+			setLoading(false)
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: '服务繁忙，稍后再试！'+"("+error.message+")",
+			})
+		})
+	}
+
+	const updateBalance = ()=>{
+		setLoading(true)
+		Auth.ajax(navigate,'user/ping')
+		.then(function (response:any) {
+			setLoading(false)
+			setBalance(response.balance)
+			
+			userInfo.balance = response.balance
+			localStorage.setItem("userInfo", JSON.stringify(userInfo))
 		})
 		.catch(function (error) {
 			setLoading(false)
@@ -519,14 +598,15 @@ export default () => {
 						</Space>
 					</div>
 					<div>
-						<Space wrap className='touzhu-button-glod'>
+						<Space className='touzhu-button-glod'>
 							<div>我的积分：</div>
-							<div className='touzhu-button-number'>{userInfo.balance}</div>
+							<div className='touzhu-button-number'>{balance}</div>
+							<div onClick={updateBalance}><UndoOutline /></div>
 						</Space>
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right'>
-					<Button color='danger'  size='small' onClick={submit} loading={loading}>确定</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>确定</Button>
 				</Grid.Item>
 			</Grid>
 		</div>

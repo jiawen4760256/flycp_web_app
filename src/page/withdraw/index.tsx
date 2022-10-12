@@ -11,7 +11,8 @@ import {useDispatch } from 'react-redux'
 import { 
 	FileOutline,
 } from 'antd-mobile-icons'
-
+let amountInput:any = {};
+let pwdInput:any = {};
 export default () => {
 	
 	const [loading1, setLoading1] = useState(false)
@@ -48,6 +49,8 @@ export default () => {
 		
 	}
 	const submit = function(){
+		let amount = amountInput.nativeElement.value
+		let tradepassword = pwdInput.nativeElement.value
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -212,19 +215,21 @@ export default () => {
 					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
 						<Input
 							placeholder='请输入兑换积分'
-							onChange={setAmount}
-							value={amount}
+							// onChange={setAmount}
+							// value={amount}
 							autoComplete='off'
+							ref={input => amountInput = input}
 						/>
 					</List.Item>
 					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
 						<form >
 							<Input
 								placeholder='请输入资金密码'
-								onChange={setTradepassword}
-								value={tradepassword}
+								// onChange={setTradepassword}
+								// value={tradepassword}
 								type="password"
 								autoComplete='off'
+								ref={input => pwdInput = input}
 							/>
 
 						</form>
