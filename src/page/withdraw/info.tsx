@@ -54,6 +54,9 @@ export default () => {
 					{(htmlData.state=="1"?<Tag color='primary' fill='outline'>
 						正在审核
 					</Tag>:"")}
+					{(htmlData.state=="6"?<Tag color='primary' fill='outline'>
+						预备出款
+					</Tag>:"")}
 					{(htmlData.state=="2"?<Tag color='success' fill='outline'>
 						兑换成功
 					</Tag>:"")}

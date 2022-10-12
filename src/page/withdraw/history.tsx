@@ -88,6 +88,9 @@ export default () => {
 								{(item["state"]=="0"?<Tag color='primary' fill='outline'>
 									正在审核
 								</Tag>:"")}
+								{(item["state"]=="6"?<Tag color='primary' fill='outline'>
+									预备出款
+								</Tag>:"")}
 								{(item["state"]=="-1"?<Tag color='danger' fill='outline'>
 									兑换失败
 								</Tag>:"")}
