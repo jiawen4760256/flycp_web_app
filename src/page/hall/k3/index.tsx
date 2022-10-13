@@ -122,6 +122,14 @@ export default () => {
 		// navigate(-1);
 	}
 
+	const balanceToFixed = (balance:any)=>{
+		if(balance == '-'){
+			return '-'
+		}else{
+			return parseFloat(balance).toFixed(2)
+		}
+	}
+
 	// 号码html
 	if( k3Wanfa.length != 0){
 		cardHtml = (<>
@@ -600,7 +608,7 @@ export default () => {
 					<div>
 						<Space className='touzhu-button-glod'>
 							<div>我的积分：</div>
-							<div className='touzhu-button-number'>{balance}</div>
+							<div className='touzhu-button-number'>{balanceToFixed(balance)}</div>
 							<div onClick={updateBalance}><UndoOutline /></div>
 						</Space>
 					</div>
