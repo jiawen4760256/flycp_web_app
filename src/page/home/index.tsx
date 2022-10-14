@@ -263,7 +263,7 @@ export default () => {
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/txph.png" onClick={()=>{navigate("/mall/0")}} />
+					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 					<Divider className='dy-type'>正在热映</Divider>
