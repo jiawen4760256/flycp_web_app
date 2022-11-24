@@ -18,13 +18,13 @@ if(window.location.href.indexOf('https://') != -1){
 }
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

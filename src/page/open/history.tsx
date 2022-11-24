@@ -104,13 +104,13 @@ export default () => {
 		historyHeadHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					购单号
 				</Grid.Item>
 				<Grid.Item>
-				{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
+				{wanfaName[recordName]?.k3hzbig}/{wanfaName[recordName]?.k3hzsmall}
 				</Grid.Item>
 				<Grid.Item>
-				{wanfaName?.k3hzodd}/{wanfaName?.k3hzeven}
+				{wanfaName[recordName]?.k3hzodd}/{wanfaName[recordName]?.k3hzeven}
 				</Grid.Item>
 			</Grid>
 		</div>)

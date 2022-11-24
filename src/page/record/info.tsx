@@ -42,7 +42,7 @@ export default () => {
 			<br/>
 			<Grid columns={7} gap={16} >
 				<Grid.Item span={3} className='record-info-key'>
-					票单状态:
+					购单状态:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>					
 					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
@@ -69,7 +69,7 @@ export default () => {
 					{htmlData.okamount}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购票详情:
+				购单详情:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.ztcode}
@@ -81,7 +81,7 @@ export default () => {
 					{htmlData.dx}，{htmlData.ds}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购票时间:
+				购单时间:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.oddtime}
@@ -93,7 +93,7 @@ export default () => {
 					{htmlData.playtitle}
 				</Grid.Item> */}
 				<Grid.Item span={3} className='record-info-key'>
-					购票积分:
+				购单积分:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}
@@ -111,7 +111,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>票单详情</NavBar>
+      	<NavBar  onBack={back}>购单详情</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}
