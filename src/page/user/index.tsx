@@ -17,6 +17,7 @@ import {
 	CloseCircleOutline,
 	BankcardOutline,
 	HeartOutline,
+	EnvironmentOutline
 } from 'antd-mobile-icons'
 import './index.css'
 import Auth from '../../lib/Auth';
@@ -169,6 +170,9 @@ export default () => {
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
 							个人信息
+						</List.Item>
+						<List.Item prefix={<EnvironmentOutline style={{fontSize: "24px",color: "#e80101"}} />} onClick={() => {Auth.navigate(navigate,"/user/addr")}}>
+							收货地址
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
 							vip等级

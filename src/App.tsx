@@ -30,6 +30,7 @@ import Fuddetail from './page/fuddetail';
 import RechargeHistory from './page/recharge/history';
 import RechargeInfo from './page/recharge/info';
 import UserPassword from './page/user/password';
+import UserAddr from './page/user/addr';
 import Message from './page/message';
 import MessageAdd from './page/message/add';
 import MessageInfo from './page/message/info';
@@ -100,6 +101,7 @@ function App() {
             <Route path="/user/info"  element={<UserInfo />} />
             <Route path="/user/edit"  element={<UserEdit />} />
             <Route path="/user/vip"  element={<UserVip />} />
+            <Route path="/user/addr"  element={<UserAddr />} />
             <Route path="/bank"  element={<Bank />} />
             <Route path="/bank/add"  element={<BankAdd />} />
             <Route path="/withdraw"  element={<Withdraw />} />
@@ -129,7 +131,6 @@ function App() {
             <Route path="/proxy/member"  element={<ProxyMember />} />
             <Route path="/proxy/day"  element={<ProxyDay />} />
             <Route path="/mall/:type"  element={<Mall />} />
-            
           </Routes>
         </CSSTransition>
       </TransitionGroup>

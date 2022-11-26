@@ -230,14 +230,14 @@ export default () => {
 				</div>
 
 				<div className='home-game-body'>
-					<Grid columns={4} gap={10} style={{marginTop:10}}>
+					<Grid columns={4} gap={0} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
 							<div>热销榜单</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>优惠活动</div>
+							<div>社区团购优势</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
