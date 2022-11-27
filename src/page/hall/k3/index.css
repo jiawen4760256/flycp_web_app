@@ -282,3 +282,10 @@
     font-weight: bolder;
     margin: 5px 0px;
 }
+
+.hall-img-title{
+    text-align: center;
+    color: #ad6ffb;
+    font-weight: bold;
+    margin: 10px 0;
+}
