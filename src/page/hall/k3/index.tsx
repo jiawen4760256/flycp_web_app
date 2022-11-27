@@ -232,7 +232,7 @@ export default () => {
 		if(Object.keys(touzhu).length == 0){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请选择号码！",
+				content: "请选择！",
 			})
 			return
 		}
@@ -725,8 +725,8 @@ export default () => {
 				):(<>
 					<br/>
 					<Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
-					<div className='k3-title hall-img-title'>-为您推荐-</div>
-					<Image  src={website_touzhu} />
+					<div className='hall-img-title'>- 品类齐全，轻松购物 -</div>
+					<Image style={{'margin':"0 20px"}} src={website_touzhu} />
 				</>)}
 				{/* <UserList/> */}
 			</div>
