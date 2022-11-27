@@ -719,7 +719,7 @@ export default () => {
 						"/sc/zrt.png",
 						].map((item,index:number)=>{
 						return <Grid.Item>
-							<Image className='k3-mall-img' src={item} />
+							{/* <Image className='k3-mall-img' src={item} /> */}
 						</Grid.Item>
 						})}
 					</Grid>
@@ -733,7 +733,7 @@ export default () => {
 					{gameImg.map((item,index)=>{
 						return <Grid.Item>
 							<Image className='k3-mall-img' src={item.url} style={{ borderRadius: 4 }}  fit='scale-down'/>
-							<div>{item.name}</div>
+							<div style={{fontSize: "12px",color: "#666"}}>{item.name}</div>
 						</Grid.Item>
 					})}
 					</Grid>
