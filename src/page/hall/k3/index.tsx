@@ -29,6 +29,7 @@ export default () => {
 	const {website_touzhu,wanfaName} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
+	const [gameImg, setGameImg] = useState<any[]>([])
 	const [gameData, setGameData] = useState<any>({})
   const [visible2, setVisible2] = useState(false)
 	const [visibleSheet, setVisibleSheet] = useState(false)
@@ -178,6 +179,7 @@ export default () => {
 				setCountdownTime(response.data.data.game.countdown)
 				setCountdownTimeEnd(Date.parse(new Date().toString())/1000+response.data.data.game.countdown)
 				setK3Wanfa(response.data.data.game.wanfa)
+				setGameImg(response.data.data.img)
 				setTimeout(()=>{
 					updateOpenData()
 				},20000)
@@ -726,7 +728,16 @@ export default () => {
 					<br/>
 					<Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
 					<div className='hall-img-title'>- 品类齐全，轻松购物 -</div>
-					<Image style={{'margin':"0 20px"}} src={website_touzhu} />
+					
+					<Grid columns={4} gap={8} className='k3-kj' style={{'margin':"0 10px"}}>
+					{gameImg.map((item,index)=>{
+						return <Grid.Item>
+							<Image className='k3-mall-img' src={item.url} style={{ borderRadius: 4 }}  fit='scale-down'/>
+							<div>{item.name}</div>
+						</Grid.Item>
+					})}
+					</Grid>
+					{/* <Image style={{'margin':"0 20px"}} src={website_touzhu} /> */}
 				</>)}
 				{/* <UserList/> */}
 			</div>
