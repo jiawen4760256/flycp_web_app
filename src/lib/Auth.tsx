@@ -55,6 +55,7 @@ const Auth = {
       headers:{
         v:md5(str),
         t:time,
+        language:localStorage.getItem('language')??""
       }
     }
   },
@@ -71,7 +72,7 @@ const Auth = {
       navigate('/')
       return promise;
     }
-    Auth.verify(params)
+    // Auth.verify(params)
 		return axios.post(Api.address()+path, Qs.stringify(params),Auth.verify(params))
 		.then(function (response) {
 			if(response.data.code == 0){

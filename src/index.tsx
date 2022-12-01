@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './store/store';
-
+import { ConfigProvider } from "antd-mobile";
+import enUS from 'antd-mobile/es/locales/en-US'
+import zhCN from 'antd-mobile/es/locales/zh-CN'
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -16,15 +18,23 @@ if(window.location.href.indexOf('https://') != -1){
 }else{
   localStorage.setItem('apiUrl', 'http://'+window.location.host);
 }
+
+console.log(navigator.language)
+if(!localStorage.getItem('language')){
+  localStorage.setItem('language',navigator.language)
+}
+
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
+    <ConfigProvider locale={enUS}>
       <App />
+    </ConfigProvider>
     </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
