@@ -8,6 +8,10 @@ import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux';
+import {
+  getDictionary
+} from '../../store';
 
 let now1 = new Date()
 now1.setDate(now1.getDate()-2)
@@ -22,6 +26,14 @@ export default () => {
 	const [historyData, setHistoryData] = useState<{}[]>([])
 	const [hasMore, setHasMore] = useState(true)
 	const dispatch = useDispatch()
+	const {
+		language_app_withdraw_history,
+		language_app_user_exchange,
+		language_app_user_amount,
+		language_app_withdraw_history_state_1,
+		language_app_withdraw_history_state_2,
+		language_app_withdraw_history_state_3,      
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let tmp1 = date1;
@@ -71,10 +83,10 @@ export default () => {
 					<List.Item key={index} onClick={()=>{Auth.navigate(navigate,'/withdraw/info/'+item.id)}} >
 						<Grid columns={3} gap={8}>
 							<Grid.Item span={2} className="history-list-name">
-								{(item["bankname"]=='无'?"兑换":<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>)}
+								{(item["bankname"]=='无'?language_app_user_exchange:<div>{item["bankname"]}<span>（{item["accountname"]}）</span></div>)}
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}积分</div>
+								<div>{item["amount"]}{language_app_user_amount}</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>
@@ -83,13 +95,13 @@ export default () => {
 							</Grid.Item>
 							<Grid.Item className="history-list-state">
 								{(item["state"]=="1"?<Tag color='success' fill='outline'>
-									兑换成功 
+									{language_app_withdraw_history_state_1} 
 								</Tag>:"")}
 								{(item["state"]=="0"?<Tag color='primary' fill='outline'>
-									正在审核
+									{language_app_withdraw_history_state_2}
 								</Tag>:"")}
 								{(item["state"]=="-1"?<Tag color='danger' fill='outline'>
-									兑换失败
+									{language_app_withdraw_history_state_3}
 								</Tag>:"")}
 							</Grid.Item>
 						</Grid>
@@ -146,11 +158,11 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar onBack={back}>兑换记录</NavBar>
+      	<NavBar onBack={back}>{language_app_withdraw_history}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='history-day'>
-					<Space wrap	>	
+					{/* <Space wrap	>	
 						<>
 							<Button onClick={selectDate}>
 								{dateformat1}
@@ -167,7 +179,7 @@ export default () => {
 						<div >
 							<Button color='danger' size='small' className='history-button' onClick={onSelect}>查询</Button>
 						</div>
-					</Space>
+					</Space> */}
 					{historyHtml}
 					
 					<InfiniteScroll loadMore={getHistory} hasMore={hasMore} />	

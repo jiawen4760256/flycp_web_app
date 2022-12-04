@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom'
 import moment from "moment";
 import './index.css'
-import { setLoading,getHomeList } from '../../store'
+import { setLoading,getHomeList,getDictionary } from '../../store'
 import {useDispatch,useSelector } from 'react-redux'
 import axios from 'axios';
 import Qs from 'qs'
@@ -28,6 +28,10 @@ export default () => {
 	const dispatch = useDispatch()
 	const {wanfaName} = useSelector(getHomeList);
 	let navigate = useNavigate()
+	const {
+		language_app_hall_history,
+		language_app_hall_order
+	} = useSelector(getDictionary);
 	const recordTypeList = JSON.parse(localStorage.getItem("list")??"[]")
 	const [recordName, setRecordName] = useState<string>(params['name']??"")
 	let tmp1 = date1;
@@ -104,7 +108,7 @@ export default () => {
 		historyHeadHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					{language_app_hall_order}
 				</Grid.Item>
 				<Grid.Item>
 				{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
@@ -160,13 +164,13 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>品牌记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_hall_history}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
-				<Grid columns={2} gap={0} className='record-date'>
-					<Grid.Item className='record-date-left' onClick={selectDate}>							
+				<Grid columns={1} gap={0} className='record-date'>
+					{/* <Grid.Item className='record-date-left' onClick={selectDate}>							
 						{dateformat1}&nbsp;&nbsp;&nbsp;<BankcardOutline />
-					</Grid.Item>
+					</Grid.Item> */}
 					<Grid.Item onClick={()=>{setVisible(true)}}>
 						{recordTypeList[0].map((item:any,index:any)=>{
 							// console.log(v[0],item)

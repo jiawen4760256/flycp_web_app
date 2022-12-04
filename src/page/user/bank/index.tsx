@@ -8,11 +8,21 @@ import {
 } from 'antd-mobile-icons'
 import './index.css'
 import Auth from '../../../lib/Auth';
-import { setLoading } from '../../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getDictionary } from '../../../store'
+import {useDispatch ,useSelector} from 'react-redux'
 
 export default () => {
 	const dispatch = useDispatch()
+	
+	const {      
+		language_app_bank_null,
+		language_app_bank_state_0,
+		language_app_bank_state_2,
+		language_app_bank_bank,
+		language_app_bank_name,
+		language_app_bank_number,
+		language_app_user_bank,
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	const [bankList, setBankList] = useState([])
@@ -39,14 +49,14 @@ export default () => {
   )
 	let data
 	if(bankList.length == 0){
-		data =  (<Empty description='暂未绑定银行卡，请点击右上角 ‘+’ 添加' />)	
+		data =  (<Empty description={language_app_bank_null} />)	
 	}else{
 		data = bankList.map((item, index)=>{
 			let state = (<></>)
 			if(item['state']==0){
-				state = (<Tag className='bank-state' color='primary' fill='outline'>正在审核</Tag>)
+				state = (<Tag className='bank-state' color='primary' fill='outline'>{language_app_bank_state_0}</Tag>)
 			}else if(item['state']==2){
-				state = (<Tag className='bank-state' color='danger' fill='outline'>审核失败</Tag>)
+				state = (<Tag className='bank-state' color='danger' fill='outline'>{language_app_bank_state_2}</Tag>)
 			}else if(item['state']==1){
 				//state = (<Tag className='bank-state' color='success' fill='outline'>审核通过</Tag>)
 				//state = (<></>)
@@ -55,7 +65,7 @@ export default () => {
 				<Card  key={index}  className={item['state']==1?"bank-item":"bank-item"} onClick={()=>{}}>
 					<Grid columns={3} gap={8}>
 						<Grid.Item>
-							<div>兑换银行：</div>
+							<div>{language_app_bank_bank}：</div>
 							
 						</Grid.Item>
 						<Grid.Item span={2}>
@@ -65,7 +75,7 @@ export default () => {
 							</div>
 						</Grid.Item>
 						<Grid.Item>
-							<div>开户姓名：</div>
+							<div>{language_app_bank_name}：</div>
 						</Grid.Item>
 						<Grid.Item span={2}>
 							<div>{item['accountname']}</div>
@@ -77,7 +87,7 @@ export default () => {
 							<div>{item['bankaddress']}</div>
 						</Grid.Item> */}
 						<Grid.Item>
-							<div>银行卡号：</div>
+							<div>{language_app_bank_number}：</div>
 						</Grid.Item>
 						<Grid.Item span={2}>
 							<div>{item['banknumber']}</div>
@@ -91,7 +101,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar right={right} onBack={back}>银行卡管理</NavBar>
+				<NavBar right={right} onBack={back}>{language_app_user_bank}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 					{data}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-	setHomeList
+	setHomeList,setDictionary
 } from '../store';
 
 import Auth from './Auth'
@@ -29,6 +29,7 @@ function homeList(params:any,dispatch:any){
 			// console.log("data",response.data.data);
 			document.title = response.data.data.website_name
 			dispatch(setHomeList(response.data.data))
+			dispatch(setDictionary(response.data.data.dictionary))
 			setRecordType(response.data.data.list)
 		}
 		// handle success

@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import './index.css'
-import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading ,getDictionary} from '../../store'
+import {useDispatch,useSelector } from 'react-redux'
 export default () => {
 	
 	const dispatch = useDispatch()
@@ -18,6 +18,10 @@ export default () => {
 	Auth.page(navigate)
 	let html
 
+	const {
+		language_app_user_buy,
+		language_app_recharge_text,
+	} = useSelector(getDictionary);
 
 	useEffect(() => {
 		getData()
@@ -38,7 +42,7 @@ export default () => {
 	}
 
 
-	if(htmlData.length > 0){
+	if(htmlData.length > 0 && 0){
 		html = (<>
 			<List header=''>
 				{htmlData.map((item:any,index) =>{
@@ -76,14 +80,14 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='recharge-empty' description='请联系客服预购' />
+			<Empty className='recharge-empty' description={language_app_recharge_text} />
 		)
 	}
 	
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>预购选择</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_user_buy}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}	

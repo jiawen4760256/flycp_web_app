@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Divider} from 'antd-mobile'
+import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Divider,Popup} from 'antd-mobile'
 import { 
 	AlipaySquareFill,
 	EditSFill,
@@ -16,7 +16,8 @@ import {
 	RightOutline,
 	ShopbagOutline,
 	GiftOutline,
-	MovieOutline
+	MovieOutline,
+	GlobalOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -28,14 +29,37 @@ import "./index.css"
 import Auth from '../../lib/Auth';
 import Check from '../../lib/Check'
 import About from '../about'
-import { setLoading,setMsgCount,setBalance } from '../../store';		
+import { setLoading,setMsgCount,setBalance,getDictionary } from '../../store';		
 import {useDispatch } from 'react-redux';
 let interval:any = 0
 export default () => {
-	const {notice,img,list,kefu,website_logo2,website_hot} = useSelector(getHomeList);
+	const {notice,img,list,kefu,website_logo2,website_hot,language} = useSelector(getHomeList);
+	const {
+		language_app_home_login,
+		language_app_home_notice,
+		language_app_home_button_1,
+		language_app_home_button_2,
+		language_app_home_button_3,
+		language_app_home_button_4,
+		language_app_home_type_1,
+		language_app_home_type_2,
+		language_app_home_type_3,
+		language_app_home_type_4,
+		language_app_home_img_1,
+		language_app_home_img_2,
+		language_app_home_bat_1,
+		language_app_home_bat_2,
+		language_app_home_bat_3,
+		language_app_home_bat_4,
+		language_app_home_text_1,
+		language_app_home_text_2
+	} = useSelector(getDictionary);
+	
 	const msgCount = useSelector(getMsgCount)
 	const dispatch = useDispatch()
   const navigate = useNavigate()
+	
+	const [visiblePopup, setVisiblePopup] = useState(false)
 	// console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
@@ -160,13 +184,19 @@ export default () => {
 		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/login/null");
 			}}  >
-			登录
+			{language_app_home_login}
 		</Button>
 		&nbsp;&nbsp;
-		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+		{/* <Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/register");
 			}}   >
 			注册
+		</Button> */}
+		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+				// navigate("/register");
+				setVisiblePopup(true)
+			}}>
+			中/EN
 		</Button>
 		</>
 		
@@ -174,12 +204,18 @@ export default () => {
 	if(localStorage.getItem("token")){
 		right = (<></>)
 		// left = (<><UserOutline style={{fontSize:"20px"}} /></>)
-		left = (<></>)
+		left = (<>
+			<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+					// navigate("/register");
+					setVisiblePopup(true)
+				}}>
+				中/EN
+			</Button></>)
 	}
 	const tabs = [
     {
       key: '/',
-      title: '首页',
+      title: language_app_home_bat_1,
       icon: <AppstoreOutline />,
     },
     // {
@@ -194,22 +230,25 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '购票中心',
+      title: language_app_home_bat_2,
       icon: <MovieOutline />,
     },
     {
 			key: '/message',
-      title: '消息',
+      title: language_app_home_bat_3,
       icon: <MessageOutline />,
 			badge: msgCount,
     },
     {
       key: '/user',
-      title: '个人中心',
+      title: language_app_home_bat_4,
       icon: <UserOutline />,
     },
   ]
-
+	const onSelectLanguage = (language:string)=>{
+		localStorage.setItem('language',language)
+		window.location.reload();
+	}
 	return (
 		<div className='App-main'>
 			<header className={"App-header"}  >
@@ -223,7 +262,7 @@ export default () => {
 				</div>
 				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
 					<NoticeBar 
-						icon={<div style={{ fontSize: 14}}><SoundOutline  /> 公告：</div>} style={{ fontSize: 14,'--height':'32px'}} 
+						icon={<div style={{ fontSize: 14}}><SoundOutline  /> {language_app_home_notice}：</div>} style={{ fontSize: 14,'--height':'32px'}} 
 						content={notice} 
 						extra={<RightOutline />}
 						color='alert' />
@@ -232,19 +271,19 @@ export default () => {
 					<Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>热销电影</div>
+							<div>{language_app_home_button_1}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>电影简介</div>
+							<div>{language_app_home_button_2}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的票单</div>
+							<div>{language_app_home_button_3}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 							<Image className='sc-button-img' src="/sc/button3.png" />
-							<div>在线客服</div>
+							<div>{language_app_home_button_4}</div>
 						</Grid.Item>
 					</Grid>
 				
@@ -266,18 +305,37 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>正在热映</Divider>
+					<Divider className='dy-type'>{language_app_home_text_1}</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
 					
-					<Divider className='dy-type'>即将上映</Divider>
+					<Divider className='dy-type'>{language_app_home_text_2}</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>
 				</div>
 			</div>
+			<Popup
+				visible={visiblePopup}
+				onMaskClick={() => {
+					setVisiblePopup(false)
+				}}
+				bodyStyle={{ height: '40vh' }}
+				
+			>
+				<div className='home-language-select'>
+					{language.map((item:any,index:number)=>{
+						return (<>
+							<Button style={{width:"80%"}} onClick={()=>{onSelectLanguage(item.language)}}>
+								{item.name}
+							</Button>
+							<br/>
+						</>)
+					})}
+				</div>
+			</Popup>
 			<div className='App-footer'>
 				<TabBar 			
 					onChange={(key: string) => {

@@ -8,7 +8,7 @@ import {
 } from 'antd-mobile-icons'
 import './index.css'
 import Auth from '../../lib/Auth';
-import { setLoading } from '../../store'
+import { setLoading,getDictionary } from '../../store'
 import {useDispatch } from 'react-redux'
 
 import { useSelector } from 'react-redux';
@@ -21,6 +21,15 @@ export default () => {
 	let navigate = useNavigate()
 	const {list,website_hot} = useSelector(getHomeList);
 
+	const {
+		language_app_home_button_1,
+		language_app_home_type_1,
+		language_app_home_type_2,
+		language_app_home_type_3,
+		language_app_home_type_4,
+		language_app_home_text_1,
+		language_app_home_text_2
+	} = useSelector(getDictionary);
 	useEffect(() => {
   },[])
   const back = () =>{
@@ -70,10 +79,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯专区'
-		if(params['type'] == '4')title = '直播专区'
+		if(params['type'] == '1')title = language_app_home_type_1
+		if(params['type'] == '2')title = language_app_home_type_2
+		if(params['type'] == '3')title = language_app_home_type_3
+		if(params['type'] == '4')title = language_app_home_type_4
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -98,16 +107,16 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热销电影'
+		title = language_app_home_button_1
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 			
-			<Divider className='dy-type'>正在热映</Divider>
+			<Divider className='dy-type'>{language_app_home_text_1}</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
 			{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
-			<Divider className='dy-type'>即将上映</Divider>
+			<Divider className='dy-type'>{language_app_home_text_2}</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>

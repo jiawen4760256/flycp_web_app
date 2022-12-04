@@ -9,7 +9,10 @@ import {
 import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store';		
-import {useDispatch } from 'react-redux';
+import {useDispatch,useSelector } from 'react-redux';
+import {
+  getDictionary
+} from '../../store';
 export default () => {
 	const [day, setDay] = useState<string>('今天')
 	const [page, setPage] = useState(1)
@@ -18,6 +21,13 @@ export default () => {
 	const [visible, setVisible] = useState(false)
 	const [type, setType] = useState('')
 	const dispatch = useDispatch();
+	const {
+		language_app_user_fuddetail,
+		language_app_duddetail_type_0,
+		language_app_duddetail_type_1,
+		language_app_duddetail_type_2,
+		language_app_user_amount,
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let historyHtml
@@ -91,7 +101,7 @@ export default () => {
 								<div>{item["oddtime"]}</div>
 							</Grid.Item>
 							<Grid.Item className="fuddetail-amountafter">
-								<div>积分：{item["amountafter"]}</div>
+								<div>{language_app_user_amount}：{item["amountafter"]}</div>
 							</Grid.Item>
 						</Grid>
 					</List.Item>
@@ -108,11 +118,11 @@ export default () => {
   return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>积分明细</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_user_fuddetail}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
-				<Grid columns={5} gap={0}>
-					<Grid.Item span={4}>
+				<Grid columns={1} gap={0}>
+					<Grid.Item span={1}>
 						<Tabs className='fuddetail-type'
 							onChange={(key)=>{
 								setHistoryData([])
@@ -120,15 +130,15 @@ export default () => {
 								onSelect('',key)
 							}}
 						>
-							<Tabs.Tab title='全部' key='0' />
-							<Tabs.Tab title='收入' key='1' />
-							<Tabs.Tab title='支出' key='2' />
+							<Tabs.Tab title={language_app_duddetail_type_0} key='0' />
+							<Tabs.Tab title={language_app_duddetail_type_1} key='1' />
+							<Tabs.Tab title={language_app_duddetail_type_2} key='2' />
 						</Tabs>	
           </Grid.Item>
-					<Grid.Item span={1} className='adm-tabs fuddetail-type'>
+					{/* <Grid.Item span={1} className='adm-tabs fuddetail-type'>
 						<div className='adm-tabs-tab' onClick={()=>{setVisible(true)}} >{day}<DownOutline /></div>
 						
-					</Grid.Item>
+					</Grid.Item> */}
 				</Grid>
 				<div className='fuddetail-body'>
 					{historyHtml}

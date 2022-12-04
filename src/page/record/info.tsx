@@ -7,7 +7,8 @@ import {
 import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux';
+import {getDictionary} from '../../store';
 export default () => {
 	const params = useParams() 
 	const [htmlData, setHtmlData] = useState<any>({})
@@ -15,6 +16,19 @@ export default () => {
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let html
+	const {
+		language_app_home_button_3,
+		language_app_record_info_text_1,
+		language_app_record_info_text_2,
+		language_app_record_info_text_3,
+		language_app_record_info_text_4,
+		language_app_record_info_text_5,
+		language_app_record_info_text_6,
+		language_app_record_info_status_1,
+		language_app_record_info_status_2,
+		language_app_record_info_status_3,
+		language_app_record_info_status_4,
+	} = useSelector(getDictionary);
 
 	useEffect(() => {
 		getHtmlData()
@@ -42,46 +56,46 @@ export default () => {
 			<br/>
 			<Grid columns={7} gap={16} >
 				<Grid.Item span={3} className='record-info-key'>
-					票单状态:
+					{language_app_record_info_text_1}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>					
 					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
-						奖励 
+						{language_app_record_info_status_1} 
 					</Tag>:"")}
 					{(htmlData.isdraw=="0"?<Tag color='primary' fill='outline'>
-						匹配中
+						{language_app_record_info_status_2}
 					</Tag>:"")}
 					{(htmlData.isdraw=="-1"?<Tag color='success' fill='outline'>
-						已匹配
+						{language_app_record_info_status_3}
 					</Tag>:"")}
 					{(htmlData.isdraw=="-2"?<Tag color='default' fill='outline'>
-						取消
+						{language_app_record_info_status_4}
 					</Tag>:"")}
 					{(htmlData.isdraw=="-3"?<Tag color='default' fill='outline'>
-						取消
+						{language_app_record_info_status_4}
 					</Tag>:"")}
 				</Grid.Item>
 				
 				<Grid.Item span={3} className='record-info-key'>
-				奖励积分:
+				{language_app_record_info_text_2}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.okamount}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购票详情:
+				{language_app_record_info_text_3}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.ztcode}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				匹配结果:
+				{language_app_record_info_text_4}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.dx}，{htmlData.ds}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购票时间:
+				{language_app_record_info_text_5}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.oddtime}
@@ -93,7 +107,7 @@ export default () => {
 					{htmlData.playtitle}
 				</Grid.Item> */}
 				<Grid.Item span={3} className='record-info-key'>
-					购票积分:
+				{language_app_record_info_text_6}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}
@@ -111,7 +125,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>票单详情</NavBar>
+      	<NavBar  onBack={back}>{language_app_home_button_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}

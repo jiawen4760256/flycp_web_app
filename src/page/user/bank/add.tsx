@@ -9,6 +9,8 @@ import {
 	ExclamationCircleOutline,
 } from 'antd-mobile-icons'
 import Auth from '../../../lib/Auth';
+import { setLoading,getDictionary } from '../../../store'
+import {useDispatch ,useSelector} from 'react-redux'
 export default () => {
 	
 	const [loading, setLoading] = useState(false)
@@ -19,16 +21,33 @@ export default () => {
   const [value, setValue] = useState<any>({})
 	const userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"tradepassword":false}')
 	let navigate = useNavigate()
+	
+	const {      
+		language_app_bankadd,
+		language_app_bankadd_pwd2,
+		language_app_bankadd_pwd2_pls,
+		language_app_bankadd_bank_pls,
+		language_app_bankadd_success,
+		language_app_bankadd_subimt,
+		language_app_bankadd_bank,
+		language_app_bankadd_name,
+		language_app_bankadd_name_pls,
+		language_app_bankadd_number,
+		language_app_bankadd_number_pls,
+		language_app_bankadd_pwd,
+		language_app_bankadd_pwd_pls,
+		language_app_bankadd_input_pls,
+	} = useSelector(getDictionary)
 	Auth.page(navigate)
 	let tradepasswordHtml = (<></>)
 	{if(!userInfo.tradepassword){
 		tradepasswordHtml = (
 			<Form.Item
 				name='pwd2'
-				label='确认资密'
-				rules={[{ required: true, message: '确认资密不能为空' }]}
+				label={language_app_bankadd_pwd2}
+				rules={[{ required: true, message: language_app_bankadd_pwd2_pls }]}
 			>
-				<Input type='password' placeholder='请输入确认资密' />
+				<Input type='password' placeholder={language_app_bankadd_pwd2_pls} />
 			</Form.Item>)
 		
 	}}
@@ -48,7 +67,7 @@ export default () => {
 		if(!value.value){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '请选择银行！',
+				content: language_app_bankadd_bank_pls,
 			})
 			return;
 		}
@@ -64,7 +83,7 @@ export default () => {
 
 			Toast.show({
 				icon: 'success',
-				content: '绑定成功！',
+				content: language_app_bankadd_success,
 			})
 			setTimeout(()=>{
 				navigate(-1)
@@ -81,7 +100,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>绑定银行卡</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_bankadd}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 			<Form
@@ -89,17 +108,17 @@ export default () => {
 					layout='horizontal'
 					footer={
 						<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-							确认绑定
+							{language_app_bankadd_subimt}
 						</Button>
 					}
 					className='prefix-width'
 				>
 					<Form.Item
 						name='bankcode'
-						label='兑换银行'
+						label={language_app_bankadd_bank}
 						// trigger='onConfirm'
 						
-						rules={[{ message: '兑换银行不能为空' }]}
+						rules={[{ message: language_app_bankadd_bank_pls }]}
 						onClick={() => {
 							setVisible6(true)
 						}}
@@ -107,7 +126,7 @@ export default () => {
 					>
 						
 						{value.value?value.label:(<div style={{color:"#ccc"}}>
-							请选择兑换银行
+							{language_app_bankadd_bank_pls}
 						</div>)}
 						{/* <Picker
 							columns={basicColumns}
@@ -139,24 +158,24 @@ export default () => {
 					</Form.Item> */}
 					<Form.Item
 						name='accountname'
-						label='开户姓名'
-						rules={[{ required: true, message: '开户姓名不能为空' }]}
+						label={language_app_bankadd_name}
+						rules={[{ required: true, message: language_app_bankadd_name_pls }]}
 					>
-						<Input  placeholder='请输入开户姓名' autoComplete="off" />
+						<Input  placeholder={language_app_bankadd_name_pls} autoComplete="off" />
 					</Form.Item>
 					<Form.Item
 						name='banknumber'
-						label='卡号'
-						rules={[{ required: true, message: '卡号不能为空' }]}
+						label={language_app_bankadd_number}
+						rules={[{ required: true, message: language_app_bankadd_number_pls }]}
 					>
-						<Input placeholder='请输入卡号'  autoComplete="off" />
+						<Input placeholder={language_app_bankadd_number_pls}  autoComplete="off" />
 					</Form.Item>
 					<Form.Item
 						name='pwd'
-						label='资密'
-						rules={[{ required: true, message: '资密不能为空' }]}
+						label={language_app_bankadd_pwd}
+						rules={[{ required: true, message: language_app_bankadd_pwd_pls }]}
 					>
-						<Input type='password' placeholder='请输入资密'  autoComplete="off" />
+						<Input type='password' placeholder={language_app_bankadd_pwd_pls}  autoComplete="off" />
 					</Form.Item>
 					{tradepasswordHtml}
 				</Form>
@@ -171,7 +190,7 @@ export default () => {
 					<header className="App-header" style={{position: "unset"}} >
 						<NavBar className='app-header' onBack={()=>{
 							setVisible6(false)
-						}}>选择银行</NavBar>
+						}}>{language_app_bankadd_bank_pls}</NavBar>
 					</header>
 					{/* <Form layout='horizontal'>
 						<Form.Item label='搜索' name='username'>
@@ -180,7 +199,7 @@ export default () => {
 					</Form> */}
 					<Space className='search-input'>
 						<SearchOutline style={{fontSize:20}}/>
-						<Input placeholder='请输入银行名称'  onChange={(value:string)=>{
+						<Input placeholder={language_app_bankadd_input_pls}  onChange={(value:string)=>{
 							let newList = [[]];
 							for(let i=0;i<basicColumns1[0].length;i++){
 								let str:string = basicColumns1[0][i]['label']

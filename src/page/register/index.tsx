@@ -10,6 +10,7 @@ import Qs from 'qs'
 import { useSelector } from 'react-redux';
 import {
   getHomeList,
+	getDictionary
 } from '../../store';
 import './index.css'
 import Api from '../../lib/Api';
@@ -18,6 +19,22 @@ export default () => {
 	
 	const [loading, setLoading] = useState(false)
 	const {kefu,website_logo3} = useSelector(getHomeList);
+	const {
+		language_app_error,
+		language_app_home_register_title,
+		language_app_home_register_code,
+		language_app_home_register_code_p,
+		language_app_home_register_account,
+		language_app_home_register_account_p,
+		language_app_home_register_wpd,
+		language_app_home_register_wpd_p,
+		language_app_home_register_wpd1,
+		language_app_home_register_wpd1_p,
+		language_app_home_register_register,
+		language_app_home_register_success,
+		language_app_home_login_issue,
+		language_app_home_login_online,
+	} = useSelector(getDictionary);
 	const [parentid, setParentid] = useState(localStorage.getItem('p')?.toString())
 	let navigate = useNavigate()
 	useEffect(() => {
@@ -38,7 +55,7 @@ export default () => {
 			if(response.data.code == 0){
 				Toast.show({
 					icon: 'success',
-					content: '创建成功！',
+					content: language_app_home_register_success,
 				})
 				localStorage.removeItem("nameAndPwd")
 				setTimeout(()=>{
@@ -56,7 +73,7 @@ export default () => {
 		.catch(function (error) {
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '服务繁忙，稍后再试！',
+				content: language_app_error,
 			})
 			setLoading(false)
 		})
@@ -65,7 +82,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>欢迎注册使用</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_home_register_title}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
@@ -78,46 +95,46 @@ export default () => {
 						// layout='vertical'
 						footer={
 							<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-								创建账户
+								{language_app_home_register_register}
 							</Button>
 						}
 					>
 						{(!parentid || parentid=="0")?<>
 						<Form.Item
 							name='pid'
-							label='邀请码'
-							rules={[{ required: true, message: '邀请码不能为空' }]}
+							label={language_app_home_register_code}
+							rules={[{ required: true, message: language_app_home_register_code_p }]}
 						>
-							<Input placeholder='请输入邀请码' />
+							<Input placeholder={language_app_home_register_code_p} />
 						</Form.Item>
 						</>:<></>}
 						<Form.Item
 							name='name'
-							label='账号'
-							rules={[{ required: true, message: '账号不能为空' }]}
+							label={language_app_home_register_account}
+							rules={[{ required: true, message: language_app_home_register_account_p }]}
 						>
-							<Input  placeholder='需要字母+数字，最多10位数' />
+							<Input  placeholder={language_app_home_register_account_p} />
 						</Form.Item>
 						<Form.Item
 							name='pwd'
-							label='密码'
-							rules={[{ required: true, message: '密码不能为空' }]}
+							label={language_app_home_register_wpd}
+							rules={[{ required: true, message: language_app_home_register_wpd }]}
 						>
-							<Input type='password' placeholder='请输入密码' />
+							<Input type='password' placeholder={language_app_home_register_wpd_p} />
 						</Form.Item>
 						<Form.Item
 							name='pwd2'
-							label='确认密码'
-							rules={[{ required: true, message: '确认密码不能为空' }]}
+							label={language_app_home_register_wpd1}
+							rules={[{ required: true, message: language_app_home_register_wpd1_p }]}
 						>
-							<Input type='password' placeholder='请输入确认密码' />
+							<Input type='password' placeholder={language_app_home_register_wpd1_p} />
 						</Form.Item>
 					</Form>
 
 				</div>
 				<div className='kefu'>
-					有问题请联系
-					<a href={kefu}>在线客服</a>
+					{language_app_home_login_issue}
+					<a href={kefu}>{language_app_home_login_online}</a>
 				</div>
 			</div>
 		</div>

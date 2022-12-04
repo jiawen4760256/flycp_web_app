@@ -7,11 +7,29 @@ import {
 import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import {useDispatch ,useSelector} from 'react-redux'
+import {
+  getDictionary
+} from '../../store';
 export default () => {
 	const params = useParams() 
 	const [htmlData, setHtmlData] = useState<any>({})
 	const dispatch = useDispatch()
+	const {
+		language_app_withdraw_history,
+		language_app_withdraw_info_number,
+		language_app_withdraw_info_amount,
+		language_app_withdraw_info_state,
+		language_app_withdraw_info_state_1,
+		language_app_withdraw_info_state_2,
+		language_app_withdraw_info_state_3,
+		language_app_withdraw_info_name,
+		language_app_withdraw_info_bank,
+		language_app_withdraw_info_addr,
+		language_app_withdraw_info_bank_number,
+		language_app_withdraw_info_time,
+		language_app_withdraw_info_info,    
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let html
@@ -42,48 +60,48 @@ export default () => {
 		html = (<div className='withdraw-info-body' style={{}}>
 			<>
 				<div>
-					票单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
+					{language_app_withdraw_info_number}:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
         </div>
 				<br/>
 				<div >
-					兑换金额:<span className='withdraw-info-value1'>{htmlData.amount}</span>
+					{language_app_withdraw_info_amount}:<span className='withdraw-info-value1'>{htmlData.amount}</span>
         </div>
 				<br/>
 				<div >
-					兑换状态:			
+				{language_app_withdraw_info_state}:			
 					{(htmlData.state=="1"?<Tag color='primary' fill='outline'>
-						正在审核
+						{language_app_withdraw_info_state_1}
 					</Tag>:"")}
 					{(htmlData.state=="2"?<Tag color='success' fill='outline'>
-						兑换成功
+						{language_app_withdraw_info_state_2}
 					</Tag>:"")}
 					{(htmlData.state=="3"?<Tag color='danger' fill='outline'>
-					  兑换失败
+					  {language_app_withdraw_info_state_3}
 					</Tag>:"")}
         </div>
 				<br/>
 				<div >
-				银行卡姓名:<span className='withdraw-info-value1'>{htmlData.accountname}</span>
+				{language_app_withdraw_info_name}:<span className='withdraw-info-value1'>{htmlData.accountname}</span>
         </div>
 				<br/>
 				<div >
-				银行卡名称:<span className='withdraw-info-value1'>{htmlData.bankname}</span>
+				{language_app_withdraw_info_bank}:<span className='withdraw-info-value1'>{htmlData.bankname}</span>
         </div>
 				<br/>
 				<div >
-				银行卡支行:<span className='withdraw-info-value1'>{htmlData.bankbranch}</span>
+				{language_app_withdraw_info_addr}:<span className='withdraw-info-value1'>{htmlData.bankbranch}</span>
         </div>
 				<br/>
 				<div >
-				银行卡号:<span className='withdraw-info-value1'>{htmlData.banknumber}</span>
+				{language_app_withdraw_info_bank_number}:<span className='withdraw-info-value1'>{htmlData.banknumber}</span>
         </div>
 				<br/>
 				<div >
-				兑换时间:<span className='withdraw-info-value1'>{htmlData.oddtime}</span>
+				{language_app_withdraw_info_time}:<span className='withdraw-info-value1'>{htmlData.oddtime}</span>
         </div>
 				<br/>
 				<div >
-				兑换详情:<span className='withdraw-info-value1'>{htmlData.remark1}</span>
+				{language_app_withdraw_info_info}:<span className='withdraw-info-value1'>{htmlData.remark1}</span>
         </div>
 			</>
 		</div>)
@@ -98,7 +116,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>兑换详情</NavBar>
+      	<NavBar  onBack={back}>{language_app_withdraw_history}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}

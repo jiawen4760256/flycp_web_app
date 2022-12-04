@@ -7,7 +7,10 @@ import moment from "moment";
 import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import {useDispatch,useSelector } from 'react-redux';
+import {
+  getDictionary
+} from '../../store';
 
 let now1 = new Date()
 now1.setDate(now1.getDate()-2)
@@ -22,6 +25,10 @@ export default () => {
 	const [historyData, setHistoryData] = useState<{}[]>([])
 	const [hasMore, setHasMore] = useState(true)
 	const dispatch = useDispatch()
+	const {
+		language_app_user_recharge,
+		language_app_user_amount
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let tmp1 = date1;
@@ -73,7 +80,7 @@ export default () => {
 								<div>{item["title"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}积分</div>
+								<div>{item["amount"]}{language_app_user_amount}</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>
@@ -138,11 +145,11 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>影票冲量记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_user_recharge}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				<div className='history-day'>
-					<Space wrap	>	
+					{/* <Space wrap	>	
 						<>
 							<Button onClick={selectDate}>
 								{dateformat1}
@@ -159,7 +166,7 @@ export default () => {
 						<div >
 							<Button color='danger' size='small' className='history-button' onClick={onSelect}>查询</Button>
 						</div>
-					</Space>
+					</Space> */}
 					{historyHtml}
 					
 					<InfiniteScroll loadMore={getHistory} hasMore={hasMore} />	

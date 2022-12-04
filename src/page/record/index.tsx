@@ -10,7 +10,8 @@ import moment from "moment";
 import './index.css'
 import Auth from '../../lib/Auth';
 import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux';
+import {getDictionary} from '../../store';
 
 let now1 = new Date()
 export default () => {
@@ -26,6 +27,12 @@ export default () => {
 	const [status, setStatus] = useState('0')
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
+	const {
+		language_app_home_button_3,
+		language_app_record_status_0,
+		language_app_record_status_1,
+		language_app_record_status_2,
+	} = useSelector(getDictionary);
 	Auth.page(navigate)
 	let tmp1 = date1;
 	let historyHtml
@@ -168,17 +175,17 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>购票记录</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_home_button_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
-				<Grid columns={2} gap={0} className='record-date'>
+				{/* <Grid columns={2} gap={0} className='record-date'>
 					<Grid.Item className='record-date-left' onClick={selectDate}>							
 						{dateformat1}&nbsp;&nbsp;&nbsp;<BankcardOutline />
 					</Grid.Item>
 					<Grid.Item onClick={()=>{setVisible(true)}}>
 						{recordType}&nbsp;&nbsp;&nbsp;<DownOutline />
 					</Grid.Item>
-				</Grid>
+				</Grid> */}
 				<Tabs className='record-type' 
 					onChange={(key)=>{
 						setHistoryData([])
@@ -186,9 +193,9 @@ export default () => {
 						onSelect('','',key)
 					}}
 				>
-          <Tabs.Tab title='全部购票' key='0' />
-          <Tabs.Tab title='已匹配' key='1' />
-          <Tabs.Tab title='匹配中' key='2' />
+          <Tabs.Tab title={language_app_record_status_0} key='0' />
+          <Tabs.Tab title={language_app_record_status_1} key='1' />
+          <Tabs.Tab title={language_app_record_status_2} key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}
         </Tabs>
 				<div >

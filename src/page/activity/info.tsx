@@ -7,12 +7,16 @@ import {
 import './index.css'
 import Auth from '../../lib/Auth';
 import {setLoading} from '../../store';		
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
+import {getDictionary} from '../../store';
 export default () => {
 	const params = useParams() 
 	const [htmlData, setHtmlData] = useState<any>({})
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
+	const {
+		language_app_home_button_2,
+	} = useSelector(getDictionary);
 	Auth.page(navigate)
 	let html
 
@@ -43,14 +47,14 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='discount-empty' description='暂无数据' />
+			<Empty className='discount-empty' description='' />
 		)
 	}
 
   return (
 	<div className='App-main'>
 		<header className="App-header"  >
-      <NavBar className='app-header' onBack={back}>电影介绍</NavBar>
+      <NavBar className='app-header' onBack={back}>{language_app_home_button_2}</NavBar>
 		</header>
 		<div className='App-content' style={{height:window.innerHeight-45,background:'#fff'}}>	
 			<div className='activity-body'>

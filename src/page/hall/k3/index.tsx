@@ -17,7 +17,7 @@ import { ExclamationCircleOutline} from 'antd-mobile-icons'
 
 import { useSelector } from 'react-redux';
 import {
-  getHomeList,getMsgCount,getBalance,setBalance
+  getHomeList,getMsgCount,getBalance,setBalance,getDictionary
 } from '../../../store';
 import {useDispatch } from 'react-redux';
 
@@ -26,6 +26,38 @@ export default () => {
 	const balance = useSelector(getBalance)
 	const dispatch = useDispatch()
 	
+	const {
+		language_app_error,
+		language_app_login_pls,
+		language_app_hall_stop,
+		language_app_hall_number_pls,
+		language_app_hall_amount_pls,
+		language_app_hall_confirm_1,
+		language_app_hall_confirm_2,
+		language_app_hall_confirm_3,
+		language_app_hall_confirm_4,
+		language_app_hall_success,
+		language_app_hall_update,
+		language_app_hall_alert_1,
+		language_app_hall_alert_2,
+		language_app_hall_alert_3,
+		language_app_hall_alert_4,
+		language_app_hall_result,
+		language_app_hall_order,
+		language_app_hall_select,
+		language_app_hall_amount,
+		language_app_hall_dollar,
+		language_app_hall_rand,
+		language_app_hall_del,
+		language_app_hall_total,
+		language_app_hall_item,
+		language_app_hall_balance,
+		language_app_hall_submit,
+		language_app_hall_match,
+		language_app_hall_record,
+		language_app_hall_history,
+		language_app_hall_double,
+	} = useSelector(getDictionary);
 	const {website_touzhu,wanfaName} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
 	const [k3Wanfa, setK3Wanfa] = useState<any[]>([])
@@ -93,7 +125,7 @@ export default () => {
         if (t <= 1) {
 					setVisible(false)
 					Dialog.clear()
-					console.log('倒计时介绍')
+					// console.log('倒计时介绍')
 					getHtmlData(gameName,false)
           window.clearInterval(newTimer);
         } 
@@ -192,7 +224,7 @@ export default () => {
 			setLoading(false)	
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '服务繁忙，稍后再试！',
+				content: language_app_error,
 			})
 		})
 	}
@@ -221,7 +253,7 @@ export default () => {
 		if(gameData.qishu == '0'){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "暂停中，无法操作",
+				content: language_app_hall_stop,
 			})
 			return
 			
@@ -232,14 +264,14 @@ export default () => {
 		if(Object.keys(touzhu).length == 0){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请选择号码！",
+				content: language_app_hall_number_pls,
 			})
 			return
 		}
 		if(!localStorage.getItem("token")){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "您尚未登陆！",
+				content: language_app_login_pls,
 			})
 			return
 		}
@@ -247,18 +279,18 @@ export default () => {
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请输入积分！",
+				content: language_app_hall_amount_pls,
 			})
 			return
 		}
 		
 		Dialog.confirm({
 			content: <>
-				<div className='k3-confirm-title'>购票确认</div>
+				<div className='k3-confirm-title'>{language_app_hall_confirm_1}</div>
 				<Divider />
-				<div className='k3-confirm-text'>购票活动：{gameData.qishu}</div>
-				<div className='k3-confirm-text'>购票总额：{amount*Object.keys(touzhu).length}元</div>
-				<div className='k3-confirm-text'>购票内容：
+				<div className='k3-confirm-text'>{language_app_hall_confirm_2}：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>{language_app_hall_confirm_3}：{amount*Object.keys(touzhu).length}{language_app_hall_dollar}</div>
+				<div className='k3-confirm-text'>{language_app_hall_confirm_4}：
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  item.title+" "
@@ -275,7 +307,7 @@ export default () => {
 		if(gameData.qishu == '0'){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "暂停中，无法操作",
+				content: language_app_hall_stop,
 			})
 			return
 			
@@ -293,14 +325,14 @@ export default () => {
 		if(Object.keys(touzhu).length == 0){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请选择号码！",
+				content: language_app_hall_number_pls,
 			})
 			return
 		}
 		if(!values.token){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "您尚未登陆！",
+				content: language_app_login_pls,
 			})
 			return
 		}
@@ -308,7 +340,7 @@ export default () => {
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "请输入积分！",
+				content: language_app_hall_amount_pls,
 			})
 			return
 		}
@@ -325,14 +357,14 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "完成票单",
+					content: language_app_hall_success,
 				})
 			}else{
 				if(212 == response.data.code){
 					getHtmlData(gameName)
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: "当前票单号已更新，请重新操作！",
+						content: language_app_hall_update,
 					})
 				}else{
 					Toast.show({
@@ -346,7 +378,7 @@ export default () => {
 			setLoading(false)
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '服务繁忙，稍后再试！',
+				content: language_app_error,
 			})
 		})
 	}
@@ -394,18 +426,18 @@ export default () => {
 	alertHtml = (<>
 		<div className='ks-alert-body'>
 			<div className='ks-alert-qs1'>
-				距 {gameData.qishu}
+				{language_app_hall_alert_1} {gameData.qishu}
 			</div>
 			<div className='ks-alert-qs1'>
-				项目截至
+			{language_app_hall_alert_2}
 			</div>
 			<div className='ks-alert-number'>
 				{alertNumber}
 			</div>
 			<div className='ks-alert-qs2'>
-				提交时请注意当前单号
+			{language_app_hall_alert_3}
 			</div>
-			<Button  size='small' color='danger' onClick={()=>setVisible(false)}>知道了</Button>
+			<Button  size='small' color='danger' onClick={()=>setVisible(false)}>{language_app_hall_alert_4}</Button>
 		</div>
 	</>)
 	
@@ -458,11 +490,11 @@ export default () => {
 					}}
 				>
 					{item.expect.slice(4,6)
-						+"月"
+						// +"月"
 						+item.expect.slice(6,8)
-						+"日" 
+						// +"日" 
 						+item.expect.slice(8,12)
-						+"结果"}&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
+						+language_app_hall_result}&nbsp;<DownOutline style={{transform : showHistory=="none"?"rotate(0deg)":"rotate(180deg)"}}/></div>
 				<div>
 					<div className='k3-kj-img'>
 							{item.dx}，{item.ds}
@@ -490,7 +522,7 @@ export default () => {
 		kjHistoryHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					{language_app_hall_order}
 				</Grid.Item>
 				<Grid.Item>
 					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
@@ -518,7 +550,7 @@ export default () => {
 		<div className='touzhu-number' style={{'display':Object.keys(touzhu).length==0?"none":"block"}}> 
 			<div>
 				<Space wrap className='touzhu-number-row'>
-					<div>当前选择</div>
+					<div>{language_app_hall_select}</div>
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  (
@@ -531,10 +563,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>购票金额</div>
+					<div style={{float:"left"}}>{language_app_hall_amount}</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输购票金额'
+							placeholder={language_app_hall_amount_pls}
 							value={value}
 							type="number"       
 							onBlur={()=>{
@@ -560,7 +592,7 @@ export default () => {
 
 					</div>
 					
-					<div style={{float:"right"}} >  元&nbsp;&nbsp;</div>
+					<div style={{float:"right"}} >  {language_app_hall_dollar}&nbsp;&nbsp;</div>
 					{/* <div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div> */}
 				</div>
 			</div>
@@ -570,7 +602,7 @@ export default () => {
 				<Grid.Item className='touzhu-button-left' span={2}>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
 						{
-							Object.keys(touzhu).length==0?'随机':"删除"
+							Object.keys(touzhu).length==0?language_app_hall_rand:language_app_hall_del
 						}
             
           </Button>
@@ -578,22 +610,22 @@ export default () => {
 				<Grid.Item span={4}>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
-							共<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>件</div>
+							{language_app_hall_total}<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>{language_app_hall_item}</div>
 							{/* <div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div> */}
-							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>元</div>
+							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>{language_app_hall_dollar}</div>
 						</Space>
 					</div>
 					<div>
 						<Space wrap className='touzhu-button-glod' onClick={()=>{
 
 						}}>
-							<div>余额：</div>
+							<div>{language_app_hall_balance}：</div>
 							<div className='touzhu-button-number'>{balance}</div>
 						</Space>
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right' span={3}>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购单</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>{language_app_hall_submit}</Button>
 				</Grid.Item>
 			</Grid>
 		</div>
@@ -611,16 +643,16 @@ export default () => {
 	}else if(Object.keys(gameData).length){
 		// qishu = gameData.qishu+" 距匹配"
 		qishu = gameData.qishu.slice(4,6)
-		+"月"
+		// +"月"
 		+gameData.qishu.slice(6,8)
-		+"日" 
+		// +"日" 
 		+gameData.qishu.slice(8,12)
-		+"票单匹配"
+		+language_app_hall_match
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '购票记录' },
-		{ key: '/open/history', icon: <></>, text: '品牌记录' }
+		{ key: '/record', icon:  <></>, text: language_app_hall_record },
+		{ key: '/open/history', icon: <></>, text: language_app_hall_history }
 	]
 	//报错？？？ 需要后加载组件
 	if(visibleSheet){
@@ -634,7 +666,7 @@ export default () => {
 					if(!localStorage.getItem('token')){
 						Toast.show({
 							icon: <ExclamationCircleOutline />,
-							content: '您尚未登录',
+							content: language_app_login_pls,
 						})
 						return
 					}
@@ -735,11 +767,11 @@ export default () => {
 			<Picker
         columns={[
 					[
-						{ label: '1 倍', value: '1' },
-						{ label: '2 倍', value: '2' },
-						{ label: '4 倍', value: '4' },
-						{ label: '5 倍', value: '5' },
-						{ label: '10 倍', value: '10' },
+						{ label: '1 '+language_app_hall_double, value: '1' },
+						{ label: '2 '+language_app_hall_double, value: '2' },
+						{ label: '4 '+language_app_hall_double, value: '4' },
+						{ label: '5 '+language_app_hall_double, value: '5' },
+						{ label: '10 '+language_app_hall_double, value: '10' },
 					]
 				]}
         visible={visibleNum}

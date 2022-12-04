@@ -5,8 +5,16 @@ import {
 } from 'react-router-dom'
 import Auth from '../../../lib/Auth';
 import './index.css'
+
+import { setLoading,getDictionary } from '../../../store'
+import {useDispatch ,useSelector} from 'react-redux'
 export default () => {
 	
+	const {      
+		language_app_user_vip,
+		language_app_vip_name,
+		language_app_vip_total,
+	} = useSelector(getDictionary)
 	const [loading, setLoading] = useState(false)
 	
 	const [vipData, setVipData] = useState<any>({my:[],vip:[]})
@@ -36,16 +44,16 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>vip等级</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_user_vip}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 						
 						<Grid columns={2} gap={8} className='vip-title'>
 							<Grid.Item>
-								 等级名称
+								 {language_app_vip_name}
 							</Grid.Item>
 							<Grid.Item>
-								 等级积分
+								 {language_app_vip_total}
 							</Grid.Item>
 						</Grid>
 						<Grid columns={2} gap={0} >

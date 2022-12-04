@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 import './index.css'
 import Auth from '../../lib/Auth';
-import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getDictionary } from '../../store'
+import {useDispatch,useSelector } from 'react-redux'
 export default () => {
 	
 	const [page, setPage] = useState(1)
@@ -17,6 +17,13 @@ export default () => {
 	const [hasMore, setHasMore] = useState(true)
 	const [status, setStatus] = useState('0')
 	const dispatch = useDispatch()
+	const {
+		language_app_home_bot_3,
+		language_app_message_status_0,
+		language_app_message_status_1,
+		language_app_message_status_2,
+		language_app_message_status_3,
+	} = useSelector(getDictionary);
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let historyHtml
@@ -68,7 +75,7 @@ export default () => {
 				{historyData.map((item:any,index) =>{
 					let newTag = (<></>)
 					if(item.read == '0'){
-						newTag = (<Tag round  color='danger'>新</Tag>)
+						newTag = (<Tag round  color='danger'>new</Tag>)
 					}
 					let prefix
 					if(item.face){
@@ -112,15 +119,16 @@ export default () => {
 		)
 	}
 	const right = (
-    <div style={{ fontSize: 24 }} onClick={()=>{Auth.navigate(navigate, "/message/add")}}>
-			<EditSFill />
-    </div>
+		<></>
+    // <div style={{ fontSize: 24 }} onClick={()=>{Auth.navigate(navigate, "/message/add")}}>
+		// 	<EditSFill />
+    // </div>
   )
 
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' right={right} onBack={back}>站内信</NavBar>
+      	<NavBar className='app-header' right={right} onBack={back}>{language_app_home_bot_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Tabs className='record-type' 
@@ -130,10 +138,10 @@ export default () => {
 						onSelect(key)
 					}}
 				>
-          <Tabs.Tab title='全部' key='0' />
-          <Tabs.Tab title='已读' key='1' />
-          <Tabs.Tab title='未读' key='2' />
-          <Tabs.Tab title='已发送' key='3' />
+          <Tabs.Tab title={language_app_message_status_0} key='0' />
+          <Tabs.Tab title={language_app_message_status_1} key='1' />
+          <Tabs.Tab title={language_app_message_status_2} key='2' />
+          <Tabs.Tab title={language_app_message_status_3} key='3' />
         </Tabs>
 				<div >
 					{historyHtml}

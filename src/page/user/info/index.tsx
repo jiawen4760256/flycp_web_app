@@ -5,11 +5,22 @@ import {
 } from 'react-router-dom'
 import './index.css'
 import Auth from '../../../lib/Auth';
-import { setLoading } from '../../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getDictionary } from '../../../store'
+import {useDispatch ,useSelector} from 'react-redux'
 
 export default () => {
 	const dispatch = useDispatch()
+	const {      
+		language_app_user_info,
+		language_app_userinfo_name,
+		language_app_userinfo_account,
+		language_app_userinfo_nick,
+		language_app_userinfo_sex,
+		language_app_userinfo_day,
+		language_app_userinfo_qq,
+		language_app_userinfo_mobile,
+		language_app_userinfo_vip,
+	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	const [userInfo, setUserInfo] = useState<any>({})
@@ -37,42 +48,42 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar  onBack={back}>个人信息</NavBar>
+				<NavBar  onBack={back}>{language_app_user_info}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				
 				<List header='' >
 					<List.Item className='user-info-name' extra={userInfo["realname"]} clickable={false}>
-						真实姓名
+						{language_app_userinfo_name}
 					</List.Item>
 					<List.Item className='user-info-name' extra={userInfo["username"]} clickable={false}>
-						会员账号
+						{language_app_userinfo_account}
 					</List.Item>
 				</List>
 
 				<br></br>
 				<List header=''>
 					<List.Item extra={userInfo["nickname"]} onClick={onEdit}>
-						昵称
+						{language_app_userinfo_nick}
 					</List.Item>
 					<List.Item extra={userInfo["sexShow"]} onClick={onEdit}>
-						性别
+						{language_app_userinfo_sex}
 					</List.Item>
 					<List.Item extra={userInfo["birthday"]} onClick={onEdit}>
-						生日
+						{language_app_userinfo_day}
 					</List.Item>
 					<List.Item extra={userInfo["qq"]} onClick={onEdit}>
-						联系QQ
+						{language_app_userinfo_qq}
 					</List.Item>
 					<List.Item extra={userInfo["phone"]} onClick={onEdit}>
-						手机号
+						{language_app_userinfo_mobile}
 					</List.Item>
 				</List>
 
 				<br></br>
 				<List header='' >
 					<List.Item className='user-info-name' extra={userInfo['jinjijilu']} clickable={false}>
-						用户等级
+						{language_app_userinfo_vip}
 					</List.Item>
 				</List>
 			</div>

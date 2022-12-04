@@ -10,6 +10,7 @@ import './index.css'
 import { useSelector } from 'react-redux';
 import {
   getHomeList,
+	getDictionary
 } from '../../store';
 import Api from '../../lib/Api';
 import Auth from '../../lib/Auth';
@@ -19,7 +20,20 @@ export default () => {
 	let navigate = useNavigate()
 	const params = useParams() 
 	const {kefu,website_logo3} = useSelector(getHomeList);
-	
+	const {
+		language_app_home_login_title,
+		language_app_home_login_account,
+		language_app_home_login_wpd,
+		language_app_home_login_account_p,
+		language_app_home_login_wpd_p,
+		language_app_home_login_remember,
+		language_app_home_login_login,
+		language_app_home_login_register,
+		language_app_home_login_issue,
+		language_app_home_login_online,
+		language_app_home_login_success,
+		language_app_error
+	} = useSelector(getDictionary);
 	const [loading, setLoading] = useState(false)
 	let nameAndPwd = {name:(params['name']=='null'?"":params['name']),pwd:''}
   const back = () =>{
@@ -41,7 +55,7 @@ export default () => {
 				}
 				Toast.show({
 					icon: 'success',
-					content: '登录成功！',
+					content: language_app_home_login_success,
 				})
 				setTimeout(()=>{
 					navigate('/')
@@ -58,7 +72,7 @@ export default () => {
 		.catch(function (error) {
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '服务繁忙，稍后再试！',
+				content: language_app_error,
 			})
 			setLoading(false)
 		})
@@ -70,7 +84,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar onBack={back}>欢迎登录使用</NavBar>
+				<NavBar onBack={back}>{language_app_home_login_title}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
@@ -82,32 +96,32 @@ export default () => {
 						onFinish={submit}
 						footer={
 							<Button loading={loading} block type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-								登录
+								{language_app_home_login_login}
 							</Button>
 						}
 						className="login-form"
 					>
 						<Form.Item
 							name='name'
-							label='账号'
+							label={language_app_home_login_account}
 							initialValue={nameAndPwd.name}
-							rules={[{ required: false, message: '账号不能为空' }]}
+							rules={[{ required: false, message: language_app_home_login_account_p }]}
 						>
-							<Input  placeholder='请输入账号' />
+							<Input  placeholder={language_app_home_login_account_p} />
 						</Form.Item>
 						<Form.Item
 							name='pwd'
-							label='密码'
+							label={language_app_home_login_wpd}
 							initialValue={nameAndPwd.pwd}
-							rules={[{ required: false, message: '密码不能为空' }]}
+							rules={[{ required: false, message: language_app_home_login_wpd_p }]}
 						>
-							<Input type="password"  placeholder='请输入密码' />
+							<Input type="password"  placeholder={language_app_home_login_wpd_p} />
 						</Form.Item>
 						<Form.Item 
 							name='nameAndPwd'
 							initialValue={nameAndPwd.pwd==""?"":"1"}
 						>
-								<Checkbox defaultChecked={nameAndPwd.pwd==""?false:true}  value='1'>记住密码</Checkbox>
+								<Checkbox defaultChecked={nameAndPwd.pwd==""?false:true}  value='1'>{language_app_home_login_remember}</Checkbox>
 						</Form.Item>
 					</Form>
 
@@ -119,12 +133,12 @@ export default () => {
 							navigate('/register')
 						}}
 					>
-						马上注册
+						{language_app_home_login_register}
 					</Button>
 				</div>
 				<div className='kefu'>
-					有问题请联系
-					<a href={kefu}>在线客服</a>
+					{language_app_home_login_issue}
+					<a href={kefu}>{language_app_home_login_online}</a>
 				</div>
 				
 				{/* <div className='login-img2'>

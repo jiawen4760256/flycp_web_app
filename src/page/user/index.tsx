@@ -3,19 +3,9 @@ import { NavBar, Image,Form,Button,Input,Toast,List,Avatar,Space,Grid,Tag,Badge 
 import {
   useNavigate,
 } from 'react-router-dom'
-import { 
-	HandPayCircleOutline,
+import {
 	GiftOutline,
 	AaOutline,
-	ContentOutline,
-	ReceiptOutline,
-	UnorderedListOutline,
-	PayCircleOutline,
-	UserOutline,
-	TagOutline,
-	GlobalOutline,
-	CloseCircleOutline,
-	BankcardOutline,
 	HeartOutline,
 } from 'antd-mobile-icons'
 import './index.css'
@@ -24,7 +14,7 @@ import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux';
 import {
-  getHomeList,getMsgCount,getBalance,setBalance
+  getHomeList,getMsgCount,getBalance,setBalance,getDictionary
 } from '../../store';
 
 export default () => {
@@ -32,6 +22,25 @@ export default () => {
 	const balance = useSelector(getBalance)
 	let navigate = useNavigate()
 	Auth.page(navigate)
+	const {
+		language_app_home_bot_4,
+		language_app_user_account,
+		language_app_user_amount,
+		language_app_user_buy,
+		language_app_user_exchange,
+		language_app_user_record,
+		language_app_user_fuddetail,
+		language_app_user_recharge,
+		language_app_user_withdraw,
+		language_app_user_info,
+		language_app_user_vip,
+		language_app_user_bank,
+		language_app_user_notice,
+		language_app_user_password,
+		language_app_user_message,
+		language_app_user_logout,
+		language_app_user_logout1,
+	} = useSelector(getDictionary);
 	const [userData, setUserData] = useState<any>("")
 	const [msgCount, setMsgCount] = useState(0)
 	const demoSrc = '/app/vip.png';
@@ -60,7 +69,7 @@ export default () => {
 			dispatch(setLoading(false))
 			Toast.show({
 				icon: 'success',
-				content: '您已退出登录',
+				content: language_app_user_logout1,
 			})
 			localStorage.removeItem("userInfo")
 			localStorage.removeItem("token")
@@ -88,19 +97,19 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar className='app-header' onBack={back}>个人中心</NavBar>
+				<NavBar className='app-header' onBack={back}>{language_app_home_bot_4}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='user-info' >
 					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} onClick={()=>{navigate("/user/edit")}} />
           <div className='user-account'>
 						<div className='user-name'>
-							账号:{userData['username']}&nbsp;
+							{language_app_user_account}:{userData['username']}&nbsp;
 							{/* <Tag color='#fff' fill='outline'>
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>积分:{balance}</div>
+						<div className='user-balance'>{language_app_user_amount}:{balance}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
 					{userData['jinjijilu_id']>0?<>
@@ -125,7 +134,7 @@ export default () => {
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
 								<HeartOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>影票冲量</div>
+								<div style={{color:'#525252'}}>{language_app_user_buy}</div>
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{
@@ -141,7 +150,7 @@ export default () => {
 						}}>
 							<Space wrap align='center'>
 								<GiftOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>兑换</div>
+								<div style={{color:'#525252'}}>{language_app_user_exchange}</div>
 							</Space>
 						</Grid.Item>
 					</Grid>
@@ -149,52 +158,50 @@ export default () => {
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							购票记录
+							{language_app_user_record}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
-							积分明细
+							{language_app_user_fuddetail}
 						</List.Item>
 						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							影票冲量记录
+							{language_app_user_recharge}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
-							兑换记录
+							{language_app_user_withdraw}
 						</List.Item>
 					</List>
 				</div>
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
-							个人信息
+							{language_app_user_info}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
-							vip等级
+							{language_app_user_vip}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/bank.png' />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
-							银行卡管理
+							{language_app_user_bank}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/notice.png' />} onClick={() => {Auth.navigate(navigate,"/notice")}}>
-							网站公告
+							{language_app_user_notice}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
-							密码设置
+							{language_app_user_password}
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} extra={msgCount?<><Badge content={msgCount} /></>:<></>}  onClick={() => {Auth.navigate(navigate,"/message")}}>
-							站内信
+							{language_app_user_message}
 						</List.Item>
 					</List>
 				</div>
 				{proxyHtml}
 				<div className='user-button-list user-button-logout'>
-					
 					<Button block shape='rounded' color='primary' onClick={logout}>
-						
 						<Space>
 							{/* <CloseCircleOutline /> */}
-							<span>退 出 登 录</span>
+							<span>{language_app_user_logout}</span>
 						</Space>
 					</Button>
 				</div>

@@ -8,6 +8,10 @@ import Auth from '../../lib/Auth';
 import './index.css'
 import { setLoading } from '../../store'
 import {useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux';
+import {
+  getDictionary
+} from '../../store';
 import { 
 	FileOutline,
 } from 'antd-mobile-icons'
@@ -24,6 +28,20 @@ export default () => {
   const [value, setValue] = useState<(string | null)[]>([])
   const [amount, setAmount] = useState("")
 	const [notice, setNotice] = useState([])
+	const {
+		language_app_user_exchange,      
+		language_app_withdraw_bank_pls,
+		language_app_withdraw_amount_pls,
+		language_app_withdraw_ok,
+		language_app_withdraw_bank,
+		language_app_withdraw_user,
+		language_app_withdraw_user_pls,
+		language_app_withdraw_number,
+		language_app_withdraw_number_pls,
+		language_app_withdraw_amount,
+		language_app_withdraw_submit,
+		language_app_withdraw_info,
+	} = useSelector(getDictionary);
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
 	Auth.page(navigate)
@@ -52,14 +70,14 @@ export default () => {
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '请选择兑换银行卡',
+				content: language_app_withdraw_bank_pls,
 			})
 			return
 		}
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: '请输入兑换积分',
+				content: language_app_withdraw_amount_pls,
 			})
 			return
 		}
@@ -73,7 +91,7 @@ export default () => {
 		.then(function (response:any) {
 			Toast.show({
 				icon: 'success',
-				content: '申请兑换成功！',
+				content: language_app_withdraw_ok,
 			})
 			
 
@@ -118,11 +136,11 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar onBack={back} right={right}>兑换申请</NavBar>
+      	<NavBar onBack={back} right={right}>{language_app_user_exchange}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<List header=''>
-					<List.Item prefix={(<div className='withdraw-bank'>兑换银行</div>)} onClick={selectBank} >
+					<List.Item prefix={(<div className='withdraw-bank'>{language_app_withdraw_bank}</div>)} onClick={selectBank} >
 						<Picker
 							columns={basicColumns}
 							visible={visible}
@@ -139,14 +157,14 @@ export default () => {
 						>
 							{items => {
 								if (items.every(item => item === null)) {
-									return (<span className='withdraw-span'>请选择兑换银行</span>)
+									return (<span className='withdraw-span'>{language_app_withdraw_bank_pls}</span>)
 								} else {
-									return items.map(item => item?.label ?? '请选择兑换银行').join(' - ')
+									return items.map(item => item?.label ?? language_app_withdraw_bank_pls).join(' - ')
 								}
 							}}
 						</Picker>
 					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>收款人</div>)} onClick={selectBank}>
+					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_user}</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns1}
 							visible={visible1}
@@ -161,14 +179,14 @@ export default () => {
 						>
 							{items => {
 								if (items.every(item => item === null)) {
-									return (<span className='withdraw-span'>请选择收款人</span>)
+									return (<span className='withdraw-span'>{language_app_withdraw_user_pls}</span>)
 								} else {
-									return items.map(item => item?.label ?? '请选择收款人').join(' - ')
+									return items.map(item => item?.label ?? language_app_withdraw_user_pls).join(' - ')
 								}
 							}}
 						</Picker>
 					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>银行卡号</div>)} onClick={selectBank}>
+					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_number}</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns2}
 							visible={visible2}
@@ -184,17 +202,17 @@ export default () => {
 						>
 							{items => {
 								if (items.every(item => item === null)) {
-									return (<span className='withdraw-span'>请选择银行卡号</span>)
+									return (<span className='withdraw-span'>{language_app_withdraw_number_pls}</span>)
 								} else {
-									return items.map(item => item?.label ?? '请选择银行卡号').join(' - ')
+									return items.map(item => item?.label ?? language_app_withdraw_number_pls).join(' - ')
 								}
 							}}
 						</Picker>
 					</List.Item>
 
-					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
+					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_amount}</div>)} >
 						<Input
-							placeholder='请输入兑换积分'
+							placeholder={language_app_withdraw_amount_pls}
 							// onChange={setAmount}
 							// value={amount}
 							ref={input => amountInput = input}
@@ -207,13 +225,13 @@ export default () => {
 					layout='horizontal'
 					footer={
 						<Button block loading={loading1} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-							立即兑换
+							{language_app_withdraw_submit}
 						</Button>
 					}
 				>
 				</Form>
 				<data className='withdraw-info-head'>
-					温馨提示：
+					{language_app_withdraw_info}：
 				</data>
 				<div className='withdraw-info'>
 					{noticeDiv}

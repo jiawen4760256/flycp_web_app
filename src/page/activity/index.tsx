@@ -6,12 +6,16 @@ import {
 import './index.css'
 import Auth from '../../lib/Auth';
 import {setLoading} from '../../store';		
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
+import {getDictionary} from '../../store';
 export default () => {
 	const [htmlData, setHtmlData] = useState<{}[]>([])
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	Auth.page(navigate)
+	const {
+		language_app_home_button_2,
+	} = useSelector(getDictionary);
 	let html
 	useEffect(() => {
 		getHtmlData()
@@ -49,14 +53,14 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='discount-empty' description='暂无数据' />
+			<Empty className='discount-empty' description='' />
 		)
 	}
 
   return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar className='app-header' onBack={back}>电影介绍</NavBar>
+				<NavBar className='app-header' onBack={back}>{language_app_home_button_2}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				{html}	

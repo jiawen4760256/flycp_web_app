@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom'
 import './index.css'
 import Auth from '../../lib/Auth';
-import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getDictionary } from '../../store'
+import {useDispatch,useSelector } from 'react-redux'
 export default () => {
 	const params = useParams() 
 	const [htmlData, setHtmlData] = useState<any>({})
@@ -16,6 +16,9 @@ export default () => {
 	Auth.page(navigate)
 	let html
 
+	const {
+		language_app_home_bot_3,
+	} = useSelector(getDictionary);
 	useEffect(() => {
 		getHtmlData()
 	},[])
@@ -60,7 +63,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>站内信</NavBar>
+      	<NavBar  onBack={back}>{language_app_home_bot_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}
