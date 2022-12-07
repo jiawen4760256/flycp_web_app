@@ -18,7 +18,7 @@ export default () => {
 	const [status, setStatus] = useState('0')
 	const dispatch = useDispatch()
 	const {
-		language_app_home_bot_3,
+		language_app_home_bat_3,
 		language_app_message_status_0,
 		language_app_message_status_1,
 		language_app_message_status_2,
@@ -128,7 +128,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' right={right} onBack={back}>{language_app_home_bot_3}</NavBar>
+      	<NavBar className='app-header' right={right} onBack={back}>{language_app_home_bat_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
 				<Tabs className='record-type' 

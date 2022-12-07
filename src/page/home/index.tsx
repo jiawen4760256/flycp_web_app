@@ -290,13 +290,13 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/tjpq.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							<Image className='sc-type-img' src="/sc/type-dy.png" />
+							<Image className='sc-type-img' src="/sc/type1.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<Image className='sc-type-img' src="/sc/xsyy.png" />
+							<Image className='sc-type-img' src="/sc/type2.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<Image className='sc-type-img' src="/sc/txsp.png" />
+							<Image className='sc-type-img' src="/sc/type3.png" />
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
 							<Image className='sc-type-img' src="/sc/type4.png" />

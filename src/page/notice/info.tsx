@@ -6,13 +6,16 @@ import {
 } from 'react-router-dom'
 import './index.css'
 import Auth from '../../lib/Auth';
-import { setLoading } from '../../store'
-import {useDispatch } from 'react-redux'
+import { setLoading,getDictionary } from '../../store'
+import {useDispatch,useSelector } from 'react-redux'
 
 export default () => {
 	const params = useParams() 
 	const [htmlData, setHtmlData] = useState<any>({})
 	const dispatch = useDispatch()
+	const {
+		language_app_home_notice,
+	} = useSelector(getDictionary);
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let html
@@ -42,7 +45,7 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='discount-empty' description='暂无数据' />
+			<Empty className='discount-empty' description='' />
 		)
 	}
 
@@ -50,12 +53,12 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>网站公告</NavBar>
+      	<NavBar className='app-header' onBack={back}>{language_app_home_notice}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}
 			</div>
 		</div>
-		
 	)
+
 }

@@ -69,10 +69,10 @@ export const counterSlice = createSlice({
       language_app_record_info_status_3:"已匹配",
       language_app_record_info_status_4:"取消",
 
-      language_app_message_status_0:"奖励",
-      language_app_message_status_1:"匹配中",
-      language_app_message_status_2:"已匹配",
-      language_app_message_status_3:"取消",
+      language_app_message_status_0:"全部",
+      language_app_message_status_1:"已读",
+      language_app_message_status_2:"未读",
+      language_app_message_status_3:"已发送",
       
       language_app_hall_stop:"暂停中，无法操作",
       language_app_hall_number_pls:"请选择号码！",
@@ -204,6 +204,23 @@ export const counterSlice = createSlice({
       language_app_userpassword_pwd3:"确认密码",
       language_app_userpassword_pwd3_pls:"请输入确认密码",
       language_app_userpassword_a_title:"资金密码",
+
+      language_app_useredit_title:"编辑信息",
+      language_app_useredit_cancel:"取消",
+      language_app_useredit_sex:"性别",
+      language_app_useredit_sex_1:"保密",
+      language_app_useredit_sex_2:"男",
+      language_app_useredit_sex_3:"女",
+      language_app_useredit_submit:"提交",
+      language_app_useredit_face:"头像",
+      language_app_useredit_nick:"昵称",
+      language_app_useredit_nick_pls:"请输入昵称",
+      language_app_useredit_null:"未选择",
+      language_app_useredit_qq:"联系QQ",
+      language_app_useredit_qq_pls:"请输入联系QQ",
+      language_app_useredit_phone:"联系电话",
+      language_app_useredit_phone_pls:"请输入联系电话",
+
 
       a:1
     },

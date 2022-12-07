@@ -7,6 +7,8 @@ import './index.css'
 import avatarList from './avatar'
 import Auth from '../../../lib/Auth';
 import moment from "moment";
+import { setLoading,getDictionary } from '../../../store'
+import {useDispatch,useSelector } from 'react-redux'
 export default () => {
 	let navigate = useNavigate()
 	Auth.page(navigate)
@@ -19,6 +21,25 @@ export default () => {
   const back = () =>{
 		navigate(-1);
 	}
+	
+	const {
+		language_app_userpassword_success,
+		language_app_useredit_title,
+		language_app_useredit_cancel,
+		language_app_useredit_sex,
+		language_app_useredit_sex_1,
+		language_app_useredit_sex_2,
+		language_app_useredit_sex_3,
+		language_app_useredit_submit,
+		language_app_useredit_face,
+		language_app_useredit_nick,
+		language_app_useredit_nick_pls,
+		language_app_useredit_null,
+		language_app_useredit_qq,
+		language_app_useredit_qq_pls,
+		language_app_useredit_phone,
+		language_app_useredit_phone_pls,
+	} = useSelector(getDictionary);
 	const submit = function(values:any){
 		setLoading(true)
 		values.birthday = userbirthday
@@ -30,7 +51,7 @@ export default () => {
 		.then(function (response) {
 			Toast.show({
 				icon: 'success',
-				content: '修改成功',
+				content: language_app_userpassword_success,
 			})
 			setTimeout(()=>{
 				navigate(-1)
@@ -58,7 +79,7 @@ export default () => {
 				[
 					{
 						key: 'cancel',
-						text: '取消',
+						text: language_app_useredit_cancel,
 					}
 				],
 			],
@@ -67,9 +88,9 @@ export default () => {
 
 	const sexList = [
 		[
-			{ label: '保密', value: '1' },
-			{ label: '男', value: '2' },
-			{ label: '女', value: '3' },
+			{ label: language_app_useredit_sex_1, value: '1' },
+			{ label: language_app_useredit_sex_2, value: '2' },
+			{ label: language_app_useredit_sex_3, value: '3' },
 		]
 	]
 	let tmpDate:string
@@ -112,7 +133,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar onBack={back}>编辑信息</NavBar>
+				<NavBar onBack={back}>{language_app_useredit_title}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<Form
@@ -120,13 +141,13 @@ export default () => {
 						layout='horizontal'
 						footer={
 							<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-								提交
+								{language_app_useredit_submit}
 							</Button>
 						}
 					>
 					<Form.Item
 						name='face'
-						label='头像'
+						label={language_app_useredit_face}
 						onClick={selectAvatar}
 						clickable={false}
 					>
@@ -134,14 +155,14 @@ export default () => {
 					</Form.Item>
 					<Form.Item
 						name='nickname'
-						label='昵称'
+						label={language_app_useredit_nick}
 						initialValue={userInfo['nickname']}
 					>
-						<Input  placeholder='请输入昵称'/>
+						<Input  placeholder={language_app_useredit_nick_pls}/>
 					</Form.Item>
 					<Form.Item
 						name='sex'
-						label='性别'
+						label={language_app_useredit_sex}
 						onClick={() => {
 							setVisible(true)
 						}}
@@ -160,33 +181,33 @@ export default () => {
 								if (items.every(item => item === null)) {
 									return userInfo['sexShow']
 								} else {
-									return items.map(item => item?.label ?? '未选择')
+									return items.map(item => item?.label ?? language_app_useredit_null)
 								}
 							}}
 						</Picker>
 					</Form.Item>
-					<Form.Item
+					{/* <Form.Item
 						name='birthday'
 						label='生日'
 						onClick={selectDate}
 						
 					>
 						{userbirthday}
-					</Form.Item>
+					</Form.Item> */}
 					<Form.Item
 						name='qq'
-						label='联系QQ'
+						label={language_app_useredit_qq}
 						
 						initialValue={userInfo['qq']}
 					>
-						<Input placeholder='请输入联系QQ' />
+						<Input placeholder={language_app_useredit_qq_pls} />
 					</Form.Item>
 					<Form.Item
 						name='phone'
-						label='联系电话'
+						label={language_app_useredit_phone}
 						initialValue={userInfo['phone']}
 					>
-						<Input placeholder='请输入联系电话' />
+						<Input placeholder={language_app_useredit_phone_pls} />
 					</Form.Item>
 				</Form>
 			</div>

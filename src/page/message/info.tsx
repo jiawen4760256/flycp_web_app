@@ -17,7 +17,7 @@ export default () => {
 	let html
 
 	const {
-		language_app_home_bot_3,
+		language_app_home_bat_3,
 	} = useSelector(getDictionary);
 	useEffect(() => {
 		getHtmlData()
@@ -63,7 +63,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>{language_app_home_bot_3}</NavBar>
+      	<NavBar  onBack={back}>{language_app_home_bat_3}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}
