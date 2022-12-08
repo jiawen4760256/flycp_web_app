@@ -111,11 +111,11 @@ export default () => {
 	let noticeDiv = notice.map((item,index)=>{
 		return (
 			<Grid columns={3} gap={0} key={index}>
-				<Grid.Item key={index+"1"}>
-					<div className='withdraw-info-key'>{item["k"]}</div>
+				<Grid.Item key={index+"1"}  className='withdraw-info-key'>
+					<div>{item["k"]}</div>
 				</Grid.Item>
-				<Grid.Item span={2} key={index+"2"}>
-					<div className='withdraw-info-value' >{item["v"]}</div>
+				<Grid.Item span={2} key={index+"2"} className='withdraw-info-value'>
+					<div>{item["v"]}</div>
 				</Grid.Item>
 				
 			</Grid>

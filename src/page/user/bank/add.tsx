@@ -73,6 +73,7 @@ export default () => {
 		}
 		setLoading(true)
 		values.bankcode = value.value
+		values.bankname = value.label
 		Auth.ajax(navigate,"user/bankadd",values)
 		.then(function (response:any) {
 			if(localStorage.getItem("userInfo")){

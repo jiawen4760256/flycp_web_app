@@ -33,7 +33,7 @@ import { setLoading,setMsgCount,setBalance,getDictionary } from '../../store';
 import {useDispatch } from 'react-redux';
 let interval:any = 0
 export default () => {
-	const {notice,img,list,kefu,website_logo2,website_hot,language} = useSelector(getHomeList);
+	const {notice,img,list,kefu,website_logo2,website_hot,language,website_app_img_1,website_app_img_2} = useSelector(getHomeList);
 	const {
 		language_app_home_login,
 		language_app_home_notice,
@@ -287,22 +287,23 @@ export default () => {
 						</Grid.Item>
 					</Grid>
 				
-					<Image className='sc-youhui'  src="/sc/tjpq.png" />
+					<Image className='sc-youhui'  src={website_app_img_1} />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							<Image className='sc-type-img' src="/sc/type1.png" />
+							{/* <Image className='sc-type-img' src="/sc/type1.png" /> */}
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type1.png")'}}>{language_app_home_type_1}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<Image className='sc-type-img' src="/sc/type2.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type2.png")'}}>{language_app_home_type_2}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<Image className='sc-type-img' src="/sc/type3.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type3.png")'}}>{language_app_home_type_3}</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
-							<Image className='sc-type-img' src="/sc/type4.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type4.png")'}}>{language_app_home_type_4}</div>
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
+					<Image className='sc-youhui'  src={website_app_img_2} onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 					<Divider className='dy-type'>{language_app_home_text_1}</Divider>

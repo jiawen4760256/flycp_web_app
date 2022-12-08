@@ -599,15 +599,15 @@ export default () => {
 		</div>
 		<div className='touzhu-footer'>
 			<Grid columns={9} gap={8}>
-				<Grid.Item className='touzhu-button-left' span={2}>
+				{/* <Grid.Item className='touzhu-button-left' span={2}>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
 						{
 							Object.keys(touzhu).length==0?language_app_hall_rand:language_app_hall_del
 						}
             
           </Button>
-				</Grid.Item>
-				<Grid.Item span={4}>
+				</Grid.Item> */}
+				<Grid.Item span={6}>
 					<div>
 						<Space wrap className='touzhu-button-glod'>
 							{language_app_hall_total}<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>{language_app_hall_item}</div>

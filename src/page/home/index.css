@@ -173,7 +173,14 @@
 	/* height: 90px; */
 }
 .sc-type-name{
-	padding-top: 15px;
+ 	/* margin-top: -75px; */
+ 	height: 45px;
+ 	padding-top: 20px;
+ 	background-size: contain;
+ 	background-position: center;
+   background-repeat: no-repeat, no-repeat;
+ 		/* left: 50%; */
+ 		/* top:0;left:0;right:0;bottom:0;margin: auto; */
 }
 .sc-badge{
 	padding: 5px;
