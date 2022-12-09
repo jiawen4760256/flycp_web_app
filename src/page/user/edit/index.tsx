@@ -194,14 +194,14 @@ export default () => {
 					>
 						{userbirthday}
 					</Form.Item> */}
-					<Form.Item
+					{/* <Form.Item
 						name='qq'
 						label={language_app_useredit_qq}
 						
 						initialValue={userInfo['qq']}
 					>
 						<Input placeholder={language_app_useredit_qq_pls} />
-					</Form.Item>
+					</Form.Item> */}
 					<Form.Item
 						name='phone'
 						label={language_app_useredit_phone}

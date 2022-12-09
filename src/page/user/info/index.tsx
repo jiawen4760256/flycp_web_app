@@ -69,12 +69,12 @@ export default () => {
 					<List.Item extra={userInfo["sexShow"]} onClick={onEdit}>
 						{language_app_userinfo_sex}
 					</List.Item>
-					<List.Item extra={userInfo["birthday"]} onClick={onEdit}>
+					{/* <List.Item extra={userInfo["birthday"]} onClick={onEdit}>
 						{language_app_userinfo_day}
-					</List.Item>
-					<List.Item extra={userInfo["qq"]} onClick={onEdit}>
+					</List.Item> */}
+					{/* <List.Item extra={userInfo["qq"]} onClick={onEdit}>
 						{language_app_userinfo_qq}
-					</List.Item>
+					</List.Item> */}
 					<List.Item extra={userInfo["phone"]} onClick={onEdit}>
 						{language_app_userinfo_mobile}
 					</List.Item>

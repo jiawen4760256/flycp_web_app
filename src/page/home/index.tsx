@@ -17,7 +17,8 @@ import {
 	ShopbagOutline,
 	GiftOutline,
 	MovieOutline,
-	GlobalOutline
+	GlobalOutline,
+	DownOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -33,7 +34,7 @@ import { setLoading,setMsgCount,setBalance,getDictionary } from '../../store';
 import {useDispatch } from 'react-redux';
 let interval:any = 0
 export default () => {
-	const {notice,img,list,kefu,website_logo2,website_hot,language,website_app_img_1,website_app_img_2} = useSelector(getHomeList);
+	const {notice,img,list,kefu,website_logo2,website_hot,language,website_app_img_1,website_app_img_2,languageNow} = useSelector(getHomeList);
 	const {
 		language_app_home_login,
 		language_app_home_notice,
@@ -196,7 +197,7 @@ export default () => {
 				// navigate("/register");
 				setVisiblePopup(true)
 			}}>
-			中/EN
+			{languageNow}<DownOutline />
 		</Button>
 		</>
 		
@@ -209,7 +210,7 @@ export default () => {
 					// navigate("/register");
 					setVisiblePopup(true)
 				}}>
-				中/EN
+				{languageNow}<DownOutline />
 			</Button></>)
 	}
 	const tabs = [
@@ -231,7 +232,7 @@ export default () => {
     {
       key: '/mall/0',
       title: language_app_home_bat_2,
-      icon: <MovieOutline />,
+      icon: <ShopbagOutline />,
     },
     {
 			key: '/message',

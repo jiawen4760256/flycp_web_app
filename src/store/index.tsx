@@ -18,7 +18,8 @@ export const counterSlice = createSlice({
       website_touzhu:'',
       website_app_img_1:'',
       website_app_img_2:'',
-      language:[]
+      language:[],
+      languageNow:'',
     },
     k3Wanfa: [],
     k3Touzhu: {},
