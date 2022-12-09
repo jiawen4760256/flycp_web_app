@@ -9,6 +9,7 @@ import store from './store/store';
 import { ConfigProvider } from "antd-mobile";
 import enUS from 'antd-mobile/es/locales/en-US'
 import zhCN from 'antd-mobile/es/locales/zh-CN'
+import zhTW from 'antd-mobile/es/locales/zh-TW'
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -23,13 +24,19 @@ console.log(navigator.language)
 if(!localStorage.getItem('language')){
   localStorage.setItem('language',navigator.language)
 }
-
+const language = localStorage.getItem('language')
+let locale = enUS
+if(language == 'zh-CN'){
+  locale=zhCN
+}else if(language == 'zh-TW'){
+  locale=zhTW
+}
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
-    <ConfigProvider locale={enUS}>
+    <ConfigProvider locale={locale}>
       <App />
     </ConfigProvider>
     </BrowserRouter>
