@@ -118,6 +118,8 @@ export const counterSlice = createSlice({
       language_app_hall_record:"",
       language_app_hall_history:"",
       language_app_hall_double:"",
+      language_app_hall_cancel:"",
+      language_app_hall_confirm:"",
 
       language_app_user_account:"",
       language_app_user_amount:"",

@@ -57,6 +57,8 @@ export default () => {
 		language_app_hall_record,
 		language_app_hall_history,
 		language_app_hall_double,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary);
 	const {website_touzhu,wanfaName} = useSelector(getHomeList);
 	const [gameList, setGameList] = useState<{}[]>([])
@@ -298,6 +300,8 @@ export default () => {
 					})}
 				</div>
 			</>,
+			cancelText:language_app_hall_cancel,
+			confirmText:language_app_hall_confirm,
 			onConfirm: submit
 		})
 	}
