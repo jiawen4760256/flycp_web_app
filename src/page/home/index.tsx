@@ -252,7 +252,7 @@ export default () => {
 	}
 	return (
 		<div className='App-main'>
-			<header className={"App-header"}  >
+			<header className={"App-header App-home"}  >
 				<NavBar backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
@@ -288,7 +288,7 @@ export default () => {
 						</Grid.Item>
 					</Grid>
 				
-					<Image className='sc-youhui'  src={website_app_img_1} />
+					<Image className='sc-youhui'  src={website_app_img_1} style={{ borderRadius: 4 }}/>
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							{/* <Image className='sc-type-img' src="/sc/type1.png" /> */}
@@ -304,7 +304,7 @@ export default () => {
 							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type4.png")'}}>{language_app_home_type_4}</div>
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src={website_app_img_2} onClick={()=>{navigate("/mall/0")}} />
+					<Image className='sc-youhui'  src={website_app_img_2} onClick={()=>{navigate("/mall/0")}} style={{ borderRadius: 4 }} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 					<Divider className='dy-type'>{language_app_home_text_1}</Divider>

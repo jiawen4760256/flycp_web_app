@@ -76,3 +76,7 @@
 .slide-exit-active {
   transform: translateX(-100%);
 }
+
+.App-home .adm-nav-bar-left{
+  flex: none;
+}
