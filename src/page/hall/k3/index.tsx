@@ -547,87 +547,91 @@ export default () => {
 	// 投注html
 	touzhuHtml = (<>
 	
-		<div className='touzhu-number' style={{'display':Object.keys(touzhu).length==0?"none":"block"}}> 
-			<div>
-				<Space wrap className='touzhu-number-row'>
-					<div>{language_app_hall_select}</div>
-					{k3Wanfa.map((item:any,index:number)=>{
-						if(touzhu[item.playid]){
-							return  (
-								<div key={index} className='touzhu-number-select'>{item.title}</div>
-							)
-						}
-					})}
-				</Space>
-			</div>
-			<Divider style={{margin: "5px 0"}} />
-			<div>
-				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>{language_app_hall_amount}</div>
-					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
-						<Input
-							placeholder={language_app_hall_amount_pls}
-							value={value}
-							type="number"       
-							onBlur={()=>{
-								// alert(window.screen.availHeight)
-							}}
-							onFocus={()=>{
-								// alert(window.screen.availHeight)
-							}}
+		<div className='touzhu-footer'>
+			
+			<div className='touzhu-number' style={{'display':Object.keys(touzhu).length==0?"none":"block"}}> 
+				<div>
+					<Space wrap className='touzhu-number-row'>
+						<div>{language_app_hall_select}</div>
+						{k3Wanfa.map((item:any,index:number)=>{
+							if(touzhu[item.playid]){
+								return  (
+									<div key={index} className='touzhu-number-select'>{item.title}</div>
+								)
+							}
+						})}
+					</Space>
+				</div>
+				<Divider style={{margin: "5px 0"}} />
+				<div>
+					<div  className='touzhu-number-row'  >
+						<div style={{float:"left"}}>{language_app_hall_amount}</div>
+						<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
+							<Input
+								placeholder={language_app_hall_amount_pls}
+								value={value}
+								type="number"       
+								onBlur={()=>{
+									// alert(window.screen.availHeight)
+								}}
+								onFocus={()=>{
+									// alert(window.screen.availHeight)
+								}}
 
-							onChange={val => {
-								// if(Number(val) > 1000000){
-								// 	setValue('')
-								// 	Toast.show({
-								// 		content: '最高投注积分100万',
-								// 		afterClose: () => {
-								// 			console.log('after')
-								// 		},
-								// 	})
-								// }
-								setValue(val)
-							}}
-						/>
+								onChange={val => {
+									// if(Number(val) > 1000000){
+									// 	setValue('')
+									// 	Toast.show({
+									// 		content: '最高投注积分100万',
+									// 		afterClose: () => {
+									// 			console.log('after')
+									// 		},
+									// 	})
+									// }
+									setValue(val)
+								}}
+							/>
 
+						</div>
+						
+						<div style={{float:"right"}} >  {language_app_hall_dollar}&nbsp;&nbsp;</div>
+						{/* <div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div> */}
 					</div>
-					
-					<div style={{float:"right"}} >  {language_app_hall_dollar}&nbsp;&nbsp;</div>
-					{/* <div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div> */}
 				</div>
 			</div>
-		</div>
-		<div className='touzhu-footer'>
-			<Grid columns={9} gap={8}>
-				{/* <Grid.Item className='touzhu-button-left' span={2}>
-					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
-						{
-							Object.keys(touzhu).length==0?language_app_hall_rand:language_app_hall_del
-						}
-            
-          </Button>
-				</Grid.Item> */}
-				<Grid.Item span={6}>
-					<div>
-						<Space wrap className='touzhu-button-glod'>
-							{language_app_hall_total}<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>{language_app_hall_item}</div>
-							{/* <div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div> */}
-							<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>{language_app_hall_dollar}</div>
-						</Space>
-					</div>
-					<div>
-						<Space wrap className='touzhu-button-glod' onClick={()=>{
+			<div className='touzhu-amount'>
+				<Grid columns={9} gap={8}>
+					{/* <Grid.Item className='touzhu-button-left' span={2}>
+						<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
+							{
+								Object.keys(touzhu).length==0?language_app_hall_rand:language_app_hall_del
+							}
+							
+						</Button>
+					</Grid.Item> */}
+					<Grid.Item span={6}>
+						<div>
+							<Space wrap className='touzhu-button-glod'>
+								{language_app_hall_total}<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>{language_app_hall_item}</div>
+								{/* <div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div> */}
+								<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>{language_app_hall_dollar}</div>
+							</Space>
+						</div>
+						<div>
+							<Space wrap className='touzhu-button-glod' onClick={()=>{
 
-						}}>
-							<div>{language_app_hall_balance}：</div>
-							<div className='touzhu-button-number'>{balance}</div>
-						</Space>
-					</div>
-				</Grid.Item>
-				<Grid.Item  className='touzhu-button-right' span={3}>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>{language_app_hall_submit}</Button>
-				</Grid.Item>
-			</Grid>
+							}}>
+								<div>{language_app_hall_balance}：</div>
+								<div className='touzhu-button-number'>{balance}</div>
+							</Space>
+						</div>
+					</Grid.Item>
+					<Grid.Item  className='touzhu-button-right' span={3}>
+						<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>{language_app_hall_submit}</Button>
+					</Grid.Item>
+				</Grid>
+
+			</div>
 		</div>
 	</>)
 
