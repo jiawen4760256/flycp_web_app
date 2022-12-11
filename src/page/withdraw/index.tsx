@@ -41,6 +41,8 @@ export default () => {
 		language_app_withdraw_amount,
 		language_app_withdraw_submit,
 		language_app_withdraw_info,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary);
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
@@ -144,6 +146,8 @@ export default () => {
 						<Picker
 							columns={basicColumns}
 							visible={visible}
+							cancelText={language_app_hall_cancel}
+							confirmText={language_app_hall_confirm}
 							onClose={() => {
 								setVisible(false)
 							}}
@@ -168,6 +172,8 @@ export default () => {
 						<Picker
 							columns={basicColumns1}
 							visible={visible1}
+							cancelText={language_app_hall_cancel}
+							confirmText={language_app_hall_confirm}
 							onClose={() => {
 								setVisible1(false)
 							}}
@@ -190,6 +196,8 @@ export default () => {
 						<Picker
 							columns={basicColumns2}
 							visible={visible2}
+							cancelText={language_app_hall_cancel}
+							confirmText={language_app_hall_confirm}
 							onClose={() => {
 								setVisible2(false)
 							}}

@@ -782,6 +782,8 @@ export default () => {
 						{ label: '10 '+language_app_hall_double, value: '10' },
 					]
 				]}
+				cancelText={language_app_hall_cancel}
+				confirmText={language_app_hall_confirm}
         visible={visibleNum}
         onClose={() => {
           setVisibleNum(false)

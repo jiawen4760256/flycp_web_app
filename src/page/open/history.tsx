@@ -30,7 +30,9 @@ export default () => {
 	let navigate = useNavigate()
 	const {
 		language_app_hall_history,
-		language_app_hall_order
+		language_app_hall_order,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary);
 	const recordTypeList = JSON.parse(localStorage.getItem("list")??"[]")
 	const [recordName, setRecordName] = useState<string>(params['name']??"")
@@ -192,6 +194,8 @@ export default () => {
 					onClose={() => {
 						setVisible(false)
 					}}
+					cancelText={language_app_hall_cancel}
+					confirmText={language_app_hall_confirm}
 					onConfirm={v => {
 						recordTypeList[0].map((item:any,index:any)=>{
 							// console.log(v[0],item)

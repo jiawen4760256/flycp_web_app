@@ -32,6 +32,8 @@ export default () => {
 		language_app_record_status_0,
 		language_app_record_status_1,
 		language_app_record_status_2,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary);
 	Auth.page(navigate)
 	let tmp1 = date1;
@@ -206,6 +208,8 @@ export default () => {
 				<Picker
 					columns={recordTypeList}
 					visible={visible}
+					cancelText={language_app_hall_cancel}
+					confirmText={language_app_hall_confirm}
 					onClose={() => {
 						setVisible(false)
 					}}

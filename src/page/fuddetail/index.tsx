@@ -27,6 +27,8 @@ export default () => {
 		language_app_duddetail_type_1,
 		language_app_duddetail_type_2,
 		language_app_user_amount,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary)
 	let navigate = useNavigate()
 	Auth.page(navigate)
@@ -148,6 +150,8 @@ export default () => {
 				<Picker
 					columns={dayList}
 					visible={visible}
+					cancelText={language_app_hall_cancel}
+					confirmText={language_app_hall_confirm}
 					onClose={() => {
 						setVisible(false)
 					}}

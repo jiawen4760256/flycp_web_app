@@ -39,6 +39,8 @@ export default () => {
 		language_app_useredit_qq_pls,
 		language_app_useredit_phone,
 		language_app_useredit_phone_pls,
+		language_app_hall_cancel,
+		language_app_hall_confirm,
 	} = useSelector(getDictionary);
 	const submit = function(values:any){
 		setLoading(true)
@@ -170,6 +172,8 @@ export default () => {
 						<Picker
 							columns={sexList}
 							visible={visible}
+							cancelText={language_app_hall_cancel}
+							confirmText={language_app_hall_confirm}
 							onClose={() => {
 								setVisible(false)
 							}}
