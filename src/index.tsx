@@ -20,15 +20,48 @@ if(window.location.href.indexOf('https://') != -1){
   localStorage.setItem('apiUrl', 'http://'+window.location.host);
 }
 
-console.log(navigator.language)
-if(!localStorage.getItem('language')){
-  localStorage.setItem('language',navigator.language)
+function selectLanguage(){
+  let language1 = navigator.language
+  if(language1 == "zh-CN"){
+    return "zh-CN"
+  }
+  if(language1 == "zh-TW"){
+    return "zh-TW"
+  }
+  if(language1 == "zh-HK"){
+    return "zh-TW"
+  }
+  if(language1 == "zh-MO"){
+    return "zh-TW"
+  }
+  if(language1 == "zh-SG"){
+    return "zh-TW"
+  }
+  let language2 = navigator.language.slice(0,2)
+  if(language2 == 'zh'){
+    return "zh-CN"
+  }
+  if(language2 == 'en'){
+    return "en-US"
+  }
+  if(language2 == 'ja'){
+    return "ja-JP"
+  }
+  if(language2 == 'vi'){
+    return "vi-VN"
+  }
+  return "en-US"
 }
-const language = localStorage.getItem('language')
+let navigatorLanguage = selectLanguage()
+console.log(navigator.language)
+// alert(navigator.language)
+if(!localStorage.getItem('language')){
+    localStorage.setItem('language',navigatorLanguage)
+}
 let locale = enUS
-if(language == 'zh-CN'){
+if(navigatorLanguage == 'zh-CN'){
   locale=zhCN
-}else if(language == 'zh-TW'){
+}else if(navigatorLanguage == 'zh-TW'){
   locale=zhTW
 }
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
