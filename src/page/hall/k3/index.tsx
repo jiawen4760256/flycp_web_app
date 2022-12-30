@@ -1,5 +1,5 @@
 import React, { useState,useEffect,useCallback } from 'react'
-import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover,Picker} from 'antd-mobile'
+import { NavBar,Toast,Mask,Divider,Image,Popup,Button,Grid,Dialog,Space,Input,DotLoading,Popover,Picker,SpinLoading,Modal} from 'antd-mobile'
 import {
   useNavigate,useParams
 } from 'react-router-dom'
@@ -371,10 +371,18 @@ export default () => {
 						content: language_app_hall_update,
 					})
 				}else{
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						content: response.data.msg,
-					})
+					if(response.data.msg == 'language_msg_ban_touzhu_none'){
+						Modal.show({
+							bodyStyle:{background: "bottom"},
+							header:<div style={{textAlign: "center"}}> <SpinLoading color='primary' /></div>,
+							closeOnMaskClick: true,
+						})
+					}else{
+						Toast.show({
+							icon: <ExclamationCircleOutline />,
+							content: response.data.msg,
+						})
+					}
 				}
 			}
 		})
