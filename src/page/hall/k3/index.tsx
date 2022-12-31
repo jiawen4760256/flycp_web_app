@@ -291,7 +291,7 @@ export default () => {
 				<div className='k3-confirm-title'>{language_app_hall_confirm_1}</div>
 				<Divider />
 				<div className='k3-confirm-text'>{language_app_hall_confirm_2}：{gameData.qishu}</div>
-				<div className='k3-confirm-text'>{language_app_hall_confirm_3}：{amount*Object.keys(touzhu).length}{language_app_hall_dollar}</div>
+				<div className='k3-confirm-text'>{language_app_hall_confirm_3}：{amount*Object.keys(touzhu).length}</div>
 				<div className='k3-confirm-text'>{language_app_hall_confirm_4}：
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
@@ -606,7 +606,7 @@ export default () => {
 
 						</div>
 						
-						<div style={{float:"right"}} >  {language_app_hall_dollar}&nbsp;&nbsp;</div>
+						<div style={{float:"right"}} >  &nbsp;&nbsp;</div>
 						{/* <div style={{float:"right"}} onClick={()=>{setVisibleNum(true)}}><Divider direction='vertical' /> {visibleNumSelect} 倍<DownOutline />&nbsp;</div> */}
 					</div>
 				</div>
@@ -626,7 +626,7 @@ export default () => {
 							<Space wrap className='touzhu-button-glod'>
 								{language_app_hall_total}<div className='touzhu-button-number'>{ Object.keys(touzhu).length}</div><div>{language_app_hall_item}</div>
 								{/* <div className='touzhu-button-number'>{ visibleNumSelect}</div><div>倍</div> */}
-								<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div>{language_app_hall_dollar}</div>
+								<div className='touzhu-button-number'>{ Number(value)*Object.keys(touzhu).length*visibleNumSelect}</div><div></div>
 							</Space>
 						</div>
 						<div>
