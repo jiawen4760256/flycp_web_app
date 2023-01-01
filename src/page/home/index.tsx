@@ -77,6 +77,8 @@ export default () => {
 		if(localStorage.getItem("token")){
 			return true;
 		}else{
+      navigate('/login/null')
+			return false
 			Dialog.alert({
 				content: <div className='check-login'>
 					<h3>{language_app_home_login_pls_1}</h3>
