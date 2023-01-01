@@ -179,9 +179,9 @@ export default () => {
 						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
 							个人信息
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
+						{/* <List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
 							vip等级
-						</List.Item>
+						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/bank.png' />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
 							银行卡管理
 						</List.Item>

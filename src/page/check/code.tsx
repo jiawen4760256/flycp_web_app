@@ -30,7 +30,7 @@ export default () => {
     console.log(value)
 		if(md5(value) == checkCode){
 			localStorage.setItem('checkCode','1')
-			navigate('/check/line')
+			navigate('/')
 		}else{
 
 			Toast.show({
