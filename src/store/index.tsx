@@ -70,6 +70,9 @@ export const counterSlice = createSlice({
       language_app_home_register_wpd1_p:"",
       language_app_home_register_register:"",
       language_app_home_register_success:"",
+      language_app_home_login_pls_1:"",
+      language_app_home_login_pls_2:"",
+      language_app_home_login_pls_3:"",
 
       language_app_record_status_0:"",
       language_app_record_status_1:"",

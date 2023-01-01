@@ -53,7 +53,10 @@ export default () => {
 		language_app_home_bat_3,
 		language_app_home_bat_4,
 		language_app_home_text_1,
-		language_app_home_text_2
+		language_app_home_text_2,
+		language_app_home_login_pls_1,
+		language_app_home_login_pls_2,
+		language_app_home_login_pls_3,
 	} = useSelector(getDictionary);
 	
 	const msgCount = useSelector(getMsgCount)
@@ -76,9 +79,10 @@ export default () => {
 		}else{
 			Dialog.alert({
 				content: <div className='check-login'>
-					<h3>温馨提示</h3>
-					<div>请先登录才能查看</div>
+					<h3>{language_app_home_login_pls_1}</h3>
+					<div>{language_app_home_login_pls_2}</div>
 				</div>,
+				confirmText:<>{language_app_home_login_pls_3}</>,
 				onConfirm: () => {
 					// console.log('Confirmed')
 				},
