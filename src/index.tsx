@@ -50,6 +50,12 @@ function selectLanguage(){
   if(language2 == 'vi'){
     return "vi-VN"
   }
+  if(language2 == "id"){
+    return "id-ID"
+  }
+  if(language2 == "ms"){
+    return "ms-MY"
+  }
   return "en-US"
 }
 let navigatorLanguage = selectLanguage()
