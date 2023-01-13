@@ -157,6 +157,15 @@ export default () => {
 					>
 						<Input placeholder='请输入开户地点' />
 					</Form.Item> */}
+					<div style={{height: "0px"}} >
+						<Input
+							autoComplete='off'
+						/>
+						<Input
+							type="password"
+							autoComplete='off'
+						/>
+					</div>
 					<Form.Item
 						name='accountname'
 						label={language_app_bankadd_name}
