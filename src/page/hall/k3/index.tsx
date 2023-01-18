@@ -432,7 +432,9 @@ export default () => {
 			onConfirm: () => {
 			},
 		})
-	
+	const balanceToFixed = (balance:any)=>{
+		return parseFloat(balance).toFixed(2)
+	}
 
 	// 投注倒计时
 	alertHtml = (<>
@@ -634,7 +636,8 @@ export default () => {
 
 							}}>
 								<div>{language_app_hall_balance}：</div>
-								<div className='touzhu-button-number'>{balance.toFixed(2)}</div>
+								{/* <div className='touzhu-button-number'>{balance}</div> */}
+								<div className='touzhu-button-number'>{balanceToFixed(balance)}</div>
 							</Space>
 						</div>
 					</Grid.Item>
