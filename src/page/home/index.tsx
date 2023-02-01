@@ -61,6 +61,7 @@ export default () => {
 	// 	</Badge>
 	// ))
 	const checkLogin=()=>{
+		return true;
 		if(localStorage.getItem("token")){
 			return true;
 		}else{
