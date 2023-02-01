@@ -148,7 +148,8 @@ export default () => {
 						label='卡号'
 						rules={[{ required: true, message: '卡号不能为空' }]}
 					>
-						<input className='adm-input adm-input-element'  placeholder='请输入卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/>
+					{/* <input className='adm-input adm-input-element'  placeholder='请输入卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/> */}
+						<input className='adm-input adm-input-element'  placeholder='请输入卡号'  autoComplete="off"/>
 					</Form.Item>
 					<Form.Item
 						name='banknumber2'
@@ -157,7 +158,8 @@ export default () => {
 					>
 						{/* <Input placeholder='请输入确认卡号' /> */}
 						
-						<input className='adm-input adm-input-element'  placeholder='请输入确认卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/>
+						{/* <input className='adm-input adm-input-element'  placeholder='请输入确认卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/> */}
+						<input className='adm-input adm-input-element'  placeholder='请输入确认卡号'  autoComplete="off"/>
 					</Form.Item>
 				</Form>
 				<Popup
