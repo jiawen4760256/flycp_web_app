@@ -123,7 +123,8 @@ export default () => {
 	}
 
 	const balanceToFixed = (balance:any)=>{
-		if(balance == '-'){
+
+		if(balance == '-' || !balance){
 			return '-'
 		}else{
 			return parseFloat(balance).toFixed(2)
