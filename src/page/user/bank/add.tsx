@@ -150,15 +150,14 @@ export default () => {
 					>
 						<input className='adm-input adm-input-element'  placeholder='请输入卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/>
 					</Form.Item>
-					<Form.Item
+					{/* <Form.Item
 						name='banknumber2'
 						label='确认卡号'
 						rules={[{ required: true, message: '确认卡号不能为空' }]}
 					>
-						{/* <Input placeholder='请输入确认卡号' /> */}
 						
 						<input className='adm-input adm-input-element'  placeholder='请输入确认卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/>
-					</Form.Item>
+					</Form.Item> */}
 				</Form>
 				<Popup
 					visible={visible6}
