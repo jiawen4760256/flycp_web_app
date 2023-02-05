@@ -242,6 +242,15 @@ export const counterSlice = createSlice({
       language_app_useredit_phone:"",
       language_app_useredit_phone_pls:"",
 
+      
+      language_app_recharge_bank_pls:"",
+      language_app_recharge_bank:"",
+      language_app_recharge_pay:"",
+      language_app_recharge_amount:"",
+      language_app_recharge_amount_pls:"",
+      language_app_recharge_search:"",
+      language_app_recharge_channel:"",
+
       // language_app_error:"服务繁忙，请稍后再试！",
       // language_app_login_pls:"你尚未登陆！",
 
