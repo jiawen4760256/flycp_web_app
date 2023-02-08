@@ -248,7 +248,7 @@ export default () => {
 						</Grid.Item>
 					</Grid>
 				
-					{/* <Image className='sc-youhui'  src="/sc/tj.png" /> */}
+					<Image className='sc-youhui'  src="/sc/tj.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							<Image className='sc-type-img' src="/sc/type-dy.png" />

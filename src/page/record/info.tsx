@@ -49,10 +49,10 @@ export default () => {
 						奖励 
 					</Tag>:"")}
 					{(htmlData.isdraw=="0"?<Tag color='primary' fill='outline'>
-						匹配中
+						购买中
 					</Tag>:"")}
 					{(htmlData.isdraw=="-1"?<Tag color='success' fill='outline'>
-						已匹配
+						已购买
 					</Tag>:"")}
 					{(htmlData.isdraw=="-2"?<Tag color='default' fill='outline'>
 						取消

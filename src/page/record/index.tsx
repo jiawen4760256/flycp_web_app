@@ -187,8 +187,8 @@ export default () => {
 					}}
 				>
           <Tabs.Tab title='销量汇总' key='0' />
-          <Tabs.Tab title='已匹配' key='1' />
-          <Tabs.Tab title='匹配中' key='2' />
+          <Tabs.Tab title='已购买' key='1' />
+          <Tabs.Tab title='购买中' key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}
         </Tabs>
 				<div >
