@@ -249,7 +249,6 @@ export default () => {
 					</Grid>
 				
 					{/* <Image className='sc-youhui'  src="/sc/tj.png" /> */}
-					<Image className='sc-youhui'  src="/sc/sm.png" onClick={()=>{navigate("/mall/0")}} />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							<Image className='sc-type-img' src="/sc/type-dy.png" />
@@ -264,6 +263,7 @@ export default () => {
 							<Image className='sc-type-img' src="/sc/type4.png" />
 						</Grid.Item>
 					</Grid>
+					<Image className='sc-youhui'  src="/sc/sm.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 					<Divider className='dy-type'>火热店铺</Divider>
