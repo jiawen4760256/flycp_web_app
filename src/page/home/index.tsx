@@ -156,7 +156,7 @@ export default () => {
 			window.clearInterval(interval)
 			interval = window.setInterval(() => {
 				getPingInfo()
-			}, 10000);
+			}, 30000);
 		}
   },[])
 	let right = (
