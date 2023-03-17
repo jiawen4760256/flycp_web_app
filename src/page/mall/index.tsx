@@ -23,6 +23,7 @@ export default () => {
 
 	useEffect(() => {
   },[])
+  const url = localStorage.getItem("apiUrl")
   const back = () =>{
 		navigate(-1);
 	}
@@ -34,14 +35,15 @@ export default () => {
 						<div className='sc-itme-img'>
 							
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
 						
-						<div className='sc-itme-title'>{game.title}</div>
+						
 						<div className='sc-itme-desc'>{game.desc}</div>
+						<div className='sc-itme-title'>{game.title}</div>
 					</div>
 				</Grid.Item>
 			)
@@ -51,16 +53,16 @@ export default () => {
 		if(index>7){
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
-					<div className='sc-itme'>
-						<div className='sc-itme-img'>
+					<div className='sc-item'>
+						<div className='sc-item-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+						<div className='sc-item-title'>{game.title}</div>
+						<div className='sc-item-desc'>{game.desc}</div>
 					</div>
 				</Grid.Item>
 			)
@@ -83,13 +85,13 @@ export default () => {
 							<div className='sc-itme'>
 								<div className='sc-itme-img'>
 									<div className='sc-badge'>
-										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-											<Image  src={game.img} />
+										<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+											<Image  src={url+game.img} />
 										</Badge>
 									</div>
 								</div>
-								<div className='sc-itme-title'>{game.title}</div>
 								<div className='sc-itme-desc'>{game.desc}</div>
+								<div className='sc-itme-title'>{game.title}</div>
 							</div>
 						</Grid.Item>
 					)
