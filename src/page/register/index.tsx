@@ -22,7 +22,6 @@ export default () => {
 	let navigate = useNavigate()
 	useEffect(() => {
 	},[])
-	const url = localStorage.getItem("apiUrl")
   const back = () =>{
 		navigate(-1);
 	}
@@ -70,7 +69,7 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
-					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={url+website_logo3} />}
+					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={website_logo3} />}
 				</div>
 				<div>
 					<Form
