@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Dialog} from 'antd-mobile'
+import { NavBar,Swiper,Button,NoticeBar,Grid,Image,Tabs,TabBar,Badge,Divider} from 'antd-mobile'
 import { 
 	AlipaySquareFill,
 	EditSFill,
@@ -15,7 +15,8 @@ import {
 	SoundOutline,
 	RightOutline,
 	ShopbagOutline,
-	GiftOutline
+	GiftOutline,
+	MovieOutline
 } from 'antd-mobile-icons'
 
 import {useNavigate} from 'react-router-dom'
@@ -27,14 +28,16 @@ import "./index.css"
 import Auth from '../../lib/Auth';
 import Check from '../../lib/Check'
 import About from '../about'
-import { setLoading,setMsgCount } from '../../store';		
+import { setLoading,setMsgCount,setBalance } from '../../store';		
 import {useDispatch } from 'react-redux';
+import { relative } from 'path';
 let interval:any = 0
 export default () => {
 	const {notice,img,list,kefu,website_logo2,website_hot} = useSelector(getHomeList);
 	const msgCount = useSelector(getMsgCount)
 	const dispatch = useDispatch()
   const navigate = useNavigate()
+  const url = localStorage.getItem("apiUrl")
 	// console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
@@ -45,7 +48,7 @@ export default () => {
 	// }
 	const items = img.map((imgUrl:string, index:any) => (
 		<Swiper.Item key={index}>
-			<Image className={"img-content"} lazy src={imgUrl} />
+			<Image className={"img-content"} lazy src={url+imgUrl} />
 		</Swiper.Item>
 	))
 	const hotImg = (<Image lazy src="/app/hot.gif" width={15} fit='none' />)
@@ -60,37 +63,23 @@ export default () => {
 	// 		</Grid.Item>
 	// 	</Badge>
 	// ))
-	const checkLogin=()=>{
-		if(localStorage.getItem("token")){
-			return true;
-		}else{
-			Dialog.alert({
-				content: <div className='check-login'>
-					<h3>温馨提示</h3>
-					<div>请先登录才能查看</div>
-				</div>,
-				onConfirm: () => {
-					// console.log('Confirmed')
-				},
-			})
-		}
-	}
-
 	const gameList1 = list.map((game:any, index:any) =>{
 		if(index < 8){
 			return (
-				<Grid.Item  onClick={()=>{if(checkLogin())navigate("/hall/k3/"+game.name)}}>
+				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{
+									'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
 						
-						<div className='sc-itme-title'>{game.title}</div>
+						
 						<div className='sc-itme-desc'>{game.desc}</div>
+						<div className='sc-itme-title'>{game.title}</div>
 					</div>
 				</Grid.Item>
 			)
@@ -100,18 +89,19 @@ export default () => {
 	const gameList2 = list.map((game:any, index:any) =>{
 		if(index>7){
 			return (
-				<Grid.Item  onClick={()=>{if(checkLogin())navigate("/hall/k3/"+game.name)}}>
-					<div className='sc-itme'>
-						<div className='sc-itme-img'>
+				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
+					<div className='sc-item'>
+						<div className='sc-item-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
 						
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+						<div className='sc-item-title'>{game.title}</div>
+						<div className='sc-item-desc'>{game.desc}</div>
+						
 					</div>
 				</Grid.Item>
 			)
@@ -143,22 +133,23 @@ export default () => {
 				}
 				let userInfo:any = JSON.parse(localStorage.getItem("userInfo")??'{"balance":0.00}')
 				userInfo.balance = response.balance
+				dispatch(setBalance(response.balance))
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
 			})
 
 		}
 	}
-  useEffect(() => {
+  // useEffect(() => {
 		
-		getPingInfo()
-		if(!interval){
-			console.log('启动定时器')
-			window.clearInterval(interval)
-			interval = window.setInterval(() => {
-				getPingInfo()
-			}, 30000);
-		}
-  },[])
+	// 	getPingInfo()
+	// 	if(!interval){
+	// 		console.log('启动定时器')
+	// 		window.clearInterval(interval)
+	// 		interval = window.setInterval(() => {
+	// 			getPingInfo()
+	// 		}, 10000);
+	// 	}
+  // },[])
 	let right = (
 		<div 
 			onClick={() => {
@@ -194,7 +185,7 @@ export default () => {
     {
       key: '/',
       title: '首页',
-      icon: <AppstoreOutline />,
+      icon: <Image className='sc-m-img' src="/assets/m1.png" />,
     },
     // {
     //   key: '/withdraw',
@@ -208,82 +199,140 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '商城',
-      icon: <ShopbagOutline />,
+      title: '购物中心',
+      icon: <Image className='sc-m-img' src="/assets/m2.png" />,
     },
     {
-			key: '/message',
+	key: '/message',
       title: '消息',
-      icon: <MessageOutline />,
+      icon: <Image className='sc-m-img' src="/assets/m3.png" />,
 			badge: msgCount,
     },
     {
       key: '/user',
       title: '个人中心',
-      icon: <UserOutline />,
+      icon: <Image className='sc-m-img' src="/assets/m4.png" />,
     },
   ]
 
 	return (
 		<div className='App-main'>
 			<header className={"App-header"}  >
-				<NavBar backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
+				<NavBar           style={{
+            '--height': '70px',
+          }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={url+website_logo2} />} >
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95}}>
 				<div className='img-content'>
-					<Swiper autoplay loop >{items}</Swiper>
+					<Swiper autoplay loop indicatorProps={{
+              color: 'white',
+            }}>{items}</Swiper>
+		
 				</div>
-				<div onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/notice")}}>
-					<NoticeBar 
-						icon={<div style={{ fontSize: 14}}><SoundOutline  /> 公告：</div>} style={{ fontSize: 14,'--height':'32px'}} 
-						content={notice} 
-						extra={<RightOutline />}
-						color='alert' />
-				</div>
-				<div className='home-game-body'>
-					<Grid columns={4} gap={10} style={{marginTop:10}}>
-						<Grid.Item className='sc-button'  onClick={()=>{if(checkLogin())navigate("/mall/0")}}>
-							<Image className='sc-button-img' src="/sc/button1.png" />
+
+				<div className='home-menu'> 
+					<Grid className='menu' columns={4} gap={0} style={{marginTop:10}}>
+						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
+							<Image className='sc-button-img' src="/assets/1.png" />
 							<div>热销商家</div>
 						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/activity")}}>
-							<Image className='sc-button-img' src="/sc/button2.png" />
+						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
+							<Image className='sc-button-img' src="/assets/2.png" />
 							<div>本周特惠</div>
 						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{if(checkLogin())Auth.navigate(navigate,"/record")}}>
-							<Image className='sc-button-img' src="/sc/button4.png" />
+						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
+							<Image className='sc-button-img' src="/assets/3.png" />
 							<div>我的订单</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
-							<Image className='sc-button-img' src="/sc/button3.png" />
+							<Image className='sc-button-img' src="/assets/4.png" />
 							<div>在线客服</div>
 						</Grid.Item>
 					</Grid>
-				
-					<Image className='sc-youhui'  src="/sc/youhui.png" />
-					<Grid columns={4} gap={10} className='sc-type-list'>
-						<Grid.Item className='sc-type'  onClick={()=>{if(checkLogin())navigate("/mall/1")}}>
-							<Image className='sc-type-img' src="/sc/type1.png" />
+					<Image className='bg'  src="/assets/bg.png" />
+				</div>
+				<div onClick={()=>{Auth.navigate(navigate,"/notice")}} style={{marginTop:10}}>
+					<NoticeBar 
+						icon={<div style={{width:'20px'}}><Image  src="/assets/icon.png" /></div>} style={{ 
+							border:'unset',
+							marginLeft:20,
+							marginRight:20,
+							borderRadius:10,
+							fontSize: 14,'--height':'32px','--background-color':'#fff'}} 
+						content={notice}  />
+				</div>
+
+				<div className='home-game-body'>
+					<Image className='sc-youhui' src="/assets/prev.png" />
+					<div className='home-list' style={{backgroundImage:'url("/assets/bgList.png")'}}>
+					<Grid columns={2} gap={5} className='sc-type-list'>
+						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<div className='title'>公益专区</div>
+								<div className='desc'>好物不错过</div>
+								<div className='btn' 
+								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
+								>
+								立即疯抢 &gt;
+								</div>
+								<Image className='sc-img' src="/assets/a1.png" />
+								
+								</div>
 						</Grid.Item>
-						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/2")}}>
-							<Image className='sc-type-img' src="/sc/type2.png" />
+						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
+						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<div className='title'>公益专区</div>
+								<div className='desc'>好物不错过</div>
+								<div className='btn' 
+								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
+								>
+								立即疯抢 &gt;
+								</div>
+								<Image className='sc-img' src="/assets/a2.png" />
+								
+								</div>
 						</Grid.Item>
-						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/3")}}>
-							<Image className='sc-type-img' src="/sc/type3.png" />
+						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
+						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<div className='title'>公益专区</div>
+								<div className='desc'>好物不错过</div>
+								<div className='btn' 
+								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
+								>
+								立即疯抢 &gt;
+								</div>
+								<Image className='sc-img' src="/assets/a3.png" />
+								
+								</div>
 						</Grid.Item>
-						<Grid.Item className='sc-type'  onClick={()=>{if(checkLogin())navigate("/mall/4")}}>
-							<Image className='sc-type-img' src="/sc/type4.png" />
+						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
+						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<div className='title'>公益专区</div>
+								<div className='desc'>好物不错过</div>
+								<div className='btn' 
+								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
+								>
+								立即疯抢 &gt;
+								</div>
+								<Image className='sc-img' src="/assets/a4.png" />
+								
+								</div>
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{if(checkLogin())navigate("/mall/0")}} />
+					</div>
+					
+					<Image className='sc-youhui' src="/assets/prev2.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
-					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
+					<Divider className='dy-type' style={{padding:0}}>精选好物</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
-					<Image className='sc-jxhw'  src="/sc/hdzq.png" />
+					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
+					
+					<Divider className='dy-type'>活动专区</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>
@@ -298,7 +347,7 @@ export default () => {
 						if(key == '/kefu'){
 							window.location.href = kefu
 						}else{
-							if(checkLogin())Auth.navigate(navigate,key);
+							Auth.navigate(navigate,key);
 						}
 					}}  
 				>

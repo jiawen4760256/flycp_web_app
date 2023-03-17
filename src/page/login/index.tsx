@@ -26,6 +26,7 @@ export default () => {
     }
 	},[])
 	let navigate = useNavigate()
+	const url = localStorage.getItem("apiUrl")
 	const params = useParams() 
 	const {kefu,website_logo3} = useSelector(getHomeList);
 	
@@ -84,7 +85,7 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<div className='login-img'>
-					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={website_logo3} />}
+					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={url+website_logo3} />}
 				</div>
 				<div>
 					<Form
