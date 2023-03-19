@@ -220,7 +220,7 @@ export default () => {
 			<header className={"App-header"}  >
 				<NavBar           style={{
             '--height': '70px',
-          }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2}/>} right={left}>
+          }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} >
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
 			</header>

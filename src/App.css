@@ -42,7 +42,6 @@
   bottom: 0;
   background-color: white;
   border-top: 1px solid #dcdcdc;
-  z-index: 2;
 }
 
 .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button{
