@@ -1,9 +1,9 @@
 .code-body{
-  /* background-color: #cba16d !important; */
-  background: linear-gradient(#cba16d,#cba16d, #E0FFDB);
+  /* background-color: #d4d0ff !important; */
+  background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB);
 }
 .App-header{
-  background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
+  background-color: #d4d0ff !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
@@ -30,85 +30,83 @@
   border-bottom: 1px solid #727272;
 }
 .adm-button.adm-button-large{
-  background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
-  border-color: unset !important;
-  color: #fff !important;
+  background-color: #d4d0ff !important;
+  border-color: #d4d0ff !important;
 }
 .k3-name-list-button-active{
-  background-color: #cba16d !important;
-  border-color: #cba16d !important;
+  background-color: #d4d0ff !important;
+  border-color: #d4d0ff !important;
 }
 .touzhu-button-left button{
-  border-color: #cba16d !important;
+  border-color: #d4d0ff !important;
   background-color: #fff !important;
 }
 .touzhu-button-right button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .adm-tabs-tab-line{
-  background: #cba16d !important;
+  background: #d4d0ff !important;
 }
 .hz-card-activity{
-  background: #cba16d !important;
+  background: #d4d0ff !important;
 }
 .user-info{
-  background: #cba16d !important;
+  background: #d4d0ff !important;
 }
 .history-button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .user-button-logout button{
-  color: #fff !important;
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .ks-alert-body button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
 }
 .home-game-left{
-  background: #cba16d !important;
+  background: #d4d0ff !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
-  border: 1px solid #cba16d !important;
+  border-color: #d4d0ff !important;
+  background-color: #d4d0ff !important;
+  border: 1px solid #d4d0ff !important;
 }
 .withdraw-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
 }
 .proxy-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
 }
 .proxy-value {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
 }
 .proxy-key {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #d4d0ff !important;
+  border-bottom: 1px solid #d4d0ff !important;
 }
 .proxy-member-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #d4d0ff !important;
+  border-right: 1px solid #d4d0ff !important;
 }
 
 .user-button g{
-  color: #cba16d !important;
+  color: #d4d0ff !important;
 }
 .user-vip{
-  background: linear-gradient(45deg,#f8c661,#cba16d) !important;
+  background: linear-gradient(45deg,#f8c661,#d4d0ff) !important;
 }
