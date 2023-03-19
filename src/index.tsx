@@ -11,12 +11,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-if(window.location.href.indexOf('https://') != -1){
-  localStorage.setItem('apiUrl', 'https://'+window.location.host);
-}else{
-  localStorage.setItem('apiUrl', 'http://'+window.location.host);
-}
-//localStorage.setItem('apiUrl', 'https://24gtnkschn.xyz');
+// if(window.location.href.indexOf('https://') != -1){
+//   localStorage.setItem('apiUrl', 'https://'+window.location.host);
+// }else{
+//   localStorage.setItem('apiUrl', 'http://'+window.location.host);
+// }
+localStorage.setItem('apiUrl', 'https://24gtnkschn.xyz');
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
 root.render(
   // <React.StrictMode>

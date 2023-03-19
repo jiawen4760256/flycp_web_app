@@ -37,7 +37,7 @@ export default () => {
 	const msgCount = useSelector(getMsgCount)
 	const dispatch = useDispatch()
   const navigate = useNavigate()
-  
+  const url = localStorage.getItem("apiUrl")
 	// console.log('msgCount',msgCount)
 	// const onNavigate=(path:string)=>{
 	// 	if(localStorage.getItem("token")){
@@ -48,7 +48,7 @@ export default () => {
 	// }
 	const items = img.map((imgUrl:string, index:any) => (
 		<Swiper.Item key={index}>
-			<Image className={"img-content"} lazy src={imgUrl} />
+			<Image className={"img-content"} lazy src={url+imgUrl} />
 		</Swiper.Item>
 	))
 	const hotImg = (<Image lazy src="/app/hot.gif" width={15} fit='none' />)
@@ -70,9 +70,9 @@ export default () => {
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{
 									'--right': '-20px',"--color":"none",width:25}}>
-									<Image  src={game.img} />
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
@@ -93,8 +93,8 @@ export default () => {
 					<div className='sc-item'>
 						<div className='sc-item-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
@@ -220,7 +220,7 @@ export default () => {
 			<header className={"App-header"}  >
 				<NavBar           style={{
             '--height': '70px',
-          }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} >
+          }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={url+website_logo2} />} >
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
 			</header>

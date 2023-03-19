@@ -23,6 +23,7 @@ export default () => {
 
 	useEffect(() => {
   },[])
+  const url = localStorage.getItem("apiUrl")
   const back = () =>{
 		navigate(-1);
 	}
@@ -34,8 +35,8 @@ export default () => {
 						<div className='sc-itme-img'>
 							
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
@@ -55,8 +56,8 @@ export default () => {
 					<div className='sc-item'>
 						<div className='sc-item-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
-									<Image  src={game.img} />
+								<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+									<Image  src={url+game.img} />
 								</Badge>
 							</div>
 						</div>
@@ -84,8 +85,8 @@ export default () => {
 							<div className='sc-itme'>
 								<div className='sc-itme-img'>
 									<div className='sc-badge'>
-										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
-											<Image  src={game.img} />
+										<Badge content={website_hot==''?<></>:<Image src={url+website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+											<Image  src={url+game.img} />
 										</Badge>
 									</div>
 								</div>
