@@ -16,7 +16,7 @@ if(window.location.href.indexOf('https://') != -1){
 }else{
   localStorage.setItem('apiUrl', 'http://'+window.location.host);
 }
-//localStorage.setItem('apiUrl', 'https://24gtnkschn.xyz');
+
 // localStorage.setItem('apiUrl', 'http://192.168.1.188');
 root.render(
   // <React.StrictMode>

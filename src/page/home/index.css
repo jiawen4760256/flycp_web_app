@@ -6,7 +6,7 @@
 	align-items: center;
 }
 .home-menu{
-	margin-top: 8vw;
+	margin-top: 35px;
 	position: relative;
 	padding-bottom: 20px;
 }
@@ -135,8 +135,8 @@
 	text-align: left;
 }
 .home-list{
-	padding-top: 22vw;
-	padding-bottom: 3vw;
+	padding-top: 100px;
+	padding-bottom: 15px;
 	background-size: 100% 100%;
 	background-position: center;
   	background-repeat: no-repeat, no-repeat;
@@ -218,6 +218,7 @@
 	background-position: center;
   background-repeat: no-repeat, no-repeat;
   color: #000;
+  z-index: 1;
 		/* left: 50%; */
 		/* top:0;left:0;right:0;bottom:0;margin: auto; */
 }
@@ -239,9 +240,10 @@
 }
 .sc-type-name .sc-img{
 	position: absolute;
-	right: 4vw;
+	right: 13px;
 	bottom: 25px;
 	width: 70px;
+	z-index: -1;
 }
 .sc-badge{
 	padding: 5px;
@@ -296,12 +298,15 @@ letter-spacing: 1.5px;
 }
 @media only screen and (min-width: 600px) {
 	.home-menu {
-		margin-top: 6vw;
+		margin-top: 35px;
 	}
 	.home-menu .bg{
-		height: 25vw;
+		height: 190px;
 	}
 	.home-list{
-		padding-top: 15vw;
+		padding-top: 125px;
+	}
+	.sc-type-name .sc-img{
+		right: 45px;
 	}
   }
