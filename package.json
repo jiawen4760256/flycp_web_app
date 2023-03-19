@@ -13,6 +13,7 @@
     "@types/node": "^16.11.33",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
+    "@types/react-router": "^5.1.20",
     "@types/react-transition-group": "^4.4.4",
     "antd-mobile": "^5.11.1",
     "axios": "^0.27.2",
@@ -157,8 +158,9 @@
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "@types/js-md5": "^0.4.3",
+    "eslint": "^8.36.0",
     "react-redux": "^8.0.2",
     "redux-devtools": "^3.7.0"
   },
-  "proxy": "http://flycp-server.com"
+  "proxy": "http://24gtnkschn.xyz"
 }

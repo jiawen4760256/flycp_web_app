@@ -10,7 +10,7 @@ export default () => {
 	const {about} = useSelector(getHomeList);
 	let userListHtml = (<></>)
 	useEffect(() => {
-		let tmp = []
+		const tmp:string[] = []
 		tmp.push(...about)
 		tmp.push(...about)
 		setHtmlData(tmp)

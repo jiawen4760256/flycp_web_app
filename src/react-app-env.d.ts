@@ -1,6 +1,6 @@
-/// <reference types="node" />
-/// <reference types="react" />
-/// <reference types="react-dom" />
+// <reference @types="node" />
+//<reference @types="react" />
+// <reference @types="react-dom" />
 
 declare namespace NodeJS {
   interface ProcessEnv {
@@ -70,7 +70,7 @@ declare module '*.module.sass' {
   export default classes;
 }
 
-/// &lt;reference types="react-scripts" /&gt;
+/// &lt;reference @types="react-scripts" /&gt;
 declare module "*.less" {
   const content: { [className: string]: string };
   export default content;

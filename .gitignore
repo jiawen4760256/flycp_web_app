@@ -26,3 +26,5 @@ yarn-error.log*
 
 /flycp_web_app
 /flycp_web_app.zip
+.eslintrc.js
+.env

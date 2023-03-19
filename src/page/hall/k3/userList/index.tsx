@@ -46,11 +46,11 @@ export default () => {
 		// };
 	},[])
 	const getHtmlData = function(){
-		let values = {typeid:"k3"}
+		const values = {typeid:"k3"}
 		axios.post(Api.address()+'home/user-list', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			if(response.data.code == 0){
-				let tmp = []
+				const tmp :string[]= []
 				tmp.push(...response.data.data)
 				tmp.push(...response.data.data)
 				setHtmlData(tmp)
