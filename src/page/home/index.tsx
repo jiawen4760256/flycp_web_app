@@ -234,7 +234,8 @@ export default () => {
 		<div className='App-main'>
 			<header className={"App-header"}  >
 				<NavBar           style={{
-            '--height': '70px',
+            '--height': '45px',
+			background:'linear-gradient(90deg,#cba16d,#d9bd9e)'
           }} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2}/>} right={left}>
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>

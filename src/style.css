@@ -2,9 +2,6 @@
   /* background-color: #cba16d !important; */
   background: linear-gradient(#cba16d,#cba16d, #E0FFDB);
 }
-.App-header{
-  background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
-}
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
   --border-color: #f5fbf9;
