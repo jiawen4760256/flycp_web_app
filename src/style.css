@@ -29,6 +29,12 @@
   border-left: 1px solid #727272;
   border-bottom: 1px solid #727272;
 }
+.adm-button.adm-button-small {
+  font-size:15px;
+  padding-bottom:3px;
+  padding-top:3px;
+  color: #fff;
+ }
 .adm-button.adm-button-large{
   background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
   border-color: unset !important;
@@ -37,14 +43,17 @@
 .k3-name-list-button-active{
   background-color: #cba16d !important;
   border-color: #cba16d !important;
+  color: #fff !important;
 }
 .touzhu-button-left button{
   border-color: #cba16d !important;
   background-color: #fff !important;
+  color: #cba16d !important;
 }
 .touzhu-button-right button{
   border-color: #cba16d !important;
   background-color: #cba16d !important;
+  color: #fff !important;
 }
 .adm-tabs-tab-line{
   background: #cba16d !important;
@@ -58,15 +67,17 @@
 .history-button{
   border-color: #cba16d !important;
   background-color: #cba16d !important;
+  color: #fff !important;
 }
 .user-button-logout button{
-  color: #fff !important;
   border-color: #cba16d !important;
   background-color: #cba16d !important;
+  color: #fff !important;
 }
 .ks-alert-body button{
   border-color: #cba16d !important;
   background-color: #cba16d !important;
+  color: #fff !important;
 }
 .home-game-left{
   background: #cba16d !important;
@@ -76,6 +87,7 @@
   border-color: #cba16d !important;
   background-color: #cba16d !important;
   border: 1px solid #cba16d !important;
+  color: #fff !important;
 }
 .withdraw-info {
   border-top: 1px solid #cba16d !important;
