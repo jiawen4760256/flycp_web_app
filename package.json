@@ -99,6 +99,7 @@
       "last 1 safari version"
     ]
   },
+
   "jest": {
     "roots": [
       "<rootDir>/src"
@@ -150,6 +151,7 @@
     ],
     "resetMocks": true
   },
+
   "babel": {
     "presets": [
       "react-app"
