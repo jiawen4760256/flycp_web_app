@@ -299,8 +299,8 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/2")}}>
 						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<div className='title'>公益专区</div>
-								<div className='desc'>好物不错过</div>
+								<div className='title'>品牌专区</div>
+								<div className='desc'>一饰钟情</div>
 								<div className='btn' 
 								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
 								>
@@ -312,8 +312,8 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{if(checkLogin())navigate("/mall/3")}}>
 						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<div className='title'>公益专区</div>
-								<div className='desc'>好物不错过</div>
+								<div className='title'>海外专区</div>
+								<div className='desc'>魅力出街</div>
 								<div className='btn' 
 								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
 								>
@@ -325,8 +325,8 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{if(checkLogin())navigate("/mall/4")}}>
 						<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<div className='title'>公益专区</div>
-								<div className='desc'>好物不错过</div>
+								<div className='title'>直播专区</div>
+								<div className='desc'>大牌直降100</div>
 								<div className='btn' 
 								 style={{ backgroundImage: 'url("/assets/btn.png")'}}
 								>
