@@ -80,7 +80,7 @@ export default () => {
 				{language_app_record_info_text_2}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
-					{htmlData.okamount}
+					{parseInt(htmlData.okamount)}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
 				{language_app_record_info_text_3}:
@@ -110,7 +110,7 @@ export default () => {
 				{language_app_record_info_text_6}:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
-					{htmlData.amount}
+					{parseInt(htmlData.amount)}
 				</Grid.Item>
 			</Grid>
 		</div>)

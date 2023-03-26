@@ -63,7 +63,7 @@ export default () => {
 										{item.groupname}
 									</Grid.Item>
 									<Grid.Item className='vip-list'>
-										{item.shengjiedu}
+										{parseInt(item.shengjiedu)}
 									</Grid.Item>
 								</>
 							})}

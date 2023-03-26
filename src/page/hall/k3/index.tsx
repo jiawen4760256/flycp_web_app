@@ -637,7 +637,7 @@ export default () => {
 							}}>
 								<div>{language_app_hall_balance}：</div>
 								{/* <div className='touzhu-button-number'>{balance}</div> */}
-								<div className='touzhu-button-number'>{balanceToFixed(balance)}</div>
+								<div className='touzhu-button-number'>{parseInt(balance)}</div>
 							</Space>
 						</div>
 					</Grid.Item>

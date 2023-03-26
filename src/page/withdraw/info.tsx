@@ -64,7 +64,7 @@ export default () => {
         </div>
 				<br/>
 				<div >
-					{language_app_withdraw_info_amount}:<span className='withdraw-info-value1'>{htmlData.amount}</span>
+					{language_app_withdraw_info_amount}:<span className='withdraw-info-value1'>{parseInt(htmlData.amount)}</span>
         </div>
 				<br/>
 				<div >

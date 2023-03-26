@@ -95,7 +95,7 @@ export default () => {
 								<div>{item["typename"]}</div>
 							</Grid.Item>
 							<Grid.Item className={"fuddetail-amount-str"+(item["change"]=="1"?" fuddetail-amount-str1":"")+(item["change"]=="2"?" fuddetail-amount-str2":"")}>
-								<div>{(item["change"]=="1"?"+":"-")+item["amount"]}</div>
+								<div>{(item["change"]=="1"?"+":"-")+parseInt(item["amount"])}</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={2} gap={8}>
@@ -103,7 +103,7 @@ export default () => {
 								<div>{item["oddtime"]}</div>
 							</Grid.Item>
 							<Grid.Item className="fuddetail-amountafter">
-								<div>{language_app_user_amount}：{item["amountafter"]}</div>
+								<div>{language_app_user_amount}：{parseInt(item["amountafter"])}</div>
 							</Grid.Item>
 						</Grid>
 					</List.Item>

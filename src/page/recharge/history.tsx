@@ -80,7 +80,7 @@ export default () => {
 								<div>{item["title"]}</div>
 							</Grid.Item>
 							<Grid.Item className="history-list-amount">
-								<div>{item["amount"]}{language_app_user_amount}</div>
+								<div>{parseInt(item["amount"])}{language_app_user_amount}</div>
 							</Grid.Item>
 						</Grid>
 						<Grid columns={3} gap={8}>

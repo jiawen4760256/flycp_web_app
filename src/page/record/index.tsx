@@ -123,8 +123,8 @@ export default () => {
 								<div>{item["expect"]}</div>
 							</Grid.Item>
 							<Grid.Item className="record-amount">
-								<div>{item["okamount"]}</div>
-								<div>{item["amount"]}</div>
+								<div>{item['okamount'].indexOf('.')!=-1 ? item['okamount'].split('.')[0]:item['okamount']}</div>
+								<div>{item['amount'].indexOf('.')!=-1 ? item['amount'].split('.')[0]:item['amount']}</div>
 							</Grid.Item>
 						</Grid>
 					</List.Item>
