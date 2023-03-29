@@ -194,7 +194,7 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '购票中心',
+      title: '商场',
       icon: <MovieOutline />,
     },
     {
@@ -232,15 +232,15 @@ export default () => {
 					<Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>影视电影</div>
+							<div>热销商家</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>影视简介</div>
+							<div>本周特惠</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的票购</div>
+							<div>我的订单</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 							<Image className='sc-button-img' src="/sc/button3.png" />
@@ -266,13 +266,13 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>正在热映</Divider>
+					<Divider className='dy-type'>精选好物</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
 					
-					<Divider className='dy-type'>即将上映</Divider>
+					<Divider className='dy-type'>活动专区</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>

@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯专区'
-		if(params['type'] == '4')title = '直播专区'
+		if(params['type'] == '1')title = '高压电器'
+		if(params['type'] == '2')title = '家用电器'
+		if(params['type'] == '3')title = '户外电器'
+		if(params['type'] == '4')title = '车载电器'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -98,16 +98,16 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '影视电影'
+		title = '本周特惠'
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 			
-			<Divider className='dy-type'>正在热映</Divider>
+			<Divider className='dy-type'>精选好物</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
 			{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
-			<Divider className='dy-type'>即将上映</Divider>
+			<Divider className='dy-type'>活动专区</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>

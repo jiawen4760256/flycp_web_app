@@ -254,11 +254,11 @@ export default () => {
 		
 		Dialog.confirm({
 			content: <>
-				<div className='k3-confirm-title'>购票确认</div>
+				<div className='k3-confirm-title'>订单确认</div>
 				<Divider />
-				<div className='k3-confirm-text'>购票活动：{gameData.qishu}</div>
-				<div className='k3-confirm-text'>购票总额：{amount*Object.keys(touzhu).length}元</div>
-				<div className='k3-confirm-text'>购票内容：
+				<div className='k3-confirm-text'>购买活动：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>订单总额：{amount*Object.keys(touzhu).length}元</div>
+				<div className='k3-confirm-text'>订单内容：
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  item.title+" "
@@ -325,14 +325,14 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "完成票单",
+					content: "完成订单",
 				})
 			}else{
 				if(212 == response.data.code){
 					getHtmlData(gameName)
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: "当前票单号已更新，请重新操作！",
+						content: "当前订单号已更新，请重新操作！",
 					})
 				}else{
 					Toast.show({
@@ -490,7 +490,7 @@ export default () => {
 		kjHistoryHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					订单号
 				</Grid.Item>
 				<Grid.Item>
 					{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
@@ -531,10 +531,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>购票金额</div>
+					<div style={{float:"left"}}>订单金额</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输购票金额'
+							placeholder='请输订单金额'
 							value={value}
 							type="number"       
 							onBlur={()=>{
@@ -615,11 +615,11 @@ export default () => {
 		+gameData.qishu.slice(6,8)
 		+"日" 
 		+gameData.qishu.slice(8,12)
-		+"票单匹配"
+		+"订单匹配"
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '购票记录' },
+		{ key: '/record', icon:  <></>, text: '订单记录' },
 		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件

@@ -104,7 +104,7 @@ export default () => {
 		historyHeadHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					订单号
 				</Grid.Item>
 				<Grid.Item>
 				{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
