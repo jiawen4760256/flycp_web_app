@@ -8,6 +8,7 @@ export const counterSlice = createSlice({
     k3Touzhu: {},
     loading:false,
     msgCount:'',
+    balance:"-",
   },
   reducers: {
     setHomeList: (state, action) => {
@@ -25,14 +26,19 @@ export const counterSlice = createSlice({
     setMsgCount: (state, action) => {
       state.msgCount = action.payload
     },
+    setBalance: (state, action) => {
+      state.balance = action.payload
+    },
   },
 })
 
-export const { setHomeList,setKsWanfa, setKsTouzhu,setLoading,setMsgCount} = counterSlice.actions
+export const { setHomeList,setKsWanfa, setKsTouzhu,setLoading,setMsgCount,setBalance} = counterSlice.actions
 export const getHomeList = (state:any) => state.counter.homeList
 export const getK3Wanfa = (state:any) => state.counter.k3Wanfa
 export const getk3Touzhu = (state:any) => state.counter.k3Touzhu
 export const getLoading = (state:any) => state.counter.loading
 export const getMsgCount = (state:any) => state.counter.msgCount
+export const getBalance = (state:any) => state.counter.balance
+export const getDictionary = (state:any) => state.counter.dictionary
 
 export default counterSlice.reducer

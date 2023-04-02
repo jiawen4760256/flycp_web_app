@@ -3,7 +3,7 @@
   background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB);
 }
 .App-header{
-  background-color: #d4d0ff !important;
+  background-color: #f98e77 !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
@@ -30,37 +30,37 @@
   border-bottom: 1px solid #727272;
 }
 .adm-button.adm-button-large{
-  background-color: #d4d0ff !important;
-  border-color: #d4d0ff !important;
+  background-color: #f98e77 !important;
+  border-color: #f98e77 !important;
 }
 .k3-name-list-button-active{
-  background-color: #d4d0ff !important;
-  border-color: #d4d0ff !important;
+  background-color: #f98e77 !important;
+  border-color: #f98e77 !important;
 }
 .touzhu-button-left button{
-  border-color: #d4d0ff !important;
+  border-color: #f98e77 !important;
   background-color: #fff !important;
 }
 .touzhu-button-right button{
   border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  background-color: #f98e77 !important;
 }
 .adm-tabs-tab-line{
-  background: #d4d0ff !important;
+  background: #f98e77 !important;
 }
 .hz-card-activity{
-  background: #d4d0ff !important;
+  background: #f98e77 !important;
 }
 .user-info{
-  background: #d4d0ff !important;
+  background: #f98e77 !important;
 }
 .history-button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #f98e77 !important;
+  background-color: #f98e77 !important;
 }
 .user-button-logout button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #f98e77 !important;
+  background-color: #f98e77 !important;
 }
 .ks-alert-body button{
   border-color: #d4d0ff !important;
@@ -105,7 +105,7 @@
 }
 
 .user-button g{
-  color: #d4d0ff !important;
+  color: #f98e77 !important;
 }
 .user-vip{
   background: linear-gradient(45deg,#f8c661,#d4d0ff) !important;
