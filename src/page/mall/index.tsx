@@ -71,9 +71,9 @@ export default () => {
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
 		if(params['type'] == '1')title = '新品上架'
-		if(params['type'] == '2')title = '畅选无忧'
-		if(params['type'] == '3')title = '天天低价'
-		if(params['type'] == '4')title = '轻松购物'
+		if(params['type'] == '2')title = '酿酒原料'
+		if(params['type'] == '3')title = '酿酒辅料'
+		if(params['type'] == '4')title = '酒类包装'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -102,7 +102,7 @@ export default () => {
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 			
-			<Divider className='dy-type'>精选好物</Divider>
+			<Divider className='dy-type'>精选好酒</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>

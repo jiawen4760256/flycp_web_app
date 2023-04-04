@@ -35,7 +35,7 @@ export default () => {
 	}
 
 	if(htmlData){
-		html = (<div style={{margin:10}}
+		html = (<div style={{margin:10,fontSize:'14px'}}
 			dangerouslySetInnerHTML={{__html:htmlData['content']}}
 		>
 		</div>)
