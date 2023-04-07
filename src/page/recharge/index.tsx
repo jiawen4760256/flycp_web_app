@@ -53,15 +53,15 @@ export default () => {
 	const getPaytype = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'recharge/paytype')
-		.then((response:[])=> {
+		.then(function(response:any){
 			dispatch(setLoading(false))
-			const arr:any=[]
-			for(let i=0;i<response.length;i+=1){
-				if(response[i]['id']!=1){
-					arr.push(response[i])
-				}
-			}
-			setPaytype(arr);
+			// const arr:any=[]
+			// for(let i=0;i<response.length;i+=1){
+			// 	if(response[i]['id']!=1){
+			// 		arr.push(response[i])
+			// 	}
+			// }
+			setPaytype(response);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
 		})
@@ -144,9 +144,10 @@ export default () => {
 				{paytype.length == 0?<>
 					<Empty className='recharge-empty' description='请联系客服预购' />
 				</>:<>
-					<Tabs defaultActiveKey={"0"} onChange={changeTab}>
+					<Tabs defaultActiveKey={paytype.length == 1? '0' : '1'} onChange={changeTab}>
 						{paytype.map((item:any,index:number)=>{
-							return <Tabs.Tab title={index==0?'快捷支付':'银行卡'} key={String(index)}>
+							// return <Tabs.Tab title={index==0?'快捷支付':'银行卡'} key={String(index)}>
+							return <Tabs.Tab title={item['name']} key={String(index)}>
 								{item.html == 1?<>
 									<Form
 										footer={
