@@ -14,7 +14,7 @@ export default () => {
 
 	const dispatch = useDispatch()
 	const [htmlData, setHtmlData] = useState<{}[]>([])
-	const [paytype, setPaytype] = useState<{}[]>([])
+	const [paytype, setPaytype] = useState<any>([])
 	const [basicColumns, setBasicColumns] = useState<any[]>([])
 	const [basicColumns1, setBasicColumns1] = useState<any[]>([])
   const [value, setValue] = useState<any>({})
@@ -27,6 +27,8 @@ export default () => {
 	const [active,setActive]=useState<number>(0)
 	const [amount, setAmount] = useState<number>(50)
 	const [currentTabKey, setTabKey] = useState('1')
+	const [paysetStyle, setPaysetStyle] = useState('1')
+	const [paysetStyletwovalue, setpaysetStyletwovalue] = useState('')
 	function changeTab(e:string) {
 	setTabKey(e)
 	}
@@ -53,15 +55,21 @@ export default () => {
 	const getPaytype = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'recharge/paytype')
-		.then(function (response:any) {
+		.then(function(response:any){
 			dispatch(setLoading(false))
 			// const arr:any=[]
-			// for (let i=0;i<response.length;i+=1)
-			// {
-			// 	if (response[i]['id'] != 1) {
+			// for(let i=0;i<response.length;i+=1){
+			// 	if(response[i]['id']!=1){
 			// 		arr.push(response[i])
-			// 	   }
+			// 	}
 			// }
+			for (let i=0;i<response.length;i+=1) {
+				if (response[i]['html'] == '2' && response[i]['payset_id'] && response[i]['payset_id'].length) {
+				  const initIndex = response[i]['payset_id'][0]['style']
+				  setPaysetStyle(initIndex)
+				  break
+				}
+			  }
 			setPaytype(response);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -69,16 +77,33 @@ export default () => {
 	}
 
 	const submit = function(values:any){
-		if(currentTabKey=='1'){
-			values.amount = amount
-		}
-		if(values.html == 1 && !value.bankname){
-			Toast.show({
-				icon: <ExclamationCircleOutline />,
-				content: '请选择付款银行',
-			})
-			return;
-		}
+		if(values.id=='1'){
+			if(currentTabKey=='1'){
+				values.amount = amount
+			}
+			if(values.html == 1 && !value.bankname){
+				Toast.show({
+					icon: <ExclamationCircleOutline />,
+					content: '请选择付款银行',
+				})
+				return;
+			}
+		}else{
+			if(paysetStyle=='1'){
+				values.amount = amount
+			}
+			if(paysetStyle=='2'){
+				values.amount = paysetStyletwovalue
+			}
+			if(paysetStyle=='2' && Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>5000){
+				Toast.show({
+					icon: <ExclamationCircleOutline />,
+					content: '金额必须为10-5000之间',
+				})
+				return;
+			}
+			console.log(paysetStyle)
+		}		
 		setLoading(true)
 		setSubmitLoading(true)
 		values.bankcode = value.bankcode
@@ -222,6 +247,7 @@ export default () => {
 										<Form.Item
 											name='amount'
 											label='金额'
+											style={{display:paysetStyle=='1'? 'block' : 'none'}}
 											rules={[{ required: false, message: '请选择金额' }]}
 										>
 											{/* <Input onChange={console.log} placeholder='请输入金额' /> */}
@@ -241,10 +267,23 @@ export default () => {
 												)
 											}
 										</Form.Item>
+										<Form.Item
+											// name='amount'
+											label='金额'
+											style={{display:paysetStyle=='2'? 'block' : 'none'}}
+											rules={[{ required: true, message: '请输入金额，金额限制为：10-5000' }]}
+										>
+											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
+												setpaysetStyletwovalue(e)
+											}} placeholder='请输入金额(10 - 5000之间)' />
+										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
 										<Form.Item name='payset_id' label='支付通道' initialValue={item.defaultValue}>
-											<Selector
+											<Selector onChange={(arr,extend:any)=>{
+												setPaysetStyle(extend.items[0]['style'])
+												console.log(arr, extend.items)
+											}}
 												// defaultValue={item.defaultValue}
 												options={item.payset_id}
 											/>
