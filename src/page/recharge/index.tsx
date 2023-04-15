@@ -26,9 +26,10 @@ export default () => {
 	const [moneyList,setMoney]=useState<any>(['50','100','200'])
 	const [active,setActive]=useState<number>(0)
 	const [amount, setAmount] = useState<number>(50)
-	const [currentTabKey, setTabKey] = useState('1')
-	const [paysetStyle, setPaysetStyle] = useState('1')
+	const [currentTabKey, setTabKey] = useState('0')
+	const [paysetStyle, setPaysetStyle] = useState('25')
 	const [paysetStyletwovalue, setpaysetStyletwovalue] = useState('')
+	const [paysetStylethreevalue, setpaysetStylethreevalue] = useState('')
 	function changeTab(e:string) {
 	setTabKey(e)
 	}
@@ -63,13 +64,59 @@ export default () => {
 			// 		arr.push(response[i])
 			// 	}
 			// }
-			for (let i=0;i<response.length;i+=1) {
-				if (response[i]['html'] == '2' && response[i]['payset_id'] && response[i]['payset_id'].length) {
-				  const initIndex = response[i]['payset_id'][0]['style']
-				  setPaysetStyle(initIndex)
-				  break
+		// 	const data:any=
+		// 	[
+		// 	 {
+		// 	 "id": "1",
+		// 	 "name": "银行卡",
+		// 	 "payset_id": [
+		// 		{
+		// 	 "label": "QE",
+		// 	 "value": 25,
+		// 	 "pay_type": "220"
+		// 	 }
+		// 	],
+		// 	 "state": "1",
+		// 	 "html": "1",
+		// 	 "defaultValue": [25]
+		//    }, 
+		//    {
+		// 	 "id": "2",
+		// 	 "name": "快捷支付",
+		// 	 "payset_id": [{
+		// 	 "label": "HT",
+		// 	 "value": 28,
+		// 	 "pay_type": "222",
+		// 	 "style": "1"
+		// 	 },
+		// 	 {
+		// 	 "label": "XGS",
+		// 	 "value": 29,
+		// 	 "pay_type": "222",
+		// 	 "style": "2"
+		// 	 }
+		//    ],
+		// 	 "state": "1",
+		// 	 "html": "2",
+		// 	 "defaultValue": [28]
+		//    }
+		//  ]
+			if(response.length==1){
+				if(response[0]['html']=='1'){
+					setTabKey('0')
+					setPaysetStyle(response[0]['payset_id'][0]['value'])
 				}
-			  }
+				if(response[0]['html']=='2'){
+					setTabKey('1')	
+					setPaysetStyle(response[0]['payset_id'][0]['value'])			
+				}
+			}
+			if(response.length==2){
+				setTabKey('1')	
+				setPaysetStyle(response[1]['payset_id'][0]['value'])		
+			}
+
+
 			setPaytype(response);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -77,33 +124,51 @@ export default () => {
 	}
 
 	const submit = function(values:any){
-		if(values.id=='1'){
-			if(currentTabKey=='1'){
-				values.amount = amount
-			}
-			if(values.html == 1 && !value.bankname){
-				Toast.show({
-					icon: <ExclamationCircleOutline />,
-					content: '请选择付款银行',
-				})
-				return;
-			}
-		}else{
-			if(paysetStyle=='1'){
-				values.amount = amount
-			}
-			if(paysetStyle=='2'){
-				values.amount = paysetStyletwovalue
-			}
-			if(paysetStyle=='2' && Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>20000){
-				Toast.show({
-					icon: <ExclamationCircleOutline />,
-					content: '金额必须为10-20000之间',
-				})
-				return;
-			}
+		if(currentTabKey=='0'){
 			console.log(paysetStyle)
-		}		
+			if(paysetStyle=='25'){
+				if(!values.bankname){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '请选择付款银行',
+					})
+					return;
+				}
+				values.amount = amount
+				if(!amount){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '请输入金额',
+					})
+					return;
+				}
+			}
+
+		}else{
+			if(paysetStyle=='29'){
+				values.amount = paysetStyletwovalue
+				if(Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>2000){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '金额必须为10-2000之间',
+					})
+					return;
+				}
+				
+			}
+			if(paysetStyle=='30'){
+				values.amount = paysetStylethreevalue
+				if(Number(paysetStylethreevalue)<800 || Number(paysetStylethreevalue)>20000){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '金额必须为800-20000之间',
+					})
+					return;
+				}
+			}
+
+		}
+		console.log(values)
 		setLoading(true)
 		setSubmitLoading(true)
 		values.bankcode = value.bankcode
@@ -215,9 +280,14 @@ export default () => {
 											<Input onChange={console.log} placeholder='请输入金额' autoComplete='off'/>
 										</Form.Item>
 										<Form.Item name='payset_id'  label='支付通道'  initialValue={item.defaultValue}>
-											<Selector
+											<Selector  onChange={(arr,extend:any)=>{
+												if(extend.items.length){
+													setPaysetStyle(extend.items[0]['value'])
+												}
+												console.log(arr, extend.items)
 												// defaultValue={item.defaultValue}
-												options={item.payset_id}
+											}}
+											options={item.payset_id} 
 											/>
 										</Form.Item>
 									</Form>
@@ -270,18 +340,30 @@ export default () => {
 										<Form.Item
 											// name='amount'
 											label='金额'
-											style={{display:paysetStyle=='2'? 'block' : 'none'}}
-											rules={[{ required: true, message: '请输入金额，金额限制为：10-20000' }]}
+											style={{display:paysetStyle=='29'? 'block' : 'none'}}
+											rules={[{ required: true, message: '请输入金额，金额限制为：10-2000' }]}
 										>
 											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
 												setpaysetStyletwovalue(e)
-											}} placeholder='请输入金额(10 - 20000之间)' />
+											}} placeholder='请输入金额(10 - 2000之间)' />
+										</Form.Item>
+										<Form.Item
+											// name='amount'
+											label='金额'
+											style={{display:paysetStyle=='30'? 'block' : 'none'}} 
+											rules={[{ required: true, message: '请输入金额，金额限制为：800-20000' }]}
+										>
+											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
+												setpaysetStylethreevalue(e)
+											}} placeholder='请输入金额(800 - 20000之间)' />
 										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
 										<Form.Item name='payset_id' label='支付通道' initialValue={item.defaultValue}>
 											<Selector onChange={(arr,extend:any)=>{
-												setPaysetStyle(extend.items[0]['style'])
+												if(extend.items.length){
+													setPaysetStyle(extend.items[0]['value'])
+												}
 												console.log(arr, extend.items)
 											}}
 												// defaultValue={item.defaultValue}
