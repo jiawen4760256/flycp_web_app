@@ -59,7 +59,7 @@ export default () => {
 						<Input
 							style={{height: '40px',lineHeight: '40px'}}
 							placeholder='请输入vip编号'
-							value={value}
+							value={value.trim()}
 							onChange={val => {
 								setValue(val)
 							}}
