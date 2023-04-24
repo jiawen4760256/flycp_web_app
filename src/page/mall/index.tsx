@@ -32,17 +32,15 @@ export default () => {
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
-							
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
 						</div>
-						
-						
+						<div className='sc-itme-title'>{game.title}</div>				
 						<div className='sc-itme-desc'>{game.desc}</div>
-						<div className='sc-itme-title'>{game.title}</div>
 					</div>
 				</Grid.Item>
 			)
@@ -52,16 +50,17 @@ export default () => {
 		if(index>7){
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
-					<div className='sc-item'>
-						<div className='sc-item-img'>
+					<div className='sc-itme'>
+						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
 						</div>
-						<div className='sc-item-title'>{game.title}</div>
-						<div className='sc-item-desc'>{game.desc}</div>
+						<div className='sc-itme-title'>{game.title}</div>				
+						<div className='sc-itme-desc'>{game.desc}</div>
 					</div>
 				</Grid.Item>
 			)
@@ -101,11 +100,11 @@ export default () => {
 	}else{
 		title = '热销商家'
 		gameList = <>
-			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+			<Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影视</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
-			<Image className='sc-jxhw'  src="/sc/hdzq.png" />
+			<Divider className='dy-type' style={{color:'#1021fb'}}>正在热映</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>
@@ -116,7 +115,7 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar className='app-header'  onBack={back}>{title}</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor:"#f5fbf9"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='mall-body' >
 					{gameList}
 				</div>

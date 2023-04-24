@@ -170,7 +170,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>购单记录</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
+			<div className='App-content' style={{height:window.innerHeight-45}}>				
 				<Grid columns={2} gap={0} className='record-date'>
 					<Grid.Item className='record-date-left' onClick={selectDate}>							
 						{dateformat1}&nbsp;&nbsp;&nbsp;<BankcardOutline />

@@ -1,68 +1,75 @@
 
 .code-body .adm-grid-item{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
-.adm-tab-bar-item-active{
-  color: #c99e67 !important;
+
+.adm-tab-bar-item-title{
+  color: #fff !important;
 }
+
 
 .kefu a{
-  color: #c99e67 !important;
+  text-underline-offset: 5px;
+  color: #e6048d !important;
 }
-
-
+.adm-calendar-cell-selected{
+  background-color: #8815b7 !important;
+}
+.adm-infinite-scroll{
+  color: #fff !important;
+}
 .k3-kj-time{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .userlist-title{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-button-left button{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-button-number{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .adm-tabs-tab-active{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .adm-picker-header-button{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 .adm-calendar-arrow-button{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 .adm-dialog-button{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-number-select{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 .adm-mask-content .adm-dot-loading{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 
 .about-title{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .home-game-right svg{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 
 .proxy-value {
-  color: #c99e67 !important;
+  color: #8815b7 !important;
 }
 .adm-button{
-  color: #c99e67 !important;
+  color: #8815b7 !important;
   /* border-color: #d0d0f0 !important; */
 }
 .adm-nav-bar-right .adm-button{
@@ -70,7 +77,7 @@
 }
 
 .k3-name-button{
-  color: #c99e67 !important;
+  color: #fff !important;
 }
 
 
@@ -78,5 +85,5 @@
   color: #fff !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
-  --text-color: #c99e67;
+  --text-color: #8815b7;
 }

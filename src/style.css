@@ -1,13 +1,13 @@
 .code-body{
-  /* background-color: #cba16d !important; */
-  background: linear-gradient(#cba16d,#cba16d, #E0FFDB);
+  /* background-color: #8815b7 !important; */
+  background: linear-gradient(#8815b7,#8815b7, #E0FFDB);
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
   --border-color: #f5fbf9;
 }
 .adm-notice-bar-content {
-  color: #727272 !important;
+  color: #fff !important;
 }
 .withdraw-info-head{
   color: #727272 !important;
@@ -33,91 +33,89 @@
   color: #fff;
  }
 .adm-button.adm-button-large{
-  background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
+  background: #8815b7 !important;
   border-color: unset !important;
   color: #fff !important;
 }
 .k3-name-list-button-active{
-  background-color: #cba16d !important;
-  border-color: #cba16d !important;
+  background-color: #8815b7 !important;
+  border-color: #8815b7 !important;
   color: #fff !important;
 }
 .touzhu-button-left button{
-  border-color: #cba16d !important;
+  border-color: #8815b7 !important;
   background-color: #fff !important;
-  color: #cba16d !important;
+  color: #8815b7 !important;
 }
 .touzhu-button-right button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #8815b7 !important;
+  background-color: #8815b7 !important;
   color: #fff !important;
 }
 .adm-tabs-tab-line{
-  background: #cba16d !important;
+  background: #8815b7 !important;
 }
 .hz-card-activity{
-  background: #cba16d !important;
+  background: #8815b7 !important;
 }
-.user-info{
-  background: #cba16d !important;
-}
+
 .history-button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #8815b7 !important;
+  background-color: #8815b7 !important;
   color: #fff !important;
 }
 .user-button-logout button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #8815b7 !important;
+  background-color: #8815b7 !important;
   color: #fff !important;
 }
 .ks-alert-body button{
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
+  border-color: #8815b7 !important;
+  background-color: #8815b7 !important;
   color: #fff !important;
 }
 .home-game-left{
-  background: #cba16d !important;
+  background: #8815b7 !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
-  border-color: #cba16d !important;
-  background-color: #cba16d !important;
-  border: 1px solid #cba16d !important;
+  border-color: #e6048d !important;
+  background-color: #e6048d !important;
+  border: 1px solid #e6048d !important;
   color: #fff !important;
 }
 .withdraw-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #8815b7 !important;
+  border-right: 1px solid #8815b7 !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #8815b7 !important;
+  border-bottom: 1px solid #8815b7 !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #8815b7 !important;
+  border-bottom: 1px solid #8815b7 !important;
 }
 .proxy-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #8815b7 !important;
+  border-right: 1px solid #8815b7 !important;
 }
 .proxy-value {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #8815b7 !important;
+  border-bottom: 1px solid #8815b7 !important;
 }
 .proxy-key {
-  border-left: 1px solid #cba16d !important;
-  border-bottom: 1px solid #cba16d !important;
+  border-left: 1px solid #8815b7 !important;
+  border-bottom: 1px solid #8815b7 !important;
 }
 .proxy-member-info {
-  border-top: 1px solid #cba16d !important;
-  border-right: 1px solid #cba16d !important;
+  border-top: 1px solid #8815b7 !important;
+  border-right: 1px solid #8815b7 !important;
 }
 
 .user-button g{
-  color: #cba16d !important;
+  color: #fff !important;
 }
 .user-vip{
-  background: linear-gradient(45deg,#f8c661,#cba16d) !important;
+  background: linear-gradient(45deg,#f8c661,#8815b7) !important;
 }

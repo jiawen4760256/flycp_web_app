@@ -123,7 +123,7 @@ export default () => {
       	{/* <NavBar className='app-header' right={right} onBack={back}>站内信</NavBar> */}
       	<NavBar className='app-header'  onBack={back}>站内信</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>				
+			<div className='App-content' style={{height:window.innerHeight-45}}>				
 				<Tabs className='record-type' 
 					onChange={(key)=>{
 						setHistoryData([])

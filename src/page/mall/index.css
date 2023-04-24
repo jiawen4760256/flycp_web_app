@@ -1,5 +1,11 @@
 .mall-body{
-    padding: 10px;
+    padding: 20px;
     /* background-color:#f5fbf9 ; */
     /* min-height: 100%; */
+}
+
+.mall-body .adm-grid-item {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
 }

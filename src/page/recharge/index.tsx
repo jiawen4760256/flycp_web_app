@@ -49,7 +49,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>预购选择</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				{html}	
 			</div>
 		</div>

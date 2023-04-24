@@ -39,7 +39,7 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar  onBack={back}>个人信息</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45}}>
+			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor:'#fff'}}>
 				
 				<List header='' >
 					<List.Item className='user-info-name' extra={userInfo["realname"]} clickable={false}>

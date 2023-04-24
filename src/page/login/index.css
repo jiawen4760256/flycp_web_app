@@ -1,9 +1,16 @@
+
+.bg{
+    background: #fff;
+}
+.bg .adm-button.adm-button-large{
+    background: #e6048d !important;
+}
 .login-img{
     /* width: 200px; */
     /* height: 50px; */
     margin: auto;
-    margin-bottom: 20px;
-    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-top: 30px;
 }
 .login-img2{
     padding-top: 10px;
@@ -14,12 +21,15 @@
 .kefu{
     text-align: center;
     font-size: 16px;
-    padding: 10px;
-
+    padding: 20px;
+    color: #8a8a8a;
 } 
 a {
     color: #e80101;
 }
 .login-form{
     --border-bottom: 0px;
+}
+.bot{
+    padding: 80px;
 }

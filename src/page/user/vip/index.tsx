@@ -38,7 +38,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>vip等级</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 						
 						<Grid columns={2} gap={8} className='vip-title'>
 							<Grid.Item>
