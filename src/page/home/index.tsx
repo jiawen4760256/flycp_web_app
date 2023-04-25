@@ -45,8 +45,8 @@ export default () => {
 	// 	}
 	// }
 	
-const title = '万达影城'
-const content = '      万达影城成立于2005年，万达集团旗下电影院线品牌，全球性大型电影生活生态圈，专业从事电影院线、电影票和电影咨询等'
+const title = 'CGS中国巨幕'
+const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之一，拥有卓越的沉浸式观影体验解决方案。 CGS 中国巨幕系统拥有自主知识产权，以超大银幕、沉浸式多维还音系统和量身定制的影厅结构为观众提供观影体验。'
 
 	const items = img.map((imgUrl:string, index:any) => (
 		<Swiper.Item key={index}>
@@ -234,7 +234,7 @@ const content = '      万达影城成立于2005年，万达集团旗下电影�
 						<Grid className='menu' columns={4} gap={0} style={{marginBottom:20}}>
 							<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 								<Image className='sc-button-img' src="/assets/1.png" />
-								<div>热销商家</div>
+								<div>热门电影</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 								<Image className='sc-button-img' src="/assets/2.png" />

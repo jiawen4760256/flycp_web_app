@@ -98,7 +98,7 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热销商家'
+		title = '热门电影'
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 

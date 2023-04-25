@@ -276,8 +276,8 @@
 .sc-prev .content {
   text-indent: 30px;
   padding-top: 40px;
-  padding-left: calc(7vh + 17px);
-  padding-right: calc(7vh + 12px);
+  padding-left: calc(6vh + 17px);
+  padding-right: calc(6vh + 12px);
   padding-bottom: 10px;
 }
 .sc-item-img {
