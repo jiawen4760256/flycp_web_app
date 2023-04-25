@@ -62,7 +62,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar  onBack={back}>站内信</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				{html}
 			</div>
 		</div>

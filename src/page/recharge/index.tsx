@@ -49,6 +49,7 @@ export default () => {
 								style={{ padding: 5 }}
 								width={35}
 								height={35}
+								color={'#fff'}
 							/>)
 					}else{
 						prefix = (
@@ -56,6 +57,7 @@ export default () => {
 								style={{ padding: 5 }}
 								width={35}
 								height={35}
+								color={'#fff'}
 							/>)
 
 					}
@@ -65,7 +67,7 @@ export default () => {
 							key={index}
 							prefix={prefix}
 							description={item.desc}
-
+							style={{color:'#fff'}}
 						>
 							{item.title}
 						</List.Item>
@@ -85,8 +87,8 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>预购选择</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
-				{html}	
+			<div className='App-content' style={{height:window.innerHeight-45}}>
+				{html}
 			</div>
 		</div>
 	)

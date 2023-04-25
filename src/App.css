@@ -18,7 +18,9 @@
 }
 .App-header {
   color: white;
-  background: #e53333;
+  background:url('../public/assets/navBg.png') no-repeat 100% 100%;
+  background-position: top center;
+  background-size: cover;
   width: 100%;
   position: absolute;
   padding: 0px;
@@ -33,15 +35,16 @@
   top: 45px;
   overflow: auto;
   display: block;
-  
+  background: #071033;
 }
 
 .App-footer{
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: white;
-  border-top: 1px solid #dcdcdc;
+  background-color: #020a28;
+  border-top: 1px s;
+  z-index: 2;
 }
 
 .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button{
@@ -75,4 +78,8 @@
 
 .slide-exit-active {
   transform: translateX(-100%);
+}
+
+.sc-m-img{
+  width: 20px;
 }

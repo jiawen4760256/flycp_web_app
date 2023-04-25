@@ -37,14 +37,15 @@
 .message-info-name{
     font-size: 20px;
     font-weight: bolder;
+    color: #fff;
 }
 .message-info-time{
     font-size: 14px;
-    color: #888;
+    color: #fff;
     margin-top: 5px;
 }
 .message-info-txt{
     font-size: 16px;
-    color: #333;
+    color: #fff;
     word-break: break-all;
 }

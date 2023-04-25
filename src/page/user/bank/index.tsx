@@ -93,7 +93,7 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar right={right} onBack={back}>银行卡管理</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 					{data}
 			</div>
 		</div>

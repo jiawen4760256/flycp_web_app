@@ -148,7 +148,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar onBack={back}>兑换记录</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='history-day'>
 					<Space wrap	>	
 						<>

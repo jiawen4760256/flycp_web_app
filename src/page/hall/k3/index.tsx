@@ -324,8 +324,8 @@ export default () => {
 				localStorage.setItem("userInfo", JSON.stringify(userInfo))
 				setTouzhu({})
 				Toast.show({
-					icon: 'success',
-					content: "完成票单",
+
+					content: <Image src='/assets/success.png'></Image>,
 				})
 			}else{
 				if(212 == response.data.code){
@@ -445,6 +445,7 @@ export default () => {
 				onClick={() => {
 					setVisible2(true)
 				}}
+				style={{'--background-color':'transparent','--border-style':'unset'}}
 			>
 				{gameData.title}<DownOutline />
 			</Button>

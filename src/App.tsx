@@ -42,8 +42,8 @@ import ProxyDay from './page/proxy/day';
 import Mall from './page/mall';
 import {getLoading} from './store';
 import "./App.css"
-import "./style.css"
 import "./font.css"
+import "./style.css"
 import Api from './lib/Api';
 import Auth from './lib/Auth';
 import {useNavigate} from 'react-router-dom'

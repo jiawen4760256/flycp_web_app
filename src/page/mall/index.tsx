@@ -32,14 +32,13 @@ export default () => {
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
-							
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
 						</div>
-						
 						<div className='sc-itme-title'>{game.title}</div>
 						<div className='sc-itme-desc'>{game.desc}</div>
 					</div>
@@ -54,7 +53,8 @@ export default () => {
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
@@ -72,7 +72,7 @@ export default () => {
 		
 		if(params['type'] == '1')title = '电影专区'
 		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯专区'
+		if(params['type'] == '3')title = '腾讯视频'
 		if(params['type'] == '4')title = '直播专区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
@@ -83,13 +83,13 @@ export default () => {
 							<div className='sc-itme'>
 								<div className='sc-itme-img'>
 									<div className='sc-badge'>
-										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
+										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
 											<Image  src={game.img} />
 										</Badge>
 									</div>
 								</div>
-								<div className='sc-itme-title'>{game.title}</div>
 								<div className='sc-itme-desc'>{game.desc}</div>
+								<div className='sc-itme-title'>{game.title}</div>
 							</div>
 						</Grid.Item>
 					)
@@ -98,16 +98,15 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '影视电影'
+		title = '热销商家'
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-			
-			<Divider className='dy-type'>正在热映</Divider>
+
+			<Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影视</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
-			{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
-			<Divider className='dy-type'>即将上映</Divider>
+			<Divider className='dy-type' style={{color:'#1021fb'}}>正在热映</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>
@@ -118,7 +117,7 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar className='app-header'  onBack={back}>{title}</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor:"#f5fbf9"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='mall-body' >
 					{gameList}
 				</div>

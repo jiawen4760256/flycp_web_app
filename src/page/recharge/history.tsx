@@ -140,7 +140,7 @@ export default () => {
 			<header className="App-header"  >
       	<NavBar className='app-header' onBack={back}>影票冲量记录</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='history-day'>
 					<Space wrap	>	
 						<>

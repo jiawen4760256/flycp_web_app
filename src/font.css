@@ -1,68 +1,79 @@
 
 .code-body .adm-grid-item{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
-.adm-tab-bar-item-active{
-  color: #ad6ffb !important;
+
+.adm-tab-bar-item-title{
+  color: #fff !important;
 }
 
+
+
+.adm-calendar-cell-selected{
+  color: #fff !important;
+  background-color: #8815b7 !important;
+}
 .kefu a{
-  color: #ad6ffb !important;
+  text-underline-offset: 5px;
+  color: #e6048d !important;
 }
 
 
+.adm-infinite-scroll{
+  color: #fff !important;
+}
 .k3-kj-time{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .userlist-title{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-button-left button{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-button-number{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .adm-tabs-tab-active{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .adm-picker-header-button{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 .adm-calendar-arrow-button{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 .adm-dialog-button{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .touzhu-number-select{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 .adm-mask-content .adm-dot-loading{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 
 .about-title{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .home-game-right svg{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 
 .proxy-value {
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
 }
 .adm-button{
-  color: #ad6ffb !important;
+  color: #8815b7 !important;
   /* border-color: #d0d0f0 !important; */
 }
 .adm-nav-bar-right .adm-button{
@@ -70,13 +81,20 @@
 }
 
 .k3-name-button{
-  color: #ad6ffb !important;
+  color: #fff !important;
 }
 
+.adm-calendar-cell.adm-calendar-cell-today{
+  color: #8815b7 ;
+}
+.adm-calendar-cell-selected{
+  color: #fff !important;
+  background-color: #8815b7 !important;
+}
 
 .check-button-login{
   color: #fff !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
-  --text-color: #ad6ffb;
+  --text-color: #8815b7;
 }

@@ -26,7 +26,7 @@ import { useSelector } from 'react-redux';
 import {
   getHomeList,getMsgCount,getBalance,setBalance
 } from '../../store';
-
+import { DownFill } from "antd-mobile-icons";
 export default () => {
 	const dispatch = useDispatch()
 	const balance = useSelector(getBalance)
@@ -91,8 +91,16 @@ export default () => {
 				<NavBar className='app-header' onBack={back}>个人中心</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
-				<div className='user-info' >
-					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} onClick={()=>{navigate("/user/edit")}} />
+				<div className="user-info">
+					<div className="user-data">
+						<Avatar
+							src={userData["face"]}
+							className="user-img"
+							style={{ borderRadius: "50%", "--size": "60px" }}
+							onClick={() => {
+								navigate("/user/edit");
+							}}
+						/>
           <div className='user-account'>
 						<div className='user-name'>
 							账号:{userData['username']}&nbsp;
@@ -100,15 +108,23 @@ export default () => {
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>积分:{balance}</div>
+
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
-					{userData['jinjijilu_id']>0?<>
+						<div className="user-balance">
+							<div>
+								积分:
+								<DownFill />{" "}
+							</div>
+							<div>{userData["balance"]}</div>
+						</div>
+
+						{/* {userData['jinjijilu_id']>0?<>
           <div className='user-vip'>
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
 						<div className='user-vip-txt'>{userData['jinjijilu_name']}</div>
 					</div>
-					</>:<></>}
+					</>:<></>} */}
         </div>
 				{/* <List className='user-info'>
 					<List.Item
@@ -119,76 +135,150 @@ export default () => {
 						<div className='user-name'>积分：{userData['balance']}</div>
 					</List.Item>
 				</List> */}
-				
-				<div>
-					<Grid columns={2} gap={8} className="user-button">
-						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
-							<Space wrap align='center'>
-								<HeartOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>影票冲量</div>
-							</Space>
+					<div>
+						<Grid columns={2} gap={8} className="user-button">
+							<Grid.Item
+								onClick={() => {
+									Auth.navigate(navigate, "/recharge");
+								}}
+								className="user-button-left"
+							>
+								<Space wrap align="center">
+									<Image src="/assets/i1.png" width={20} height={20}></Image>
+
+									<div className="name" style={{ color: "#fff" }}>
+										预购
+									</div>
+								</Space>
+							</Grid.Item>
+							<Grid.Item
+								onClick={() => {
+									dispatch(setLoading(true))
+									Auth.ajax(navigate,'user/ban-withdraw')
+										.then(function (response) {
+											dispatch(setLoading(false))
+											Auth.navigate(navigate,"/withdraw")
+										}).catch(function (error) {
+										dispatch(setLoading(false))
+									})
+
+								}}
+							>
+								<Space wrap align="center">
+									<Image src="/assets/i2.png" width={20} height={20}></Image>
+
+									<div className="name" style={{ color: "#fff" }}>
+										兑换
+									</div>
+								</Space>
+							</Grid.Item>
+						</Grid>
+					</div>
+				</div>
+
+				<div className="user-button-list">
+					<Grid
+						columns={4}
+						gap={4}
+						style={{ alignItems: "baseline", justifyContent: "center" }}
+					>
+						<Grid.Item
+							onClick={() => {
+								Auth.navigate(navigate, "/record");
+							}}
+						>
+							<Image src="/app/u1.png" width={45} />
+							<div>账单记录</div>
 						</Grid.Item>
-						<Grid.Item onClick={()=>{
-							
-							dispatch(setLoading(true))
-							Auth.ajax(navigate,'user/ban-withdraw')
-							.then(function (response) {
-								dispatch(setLoading(false))
-								Auth.navigate(navigate,"/withdraw")
-							}).catch(function (error) {
-								dispatch(setLoading(false))
-							})
-						}}>
-							<Space wrap align='center'>
-								<GiftOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>兑换</div>
-							</Space>
+
+						<Grid.Item
+							onClick={() => {
+								Auth.navigate(navigate, "/fuddetail");
+							}}
+						>
+							<Image src="/app/u2.png" width={45} />
+							<div>积分明细</div>
+						</Grid.Item>
+
+						<Grid.Item
+							onClick={() => {
+								Auth.navigate(navigate, "/recharge/history");
+							}}
+						>
+							<Image src="/app/u3.png" width={45} />
+							<div>预购记录</div>
+						</Grid.Item>
+
+						<Grid.Item
+							onClick={() => {
+								Auth.navigate(navigate, "/withdraw/history");
+							}}
+						>
+							<Image src="/app/u4.png" width={45} />
+							<div>兑换记录</div>
 						</Grid.Item>
 					</Grid>
 				</div>
-				<div className='user-button-list'>
-					<List header=''>
-						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							购票记录
-						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
-							积分明细
-						</List.Item>
-						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
-							个人报表
-						</List.Item> */}
-						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							影票冲量记录
-						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
-							兑换记录
-						</List.Item>
-					</List>
-				</div>
-				<div className='user-button-list'>
-					<List header=''>
-						<List.Item prefix={<Image fit='contain' src='/app/info.png' />} onClick={() => {Auth.navigate(navigate,"/user/info")}}>
+
+
+				<div className="user-button-list user-menu">
+					<List
+						header=""
+						style={{ "--padding-left": "0", "--padding-right": "0" }}
+					>
+						<List.Item
+							prefix={<Image fit="contain" src="/app/u5.png" />}
+							onClick={() => {
+								Auth.navigate(navigate, "/user/info");
+							}}
+						>
 							个人信息
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/user_vip.png' />} onClick={() => {Auth.navigate(navigate,"/user/vip")}}>
-							vip等级
-						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/bank.png' />} onClick={() => {Auth.navigate(navigate,"/bank")}}>
+						<List.Item
+							prefix={<Image fit="contain" src="/app/u6.png" />}
+							onClick={() => {
+								Auth.navigate(navigate, "/bank");
+							}}
+						>
 							银行卡管理
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/notice.png' />} onClick={() => {Auth.navigate(navigate,"/notice")}}>
+						<List.Item
+							prefix={<Image fit="contain" src="/app/u7.png" />}
+							onClick={() => {
+								Auth.navigate(navigate, "/notice");
+							}}
+						>
 							网站公告
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/password.png' />} onClick={() => {Auth.navigate(navigate,"/user/password")}}>
+						<List.Item
+							prefix={<Image fit="contain" src="/app/u8.png" />}
+							onClick={() => {
+								Auth.navigate(navigate, "/user/password");
+							}}
+						>
 							密码设置
 						</List.Item>
-						<List.Item prefix={<Image fit='contain' src='/app/message.png' />} extra={msgCount?<><Badge content={msgCount} /></>:<></>}  onClick={() => {Auth.navigate(navigate,"/message")}}>
+						<List.Item
+							prefix={<Image fit="contain" src="/app/u9.png" />}
+							extra={
+								msgCount ? (
+									<>
+										<Badge content={msgCount} />
+									</>
+								) : (
+									<></>
+								)
+							}
+							onClick={() => {
+								Auth.navigate(navigate, "/message");
+							}}
+						>
 							站内信
 						</List.Item>
 					</List>
 				</div>
 				{proxyHtml}
-				<div className='user-button-list user-button-logout'>
+				<div className='user-button-logout'>
 					
 					<Button block shape='rounded' color='primary' onClick={logout}>
 						

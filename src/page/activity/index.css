@@ -12,3 +12,7 @@
 .activity-body img{
     max-width: 100%;
 }
+.activity-body {
+    background: #fff ;
+    padding: 10px;
+}

@@ -44,6 +44,10 @@ export default () => {
 	// 		navigate('/login')
 	// 	}
 	// }
+	
+const title = '万达影城'
+const content = '      万达影城成立于2005年，万达集团旗下电影院线品牌，全球性大型电影生活生态圈，专业从事电影院线、电影票和电影咨询等'
+
 	const items = img.map((imgUrl:string, index:any) => (
 		<Swiper.Item key={index}>
 			<Image className={"img-content"} lazy src={imgUrl} />
@@ -68,12 +72,12 @@ export default () => {
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
 						</div>
-						
 						<div className='sc-itme-title'>{game.title}</div>
 						<div className='sc-itme-desc'>{game.desc}</div>
 					</div>
@@ -89,12 +93,12 @@ export default () => {
 					<div className='sc-itme'>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
 								</Badge>
 							</div>
 						</div>
-						
 						<div className='sc-itme-title'>{game.title}</div>
 						<div className='sc-itme-desc'>{game.desc}</div>
 					</div>
@@ -177,102 +181,145 @@ export default () => {
 		left = (<></>)
 	}
 	const tabs = [
-    {
-      key: '/',
-      title: '首页',
-      icon: <AppstoreOutline />,
-    },
-    // {
-    //   key: '/withdraw',
-    //   title: '兑换',
-    //   icon: <ReceivePaymentOutline />,
-    // },
-    // {
-    //   key: '/open',
-    //   title: '历史记录',
-    //   icon: <ContentOutline />,
-    // },
-    {
-      key: '/mall/0',
-      title: '购票中心',
-      icon: <MovieOutline />,
-    },
-    {
+		{
+			key: '/',
+			title: '首页',
+			icon: <Image className='sc-m-img' src="/assets/m1.png" />,
+		},
+		// {
+		//   key: '/withdraw',
+		//   title: '兑换',
+		//   icon: <ReceivePaymentOutline />,
+		// },
+		// {
+		//   key: '/open',
+		//   title: '历史记录',
+		//   icon: <ContentOutline />,
+		// },
+		{
+			key: '/mall/0',
+			title: '购物中心',
+			icon: <Image className='sc-m-img' src="/assets/m2.png" />,
+		},
+		{
 			key: '/message',
-      title: '消息',
-      icon: <MessageOutline />,
+			title: '消息',
+			icon: <Image className='sc-m-img' src="/assets/m3.png" />,
 			badge: msgCount,
-    },
-    {
-      key: '/user',
-      title: '个人中心',
-      icon: <UserOutline />,
-    },
-  ]
+		},
+		{
+			key: '/user',
+			title: '个人中心',
+			icon: <Image className='sc-m-img' src="/assets/m4.png" />,
+		},
+	]
 
 	return (
 		<div className='App-main'>
 			<header className={"App-header"}  >
-				<NavBar backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
+				<NavBar style={{
+					'--height': '45px',
+					background:'url(/assets/navBg.png) no-repeat 100% 100%'
+				}} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-95}}>
 				<div className='img-content'>
-					<Swiper autoplay loop >{items}</Swiper>
+					<Swiper autoplay loop indicatorProps={{
+						style: {'--active-dot-color':'#ff0080','--dot-color':'#fff','--dot-border-radius':'50px','--dot-size':'8px','--active-dot-size':'8px'},
+					}}>{items}</Swiper>
 				</div>
-				<div onClick={()=>{Auth.navigate(navigate,"/notice")}}>
-					<NoticeBar 
-						icon={<div style={{ fontSize: 14}}><SoundOutline  /> 公告：</div>} style={{ fontSize: 14,'--height':'32px'}} 
-						content={notice} 
-						extra={<RightOutline />}
-						color='alert' />
-				</div>
+					<div className='home-menu'>
+						<Grid className='menu' columns={4} gap={0} style={{marginBottom:20}}>
+							<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
+								<Image className='sc-button-img' src="/assets/1.png" />
+								<div>热销商家</div>
+							</Grid.Item>
+							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
+								<Image className='sc-button-img' src="/assets/2.png" />
+								<div>本周特惠</div>
+							</Grid.Item>
+							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
+								<Image className='sc-button-img' src="/assets/3.png" />
+								<div>我的订单</div>
+							</Grid.Item>
+							<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
+								<Image className='sc-button-img' src="/assets/4.png" />
+								<div>在线客服</div>
+							</Grid.Item>
+						</Grid>
+						<div style={{paddingLeft:20,paddingRight:20}} onClick={()=>{Auth.navigate(navigate,"/notice")}}>
+							<NoticeBar
+								icon={<div style={{width:'15px'}}><Image  src="/assets/icon.png" /></div>} style={{
+								border:'unset',
+
+
+
+								fontSize: 14,'--height':'32px','--background-color':'transparent'}}
+								content={notice}  />
+						</div>
+
+					</div>
+
+
 				<div className='home-game-body'>
-					<Grid columns={4} gap={10} style={{marginTop:10}}>
-						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
-							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>影视电影</div>
-						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
-							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>影视简介</div>
-						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的票购</div>
-						</Grid.Item>
-						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
-							<Image className='sc-button-img' src="/sc/button3.png" />
-							<div>在线客服</div>
-						</Grid.Item>
-					</Grid>
-				
-					<Image className='sc-youhui'  src="/sc/tjpq.png" />
-					<Grid columns={4} gap={10} className='sc-type-list'>
+					<Image className='sc-youhui' src="/assets/prev.png" />
+					<div className='home-list' >
+					<Grid columns={2} gap={5} className='sc-type-list' >
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							<Image className='sc-type-img' src="/sc/type-dy.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<Image className='sc-hot' src="/assets/hot.png" />
+								<div className='title'>电影专区</div>
+								<Image className='sc-img' src="/assets/a1.png" />
+
+							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<Image className='sc-type-img' src="/sc/xsyy.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<Image className='sc-hot' src="/assets/hot.png" />
+								<div className='title'>线上影视</div>
+
+								<Image className='sc-img' src="/assets/a2.png" />
+
+							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<Image className='sc-type-img' src="/sc/txsp.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<Image className='sc-hot' src="/assets/hot.png" />
+								<div className='title'>腾讯视频</div>
+
+								<Image className='sc-img' src="/assets/a3.png" />
+
+							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
-							<Image className='sc-type-img' src="/sc/type4.png" />
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+								<Image className='sc-hot' src="/assets/hot.png" />
+								<div className='title'>直播专区</div>
+
+								<Image className='sc-img' src="/assets/a4.png" />
+
+							</div>
 						</Grid.Item>
 					</Grid>
-					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
+					
+					<div className='sc-prev' style={{backgroundImage:'url(/assets/prev2.png)'}} onClick={()=>{navigate("/mall/0")}} >
+								<div className='title' style={{paddingTop:(content.length > 70)? 15:10}}>{title}</div>
+								<div className='content' style={{paddingTop:(content.length > 70)? 60:50}}>{content}</div>
+								</div>
+
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>正在热映</Divider>
+						<Divider className='dy-type' style={{padding:0}}>热门影视</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
+					</div>
+
 					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
-					
-					<Divider className='dy-type'>即将上映</Divider>
+
+					<Divider className='dy-type'>正在热映</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>

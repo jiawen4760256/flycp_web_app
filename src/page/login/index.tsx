@@ -72,7 +72,8 @@ export default () => {
 			<header className="App-header"  >
 				<NavBar onBack={back}>欢迎登录使用</NavBar>
 			</header>
-			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#f0f1f6"}}>
+				<div className="bg" >
 				<div className='login-img'>
 					{website_logo3==""?<></>:<Image lazy height={50} fit='scale-down'  src={website_logo3} />}
 				</div>
@@ -126,7 +127,10 @@ export default () => {
 					有问题请联系
 					<a href={kefu}>在线客服</a>
 				</div>
-				
+			</div>
+				<div className="bot">
+					<Image src="/assets/bgTitle.png"></Image>
+				</div>
 				{/* <div className='login-img2'>
 					<Image lazy src={demoSrc3} />
 				</div> */}
