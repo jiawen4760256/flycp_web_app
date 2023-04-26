@@ -234,7 +234,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 						<Grid className='menu' columns={4} gap={0} style={{marginBottom:20}}>
 							<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 								<Image className='sc-button-img' src="/assets/1.png" />
-								<div>热门电影</div>
+								<div>热门影区</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 								<Image className='sc-button-img' src="/assets/2.png" />
@@ -242,7 +242,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 								<Image className='sc-button-img' src="/assets/3.png" />
-								<div>我的订单</div>
+								<div>参加场次</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 								<Image className='sc-button-img' src="/assets/4.png" />
@@ -311,7 +311,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-						<Divider className='dy-type' style={{padding:0}}>热门影视</Divider>
+						<Divider className='dy-type' style={{padding:0}}>热门影区</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>

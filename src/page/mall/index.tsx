@@ -98,11 +98,11 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热门电影'
+		title = '热门影区'
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 
-			<Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影视</Divider>
+			<Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影区</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>

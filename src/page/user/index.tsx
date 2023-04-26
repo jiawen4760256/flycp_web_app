@@ -188,7 +188,7 @@ export default () => {
 							}}
 						>
 							<Image src="/app/u1.png" width={45} />
-							<div>账单记录</div>
+							<div>购票记录</div>
 						</Grid.Item>
 
 						<Grid.Item
@@ -197,7 +197,7 @@ export default () => {
 							}}
 						>
 							<Image src="/app/u2.png" width={45} />
-							<div>积分明细</div>
+							<div>票单明细</div>
 						</Grid.Item>
 
 						<Grid.Item

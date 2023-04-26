@@ -594,7 +594,7 @@ export default () => {
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right' span={3}>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购单</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>确认购票</Button>
 				</Grid.Item>
 			</Grid>
 		</div>
@@ -699,7 +699,7 @@ export default () => {
 				
 				{/* <div className='k3-title'>品种</div> */}
 				{HzHtml}
-				{website_touzhu==""?(<>
+				{/* {website_touzhu==""?(<>
 					<Divider/>
 					<div className='k3-title'>赞助商</div>
 					<Grid columns={4} gap={8} className='k3-kj'>
@@ -723,11 +723,11 @@ export default () => {
 						})}
 					</Grid>
 					</>
-				):(<>
+				):(<> */}
 					<br/>
 					<Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
 					<Image  src={website_touzhu} />
-				</>)}
+				{/* </>)} */}
 				{/* <UserList/> */}
 			</div>
 			<div className='App-footer'>
