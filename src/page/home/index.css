@@ -195,6 +195,9 @@
 	width: fit-content;
 
 	color: #fff;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
 	/* font-weight: 700; */
 }
