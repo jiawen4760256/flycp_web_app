@@ -4,7 +4,7 @@
 }
 
 .adm-tab-bar-item-active{
-  color: #ad6ffb !important;
+  color: #1979ff !important;
 }
 
 .kefu a{
@@ -78,5 +78,5 @@
   color: #fff !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
-  --text-color: #ad6ffb;
+  --text-color: #1979ff;
 }

@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '新品上架'
-		if(params['type'] == '2')title = '酿酒原料'
-		if(params['type'] == '3')title = '酿酒辅料'
-		if(params['type'] == '4')title = '酒类包装'
+		if(params['type'] == '1')title = '服装配饰'
+		if(params['type'] == '2')title = '日用生活'
+		if(params['type'] == '3')title = '美食饮食'
+		if(params['type'] == '4')title = '科技厨电'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -102,7 +102,7 @@ export default () => {
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 			
-			<Divider className='dy-type'>精选好酒</Divider>
+			<Divider className='dy-type'>精选好物</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
