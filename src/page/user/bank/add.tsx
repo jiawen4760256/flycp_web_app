@@ -44,6 +44,23 @@ export default () => {
 				setBasicColumns1(response)
 		})
 	}
+	const checkBankNumber=function(obj:any){
+		const {value}=obj.target
+		// console.log(value)
+		if(value){
+			Auth.ajax(navigate,'user/checkcardnumber',{cardnumber:value}).then((res:any)=>{
+				// console.log(res)
+				if(res.exist==1){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '该卡号已经被绑定',
+					})
+					return
+				}
+			})
+			
+		}
+	}
 	const submit = function(values:any){
 		if(!value.value){
 			Toast.show({
@@ -148,7 +165,7 @@ export default () => {
 						label='卡号'
 						rules={[{ required: true, message: '卡号不能为空' }]}
 					>
-					<input className='adm-input adm-input-element'  placeholder='请输入卡号' onPaste={(e:any) => e.preventDefault()} autoComplete="off"/>
+					<input className='adm-input adm-input-element'  placeholder='请输入卡号' onPaste={(e:any) => e.preventDefault()} onBlur={(e)=>checkBankNumber(e)} autoComplete="off"/>
 						{/* <input className='adm-input adm-input-element'  placeholder='请输入卡号'  autoComplete="off"/> */}
 					</Form.Item>
 					<Form.Item
