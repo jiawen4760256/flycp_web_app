@@ -531,10 +531,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>购票金额</div>
+					<div style={{float:"left"}}>预售金额</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输购票金额'
+							placeholder='请输入预售金额'
 							value={value}
 							type="number"       
 							onBlur={()=>{
