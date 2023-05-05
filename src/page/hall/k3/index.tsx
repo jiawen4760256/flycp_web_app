@@ -570,9 +570,10 @@ export default () => {
 			<Grid columns={9} gap={8}>
 				<Grid.Item className='touzhu-button-left' span={2}>
 					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
-						{
+						{/* {
 							Object.keys(touzhu).length==0?'随机':"删除"
-						}
+						} */}
+					刷新余额
             
           </Button>
 				</Grid.Item>
