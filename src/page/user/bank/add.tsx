@@ -21,17 +21,17 @@ export default () => {
 	let navigate = useNavigate()
 	Auth.page(navigate)
 	let tradepasswordHtml = (<></>)
-	{if(!userInfo.tradepassword){
-		tradepasswordHtml = (
-			<Form.Item
-				name='pwd2'
-				label='确认资密'
-				rules={[{ required: true, message: '确认资密不能为空' }]}
-			>
-				<Input type='password' placeholder='请输入确认资密' />
-			</Form.Item>)
+	// {if(!userInfo.tradepassword){
+	// 	tradepasswordHtml = (
+	// 		<Form.Item
+	// 			name='pwd2'
+	// 			label='确认资密'
+	// 			rules={[{ required: true, message: '确认资密不能为空' }]}
+	// 		>
+	// 			<Input type='password' placeholder='请输入确认资密' />
+	// 		</Form.Item>)
 		
-	}}
+	// }}
 	useEffect(() => {
 	},[])
   const back = () =>{
@@ -151,13 +151,13 @@ export default () => {
 					>
 						<Input placeholder='请输入卡号'  autoComplete="off" />
 					</Form.Item>
-					<Form.Item
+					{/* <Form.Item
 						name='pwd'
 						label='资密'
 						rules={[{ required: true, message: '资密不能为空' }]}
 					>
 						<Input type='password' placeholder='请输入资密'  autoComplete="off" />
-					</Form.Item>
+					</Form.Item> */}
 					{tradepasswordHtml}
 				</Form>
 				<Popup
