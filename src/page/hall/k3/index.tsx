@@ -614,7 +614,7 @@ export default () => {
 		+"月"
 		+gameData.qishu.slice(6,8)
 		+"日" 
-		+gameData.qishu.slice(8,12)
+		+gameData.qishu.slice(9,12)
 		+"票单匹配"
 	}
 	
