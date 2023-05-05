@@ -599,7 +599,7 @@ export default () => {
 						{/* {
 							Object.keys(touzhu).length==0?'随机':"删除"
 						} */}
-					刷新余额
+					刷新
             
           </Button>
 				</Grid.Item>
