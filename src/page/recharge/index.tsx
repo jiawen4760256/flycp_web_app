@@ -166,6 +166,16 @@ export default () => {
 					return;
 				}
 			}
+			if(paysetStyle=='31'){
+				values.amount = paysetStylethreevalue
+				if(Number(paysetStylethreevalue)<99 || Number(paysetStylethreevalue)>5000){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: '金额必须为99-5000之间',
+					})
+					return;
+				}
+			}
 
 		}
 		console.log(values)
@@ -356,6 +366,16 @@ export default () => {
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
 											}} placeholder='请输入金额(800 - 20000之间)' />
+										</Form.Item>
+										<Form.Item
+											// name='amount'
+											label='金额'
+											style={{display:paysetStyle=='31'? 'block' : 'none'}} 
+											rules={[{ required: true, message: '请输入金额，金额限制为：99-5000' }]}
+										>
+											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
+												setpaysetStylethreevalue(e)
+											}} placeholder='请输入金额(99 - 5000之间)' />
 										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
