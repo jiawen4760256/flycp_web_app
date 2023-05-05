@@ -363,6 +363,28 @@ export default () => {
 		}
 	}
 
+	// 刷新余额功能开始
+	const updateBalance = ()=>{
+		setLoading(true)
+		Auth.ajax(navigate,'user/ping')
+		.then(function (response:any) {
+			setLoading(false)
+			setBalance(response.balance)
+			
+			userInfo.balance = response.balance
+			localStorage.setItem("userInfo", JSON.stringify(userInfo))
+		})
+		.catch(function (error) {
+			setLoading(false)
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: '服务繁忙，稍后再试！'+"("+error.message+")",
+			})
+		})
+	}
+	// 刷新余额功能结束
+
+
 	const howPlay=() =>
 		Dialog.alert({
 			content: (<>
@@ -569,7 +591,11 @@ export default () => {
 		<div className='touzhu-footer'>
 			<Grid columns={9} gap={8}>
 				<Grid.Item className='touzhu-button-left' span={2}>
-					<Button color='primary' fill='outline' size='small' onClick={clearTouzhu}>
+					{/* 以下点击事件clearTouzhu是随机选项(机选4选1)，两个点击事件二选一 */}
+					{/* <Button color='primary' fill='outline' size='small' onClick={clearTouzhu}> */}
+
+					{/* 以下点击事件updateBalance是刷新余额，两个点击事件二选一 */}
+					<Button color='primary' fill='outline' size='small' onClick={updateBalance}>
 						{/* {
 							Object.keys(touzhu).length==0?'随机':"删除"
 						} */}
@@ -622,7 +648,8 @@ export default () => {
 	
 	const actions: Action[] = [
 		{ key: '/record', icon:  <></>, text: '购票记录' },
-		{ key: '/open/history', icon: <></>, text: '品牌记录' }
+		{ key: '/open/history', icon: <></>, text: '品牌记录' },
+		{ key: '/withdraw', icon: <></>, text: '积分兑换' }
 	]
 	//报错？？？ 需要后加载组件
 	if(visibleSheet){
@@ -644,6 +671,9 @@ export default () => {
 				}
 				if(node.key == '/open/history'){
 					navigate('/open/history/'+gameName)
+				}
+				if(node.key == '/withdraw'){
+					navigate('/withdraw')
 				}
 			}}
 			trigger='click'
