@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯专区'
-		if(params['type'] == '4')title = '直播专区'
+		if(params['type'] == '1')title = '达人专区'
+		if(params['type'] == '2')title = '直播专区'
+		if(params['type'] == '3')title = '视频专区'
+		if(params['type'] == '4')title = '带货专区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -98,16 +98,16 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '影视电影'
+		title = '热销榜单'
 		gameList = <>
-			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
+			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 			
-			<Divider className='dy-type'>正在热映</Divider>
+			{/* <Divider className='dy-type'>正在热映</Divider> */}
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
-			{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
-			<Divider className='dy-type'>即将上映</Divider>
+			<Image className='sc-jxhw'  src="/sc/hdzq.png" />
+			{/* <Divider className='dy-type'>即将上映</Divider> */}
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>
