@@ -31,17 +31,16 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{"--color":"none","--top":"45px","--right":"15px"}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -52,15 +51,15 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{"--color":"none","--top":"45px","--right":"15px"}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -81,15 +80,15 @@ export default () => {
 					return (
 						<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 							<div className='sc-itme'>
-								<div className='sc-itme-img'>
-									<div className='sc-badge'>
-										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-											<Image  src={game.img} />
-										</Badge>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{"--color":"none","--top":"45px","--right":"15px"}}>
+									<div className='sc-itme-img'>
+										<div className='sc-badge'>
+												<Image  src={game.img} />
+										</div>
 									</div>
-								</div>
-								<div className='sc-itme-title'>{game.title}</div>
-								<div className='sc-itme-desc'>{game.desc}</div>
+									<div className='sc-itme-title'>{game.title}</div>
+									<div className='sc-itme-desc'>{game.desc}</div>
+								</Badge>
 							</div>
 						</Grid.Item>
 					)
@@ -103,12 +102,12 @@ export default () => {
 			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 			
 			{/* <Divider className='dy-type'>正在热映</Divider> */}
-			<Grid columns={2} gap={10} style={{marginTop:10}}>
+			<Grid className='list' columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
 			<Image className='sc-jxhw'  src="/sc/hdzq.png" />
 			{/* <Divider className='dy-type'>即将上映</Divider> */}
-			<Grid columns={2} gap={10} style={{marginTop:10}}>
+			<Grid className='list2' columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>
 		</>
@@ -119,7 +118,7 @@ export default () => {
 				<NavBar className='app-header'  onBack={back}>{title}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor:"#f5fbf9"}}>
-				<div className='mall-body' >
+				<div className={'mall-body list-'+ params['type']} >
 					{gameList}
 				</div>
 			</div>

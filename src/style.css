@@ -1,9 +1,9 @@
 .code-body{
-  /* background-color: #d4d0ff !important; */
-  background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB);
+  /* background-color: #C7C2FF !important; */
+  background: linear-gradient(#C7C2FF,#C7C2FF, #E0FFDB);
 }
 .App-header{
-  background-color: #d4d0ff !important;
+  background-color: #C7C2FF !important;
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
@@ -30,83 +30,83 @@
   border-bottom: 1px solid #727272;
 }
 .adm-button.adm-button-large{
-  background-color: #d4d0ff !important;
-  border-color: #d4d0ff !important;
+  background-color: #C7C2FF !important;
+  border-color: #C7C2FF !important;
 }
 .k3-name-list-button-active{
-  background-color: #d4d0ff !important;
-  border-color: #d4d0ff !important;
+  background-color: #C7C2FF !important;
+  border-color: #C7C2FF !important;
 }
 .touzhu-button-left button{
-  border-color: #d4d0ff !important;
+  border-color: #C7C2FF !important;
   background-color: #fff !important;
 }
 .touzhu-button-right button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #C7C2FF !important;
+  background-color: #C7C2FF !important;
 }
 .adm-tabs-tab-line{
-  background: #d4d0ff !important;
+  background: #C7C2FF !important;
 }
 .hz-card-activity{
-  background: #d4d0ff !important;
+  background: #C7C2FF !important;
 }
 .user-info{
-  background: #d4d0ff !important;
+  background: #C7C2FF !important;
 }
 .history-button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #C7C2FF !important;
+  background-color: #C7C2FF !important;
 }
 .user-button-logout button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #C7C2FF !important;
+  background-color: #C7C2FF !important;
 }
 .ks-alert-body button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #C7C2FF !important;
+  background-color: #C7C2FF !important;
 }
 .home-game-left{
-  background: #d4d0ff !important;
+  background: #C7C2FF !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
-  border: 1px solid #d4d0ff !important;
+  border-color: #C7C2FF !important;
+  background-color: #C7C2FF !important;
+  border: 1px solid #C7C2FF !important;
 }
 .withdraw-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #C7C2FF !important;
+  border-right: 1px solid #C7C2FF !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #C7C2FF !important;
+  border-bottom: 1px solid #C7C2FF !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #C7C2FF !important;
+  border-bottom: 1px solid #C7C2FF !important;
 }
 .proxy-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #C7C2FF !important;
+  border-right: 1px solid #C7C2FF !important;
 }
 .proxy-value {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #C7C2FF !important;
+  border-bottom: 1px solid #C7C2FF !important;
 }
 .proxy-key {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #C7C2FF !important;
+  border-bottom: 1px solid #C7C2FF !important;
 }
 .proxy-member-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #C7C2FF !important;
+  border-right: 1px solid #C7C2FF !important;
 }
 
 .user-button g{
-  color: #d4d0ff !important;
+  color: #C7C2FF !important;
 }
 .user-vip{
-  background: linear-gradient(45deg,#f8c661,#d4d0ff) !important;
+  background: linear-gradient(45deg,#f8c661,#C7C2FF) !important;
 }

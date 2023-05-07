@@ -67,16 +67,16 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{"--color":"none","--top":"45px","--right":"15px"}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -88,16 +88,16 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} bordered style={{"--color":"none"}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{"--color":"none","--top":"45px","--right":"15px"}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -181,7 +181,7 @@ export default () => {
     {
       key: '/',
       title: '首页',
-      icon: <UpCircleOutline />,
+	  icon: <Image width={20} height={20} src='/sc/m1_a.png' />
     },
     // {
     //   key: '/withdraw',
@@ -196,18 +196,18 @@ export default () => {
     {
       key: '/mall/0',
       title: '打榜中心',
-      icon: <AppstoreOutline />,
+      icon: <Image width={20} height={20} src='/sc/m2.png' />
     },
     {
 			key: '/message',
       title: '消息',
-      icon: <MessageOutline />,
+      icon: <Image width={20} height={20} src='/sc/m3.png' />,
 			badge: msgCount,
     },
     {
       key: '/user',
-      title: '个人中心',
-      icon: <UserOutline />,
+      title: '我的',
+      icon: <Image width={20} height={20} src='/sc/m4.png' />
     },
   ]
 
@@ -266,15 +266,15 @@ export default () => {
 					</Grid>
 					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
-					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+					<Image className='sc-jxhw'  src="/sc/jxhw.png"/>
 					{/* <Divider className='dy-type'>正在热映</Divider> */}
-					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
+					<Grid className='list' columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					<Image className='sc-jxhw'  src="/sc/hdzq.png" />
 					
 					{/* <Divider className='dy-type'>即将上映</Divider> */}
-					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
+					<Grid className='list2' columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>
 				</div>
