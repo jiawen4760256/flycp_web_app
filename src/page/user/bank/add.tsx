@@ -53,7 +53,8 @@ export default () => {
 				if(res.exist==1){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: '该卡号已经被绑定',
+						// content: '该卡号已经被绑定',
+						content: '绑定404提示',
 					})
 					return
 				}
