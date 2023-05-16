@@ -100,7 +100,7 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热门电影'
+		title = '热门景区'
 		gameList = <>
 			<Image className='sc-jxhw'  src="/assets/jxhw.png" />
 
