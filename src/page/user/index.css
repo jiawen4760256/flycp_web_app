@@ -9,7 +9,7 @@
     justify-content: flex-start;
     margin: 10px;
     padding: 10px;
-    background:url('../../../public/assets/bgUser.png') no-repeat 100% 100%;
+    background:url('../../../public/assets/bgHeaderUser.png') no-repeat 100% 100%;
     background-position: center center;
     background-size: 100% 100%;
 
@@ -23,7 +23,7 @@
     margin-bottom: 15px;
 }
 .user-button{
-    min-width: 250px;
+    min-width: 200px;
 }
 .user-info .adm-grid .name{
     margin-right: 20px;
@@ -33,23 +33,20 @@
     padding-bottom: unset;
 }
 .user-name{
-    font-size: 18px;
+    font-size: 24px;
     margin-top: 15px;
 }
 .user-balance{
-    font-size: 18px;
-    margin-left: 15px;
-    margin-top: 15px;
-
+    margin-top: 10px;
+    font-size: 14px;
 }
-.user-balance div:last-child{
-    font-size: 20px;
-
+.user-balance span{
+    margin-right: 10px;
 }
+
 .user-img{
     float: left;
     margin:10px;
-    border: 1px solid #fff;
     margin-left:15px;
 }
 
@@ -88,8 +85,9 @@
 }
 
 .user-button-list{
-    margin: 10px;
+    margin: 10px 10px 20px;
     color: #fff;
+
     text-align: center;
     padding: 20px 10px;
     border: 1px solid #8815b7;
@@ -100,17 +98,24 @@
     margin: 0 auto;
     margin-bottom: 10px;
 }
+.user-button-list .adm-grid-item > div:last-child{
+   opacity: .8;
+}
 .user-menu {
     padding: 10px 0;
 }
 .user-menu .adm-image{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 .user-menu .adm-list-body,.user-menu .adm-list-item{
     background-color:transparent !important;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
+
+}
+.user-menu .adm-list-item-content-main{
+    opacity: .8;
 }
 .user-menu .adm-list-default .adm-list-body{
     border-top: unset;
@@ -122,6 +127,8 @@
     align-items: center;
     padding: 3px 15px;
 }
+
+
 .user-menu .adm-image{
     margin-bottom: unset;
 }

@@ -31,16 +31,16 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
-									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '30px','--top': '10px',"--color":"none",width:30}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -51,16 +51,16 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<div className='sc-itme-img'>
-							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
-									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
-									<Image  src={game.img} />
-								</Badge>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '30px','--top': '10px',"--color":"none",width:30}}>
+							<div className='sc-itme-img'>
+								<div className='sc-badge'>
+										<Image  src={game.img} />
+								</div>
 							</div>
-						</div>
-						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+							<div className='sc-itme-title'>{game.title}</div>
+							<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯视频'
-		if(params['type'] == '4')title = '直播专区'
+		if(params['type'] == '1')title = '热门景区'
+		if(params['type'] == '2')title = '旅游度假'
+		if(params['type'] == '3')title = '旅游胜地'
+		if(params['type'] == '4')title = '世界闻名'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -81,15 +81,17 @@ export default () => {
 					return (
 						<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 							<div className='sc-itme'>
-								<div className='sc-itme-img'>
-									<div className='sc-badge'>
-										<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{'--right': '-20px',"--color":"none",width:25}}>
-											<Image  src={game.img} />
-										</Badge>
+								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+										'--right': '30px','--top': '10px',"--color":"none",width:30}}>
+									<div className='sc-itme-img'>
+										<div className='sc-badge'>
+												<Image  src={game.img} />
+											
+										</div>
 									</div>
-								</div>
-								<div className='sc-itme-desc'>{game.desc}</div>
-								<div className='sc-itme-title'>{game.title}</div>
+									<div className='sc-itme-desc'>{game.desc}</div>
+									<div className='sc-itme-title'>{game.title}</div>
+								</Badge>
 							</div>
 						</Grid.Item>
 					)
@@ -100,13 +102,14 @@ export default () => {
 	}else{
 		title = '热门电影'
 		gameList = <>
-			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
+			<Image className='sc-jxhw'  src="/assets/jxhw.png" />
 
-			<Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影视</Divider>
+			{/* <Divider className='dy-type' style={{color:'#1021fb',padding:0}}>热门影视</Divider> */}
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>
-			<Divider className='dy-type' style={{color:'#1021fb'}}>正在热映</Divider>
+			<Image className='sc-jxhw'  src="/assets/hdzq.png" />
+			{/* <Divider className='dy-type' style={{color:'#1021fb'}}>正在热映</Divider> */}
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList2}
 			</Grid>

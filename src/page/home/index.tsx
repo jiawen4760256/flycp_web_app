@@ -70,16 +70,16 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
+					<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '30px','--top': '10px',"--color":"none",width:30}}>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
-									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
-								</Badge>
 							</div>
 						</div>
 						<div className='sc-itme-title'>{game.title}</div>
 						<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -91,16 +91,16 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
+						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '30px','--top': '10px',"--color":"none",width:30}}>
 						<div className='sc-itme-img'>
 							<div className='sc-badge'>
-								<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
-									'--right': '-25px','--top': '-20px',"--color":"none",width:30}}>
 									<Image  src={game.img} />
-								</Badge>
 							</div>
 						</div>
 						<div className='sc-itme-title'>{game.title}</div>
 						<div className='sc-itme-desc'>{game.desc}</div>
+						</Badge>
 					</div>
 				</Grid.Item>
 			)
@@ -161,13 +161,13 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 	)
 	let left = (
 		<>
-		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+		<Button size='mini' color='primary' style={{"--border-color":"#e21d24",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/login/null");
 			}}  >
 			登录
 		</Button>
 		&nbsp;&nbsp;
-		<Button size='mini' color='primary' style={{"--border-color":"#eee",'--text-color':"#fff"}} fill='outline' onClick={() => {
+		<Button size='mini' color='primary' style={{"--border-color":"#e21d24",'--text-color':"#e21d24"}} fill='outline' onClick={() => {
 				navigate("/register");
 			}}   >
 			注册
@@ -219,7 +219,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 			<header className={"App-header"}  >
 				<NavBar style={{
 					'--height': '45px',
-					background:'url(/assets/navBg.png) no-repeat 100% 100%'
+					background:'#000'
 				}} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
@@ -234,11 +234,11 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 						<Grid className='menu' columns={4} gap={0} style={{marginBottom:20}}>
 							<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 								<Image className='sc-button-img' src="/assets/1.png" />
-								<div>热门电影</div>
+								<div>热门景区</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 								<Image className='sc-button-img' src="/assets/2.png" />
-								<div>本周特惠</div>
+								<div>本周促销</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 								<Image className='sc-button-img' src="/assets/3.png" />
@@ -249,14 +249,16 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 								<div>在线客服</div>
 							</Grid.Item>
 						</Grid>
-						<div style={{paddingLeft:20,paddingRight:20}} onClick={()=>{Auth.navigate(navigate,"/notice")}}>
+						<div style={{paddingLeft:10,paddingRight:10}} onClick={()=>{Auth.navigate(navigate,"/notice")}}>
 							<NoticeBar
-								icon={<div style={{width:'15px'}}><Image  src="/assets/icon.png" /></div>} style={{
+								extra={<RightOutline color='#e21d24'/>}
+								icon={<div style={{color:'#e21d24',display:'flex',alignItems:'center',fontSize:14,width:'55px',justifyContent:'space-around'}}><Image src="/assets/icon.png" width={15} height={15}/>公告:</div>} style={{
 								border:'unset',
-
+								
 
 
 								fontSize: 14,'--height':'32px','--background-color':'transparent'}}
+								
 								content={notice}  />
 						</div>
 
@@ -266,19 +268,18 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 				<div className='home-game-body'>
 					<Image className='sc-youhui' src="/assets/prev.png" />
 					<div className='home-list' >
-					<Grid columns={2} gap={5} className='sc-type-list' >
+					<Grid columns={2} gap={10} className='sc-type-list' style={{marginBottom:20}} >
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
 							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<Image className='sc-hot' src="/assets/hot.png" />
-								<div className='title'>电影专区</div>
+								<div className='title'>热门景区<Image className='sc-hot' src="/assets/hot.png" /></div>
 								<Image className='sc-img' src="/assets/a1.png" />
 
 							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
 							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<Image className='sc-hot' src="/assets/hot.png" />
-								<div className='title'>线上影视</div>
+								
+								<div className='title'>旅游度假 <Image className='sc-hot' src="/assets/hot.png" /></div>
 
 								<Image className='sc-img' src="/assets/a2.png" />
 
@@ -286,8 +287,8 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
 							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<Image className='sc-hot' src="/assets/hot.png" />
-								<div className='title'>腾讯视频</div>
+								
+								<div className='title'>旅游胜地<Image className='sc-hot' src="/assets/hot.png" /></div>
 
 								<Image className='sc-img' src="/assets/a3.png" />
 
@@ -295,8 +296,8 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
 							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<Image className='sc-hot' src="/assets/hot.png" />
-								<div className='title'>直播专区</div>
+								
+								<div className='title'>世界闻名<Image className='sc-hot' src="/assets/hot.png" /></div>
 
 								<Image className='sc-img' src="/assets/a4.png" />
 
@@ -310,16 +311,16 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 								</div>
 
 					{/* <br/> */}
-					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-						<Divider className='dy-type' style={{padding:0}}>热门影视</Divider>
+					<Image className='sc-jxhw'  src="/assets/jxhw.png" />
+					{/* <Divider className='dy-type' style={{padding:0}}>热门影视</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					</div>
 
-					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
+					<Image className='sc-jxhw'  src="/assets/hdzq.png" />
 
-					<Divider className='dy-type'>正在热映</Divider>
+					{/* <Divider className='dy-type'>正在热映</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>

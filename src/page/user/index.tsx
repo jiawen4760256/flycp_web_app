@@ -87,7 +87,7 @@ export default () => {
 	}
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header">
 				<NavBar className='app-header' onBack={back}>个人中心</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
@@ -103,21 +103,20 @@ export default () => {
 						/>
           <div className='user-account'>
 						<div className='user-name'>
-							账号:{userData['username']}&nbsp;
+							{userData['username']}&nbsp;
 							{/* <Tag color='#fff' fill='outline'>
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
+						<div className="user-balance">
+							<span>积分:</span>
+							<span>{userData["balance"]} </span>
+							{/* <span><DownFill /></span> */}
+						</div>
 
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
-						<div className="user-balance">
-							<div>
-								积分:
-								<DownFill />{" "}
-							</div>
-							<div>{userData["balance"]}</div>
-						</div>
+					
 
 						{/* {userData['jinjijilu_id']>0?<>
           <div className='user-vip'>

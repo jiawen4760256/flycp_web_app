@@ -1,6 +1,6 @@
 .code-body{
-  /* background-color: #8815b7 !important; */
-  background: linear-gradient(#8815b7,#8815b7, #E0FFDB);
+  /* background-color: #8815B8 !important; */
+  background: linear-gradient(#8815B8,#8815B8, #E0FFDB);
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
@@ -33,49 +33,49 @@
   color: #fff;
 }
 .adm-button.adm-button-large{
-  background: #8815b7 !important;
+  background: #8815B8 !important;
   border-color: unset !important;
   color: #fff !important;
 }
 .k3-name-list-button-active{
-  background-color: #8815b7 !important;
-  border-color: #8815b7 !important;
+  background-color: #8815B8 !important;
+  border-color: #8815B8 !important;
   color: #fff !important;
 }
 .touzhu-button-left button{
-  border-color: #8815b7 !important;
+  border-color: #8815B8 !important;
   background-color: #fff !important;
-  color: #8815b7 !important;
+  color: #8815B8 !important;
 }
 .touzhu-button-right button{
-  border-color: #8815b7 !important;
-  background-color: #8815b7 !important;
+  border-color: #8815B8 !important;
+  background-color: #8815B8 !important;
   color: #fff !important;
 }
 .adm-tabs-tab-line{
-  background: #8815b7 !important;
+  background: #8815B8 !important;
 }
 .hz-card-activity{
-  background: #8815b7 !important;
+  background: #8815B8 !important;
 }
 
 .history-button{
-  border-color: #8815b7 !important;
-  background-color: #8815b7 !important;
+  border-color: #8815B8 !important;
+  background-color: #8815B8 !important;
   color: #fff !important;
 }
 .user-button-logout button{
-  border-color: #8815b7 !important;
-  background-color: #8815b7 !important;
+  border-color: #8815B8 !important;
+  background-color: #8815B8 !important;
   color: #fff !important;
 }
 .ks-alert-body button{
-  border-color: #8815b7 !important;
-  background-color: #8815b7 !important;
+  border-color: #8815B8 !important;
+  background-color: #8815B8 !important;
   color: #fff !important;
 }
 .home-game-left{
-  background: #8815b7 !important;
+  background: #8815B8 !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
@@ -85,37 +85,37 @@
   color: #fff !important;
 }
 .withdraw-info {
-  border-top: 1px solid #8815b7 !important;
-  border-right: 1px solid #8815b7 !important;
+  border-top: 1px solid #8815B8 !important;
+  border-right: 1px solid #8815B8 !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #8815b7 !important;
-  border-bottom: 1px solid #8815b7 !important;
+  border-left: 1px solid #8815B8 !important;
+  border-bottom: 1px solid #8815B8 !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #8815b7 !important;
-  border-bottom: 1px solid #8815b7 !important;
+  border-left: 1px solid #8815B8 !important;
+  border-bottom: 1px solid #8815B8 !important;
 }
 .proxy-info {
-  border-top: 1px solid #8815b7 !important;
-  border-right: 1px solid #8815b7 !important;
+  border-top: 1px solid #8815B8 !important;
+  border-right: 1px solid #8815B8 !important;
 }
 .proxy-value {
-  border-left: 1px solid #8815b7 !important;
-  border-bottom: 1px solid #8815b7 !important;
+  border-left: 1px solid #8815B8 !important;
+  border-bottom: 1px solid #8815B8 !important;
 }
 .proxy-key {
-  border-left: 1px solid #8815b7 !important;
-  border-bottom: 1px solid #8815b7 !important;
+  border-left: 1px solid #8815B8 !important;
+  border-bottom: 1px solid #8815B8 !important;
 }
 .proxy-member-info {
-  border-top: 1px solid #8815b7 !important;
-  border-right: 1px solid #8815b7 !important;
+  border-top: 1px solid #8815B8 !important;
+  border-right: 1px solid #8815B8 !important;
 }
 
 .user-button g{
   color: #fff !important;
 }
 .user-vip{
-  background: linear-gradient(45deg,#f8c661,#8815b7) !important;
+  background: linear-gradient(45deg,#f8c661,#8815B8) !important;
 }

@@ -5,7 +5,7 @@
 
 
 .adm-tab-bar-item-title{
-  color: #fff !important;
+  color: #8e8e91 ;
 }
 
 
@@ -73,11 +73,18 @@
   color: #8815b7 !important;
 }
 .adm-button{
-  color: #8815b7 !important;
+  color: #8815b7 ;
   /* border-color: #d0d0f0 !important; */
 }
 .adm-nav-bar-right .adm-button{
-  color: #fff !important;
+  border-radius: 40px;
+}
+.adm-nav-bar-right .adm-button:first-child{
+  color: #fff ;
+  background-color:#e21d24 ;
+}
+.adm-nav-bar-right .adm-button:last-child{
+  color: #e21d24 ;
 }
 
 .k3-name-button{

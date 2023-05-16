@@ -1,9 +1,11 @@
-.App-main {
-	background: #f9f9f9;
-}
 .img-content {
 	/* height: 220px; */
 	align-items: center;
+	padding: 5px 10px 0 10px;
+	background-color: #090C26;
+}
+.img-content .adm-image-img{
+	border-radius: 10px;
 }
 .home-menu {
 	margin-top: -40px;
@@ -21,7 +23,7 @@
 	margin-bottom: 10px;
 }
 .adm-swiper-horizontal .adm-swiper-indicator {
-	bottom: 25px;
+	bottom: 15px;
 }
 
 .grid-demo-item-block {
@@ -32,12 +34,11 @@
 	height: 100%;
 }
 
-.adm-tabs-tab-active {
-	color: #e80101;
+
+.adm-tab-bar-item-active .adm-tab-bar-item-title {
+	color: #e21d24 !important;
 }
-.adm-tab-bar-item-active {
-	color: #e80101;
-}
+
 .adm-tabs-tab-line {
 	background: #e80101;
 }
@@ -168,7 +169,7 @@
 
 .sc-jxhw {
 	margin: 25px auto;
-	width: 200px;
+	width: 170px;
 }
 
 .sc-itme {
@@ -213,7 +214,7 @@
 .sc-type-name {
 	/* margin-top: -75px; */
 	position: relative;
-	padding: 40px 20px 45px;
+	padding: 20px 10px 32px;
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat, no-repeat;
@@ -226,8 +227,7 @@
 }
 .sc-type-name .sc-hot {
 	position: absolute;
-	right: 25px;
-	top: 25px;
+	right: 0;
 	width: 25px;
 	height: 25px;
 }
@@ -237,13 +237,15 @@
 	font-weight: 600;
 
 	margin-bottom: 15px;
-
-	text-shadow: 0 0 14px #c906c0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 }
 
 .sc-type-name .sc-img {
 	margin: 0 auto;
-	width: 80px;
+	width: 90px;
 }
 .sc-badge {
 	padding: 10px;
@@ -305,7 +307,7 @@
 .home-game-body .adm-grid-item {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 200px;
+	max-width: 250px;
 }
 .dy-type:before {
 	content: "/////";

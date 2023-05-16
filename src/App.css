@@ -15,12 +15,14 @@
   bottom: 0;
   max-width: 600px;
   margin: auto;
+  background-image:url('../public/assets/bgUser.png') !important;
+  background-position: center center !important;
+  background-repeat: repeat-y!important;
+  background-size: 101% 101%!important;
+
 }
 .App-header {
   color: white;
-  background:url('../public/assets/navBg.png') no-repeat 100% 100%;
-  background-position: top center;
-  background-size: cover;
   width: 100%;
   position: absolute;
   padding: 0px;
@@ -35,7 +37,7 @@
   top: 45px;
   overflow: auto;
   display: block;
-  background: #071033;
+  /* background: #071033; */
 }
 
 .App-footer{
@@ -53,7 +55,9 @@
 .adm-dialog-wrap{
   width: 90vw !important;
 }
-
+.adm-badge-wrap{
+  width: 100%;
+}
 
 .slide-enter,
 .slide-exit {
@@ -82,4 +86,5 @@
 
 .sc-m-img{
   width: 20px;
+  margin: 0 auto;
 }
