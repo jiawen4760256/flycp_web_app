@@ -198,7 +198,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 		// },
 		{
 			key: '/mall/0',
-			title: '购票中心',
+			title: '商城',
 			icon: <Image className='sc-m-img' src="/assets/m2.png" />,
 		},
 		{
@@ -209,7 +209,7 @@ const content = '      CGS 中国巨幕是国际领先的高端巨幕品牌之�
 		},
 		{
 			key: '/user',
-			title: '个人中心',
+			title: '我的',
 			icon: <Image className='sc-m-img' src="/assets/m4.png" />,
 		},
 	]
