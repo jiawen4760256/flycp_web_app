@@ -134,16 +134,19 @@ export default () => {
 						<div className='user-name'>积分：{userData['balance']}</div>
 					</List.Item>
 				</List> */}
-					<div>
-						<Grid columns={2} gap={8} className="user-button">
+					
+				</div>
+				<div>
+						<Grid columns={2} gap={10} className="user-button">
 							<Grid.Item
 								onClick={() => {
 									Auth.navigate(navigate, "/recharge");
 								}}
 								className="user-button-left"
+								style={{backgroundImage:'url("/assets/btn_01.png")'}}
 							>
 								<Space wrap align="center">
-									<Image src="/assets/i1.png" width={20} height={20}></Image>
+									{/* <Image src="/assets/i1.png" width={20} height={20}></Image> */}
 
 									<div className="name" style={{ color: "#fff" }}>
 										预购
@@ -162,9 +165,10 @@ export default () => {
 									})
 
 								}}
+								style={{backgroundImage:'url("/assets/btn_02.png")'}}
 							>
 								<Space wrap align="center">
-									<Image src="/assets/i2.png" width={20} height={20}></Image>
+									{/* <Image src="/assets/i2.png" width={20} height={20}></Image> */}
 
 									<div className="name" style={{ color: "#fff" }}>
 										兑换
@@ -173,7 +177,6 @@ export default () => {
 							</Grid.Item>
 						</Grid>
 					</div>
-				</div>
 
 				<div className="user-button-list">
 					<Grid

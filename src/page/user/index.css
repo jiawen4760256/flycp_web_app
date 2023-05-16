@@ -13,14 +13,14 @@
     background-position: center center;
     background-size: 100% 100%;
 
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin-bottom: 20px;
 }
 .user-data{
     display: flex;
     align-items: flex-start;
-    margin-bottom: 15px;
+    
 }
 .user-button{
     min-width: 200px;
@@ -71,12 +71,17 @@
 }
 .user-button{
     text-align: center;
-
+    padding: 0 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
-.user-button-left{
-
-    border-right: solid 1px var(--adm-border-color);
+.user-button .adm-grid-item{
+    padding: 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
+
 .user-button-icon{
     --item-span: 1;
     font-size: 32px;
@@ -105,8 +110,8 @@
     padding: 10px 0;
 }
 .user-menu .adm-image{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 .user-menu .adm-list-body,.user-menu .adm-list-item{
     background-color:transparent !important;
@@ -123,11 +128,21 @@
 
 }
 .user-menu .adm-list-item-content{
-    border-color: #5c138a ;
+    border-color: unset ;
+    border-top: unset;
+    position: relative;
     align-items: center;
     padding: 3px 15px;
 }
+.user-menu .adm-list-item-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 67px;
+    border-top:1px solid rgba(92, 19, 138, .5);
+    width: 100%;
 
+}
 
 .user-menu .adm-image{
     margin-bottom: unset;
