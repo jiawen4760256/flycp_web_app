@@ -254,11 +254,11 @@ export default () => {
 		
 		Dialog.confirm({
 			content: <>
-				<div className='k3-confirm-title'>购票确认</div>
+				<div className='k3-confirm-title'>购物确认</div>
 				<Divider />
-				<div className='k3-confirm-text'>购票活动：{gameData.qishu}</div>
-				<div className='k3-confirm-text'>购票总额：{amount*Object.keys(touzhu).length}元</div>
-				<div className='k3-confirm-text'>购票内容：
+				<div className='k3-confirm-text'>购物活动：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>购物总额：{amount*Object.keys(touzhu).length}元</div>
+				<div className='k3-confirm-text'>购物内容：
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  item.title+" "
@@ -593,7 +593,7 @@ export default () => {
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right' span={3}>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购单</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购买</Button>
 				</Grid.Item>
 			</Grid>
 		</div>
@@ -619,7 +619,7 @@ export default () => {
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '订单记录' },
+		{ key: '/record', icon:  <></>, text: '购物记录' },
 		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件

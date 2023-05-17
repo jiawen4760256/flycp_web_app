@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '电影专区'
-		if(params['type'] == '2')title = '线上影视'
-		if(params['type'] == '3')title = '腾讯专区'
-		if(params['type'] == '4')title = '直播专区'
+		if(params['type'] == '1')title = '建材区'
+		if(params['type'] == '2')title = '五金区'
+		if(params['type'] == '3')title = '电器区'
+		if(params['type'] == '4')title = '灯具区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -98,7 +98,7 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热销专区'
+		title = '家庭选项'
 		gameList = <>
 			<Image className='sc-jxhw'  src="/sc/jxhw.png" />
 			
