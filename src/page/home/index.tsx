@@ -180,7 +180,8 @@ export default () => {
     {
       key: '/',
       title: '首页',
-      icon: <AppstoreOutline />,
+    //   icon: <AppstoreOutline />,
+      icon: <Image src="/sc/TabBar_icon.png" style={{width:20,height:20}} />,
     },
     // {
     //   key: '/withdraw',
@@ -194,19 +195,25 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '购票中心',
-      icon: <MovieOutline />,
+      title: '购物中心',
+    //   icon: <MovieOutline />,
+	  icon: <Image src="/sc/TabBar_icon-6.png" style={{width:20,height:20}} />,
+
     },
     {
 			key: '/message',
       title: '消息',
-      icon: <MessageOutline />,
+    //   icon: <MessageOutline />,
 			badge: msgCount,
+	icon: <Image src="/sc/TabBar_icon-2.png" style={{width:20,height:20}} />,
+
     },
     {
       key: '/user',
       title: '个人中心',
-      icon: <UserOutline />,
+    //   icon: <UserOutline />,
+	  icon: <Image src="/sc/TabBar_icon-5.png" style={{width:20,height:20}} />,
+
     },
   ]
 
@@ -232,15 +239,15 @@ export default () => {
 					<Grid columns={4} gap={10} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>影视电影</div>
+							<div>热销专区</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>影视简介</div>
+							<div>优惠活动</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的票购</div>
+							<div>我的订单</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 							<Image className='sc-button-img' src="/sc/button3.png" />
@@ -265,14 +272,14 @@ export default () => {
 					</Grid>
 					<Image className='sc-youhui'  src="/sc/sdyx.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
-					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>正在热映</Divider>
+					<Image className='sc-jxhw'  src="/sc/jxhw.png" />
+					{/* <Divider className='dy-type'>正在热映</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
-					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
+					<Image className='sc-jxhw'  src="/sc/hdzq.png" />
 					
-					<Divider className='dy-type'>即将上映</Divider>
+					{/* <Divider className='dy-type'>即将上映</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>

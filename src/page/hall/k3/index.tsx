@@ -619,7 +619,7 @@ export default () => {
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '购票记录' },
+		{ key: '/record', icon:  <></>, text: '订单记录' },
 		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件
