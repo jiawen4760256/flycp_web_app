@@ -50,9 +50,9 @@ export default () => {
   return (
 	<div className='App-main'>
 		<header className="App-header"  >
-      <NavBar className='app-header' onBack={back}>电影介绍</NavBar>
+      <NavBar className='app-header' onBack={back}>爱空间</NavBar>
 		</header>
-		<div className='App-content' style={{height:window.innerHeight-45,background:'#fff'}}>	
+		<div className='App-content' style={{height:window.innerHeight-45,background:'#fff',fontSize:'14px'}}>	
 			<div className='activity-body'>
 				{html}	
 			</div>

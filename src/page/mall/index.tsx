@@ -71,8 +71,8 @@ export default () => {
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
 		if(params['type'] == '1')title = '建材区'
-		if(params['type'] == '2')title = '五金区'
-		if(params['type'] == '3')title = '电器区'
+		if(params['type'] == '2')title = '电器区'
+		if(params['type'] == '3')title = '五金区'
 		if(params['type'] == '4')title = '灯具区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{

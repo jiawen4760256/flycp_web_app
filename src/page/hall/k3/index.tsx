@@ -615,7 +615,7 @@ export default () => {
 		+gameData.qishu.slice(6,8)
 		+"日" 
 		+gameData.qishu.slice(8,12)
-		+"票单匹配"
+		+"期购物"
 	}
 	
 	const actions: Action[] = [
