@@ -18,7 +18,7 @@
 }
 .App-header {
   color: white;
-  background: #e53333;
+  background: #cba16d;
   width: 100%;
   position: absolute;
   padding: 0px;
@@ -42,6 +42,7 @@
   bottom: 0;
   background-color: white;
   border-top: 1px solid #dcdcdc;
+  z-index: 2;
 }
 
 .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button{
@@ -75,4 +76,7 @@
 
 .slide-exit-active {
   transform: translateX(-100%);
+}
+.sc-m-img{
+  width: 20px;
 }

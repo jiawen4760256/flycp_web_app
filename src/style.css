@@ -1,10 +1,7 @@
 .code-body{
-  /* background-color: #d4d0ff !important; */
-  /* background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB); */
-  background: linear-gradient(#ff8b00,#fdc5ae,#e0ffdb);
-}
-.App-header{
-  background-color: #f98e77 !important;
+  /* background-color: #cba16d !important; */
+  /* background: linear-gradient(#cba16d,#cba16d, #E0FFDB); */
+  background: linear-gradient(#cba16d,#cba16d, #E0FFDB);
 }
 .adm-notice-bar.adm-notice-bar-alert {
   --background-color: #f5fbf9;
@@ -30,84 +27,98 @@
   border-left: 1px solid #727272;
   border-bottom: 1px solid #727272;
 }
+.adm-button.adm-button-small {
+  font-size:15px;
+  padding-bottom:3px;
+  padding-top:3px;
+  color: #fff;
+ }
 .adm-button.adm-button-large{
-  background-color: #f98e77 !important;
-  border-color: #f98e77 !important;
+  background: linear-gradient(to right,#cba16d,#d9bd9e) !important;
+  border-color: unset !important;
+  color: #fff !important;
 }
 .k3-name-list-button-active{
-  background-color: #f98e77 !important;
-  border-color: #f98e77 !important;
+  background-color: #cba16d !important;
+  border-color: #cba16d !important;
+  color: #fff !important;
 }
 .touzhu-button-left button{
-  border-color: #f98e77 !important;
+  border-color: #cba16d !important;
   background-color: #fff !important;
+  color: #cba16d !important;
 }
 .touzhu-button-right button{
-  border-color: #d4d0ff !important;
-  background-color: #f98e77 !important;
+  border-color: #cba16d !important;
+  background-color: #cba16d !important;
+  color: #fff !important;
 }
 .adm-tabs-tab-line{
-  background: #f98e77 !important;
+  background: #cba16d !important;
 }
 .hz-card-activity{
-  background: #f98e77 !important;
+  background: #cba16d !important;
 }
 .user-info{
-  background: #f98e77 !important;
+  background: #cba16d !important;
 }
 .history-button{
-  border-color: #f98e77 !important;
-  background-color: #f98e77 !important;
+  border-color: #cba16d !important;
+  background-color: #cba16d !important;
+  color: #fff !important;
 }
 .user-button-logout button{
-  border-color: #f98e77 !important;
-  background-color: #f98e77 !important;
+  border-color: #cba16d !important;
+  background-color: #cba16d !important;
+  color: #fff !important;
 }
 .ks-alert-body button{
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
+  border-color: #cba16d !important;
+  background-color: #cba16d !important;
+  color: #fff !important;
 }
 .home-game-left{
-  background: #d4d0ff !important;
+  background: #cba16d !important;
 }
 
 .adm-checkbox.adm-checkbox-checked .adm-checkbox-icon {
-  border-color: #d4d0ff !important;
-  background-color: #d4d0ff !important;
-  border: 1px solid #d4d0ff !important;
+  border-color: #cba16d !important;
+  background-color: #cba16d !important;
+  border: 1px solid #cba16d !important;
+  color: #fff !important;
 }
 .withdraw-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #cba16d !important;
+  border-right: 1px solid #cba16d !important;
 }
 .withdraw-info-value {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #cba16d !important;
+  border-bottom: 1px solid #cba16d !important;
 }
 .withdraw-info-key {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #cba16d !important;
+  border-bottom: 1px solid #cba16d !important;
 }
 .proxy-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #cba16d !important;
+  border-right: 1px solid #cba16d !important;
 }
 .proxy-value {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #cba16d !important;
+  border-bottom: 1px solid #cba16d !important;
 }
 .proxy-key {
-  border-left: 1px solid #d4d0ff !important;
-  border-bottom: 1px solid #d4d0ff !important;
+  border-left: 1px solid #cba16d !important;
+  border-bottom: 1px solid #cba16d !important;
 }
 .proxy-member-info {
-  border-top: 1px solid #d4d0ff !important;
-  border-right: 1px solid #d4d0ff !important;
+  border-top: 1px solid #cba16d !important;
+  border-right: 1px solid #cba16d !important;
 }
 
 .user-button g{
-  color: #f98e77 !important;
+  color: #cba16d !important;
 }
 .user-vip{
-  background: linear-gradient(45deg,#f8c661,#d4d0ff) !important;
+  background: linear-gradient(45deg,#f8c661,#cba16d) !important;
 }
