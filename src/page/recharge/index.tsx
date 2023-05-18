@@ -118,6 +118,9 @@ export default () => {
 
 
 			setPaytype(response);
+			// console.log(response[0]['payset_id'][0].scope);
+			// console.log(response[0]['payset_id'][0].scope.min);
+			// console.log(response[0]['payset_id'][0].scope.max);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
 		})
@@ -147,10 +150,10 @@ export default () => {
 		}else{
 			if(paysetStyle=='29'){
 				values.amount = paysetStyletwovalue
-				if(Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>2000){
+				if(Number(paysetStyletwovalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: '金额必须为10-2000之间',
+						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
 					})
 					return;
 				}
@@ -158,10 +161,24 @@ export default () => {
 			}
 			if(paysetStyle=='30'){
 				values.amount = paysetStylethreevalue
-				if(Number(paysetStylethreevalue)<800 || Number(paysetStylethreevalue)>20000){
+				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: '金额必须为800-20000之间',
+						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+					})
+					return;
+				}
+			}
+			if(paysetStyle=='33'){
+				console.log(paysetStyle)
+				values.amount = paysetStylethreevalue
+				console.log(values.amount)
+				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+					// console.log(paytype[0]['payset_id'][0].scope.min)
+					// console.log(paytype[0]['payset_id'][0]['scope']['max'])
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
 					})
 					return;
 				}
@@ -341,21 +358,31 @@ export default () => {
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='29'? 'block' : 'none'}}
-											rules={[{ required: true, message: '请输入金额，金额限制为：10-2000' }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
 										>
 											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
 												setpaysetStyletwovalue(e)
-											}} placeholder='请输入金额(10 - 2000之间)' />
+											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
 										</Form.Item>
 										<Form.Item
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='30'? 'block' : 'none'}} 
-											rules={[{ required: true, message: '请输入金额，金额限制为：800-20000' }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
 										>
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
-											}} placeholder='请输入金额(800 - 20000之间)' />
+											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
+										</Form.Item>
+										<Form.Item
+											// name='amount'
+											label='金额'
+											style={{display:paysetStyle=='33'? 'block' : 'none'}} 
+											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+										>
+											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
+												setpaysetStylethreevalue(e)
+											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
 										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
