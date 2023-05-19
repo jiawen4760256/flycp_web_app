@@ -150,10 +150,12 @@ export default () => {
 		}else{
 			if(paysetStyle=='29'){
 				values.amount = paysetStyletwovalue
-				if(Number(paysetStyletwovalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				// if(Number(paysetStyletwovalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				if(Number(paysetStyletwovalue)<10 || Number(paysetStylethreevalue)>2000){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						// content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						content: `金额必须为10-2000之间`,
 					})
 					return;
 				}
@@ -161,10 +163,12 @@ export default () => {
 			}
 			if(paysetStyle=='30'){
 				values.amount = paysetStylethreevalue
-				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				// if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				if(Number(paysetStylethreevalue)<800 || Number(paysetStylethreevalue)>20000){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						// content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						content: `金额必须为800-20000之间`,
 					})
 					return;
 				}
@@ -173,12 +177,14 @@ export default () => {
 				console.log(paysetStyle)
 				values.amount = paysetStylethreevalue
 				console.log(values.amount)
-				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				// if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
+				if(Number(paysetStylethreevalue)<50 || Number(paysetStylethreevalue)>10000){
 					// console.log(paytype[0]['payset_id'][0].scope.min)
 					// console.log(paytype[0]['payset_id'][0]['scope']['max'])
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						// content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
+						content:`金额必须为50 - 10000之间`,
 					})
 					return;
 				}
@@ -187,12 +193,14 @@ export default () => {
 				console.log(paysetStyle)
 				values.amount = paysetStylethreevalue
 				console.log(values.amount)
-				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][1].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][1].scope.max)){
+				// if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][1].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][1].scope.max)){
+				if(Number(paysetStylethreevalue)<10 || Number(paysetStylethreevalue)>10000){
 					// console.log(paytype[0]['payset_id'][1].scope.min)
 					// console.log(paytype[0]['payset_id'][1]['scope']['max'])
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: `金额必须为${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间`,
+						// content: `金额必须为${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间`,
+						content: `金额必须为10 - 10000之间`,
 					})
 					return;
 				}
@@ -372,41 +380,57 @@ export default () => {
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='29'? 'block' : 'none'}}
-											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：10-2000` }]}
 										>
 											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
 												setpaysetStyletwovalue(e)
-											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
+											}} 
+											// placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} 
+											placeholder={`请输入金额(10-2000之间)`} 
+											/>
 										</Form.Item>
 										<Form.Item
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='30'? 'block' : 'none'}} 
-											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：800-20000` }]}
 										>
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
-											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
+											}} 
+											// placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} 
+											placeholder={`请输入金额(800-20000之间)`} 
+											/>
 										</Form.Item>
 										<Form.Item
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='33'? 'block' : 'none'}} 
-											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：50-10000` }]}
 										>
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
-											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
+											}} 
+											// placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} 
+											placeholder={`请输入金额(50-10000之间)`} 
+											/>
 										</Form.Item>
 										<Form.Item
 											// name='amount'
 											label='金额'
 											style={{display:paysetStyle=='34'? 'block' : 'none'}} 
-											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}` }]}
+											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}` }]}
+											rules={[{ required: true, message: `请输入金额，金额限制为：10-10000` }]}
 										>
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
-											}} placeholder={`请输入金额(${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间)`} />
+											}} 
+											// placeholder={`请输入金额(${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间)`} 
+											placeholder={`请输入金额(10-10000之间)`} 
+											/>
 										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
