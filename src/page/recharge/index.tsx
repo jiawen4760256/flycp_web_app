@@ -183,6 +183,20 @@ export default () => {
 					return;
 				}
 			}
+			if(paysetStyle=='34'){
+				console.log(paysetStyle)
+				values.amount = paysetStylethreevalue
+				console.log(values.amount)
+				if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][1].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][1].scope.max)){
+					// console.log(paytype[0]['payset_id'][1].scope.min)
+					// console.log(paytype[0]['payset_id'][1]['scope']['max'])
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: `金额必须为${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间`,
+					})
+					return;
+				}
+			}
 
 		}
 		console.log(values)
@@ -383,6 +397,16 @@ export default () => {
 											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
 												setpaysetStylethreevalue(e)
 											}} placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} />
+										</Form.Item>
+										<Form.Item
+											// name='amount'
+											label='金额'
+											style={{display:paysetStyle=='34'? 'block' : 'none'}} 
+											rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}` }]}
+										>
+											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
+												setpaysetStylethreevalue(e)
+											}} placeholder={`请输入金额(${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间)`} />
 										</Form.Item>
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
