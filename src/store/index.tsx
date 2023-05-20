@@ -39,5 +39,6 @@ export const getk3Touzhu = (state:any) => state.counter.k3Touzhu
 export const getLoading = (state:any) => state.counter.loading
 export const getMsgCount = (state:any) => state.counter.msgCount
 export const getBalance = (state:any) => state.counter.balance
+export const getDictionary = (state:any) => state.counter.dictionary
 
 export default counterSlice.reducer
