@@ -325,7 +325,7 @@ export default () => {
 				setTouzhu({})
 				Toast.show({
 					icon: 'success',
-					content: "完成票单",
+					content: "完成预购",
 				})
 			}else{
 				if(212 == response.data.code){
