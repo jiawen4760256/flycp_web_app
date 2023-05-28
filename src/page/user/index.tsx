@@ -101,7 +101,7 @@ export default () => {
 								navigate("/user/edit");
 							}}
 						/>
-          <div className='user-account'>
+          				<div className='user-account'>
 						<div className='user-name'>
 							{userData['username']}&nbsp;
 							{/* <Tag color='#fff' fill='outline'>
@@ -111,20 +111,19 @@ export default () => {
 						<div className="user-balance">
 							<span>积分:</span>
 							<span>{userData["balance"]} </span>
+							
 							{/* <span><DownFill /></span> */}
 						</div>
 
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
-					
-
-						{/* {userData['jinjijilu_id']>0?<>
-          <div className='user-vip'>
-						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
-						<div className='user-vip-txt'>{userData['jinjijilu_name']}</div>
-					</div>
-					</>:<></>} */}
         </div>
+		{userData['jinjijilu_id']>0?<>
+          <div className='user-vip'>
+						<Image  height={25} src={demoSrc} className='user-vip-img'/>
+						<div className='user-vip-txt'>{userData['jinjijilu_id']}</div>
+					</div>
+					</>:<></>}
 				{/* <List className='user-info'>
 					<List.Item
 						style={{background: "#e53333",color: "#fff"}} 

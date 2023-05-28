@@ -51,8 +51,8 @@ export default () => {
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
 					<div className='sc-itme'>
-						<Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
-									'--right': '30px','--top': '10px',"--color":"none",width:30}}>
+						{/* <Badge content={website_hot==''?<></>:<Image src={website_hot} />} style={{
+									'--right': '30px','--top': '10px',"--color":"none",width:30}}> */}
 							<div className='sc-itme-img'>
 								<div className='sc-badge'>
 										<Image  src={game.img} />
@@ -60,7 +60,7 @@ export default () => {
 							</div>
 							<div className='sc-itme-title'>{game.title}</div>
 							<div className='sc-itme-desc'>{game.desc}</div>
-						</Badge>
+						{/* </Badge> */}
 					</div>
 				</Grid.Item>
 			)
