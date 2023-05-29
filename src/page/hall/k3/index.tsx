@@ -60,6 +60,7 @@ export default () => {
 	let loadingHtml = (<></>)
 	let previousOpen = (<></>)
 	let rightHtml = (<></>)
+	let  lastDataIssue=''
   // 使用 useEffect 监听 countDown 变化
   useEffect(() => {
 		if(!visibleSheet){
@@ -180,7 +181,7 @@ export default () => {
 				setK3Wanfa(response.data.data.game.wanfa)
 				setTimeout(()=>{
 					updateOpenData()
-				},20000)
+				},4000)
 			}else{
 				Toast.show({
 					icon: <ExclamationCircleOutline />,
@@ -200,13 +201,16 @@ export default () => {
 		const values={
 			"page": 1,
 			"cptitel": gameName,
-			"limit": 10
+			"limit": 10,
+			"request_type":1,
+			"lastDataIssue" :lastDataIssue
 		}
 		axios.post(Api.address()+'home/history', Qs.stringify(values),Auth.verify(values))
 		.then(function (response) {
 			setLoading(false)
 			if(response.data.code == 0){
 				setHistoryList(response.data.data)
+				lastDataIssue = response.data.data[0].expect;
 			}else{
 				Toast.show({
 					icon: <ExclamationCircleOutline />,
