@@ -280,13 +280,13 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>火热店铺</Divider>
+					<Divider className='dy-type'>火热加盟</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
 					
-					<Divider className='dy-type'>推荐店铺</Divider>
+					{/* <Divider className='dy-type'>推荐店铺</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>
