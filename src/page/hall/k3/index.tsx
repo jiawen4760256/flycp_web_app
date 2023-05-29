@@ -595,7 +595,7 @@ export default () => {
 					</div>
 				</Grid.Item>
 				<Grid.Item  className='touzhu-button-right' span={3}>
-					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即购单</Button>
+					<Button color='danger'  size='small' onClick={showSubmit} loading={loading}>立即注资</Button>
 				</Grid.Item>
 			</Grid>
 		</div>
@@ -621,7 +621,7 @@ export default () => {
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '购单记录' },
+		{ key: '/record', icon:  <></>, text: '注资记录' },
 		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件

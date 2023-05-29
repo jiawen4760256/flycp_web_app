@@ -96,7 +96,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar  onBack={back}>预购</NavBar>
+      	<NavBar  onBack={back}>注资</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{html}

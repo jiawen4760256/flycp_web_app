@@ -108,7 +108,7 @@ export default () => {
   return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>积分明细</NavBar>
+      	<NavBar className='app-header' onBack={back}>资金明细</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<Grid columns={5} gap={0}>

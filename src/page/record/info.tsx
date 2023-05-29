@@ -42,7 +42,7 @@ export default () => {
 			<br/>
 			<Grid columns={7} gap={16} >
 				<Grid.Item span={3} className='record-info-key'>
-					购单状态:
+					数据状态:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>					
 					{(htmlData.isdraw=="1"?<Tag color='danger' fill='outline'>
@@ -63,13 +63,13 @@ export default () => {
 				</Grid.Item>
 				
 				<Grid.Item span={3} className='record-info-key'>
-				奖励积分:
+				分红收益:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.okamount}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购单详情:
+				注入详情:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.ztcode}
@@ -81,7 +81,7 @@ export default () => {
 					{htmlData.dx}，{htmlData.ds}
 				</Grid.Item>
 				<Grid.Item span={3} className='record-info-key'>
-				购单时间:
+				注入时间:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.oddtime}
@@ -93,7 +93,7 @@ export default () => {
 					{htmlData.playtitle}
 				</Grid.Item> */}
 				<Grid.Item span={3} className='record-info-key'>
-				购单积分:
+				注入金额:
 				</Grid.Item>
 				<Grid.Item span={4} className='record-info-value'>
 					{htmlData.amount}

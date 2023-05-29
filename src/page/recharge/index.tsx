@@ -275,18 +275,18 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='recharge-empty' description='请联系客服预购' />
+			<Empty className='recharge-empty' description='请联系客服注资' />
 		)
 	}
 	
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>预购选择</NavBar>
+      	<NavBar className='app-header' onBack={back}>注资选择</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{paytype.length == 0?<>
-					<Empty className='recharge-empty' description='请联系客服预购' />
+					<Empty className='recharge-empty' description='请联系客服注资' />
 				</>:<>
 					<Tabs defaultActiveKey={paytype.length == 1? '0' : '1'} onChange={changeTab}>
 						{paytype.map((item:any,index:number)=>{

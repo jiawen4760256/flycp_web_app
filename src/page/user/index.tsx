@@ -126,7 +126,7 @@ export default () => {
 						<Grid.Item onClick={()=>{Auth.navigate(navigate,"/recharge")}} className='user-button-left'>
 							<Space wrap align='center'>
 								<HeartOutline className='user-button-icon' />
-								<div style={{color:'#525252'}}>预购</div>
+								<div style={{color:'#525252'}}>注资</div>
 							</Space>
 						</Grid.Item>
 						<Grid.Item onClick={()=>{
@@ -150,16 +150,16 @@ export default () => {
 				<div className='user-button-list'>
 					<List header=''>
 						<List.Item prefix={<Image fit='contain' src='/app/record.png' />} onClick={()=>{Auth.navigate(navigate,"/record")}}>
-							购单记录
+							注资记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/fuddetail.png' />} onClick={() => {Auth.navigate(navigate,"/fuddetail")}}>
-							积分明细
+							资金明细
 						</List.Item>
 						{/* <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
 							个人报表
 						</List.Item> */}
 						<List.Item prefix={<Image fit='contain' src='/app/recharge.png' />} onClick={() => {Auth.navigate(navigate,"/recharge/history")}}>
-							预购记录
+							加盟注资记录
 						</List.Item>
 						<List.Item prefix={<Image fit='contain' src='/app/withdraw.png' />} onClick={() => {Auth.navigate(navigate,"/withdraw/history")}}>
 							兑换记录
