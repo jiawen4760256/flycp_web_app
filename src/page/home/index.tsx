@@ -194,7 +194,7 @@ export default () => {
     // },
     {
       key: '/mall/0',
-      title: '购物中心',
+      title: '店铺',
       icon: <ShopbagOutline />,
     },
     {
@@ -233,15 +233,15 @@ export default () => {
 					<Grid columns={4} gap={0} style={{marginTop:10}}>
 						<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 							<Image className='sc-button-img' src="/sc/button1.png" />
-							<div>热销榜单</div>
+							<div>热门店铺</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>社区团购优势</div>
+							<div>店铺介绍</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
-							<div>我的购单</div>
+							<div>销量回执</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{window.location.href = kefu}}>
 							<Image className='sc-button-img' src="/sc/button3.png" />
@@ -252,33 +252,41 @@ export default () => {
 					<Image className='sc-youhui'  src="/sc/youhui.png" />
 					<Grid columns={4} gap={10} className='sc-type-list'>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type1.png")'}}>新品上架</div>
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type1.png")'}}>
+								{/* 新品上架 */}
+							</div>
 
 							{/* <Image className='sc-type-img' src="/sc/type1.png" /> */}
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type2.png")'}}>畅选无忧</div>
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type2.png")'}}>
+								{/* 畅选无忧 */}
+							</div>
 							{/* <Image className='sc-type-img' src="/sc/type2.png" /> */}
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type3.png")'}}>天天低价</div>
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type3.png")'}}>
+								{/* 天天低价 */}
+							</div>
 							{/* <Image className='sc-type-img' src="/sc/type3.png" /> */}
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type4.png")'}}>轻松购物</div>
+							<div className='sc-type-name' style={{ backgroundImage: 'url("/sc/type4.png")'}}>
+								{/* 轻松购物 */}
+							</div>
 							{/* <Image className='sc-type-img' src="/sc/type4.png" /> */}
 						</Grid.Item>
 					</Grid>
 					<Image className='sc-youhui'  src="/sc/remai.png" onClick={()=>{navigate("/mall/0")}} />
 					{/* <br/> */}
 					{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
-					<Divider className='dy-type'>精选好物</Divider>
+					<Divider className='dy-type'>火热店铺</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					{/* <Image className='sc-jxhw'  src="/sc/hdzq.png" /> */}
 					
-					<Divider className='dy-type'>活动专区</Divider>
+					<Divider className='dy-type'>推荐店铺</Divider>
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList2}
 					</Grid>

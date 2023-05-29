@@ -726,7 +726,7 @@ export default () => {
 					</>
 				):(<>
 					<br/>
-					<Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
+					{/* <Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
 					<div className='hall-img-title'>- 品类齐全，轻松购物 -</div>
 					
 					<Grid columns={4} gap={8} className='k3-kj' style={{'margin':"0 10px"}}>
@@ -736,8 +736,8 @@ export default () => {
 							<div style={{fontSize: "12px",color: "#666"}}>{item.name}</div>
 						</Grid.Item>
 					})}
-					</Grid>
-					{/* <Image style={{'margin':"0 20px"}} src={website_touzhu} /> */}
+					</Grid> */}
+					<Image style={{'margin':"0 20px"}} src={website_touzhu} />
 				</>)}
 				{/* <UserList/> */}
 			</div>
