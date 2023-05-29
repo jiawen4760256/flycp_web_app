@@ -180,7 +180,7 @@ export default () => {
 				setK3Wanfa(response.data.data.game.wanfa)
 				setTimeout(()=>{
 					updateOpenData()
-				},20000)
+				},4000)
 			}else{
 				Toast.show({
 					icon: <ExclamationCircleOutline />,
