@@ -61,6 +61,12 @@ export default () => {
 	let loadingHtml = (<></>)
 	let previousOpen = (<></>)
 	let rightHtml = (<></>)
+
+	// 特殊台子：新提出的需求：首页点击图片跳转之后展示不同的图片
+	let pic = (<>
+		<Image style={{'margin':"0 20px"}} src={'../../sc/'+ gameName +'.png'} />
+	  </>)
+
   // 使用 useEffect 监听 countDown 变化
   useEffect(() => {
 		if(!visibleSheet){
@@ -700,7 +706,7 @@ export default () => {
 				
 				{/* <div className='k3-title'>品种</div> */}
 				{HzHtml}
-				{website_touzhu==""?(<>
+				{/* {website_touzhu==""?(<>
 					<Divider/>
 					<div className='k3-title'>赞助商</div>
 					<Grid columns={4} gap={8} className='k3-kj'>
@@ -718,13 +724,13 @@ export default () => {
 						"/sc/yynf.png",
 						"/sc/zrt.png",
 						].map((item,index:number)=>{
-						return <Grid.Item>
+						return <Grid.Item> */}
 							{/* <Image className='k3-mall-img' src={item} /> */}
-						</Grid.Item>
+						{/* </Grid.Item>
 						})}
 					</Grid>
 					</>
-				):(<>
+				):(<> */}
 					<br/>
 					{/* <Divider style={{marginBottom:"0px",boxShadow: "0 0 0.2rem rgb(0 0 0 / 20%)"}}/>
 					<div className='hall-img-title'>- 品类齐全，轻松购物 -</div>
@@ -737,9 +743,10 @@ export default () => {
 						</Grid.Item>
 					})}
 					</Grid> */}
-					<Image style={{'margin':"0 20px"}} src={website_touzhu} />
-				</>)}
+					{/* <Image style={{'margin':"0 20px"}} src={website_touzhu} />
+				</>)} */}
 				{/* <UserList/> */}
+				{pic}
 			</div>
 			<div className='App-footer'>
 				{touzhuHtml}
