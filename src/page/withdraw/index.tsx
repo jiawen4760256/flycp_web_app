@@ -24,7 +24,7 @@ export default () => {
 	const [visible2, setVisible2] = useState(false)
   const [value, setValue] = useState<(string | null)[]>([])
   const [amount, setAmount] = useState("")
-  const [tradepassword, setTradepassword] = useState("")
+//   const [tradepassword, setTradepassword] = useState("")
 	const [notice, setNotice] = useState([])
 	const dispatch = useDispatch()
 	let navigate = useNavigate()
@@ -50,7 +50,7 @@ export default () => {
 	}
 	const submit = function(){
 		let amount = amountInput.nativeElement.value
-		let tradepassword = pwdInput.nativeElement.value
+		// let tradepassword = pwdInput.nativeElement.value
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -65,17 +65,17 @@ export default () => {
 			})
 			return
 		}
-		if(!tradepassword){
-			Toast.show({
-				icon: <ExclamationCircleOutline />,
-				content: '请输入资金密码',
-			})
-			return
-		}
+		// if(!tradepassword){
+		// 	Toast.show({
+		// 		icon: <ExclamationCircleOutline />,
+		// 		content: '请输入资金密码',
+		// 	})
+		// 	return
+		// }
 		let values = {
 			bankId:value[0],
 			amount:amount,
-			tradepassword:tradepassword,
+			// tradepassword:tradepassword,
 		}
 		
 		setLoading1(true)
@@ -89,7 +89,7 @@ export default () => {
 
 			setNotice(response['notice'])
 			setAmount("");
-			setTradepassword('')
+			// setTradepassword('')
 			setLoading1(false)
 		})
 		.catch(function (error) {
@@ -221,7 +221,7 @@ export default () => {
 							ref={input => amountInput = input}
 						/>
 					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
+					{/* <List.Item  prefix={(<div className='withdraw-bank'>资金密码</div>)} >
 						<form >
 							<Input
 								placeholder='请输入资金密码'
@@ -233,7 +233,7 @@ export default () => {
 							/>
 
 						</form>
-					</List.Item>
+					</List.Item> */}
 				</List>
 
 				<Form
