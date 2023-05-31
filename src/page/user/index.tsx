@@ -103,7 +103,7 @@ export default () => {
 						{/* <Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
 						<div className='user-vip-txt'>{userData['jinjijilu_name']}</div> */}
 						<Image width={30} height={30} src={demoSrc} className='user-vip-img'/>
-						<div className='user-vip-txt'>vip&nbsp;{userData['jinjijilu_id']}</div>
+						<div className='user-vip-txt'>vip{userData['jinjijilu_id']}</div>
 					</div>
 					{/* </>:<></>} */}
         </div>
