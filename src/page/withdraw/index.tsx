@@ -215,8 +215,8 @@ export default () => {
 					<List.Item  prefix={(<div className='withdraw-bank'>兑换积分</div>)} >
 						<Input
 							placeholder='请输入兑换积分'
-							// onChange={setAmount}
-							// value={amount}
+							onChange={setAmount}
+							value={amount}
 							autoComplete='off'
 							ref={input => amountInput = input}
 						/>
