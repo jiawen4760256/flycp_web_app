@@ -25,7 +25,7 @@ export default () => {
 	const [submitLoading, setSubmitLoading] = useState(false)
 	const [moneyList,setMoney]=useState<any>(['50','100','200'])
 	const [active,setActive]=useState<number>(0)
-	const [amount, setAmount] = useState<number>(50)
+	const [amount, setAmount] = useState<number | null>(null)
 	const [currentTabKey, setTabKey] = useState('0')
 	const [paysetStyle, setPaysetStyle] = useState('25')
 	const [paysetStyletwovalue, setpaysetStyletwovalue] = useState('')
@@ -187,8 +187,11 @@ export default () => {
 					})
 					return;
 				}
-				values.amount = amount
-				if(amount < scope['scope']['min'] || amount > scope['scope']['max']){
+				// values.amount = amount
+				console.log( scope['scope']['min'])
+				console.log( scope['scope']['max'])
+				console.log(  values.amount)
+				if(Number(values.amount) < Number(scope['scope']['min']) || Number(values.amount) > Number(scope['scope']['max'])){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
 						content: `金额范围为${scope['scope']['min']} - ${scope['scope']['max']}之间`,
@@ -199,9 +202,11 @@ export default () => {
 
 		}else{
 			values.amount = paysetStyletwovalue
-			// console.log( scope['scope']['min'])
-			// console.log( scope['scope']['max'])
-			if(paysetStyletwovalue < scope['scope']['min'] || paysetStyletwovalue > scope['scope']['max']){
+			console.log( scope['scope']['min'])
+			console.log( scope['scope']['max'])
+			console.log( paysetStyletwovalue)
+			console.log( paysetStyle)
+			if(Number(paysetStyletwovalue) < Number(scope['scope']['min']) || Number(paysetStyletwovalue) > Number(scope['scope']['max'])){
 				Toast.show({
 					icon: <ExclamationCircleOutline />,
 					content: `金额范围为${scope['scope']['min']} - ${scope['scope']['max']}之间`,
