@@ -429,7 +429,8 @@ export default () => {
 			<div className='ks-alert-qs2'>
 				提交时请注意当前单号
 			</div>
-			<Button  size='small' color='danger' onClick={()=>setVisible(false)}>知道了</Button>
+			{/* <Button  size='small' color='danger' onClick={()=>setVisible(false)}>知道了</Button> */}
+			<Button  size='small' color='danger'>知道了</Button>
 		</div>
 	</>)
 	
