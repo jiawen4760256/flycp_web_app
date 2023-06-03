@@ -539,10 +539,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>购单金额</div>
+					<div style={{float:"left"}}>注资金额</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输购单金额'
+							placeholder='请输入金额'
 							value={value}
 							type="number"       
 							onBlur={()=>{
@@ -623,7 +623,7 @@ export default () => {
 		+gameData.qishu.slice(6,8)
 		+"日" 
 		+gameData.qishu.slice(8,12)
-		+"购单匹配"
+		+"数据匹配"
 	}
 	
 	const actions: Action[] = [
