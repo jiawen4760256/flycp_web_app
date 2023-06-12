@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import './index.css'
-import { setLoading ,getDictionary,getLoading} from '../../store'
+import { setLoading ,getLoading} from '../../store'
 import {useDispatch,useSelector } from 'react-redux'
 export default () => {
 
@@ -25,12 +25,50 @@ export default () => {
 	const [submitLoading, setSubmitLoading] = useState(false)
 	const [moneyList,setMoney]=useState<any>(['50','100','200'])
 	const [active,setActive]=useState<number>(0)
-	const [amount, setAmount] = useState<number>(50)
+	const [amount, setAmount] = useState<number | null>(null)
 	const [currentTabKey, setTabKey] = useState('0')
 	const [paysetStyle, setPaysetStyle] = useState('25')
 	const [paysetStyletwovalue, setpaysetStyletwovalue] = useState('')
-	const [paysetStylethreevalue, setpaysetStylethreevalue] = useState('')
+	const [scope, setScope] = useState<any>({})
 	function changeTab(e:string) {
+		if(e=='1'){
+			if(paytype.length==1){
+				if(paytype[0]['html']=='1'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])
+				}
+				if(paytype[0]['html']=='2'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])			
+				}
+			}
+			if(paytype.length==2){
+				setPaysetStyle(paytype[1]['defaultValue'][0])
+				const scop=paytype[1]['payset_id'].filter((item:any) => item['value']==paytype[1]['defaultValue'][0])
+				setScope(scop[0])
+			}
+		}else{
+			if(paytype.length==1){
+				if(paytype[0]['html']=='1'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])
+				}
+				if(paytype[0]['html']=='2'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])		
+				}
+			}
+			if(paytype.length==2){
+				setPaysetStyle(paytype[e]['defaultValue'][0])
+				const scop=paytype[e]['payset_id'].filter((item:any) => item['value']==paytype[e]['defaultValue'][0])
+				setScope(scop[0])
+			}
+			
+		}
 	setTabKey(e)
 	}
 	Auth.page(navigate)
@@ -83,17 +121,26 @@ export default () => {
 		//    {
 		// 	 "id": "2",
 		// 	 "name": "快捷支付",
-		// 	 "payset_id": [{
-		// 	 "label": "HT",
-		// 	 "value": 28,
-		// 	 "pay_type": "222",
-		// 	 "style": "1"
-		// 	 },
+		// 	 "payset_id": [
+		// 		{
+		// 		"label": "HT",
+		// 		"value": 28,
+		// 		"pay_type": "222",
+		// 		"style": "1",
+		// 		'scope':{
+		// 				min:10,
+		// 				max:20000
+		// 			}
+		// 		},
 		// 	 {
-		// 	 "label": "XGS",
-		// 	 "value": 29,
-		// 	 "pay_type": "222",
-		// 	 "style": "2"
+		// 		"label": "XGS",
+		// 		"value": 29,
+		// 		"pay_type": "222",
+		// 		"style": "2",
+		// 		'scope':{
+		// 			min:50,
+		// 			max:10000
+		// 		}
 		// 	 }
 		//    ],
 		// 	 "state": "1",
@@ -104,16 +151,22 @@ export default () => {
 			if(response.length==1){
 				if(response[0]['html']=='1'){
 					setTabKey('0')
-					setPaysetStyle(response[0]['payset_id'][0]['value'])
+					setPaysetStyle(response[0]['defaultValue'][0])
+					const scop=response[0]['payset_id'].filter((item:any) => item['value']==response[0]['defaultValue'][0])
+					setScope(scop[0])
 				}
 				if(response[0]['html']=='2'){
 					setTabKey('1')	
-					setPaysetStyle(response[0]['payset_id'][0]['value'])			
+					setPaysetStyle(response[0]['defaultValue'][0])
+					const scop=response[0]['payset_id'].filter((item:any) => item['value']==response[0]['defaultValue'][0])
+					setScope(scop[0])			
 				}
 			}
 			if(response.length==2){
 				setTabKey('1')	
-				setPaysetStyle(response[1]['payset_id'][0]['value'])		
+				setPaysetStyle(response[1]['defaultValue'][0])
+				const scop=response[1]['payset_id'].filter((item:any) => item['value']==response[1]['defaultValue'][0])
+				setScope(scop[0])
 			}
 
 
@@ -134,94 +187,35 @@ export default () => {
 					})
 					return;
 				}
-				values.amount = amount
-				if(!amount){
+				// values.amount = amount
+				console.log( scope['scope']['min'])
+				console.log( scope['scope']['max'])
+				console.log(  values.amount)
+				if(Number(values.amount) < Number(scope['scope']['min']) || Number(values.amount) > Number(scope['scope']['max'])){
 					Toast.show({
 						icon: <ExclamationCircleOutline />,
-						content: '请输入金额',
+						content: `金额范围为${scope['scope']['min']} - ${scope['scope']['max']}之间`,
 					})
 					return;
 				}
 			}
 
 		}else{
-			if(paysetStyle=='26'){
-				values.amount = paysetStyletwovalue
-				if(Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>2000){
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						content: '金额必须为10-2000之间',
-					})
-					return;
-				}
-				
-			}
-			if(paysetStyle=='29'){
-				values.amount = paysetStyletwovalue
-				if(Number(paysetStyletwovalue)<10 || Number(paysetStyletwovalue)>2000){
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						content: '金额必须为10-2000之间',
-					})
-					return;
-				}
-				
-			}
-			if(paysetStyle=='30'){
-				values.amount = paysetStylethreevalue
-				if(Number(paysetStylethreevalue)<800 || Number(paysetStylethreevalue)>20000){
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						content: '金额必须为800-20000之间',
-					})
-					return;
-				}
-			}
-			if(paysetStyle=='31'){
-				values.amount = paysetStylethreevalue
-				if(Number(paysetStylethreevalue)<100 || Number(paysetStylethreevalue)>4999){
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						content: '金额必须为100-4999之间',
-					})
-					return;
-				}
-			}
-			if(paysetStyle=='33'){
-				console.log(paysetStyle)
-				values.amount = paysetStylethreevalue
-				console.log(values.amount)
-				// if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][0].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][0].scope.max)){
-				if(Number(paysetStylethreevalue)<50 || Number(paysetStylethreevalue)>10000){
-					// console.log(paytype[0]['payset_id'][0].scope.min)
-					// console.log(paytype[0]['payset_id'][0]['scope']['max'])
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						// content: `金额必须为${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间`,
-						content:`金额必须为50 - 10000之间`,
-					})
-					return;
-				}
-			}
-			if(paysetStyle=='34'){
-				console.log(paysetStyle)
-				values.amount = paysetStylethreevalue
-				console.log(values.amount)
-				// if(Number(paysetStylethreevalue)<(paytype[0]['payset_id'][1].scope.min) || Number(paysetStylethreevalue)>(paytype[0]['payset_id'][1].scope.max)){
-				if(Number(paysetStylethreevalue)<10 || Number(paysetStylethreevalue)>10000){
-					// console.log(paytype[0]['payset_id'][1].scope.min)
-					// console.log(paytype[0]['payset_id'][1]['scope']['max'])
-					Toast.show({
-						icon: <ExclamationCircleOutline />,
-						// content: `金额必须为${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间`,
-						content: `金额必须为10 - 10000之间`,
-					})
-					return;
-				}
+			values.amount = paysetStyletwovalue
+			console.log( scope['scope']['min'])
+			console.log( scope['scope']['max'])
+			console.log( paysetStyletwovalue)
+			console.log( paysetStyle)
+			if(Number(paysetStyletwovalue) < Number(scope['scope']['min']) || Number(paysetStyletwovalue) > Number(scope['scope']['max'])){
+				Toast.show({
+					icon: <ExclamationCircleOutline />,
+					content: `金额范围为${scope['scope']['min']} - ${scope['scope']['max']}之间`,
+				})
+				return;
 			}
 
 		}
-		console.log(values)
+		// console.log(values)
 		setLoading(true)
 		setSubmitLoading(true)
 		values.bankcode = value.bankcode
@@ -332,7 +326,7 @@ export default () => {
 										>
 											<Input onChange={console.log} placeholder='请输入金额' autoComplete='off'/>
 										</Form.Item>
-										<Form.Item name='payset_id'  label='支付通道'  initialValue={item.defaultValue}>
+										{/* <Form.Item name='payset_id'  label='支付通道'  initialValue={item.defaultValue}>
 											<Selector  onChange={(arr,extend:any)=>{
 												if(extend.items.length){
 													setPaysetStyle(extend.items[0]['value'])
@@ -342,6 +336,25 @@ export default () => {
 											}}
 											options={item.payset_id} 
 											/>
+										</Form.Item> */}
+										<Form.Item name='payset_id' label='支付通道' initialValue={[paysetStyle]}>
+											{
+												item.payset_id.map((val:any,i:number)=>(
+												<div onClick={()=>{setPaysetStyle(val.value)
+													setScope(val)}}
+													style={{
+														padding:'8px 16px',
+														borderRadius:'2px',
+														marginRight:'5px',
+														float:'left',
+														background:paysetStyle==val.value ? '#e7f1ff' : '#f5f5f5',
+														color:paysetStyle==val.value ? '#1677ff' : '',
+														}}>
+													{val.label}
+													</div>
+													)
+														)
+											}
 										</Form.Item>
 									</Form>
 								</>:<></>}
@@ -390,86 +403,55 @@ export default () => {
 												)
 											}
 										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='26'? 'block' : 'none'}}
-											rules={[{ required: true, message: '请输入金额，金额限制为：10-2000' }]}
-										>
-											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
-												setpaysetStyletwovalue(e)
-											}} placeholder='请输入金额(10 - 2000之间)' />
+										{
+											item.payset_id.map((result:any,n:number)=>(
+												<Form.Item
+												// name='amount'
+												label='金额'
+												key={n}
+												style={{display:paysetStyle==result.value ? 'block' : 'none'}}
+												rules={[{ required: true, message: `请输入金额，金额限制为：${result.scope.min}-${result.scope.max}` }]}
+											>
+												<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
+													setpaysetStyletwovalue(e)
+												}} 
+												placeholder={`请输入金额(${result.scope.min}-${result.scope.max}之间)`} 
+												/>
 										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='29'? 'block' : 'none'}}
-											rules={[{ required: true, message: '请输入金额，金额限制为：10-2000' }]}
-										>
-											<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
-												setpaysetStyletwovalue(e)
-											}} placeholder='请输入金额(10 - 2000之间)' />
-										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='30'? 'block' : 'none'}} 
-											rules={[{ required: true, message: '请输入金额，金额限制为：800-20000' }]}
-										>
-											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
-												setpaysetStylethreevalue(e)
-											}} placeholder='请输入金额(800 - 20000之间)' />
-										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='31'? 'block' : 'none'}} 
-											rules={[{ required: true, message: `请输入金额，金额限制为：100-4999` }]}
-										>
-											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
-												setpaysetStylethreevalue(e)
-											}} placeholder={`请输入金额(100-4999之间)`} />
-										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='33'? 'block' : 'none'}} 
-											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}` }]}
-											rules={[{ required: true, message: `请输入金额，金额限制为：50-10000` }]}
-										>
-											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
-												setpaysetStylethreevalue(e)
-											}} 
-											// placeholder={`请输入金额(${paytype[0]['payset_id'][0].scope.min}-${paytype[0]['payset_id'][0].scope.max}之间)`} 
-											placeholder={`请输入金额(50-10000之间)`} 
-											/>
-										</Form.Item>
-										<Form.Item
-											// name='amount'
-											label='金额'
-											style={{display:paysetStyle=='34'? 'block' : 'none'}} 
-											// rules={[{ required: true, message: `请输入金额，金额限制为：${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}` }]}
-											rules={[{ required: true, message: `请输入金额，金额限制为：10-10000` }]}
-										>
-											<Input type="number" value={paysetStylethreevalue}  onChange={(e)=>{
-												setpaysetStylethreevalue(e)
-											}} 
-											// placeholder={`请输入金额(${paytype[0]['payset_id'][1].scope.min}-${paytype[0]['payset_id'][1].scope.max}之间)`} 
-											placeholder={`请输入金额(10-10000之间)`} 
-											/>
-										</Form.Item>
+											))
+										}
 											{/* 二维码功能，目前先注释，后期需要在打开 */}
 											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
-										<Form.Item name='payset_id' label='支付通道' initialValue={item.defaultValue}>
+										{/* <Form.Item name='payset_id' label='支付通道' initialValue={[paysetStyle]}>
 											<Selector onChange={(arr,extend:any)=>{
 												if(extend.items.length){
 													setPaysetStyle(extend.items[0]['value'])
+													setScope(extend.items[0])
 												}
 												console.log(arr, extend.items)
 											}}
 												// defaultValue={item.defaultValue}
 												options={item.payset_id}
 											/>
+										</Form.Item> */}
+										<Form.Item name='payset_id' label='支付通道' initialValue={[paysetStyle]}>
+											{
+												item.payset_id.map((val:any,i:number)=>(
+												<div onClick={()=>{setPaysetStyle(val.value)
+													setScope(val)}}
+													style={{
+														padding:'8px 16px',
+														borderRadius:'2px',
+														marginRight:'5px',
+														float:'left',
+														background:paysetStyle==val.value ? '#e7f1ff' : '#f5f5f5',
+														color:paysetStyle==val.value ? '#1677ff' : '',
+														}}>
+													{val.label}
+													</div>
+													)
+													)
+											}
 										</Form.Item>
 									</Form>
 								</>:<></>}
