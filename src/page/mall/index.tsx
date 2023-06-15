@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '海外专区'
-		if(params['type'] == '2')title = '销量专区'
-		if(params['type'] == '3')title = '线上商城'
-		if(params['type'] == '4')title = '商城推荐'
+		if(params['type'] == '1')title = '店铺专区'
+		if(params['type'] == '2')title = '线上店铺'
+		if(params['type'] == '3')title = '堂食专区'
+		if(params['type'] == '4')title = '外卖专区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
@@ -98,11 +98,11 @@ export default () => {
 		}
 		</Grid>
 	}else{
-		title = '热门店铺'
+		title = '火热店铺'
 		gameList = <>
 			{/* <Image className='sc-jxhw'  src="/sc/jxhw.png" /> */}
 			
-			<Divider className='dy-type'>人气品牌</Divider>
+			<Divider className='dy-type'>火热店铺</Divider>
 			<Grid columns={2} gap={10} style={{marginTop:10}}>
 				{gameList1}
 			</Grid>

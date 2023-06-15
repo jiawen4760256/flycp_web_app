@@ -160,5 +160,5 @@
     "react-redux": "^8.0.2",
     "redux-devtools": "^3.7.0"
   },
-  "proxy": "http://bl019.live/"
+  "proxy": "http://flycp-server.com"
 }
