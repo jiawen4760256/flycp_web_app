@@ -42,7 +42,7 @@ export default () => {
 		html = (<div className='withdraw-info-body' style={{}}>
 			<>
 				<div>
-					票单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
+					购单号:<span  className='withdraw-info-value1' >{htmlData.trano}</span>
         </div>
 				<br/>
 				<div >
@@ -97,7 +97,7 @@ export default () => {
 	
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header"   style={{color:'#000'}}>
       	<NavBar  onBack={back}>兑换详情</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>

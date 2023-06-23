@@ -104,7 +104,7 @@ export default () => {
 		historyHeadHtml = (<div className='ks-kj-history'>
 			<Grid columns={3} gap={15}>
 				<Grid.Item className='ks-kj-history-qs'>
-					票单号
+					购单号
 				</Grid.Item>
 				<Grid.Item>
 				{wanfaName?.k3hzbig}/{wanfaName?.k3hzsmall}
@@ -159,7 +159,7 @@ export default () => {
 
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header"   style={{color:'#000'}}>
       	<NavBar className='app-header' onBack={back}>品牌记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>

@@ -16,7 +16,7 @@ let now1 = new Date()
 export default () => {
 	
 	const [date1, setDate1] = useState(now1)
-	const [recordType, setRecordType] = useState<string>('全部票单')
+	const [recordType, setRecordType] = useState<string>('全部购单')
 	const [recordTypeList, setRecordTypeList] = useState<(any | null)[]>([])
 	const [page, setPage] = useState(1)
 	const [dateformat1, setformatDate1] = useState(moment(now1).format('YYYY-MM-DD'))
@@ -167,8 +167,8 @@ export default () => {
 
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>购票记录</NavBar>
+			<header className="App-header"   style={{color:'#000'}}>
+      	<NavBar className='app-header' onBack={back}>购物记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<Grid columns={2} gap={0} className='record-date'>
@@ -186,7 +186,7 @@ export default () => {
 						onSelect('','',key)
 					}}
 				>
-          <Tabs.Tab title='全部购票' key='0' />
+          <Tabs.Tab title='全部购物' key='0' />
           <Tabs.Tab title='已匹配' key='1' />
           <Tabs.Tab title='匹配中' key='2' />
           {/* <Tabs.Tab title='已撤单' key='3' /> */}

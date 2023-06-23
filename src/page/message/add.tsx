@@ -75,7 +75,7 @@ export default () => {
   )
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header"  style={{color:'#000'}}>
       	<NavBar className='app-header' onBack={back} right={right} >发送站内信</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>

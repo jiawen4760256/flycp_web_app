@@ -2,18 +2,25 @@
 	/* height: 220px; */
 	align-items: center;
 	padding: 5px 10px 0 10px;
-	background-color: #090C26;
-}
+	/* background-color: #090C26; */
+	background: linear-gradient(#fe3862,#fb6881);}
 .img-content .adm-image-img{
 	border-radius: 10px;
 }
+.adm-notice-bar{
+	border-radius: 4px !important;
+}
+.adm-swiper{
+	z-index: 1 !important;
+}
 .home-menu {
-	margin-top: -36px;
+	margin-top: -45px;
 	padding-top: 70px;
 
 	position: relative;
 	height: 160px;
-	background: url("../../../public/assets/bg.png");
+	/* background: url("../../../public/assets/bg.png"); */
+	background: #f2f2f2;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100% 100%;
@@ -106,7 +113,7 @@
 }
 .home-game-body {
 	padding: 0 10px 50px;
-	background: url("../../../public/assets/contentBg.png");
+	/* background: url("../../../public/assets/contentBg.png"); */
 	background-repeat: repeat-y;
 	background-position: top center;
 	background-size: contain;
@@ -153,7 +160,7 @@
 .sc-button {
 	text-align: center;
 	font-size: 15px;
-	color: #fff;
+	color: #000;
 }
 .sc-button-img {
 	width: 60px;
@@ -164,19 +171,21 @@
 
 .sc-youhui {
 	margin-bottom: 10px;
-	padding: 0 20px 20px 20px;
+	padding: 0 10px 0 10px;
 }
 
 .sc-jxhw {
-	margin: 25px auto;
-	width: 170px;
+	margin: 15px auto;
+	/* width: 170px; */
+	width: 75%;
 }
 
 .sc-itme {
 	padding: 15px 0px;
 	text-align: center;
 	border-radius: 5px;
-	background-image: url("../../../public/assets/bgItem.png");
+	/* background-image: url("../../../public/assets/bgItem.png"); */
+	background:#FFF7F7;
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat, no-repeat;
@@ -195,13 +204,13 @@
 	font-weight: 600;
 	width: fit-content;
 
-	color: #fff;
+	color: #000;
 
 	/* font-weight: 700; */
 }
 .sc-itme-desc {
 	font-size: 14px;
-	color: #fff;
+	color: #6D6D6D;
 }
 
 .sc-type {
@@ -214,7 +223,7 @@
 .sc-type-name {
 	/* margin-top: -75px; */
 	position: relative;
-	padding: 20px 10px 32px;
+	/* padding: 20px 10px 32px; */
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat, no-repeat;
@@ -245,7 +254,7 @@
 
 .sc-type-name .sc-img {
 	margin: 0 auto;
-	width: 90px;
+	/* width: 90px; */
 }
 .sc-badge {
 	padding: 10px;

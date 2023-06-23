@@ -137,8 +137,8 @@ export default () => {
 
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>景区冲量记录</NavBar>
+			<header className="App-header"   style={{color:'#000'}}>
+      	<NavBar className='app-header' onBack={back}>购物冲量记录</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='history-day'>

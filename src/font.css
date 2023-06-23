@@ -77,18 +77,18 @@
   /* border-color: #d0d0f0 !important; */
 }
 .adm-nav-bar-right .adm-button{
-  border-radius: 40px;
+  border-radius: 5px;
 }
 .adm-nav-bar-right .adm-button:first-child{
   color: #fff ;
-  background-color:#e21d24 ;
+  /* background-color:#e21d24 ; */
 }
 .adm-nav-bar-right .adm-button:last-child{
-  color: #e21d24 ;
+  color: #fff ;
 }
 
 .k3-name-button{
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .adm-calendar-cell.adm-calendar-cell-today{

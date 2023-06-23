@@ -80,7 +80,7 @@ export default () => {
 
 	return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header"   style={{color:'#000'}}>
       	<NavBar className='app-header' onBack={back}>添加银行卡</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
@@ -168,7 +168,7 @@ export default () => {
 					position='right'
           bodyStyle={{ width: '100vw' }}
 				>
-					<header className="App-header" style={{position: "unset"}} >
+					<header className="App-header" style={{position: "unset",color:'#000'}}>
 						<NavBar className='app-header' onBack={()=>{
 							setVisible6(false)
 						}}>选择银行</NavBar>

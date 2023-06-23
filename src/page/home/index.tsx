@@ -66,6 +66,7 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 	// 	</Badge>
 	// ))
 	const gameList1 = list.map((game:any, index:any) =>{
+		console.log(game.img)
 		if(index < 8){
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
@@ -161,13 +162,13 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 	)
 	let left = (
 		<>
-		<Button size='mini' color='primary' style={{"--border-color":"#e21d24",'--text-color':"#fff"}} fill='outline' onClick={() => {
+		<Button size='mini' color='primary' style={{"--border-color":"#fff",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/login/null");
 			}}  >
 			登录
 		</Button>
 		&nbsp;&nbsp;
-		<Button size='mini' color='primary' style={{"--border-color":"#e21d24",'--text-color':"#e21d24"}} fill='outline' onClick={() => {
+		<Button size='mini' color='primary' style={{"--border-color":"#fff",'--text-color':"#fff"}} fill='outline' onClick={() => {
 				navigate("/register");
 			}}   >
 			注册
@@ -198,7 +199,7 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 		// },
 		{
 			key: '/mall/0',
-			title: '购票中心',
+			title: '购物中心',
 			icon: <Image className='sc-m-img' src="/assets/m2.png" />,
 		},
 		{
@@ -219,7 +220,8 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 			<header className={"App-header"}  >
 				<NavBar style={{
 					'--height': '45px',
-					background:'#000'
+					// background:'#000',
+					background:'linear-gradient(#fd5571,#ff5667)'
 				}} backArrow={false} left={website_logo2==''?<></>:<Image className='home-logo' fit='contain' src={website_logo2} />} right={left}>
 					<div style={{ fontSize: 20 }}></div>
 				</NavBar>
@@ -234,11 +236,11 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 						<Grid className='menu' columns={4} gap={0} style={{marginBottom:20}}>
 							<Grid.Item className='sc-button'  onClick={()=>{navigate("/mall/0")}}>
 								<Image className='sc-button-img' src="/assets/1.png" />
-								<div>热门景区</div>
+								<div>热销商家</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 								<Image className='sc-button-img' src="/assets/2.png" />
-								<div>本周促销</div>
+								<div>本周特惠</div>
 							</Grid.Item>
 							<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 								<Image className='sc-button-img' src="/assets/3.png" />
@@ -257,7 +259,7 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 								
 
 
-								fontSize: 14,'--height':'32px','--background-color':'transparent'}}
+								fontSize: 14,'--height':'32px','--background-color':'#fff',}}
 								
 								content={notice}  />
 						</div>
@@ -267,37 +269,46 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 
 				<div className='home-game-body'>
 					<Image className='sc-youhui' src="/assets/prev.png" />
+					<Image className='sc-jxhw'  src="/assets/shop.png" />
 					<div className='home-list' >
 					<Grid columns={2} gap={10} className='sc-type-list' style={{marginBottom:20}} >
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/1")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
-								<div className='title'>热门景区<Image className='sc-hot' src="/assets/hot.png" /></div>
+							<div className='sc-type-name' 
+							// style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}
+							>
+								{/* <div className='title'>热门景区<Image className='sc-hot' src="/assets/hot.png" /></div> */}
 								<Image className='sc-img' src="/assets/a1.png" />
 
 							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/2")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+							<div className='sc-type-name' 
+							// style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}
+							>
 								
-								<div className='title'>旅游度假 <Image className='sc-hot' src="/assets/hot.png" /></div>
+								{/* <div className='title'>旅游度假 <Image className='sc-hot' src="/assets/hot.png" /></div> */}
 
 								<Image className='sc-img' src="/assets/a2.png" />
 
 							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'   onClick={()=>{navigate("/mall/3")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+							<div className='sc-type-name' 
+							// style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}
+							>
 								
-								<div className='title'>旅游胜地<Image className='sc-hot' src="/assets/hot.png" /></div>
+								{/* <div className='title'>旅游胜地<Image className='sc-hot' src="/assets/hot.png" /></div> */}
 
 								<Image className='sc-img' src="/assets/a3.png" />
 
 							</div>
 						</Grid.Item>
 						<Grid.Item className='sc-type'  onClick={()=>{navigate("/mall/4")}}>
-							<div className='sc-type-name' style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}>
+							<div className='sc-type-name' 
+							// style={{ backgroundImage: 'url("/assets/bgBtnItem.png")'}}
+							>
 								
-								<div className='title'>世界闻名<Image className='sc-hot' src="/assets/hot.png" /></div>
+								{/* <div className='title'>世界闻名<Image className='sc-hot' src="/assets/hot.png" /></div> */}
 
 								<Image className='sc-img' src="/assets/a4.png" />
 
@@ -305,20 +316,20 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 						</Grid.Item>
 					</Grid>
 					
-					<div className='sc-prev' style={{backgroundImage:'url(/assets/prev2.png)'}} onClick={()=>{navigate("/mall/0")}} >
-								<div className='title' style={{paddingTop:(content.length > 70)? 15:10}}>{title}</div>
-								<div className='content' style={{paddingTop:(content.length > 70)? 60:50}}>{content}</div>
-								</div>
+					{/* <div className='sc-prev' style={{backgroundImage:'url(/assets/prev2.png)'}} onClick={()=>{navigate("/mall/0")}} >
+						<div className='title' style={{paddingTop:(content.length > 70)? 15:10}}>{title}</div>
+						<div className='content' style={{paddingTop:(content.length > 70)? 60:50}}>{content}</div>
+					</div> */}
 
 					{/* <br/> */}
-					<Image className='sc-jxhw'  src="/assets/jxhw.png" />
+					<Image className='sc-jxhw'  src="/assets/haowu.png" />
 					{/* <Divider className='dy-type' style={{padding:0}}>热门影视</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>
 						{gameList1}
 					</Grid>
 					</div>
 
-					<Image className='sc-jxhw'  src="/assets/hdzq.png" />
+					<Image className='sc-jxhw'  src="/assets/hdzq1.png" />
 
 					{/* <Divider className='dy-type'>正在热映</Divider> */}
 					<Grid columns={2} gap={10} style={{marginTop:10,padding:"0 5px"}}>

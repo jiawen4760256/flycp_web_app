@@ -15,7 +15,7 @@
   bottom: 0;
   max-width: 600px;
   margin: auto;
-  background-image:url('../public/assets/bgUser.png') !important;
+  /* background-image:url('../public/assets/bgUser.png') !important; */
   background-position: center center !important;
   background-repeat: repeat-y!important;
   background-size: 101% 101%!important;
@@ -44,7 +44,7 @@
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: #020a28;
+  background-color: #F8F8F8;
   border-top: 1px s;
   z-index: 2;
 }

@@ -258,11 +258,11 @@ export default () => {
 		
 		Dialog.confirm({
 			content: <>
-				<div className='k3-confirm-title'>购票确认</div>
+				<div className='k3-confirm-title'>购物确认</div>
 				<Divider />
-				<div className='k3-confirm-text'>购票活动：{gameData.qishu}</div>
-				<div className='k3-confirm-text'>购票总额：{amount*Object.keys(touzhu).length}元</div>
-				<div className='k3-confirm-text'>购票内容：
+				<div className='k3-confirm-text'>购物活动：{gameData.qishu}</div>
+				<div className='k3-confirm-text'>购物总额：{amount*Object.keys(touzhu).length}元</div>
+				<div className='k3-confirm-text'>购物内容：
 					{k3Wanfa.map((item:any,index:number)=>{
 						if(touzhu[item.playid]){
 							return  item.title+" "
@@ -536,10 +536,10 @@ export default () => {
 			<Divider style={{margin: "5px 0"}} />
 			<div>
 				<div  className='touzhu-number-row'  >
-					<div style={{float:"left"}}>购票金额</div>
+					<div style={{float:"left"}}>购物金额</div>
 					<div style={{float:"left",width: "150px",paddingLeft: "8px"}}>
 						<Input
-							placeholder='请输购票金额'
+							placeholder='请输购物金额'
 							value={value}
 							type="number"       
 							onBlur={()=>{
@@ -624,7 +624,7 @@ export default () => {
 	}
 	
 	const actions: Action[] = [
-		{ key: '/record', icon:  <></>, text: '购票记录' },
+		{ key: '/record', icon:  <></>, text: '购物记录' },
 		{ key: '/open/history', icon: <></>, text: '品牌记录' }
 	]
 	//报错？？？ 需要后加载组件
@@ -659,7 +659,7 @@ export default () => {
 	}
   return (
 		<div className='App-main'>
-			<header className="App-header"  >
+			<header className="App-header" style={{color:"#000"}} >
 				<NavBar className='app-header' onBack={back} right={rightHtml}>
 					{selectGameHtml}
 				</NavBar>
