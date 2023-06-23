@@ -70,10 +70,10 @@ export default () => {
 	let gameList = <></>
 	if(params['type'] == '1' || params['type'] == '2'|| params['type'] == '3'|| params['type'] == '4'){
 		
-		if(params['type'] == '1')title = '热销商家'
-		if(params['type'] == '2')title = '旅游度假'
-		if(params['type'] == '3')title = '旅游胜地'
-		if(params['type'] == '4')title = '世界闻名'
+		if(params['type'] == '1')title = '公益专区'
+		if(params['type'] == '2')title = '品牌专区'
+		if(params['type'] == '3')title = '海外专区'
+		if(params['type'] == '4')title = '直播专区'
 		gameList = <Grid columns={2} gap={10} style={{marginTop:10}}>
 		{
 			list.map((game:any, index:any) =>{
