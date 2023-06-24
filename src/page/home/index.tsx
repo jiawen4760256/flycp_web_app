@@ -66,7 +66,7 @@ const content = '      广州广之旅国际旅行社股份有限公司成立于
 	// 	</Badge>
 	// ))
 	const gameList1 = list.map((game:any, index:any) =>{
-		console.log(game.img)
+		// console.log(game.img)
 		if(index < 8){
 			return (
 				<Grid.Item  onClick={()=>{navigate("/hall/k3/"+game.name)}}>
