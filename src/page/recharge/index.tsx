@@ -202,6 +202,7 @@ export default () => {
 
 		}else{
 			values.amount = paysetStyletwovalue
+			values.payset_id = [paysetStyle]
 			console.log( scope['scope']['min'])
 			console.log( scope['scope']['max'])
 			console.log( paysetStyletwovalue)
@@ -215,7 +216,7 @@ export default () => {
 			}
 
 		}
-		// console.log(values)
+		console.log(values)
 		setLoading(true)
 		setSubmitLoading(true)
 		values.bankcode = value.bankcode
