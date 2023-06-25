@@ -57,7 +57,7 @@ export default () => {
       <NavBar className='app-header' onBack={back}>{language_app_home_button_2}</NavBar>
 		</header>
 		<div className='App-content' style={{height:window.innerHeight-45,background:'#fff'}}>	
-			<div className='activity-body'>
+			<div className='activity-body' style={{fontSize:'16px'}}>
 				{html}	
 			</div>
 		</div>

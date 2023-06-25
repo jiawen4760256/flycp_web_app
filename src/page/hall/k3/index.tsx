@@ -635,7 +635,8 @@ export default () => {
 							<Space wrap className='touzhu-button-glod' onClick={()=>{
 
 							}}>
-								<div>{language_app_hall_balance}：</div>
+								{/* <div>{language_app_hall_balance}：</div> */}
+								<div>REAIS：</div>
 								{/* <div className='touzhu-button-number'>{balance}</div> */}
 								<div className='touzhu-button-number'>{balanceToFixed(balance)}</div>
 							</Space>

@@ -109,7 +109,8 @@ export default () => {
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
-						<div className='user-balance'>{language_app_user_amount}:{balance}</div>
+						{/* <div className='user-balance'>{language_app_user_amount}:{balance}</div> */}
+						<div className='user-balance'>REAIS：:{balance}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
 					{userData['jinjijilu_id']>0?<>
