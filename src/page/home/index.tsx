@@ -122,7 +122,8 @@ export default () => {
 						</div>
 						
 						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+						{/* <div className='sc-itme-desc'>{game.desc}</div> */}
+						<div className='sc-itme-desc'>288 sessões ao longo do dia</div>
 					</div>
 				</Grid.Item>
 			)
@@ -143,7 +144,8 @@ export default () => {
 						</div>
 						
 						<div className='sc-itme-title'>{game.title}</div>
-						<div className='sc-itme-desc'>{game.desc}</div>
+						{/* <div className='sc-itme-desc'>{game.desc}</div> */}
+						<div className='sc-itme-desc'>288 sessões ao longo do dia</div>
 					</div>
 				</Grid.Item>
 			)

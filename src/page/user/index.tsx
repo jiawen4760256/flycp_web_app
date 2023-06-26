@@ -101,16 +101,18 @@ export default () => {
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45}}>
 				<div className='user-info' >
-					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} onClick={()=>{navigate("/user/edit")}} />
+					{/* <Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} onClick={()=>{navigate("/user/edit")}} /> */}
+					{/* 去掉更换头像功能 */}
+					<Avatar src={userData['face']} className='user-img' style={{ borderRadius: "50%",'--size': '45px'}} />
           <div className='user-account'>
 						<div className='user-name'>
-							{language_app_user_account}:{userData['username']}&nbsp;
+							{language_app_user_account}: {userData['username']}&nbsp;
 							{/* <Tag color='#fff' fill='outline'>
 								{userData['jinjijilu']}
 							</Tag>	 */}
 						</div>
 						{/* <div className='user-balance'>{language_app_user_amount}:{balance}</div> */}
-						<div className='user-balance'>REAIS：:{balance}</div>
+						<div className='user-balance'>REAIS: {balance}</div>
 						{/* <div className='user-balance'><BankcardOutline style={{fontSize:"20px"}} />  积分：{userData['balance']}</div> */}
 					</div>
 					{userData['jinjijilu_id']>0?<>
