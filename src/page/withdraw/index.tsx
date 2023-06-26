@@ -25,6 +25,7 @@ export default () => {
 	const [visible, setVisible] = useState(false)
 	const [visible1, setVisible1] = useState(false)
 	const [visible2, setVisible2] = useState(false)
+	const [tradepassword, setTradepassword] = useState("")
   const [value, setValue] = useState<(string | null)[]>([])
   const [amount, setAmount] = useState("")
 	const [notice, setNotice] = useState([])
@@ -69,10 +70,18 @@ export default () => {
 	const submit = function(){
 		// console.log(amountInput.nativeElement.value);
 		let amount = amountInput.nativeElement.value
+		// let tradepassword = pwdInput.nativeElement.value
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
 				content: language_app_withdraw_bank_pls,
+			})
+			return
+		}
+		if(!tradepassword){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: 'Introduza o seu código de financiamento',
 			})
 			return
 		}
@@ -85,7 +94,8 @@ export default () => {
 		}
 		let values = {
 			bankId:value[0],
-			amount:amount
+			amount:amount,
+			tradepassword:tradepassword,
 		}
 		
 		setLoading1(true)
@@ -99,6 +109,7 @@ export default () => {
 
 			setNotice(response['notice'])
 			setAmount("");
+			setTradepassword('')
 			setLoading1(false)
 			// amountInput.nativeElement.value = ''
 		})
@@ -135,14 +146,24 @@ export default () => {
 			<FileOutline />
     </div>
   )
+  let blances=notice.map((item,index)=>{
+	if(index==0){
+		console.log(item['v'])
+	}
+})
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar onBack={back} right={right}>{language_app_user_exchange}</NavBar>
+      	<NavBar onBack={back} 
+		// 右侧顶部的兑换记录跳转按钮暂时注释
+		// right={right}
+		>{language_app_user_exchange}</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+				<div style={{lineHeight: '60px',paddingLeft: '1.2rem'}}>Por favor, selecione uma conta de câmbio</div>
 				<List header=''>
-					<List.Item prefix={(<div className='withdraw-bank'>{language_app_withdraw_bank}</div>)} onClick={selectBank} >
+					{/* 兑换银行栏位注释 */}
+					{/* <List.Item prefix={(<div className='withdraw-bank'>{language_app_withdraw_bank}</div>)} onClick={selectBank} >
 						<Picker
 							columns={basicColumns}
 							visible={visible}
@@ -167,8 +188,10 @@ export default () => {
 								}
 							}}
 						</Picker>
-					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_user}</div>)} onClick={selectBank}>
+					</List.Item> */}
+					
+					{/* 收款人栏位注释 */}
+					{/* <List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_user}</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns1}
 							visible={visible1}
@@ -191,8 +214,10 @@ export default () => {
 								}
 							}}
 						</Picker>
-					</List.Item>
-					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_number}</div>)} onClick={selectBank}>
+					</List.Item> */}
+
+					{/* 银行卡号栏位注释 */}
+					{/* <List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_number}</div>)} onClick={selectBank}>
 						<Picker
 							columns={basicColumns2}
 							visible={visible2}
@@ -216,15 +241,31 @@ export default () => {
 								}
 							}}
 						</Picker>
-					</List.Item>
+					</List.Item> */}
 
-					<List.Item  prefix={(<div className='withdraw-bank'>{language_app_withdraw_amount}</div>)} >
+					<List.Item  prefix={(<div className='withdraw-bank'>{'Saldo da conta'}</div>)} >
+						 <span>REAIS </span>
+					</List.Item>
+					<List.Item  prefix={(<div className='withdraw-bank'>{'Valor da Troca'}</div>)} >
 						<Input
-							placeholder={language_app_withdraw_amount_pls}
+							placeholder={'Insira o valor da troca'}
 							// onChange={setAmount}
 							// value={amount}
 							ref={input => amountInput = input}
 						/>
+					</List.Item>
+					<List.Item  prefix={(<div className='withdraw-bank'>Senha do Fundo</div>)} >
+						<form >
+							<Input
+								placeholder='Por favor, digite a senha do fundo'
+								// onChange={setTradepassword}
+								// value={tradepassword}
+								type="password"
+								autoComplete='off'
+								// ref={input => pwdInput = input}
+							/>
+
+						</form>
 					</List.Item>
 				</List>
 
@@ -233,17 +274,22 @@ export default () => {
 					layout='horizontal'
 					footer={
 						<Button block loading={loading1} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-							{language_app_withdraw_submit}
+							{'Claro'}
 						</Button>
 					}
 				>
 				</Form>
 				<data className='withdraw-info-head'>
-					{language_app_withdraw_info}：
+					{' Descrição das regras de troca: '}：
 				</data>
-				<div className='withdraw-info'>
+				{/* 展示列表暂时注释 */}
+				{/* <div className='withdraw-info'>
 					{noticeDiv}
-				</div>
+				</div> */}
+				<p style={{'padding':'0 10px'}}> *Todas as retiradas do cliente são totalmente gratuitas. </p>
+				<p style={{'padding':'0 10px'}}>  * Valor máximo de retirada por dia  Segunda categoria.    </p>
+				<p style={{'padding':'0 10px'}}>   *Retirada Mínima  USDT, valor máximo ilimitado.    </p>
+				<p style={{'padding':'0 10px'}}>    *Em circunstâncias normais, leva de 3 a 5 minutos para concluir saques domésticos (se for um período de pico ou devido a fatores como remessa interbancária, pode levar cerca de 30 minutos para ser concluído. meias)     </p>
 			</div>
 		</div>
 	)

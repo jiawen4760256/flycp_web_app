@@ -101,22 +101,24 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>{language_app_bankadd}</NavBar>
+      	{/* <NavBar className='app-header' onBack={back}>{language_app_bankadd}</NavBar> */}
+      	<NavBar className='app-header' onBack={back}> Informações do cartão bancário </NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
+			<div id="text">Por favor, vincule o próprio cartão de poupança do titular do cartão</div>
 			<Form
 					onFinish = {submit}
 					layout='horizontal'
 					footer={
 						<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-							{language_app_bankadd_subimt}
+							{'Claro'}
 						</Button>
 					}
 					className='prefix-width'
 				>
 					<Form.Item
 						name='bankcode'
-						label={language_app_bankadd_bank}
+						label='Conta bancária'
 						// trigger='onConfirm'
 						
 						rules={[{ message: language_app_bankadd_bank_pls }]}
@@ -127,7 +129,7 @@ export default () => {
 					>
 						
 						{value.value?value.label:(<div style={{color:"#ccc"}}>
-							{language_app_bankadd_bank_pls}
+							{'Selecione o banco para abrir a conta'}
 						</div>)}
 						{/* <Picker
 							columns={basicColumns}
@@ -166,29 +168,39 @@ export default () => {
 							autoComplete='off'
 						/>
 					</div>
-					<Form.Item
+					{/* 开户地点 */}
+					{/* <Form.Item
 						name='accountname'
 						label={language_app_bankadd_name}
 						rules={[{ required: true, message: language_app_bankadd_name_pls }]}
 					>
 						<Input  placeholder={language_app_bankadd_name_pls} autoComplete="off" />
-					</Form.Item>
+					</Form.Item> */}
 					<Form.Item
 						name='banknumber'
-						label={language_app_bankadd_number}
+						label={'Titular da conta'}
 						rules={[{ required: true, message: language_app_bankadd_number_pls }]}
 					>
-						<Input placeholder={language_app_bankadd_number_pls}  autoComplete="off" />
+						<Input placeholder={'Insira o nome do titular da conta'}  autoComplete="off" />
 					</Form.Item>
 					<Form.Item
 						name='pwd'
-						label={language_app_bankadd_pwd}
+						label={'Número do cartão bancário'}
 						rules={[{ required: true, message: language_app_bankadd_pwd_pls }]}
 					>
-						<Input type='password' placeholder={language_app_bankadd_pwd_pls}  autoComplete="off" />
+						<Input type='password' placeholder={'Insira o número do seu cartão bancário'}  autoComplete="off" />
+					</Form.Item>
+					<Form.Item
+						name='pwd'
+						label='Senha do Fundo'
+						rules={[{ required: true, message: 'A senha do fundo não pode estar vazia' }]}
+					>
+						<Input type='password' placeholder='Por favor, digite a senha do fundo'  autoComplete="off" />
 					</Form.Item>
 					{tradepasswordHtml}
 				</Form>
+				<div style={{padding: '0 20px'}}>Dicas gentis:</div>
+				<div style={{padding: '10px 20px'}}>1. Você pode vincular 5 cartões bancários. Para a segurança de seus fundos, o cartão bancário que for trocado com sucesso pela primeira vez será bloqueado automaticamente e não poderá ser excluído ou modificado.</div>
 				<Popup
 					visible={visible6}
 					onMaskClick={() => {
@@ -241,5 +253,6 @@ export default () => {
 				</Popup>
 			</div>
 		</div>
+		
 	)
 }
