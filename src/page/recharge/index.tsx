@@ -8,36 +8,72 @@ import {
 } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import './index.css'
-import { setLoading ,getDictionary,getLoading} from '../../store'
+import { setLoading ,getLoading} from '../../store'
 import {useDispatch,useSelector } from 'react-redux'
 export default () => {
-	
+
 	const dispatch = useDispatch()
 	const [htmlData, setHtmlData] = useState<{}[]>([])
-	const [paytype, setPaytype] = useState<{}[]>([])
+	const [paytype, setPaytype] = useState<any>([])
 	const [basicColumns, setBasicColumns] = useState<any[]>([])
 	const [basicColumns1, setBasicColumns1] = useState<any[]>([])
   const [value, setValue] = useState<any>({})
 	const loading = useSelector(getLoading)
 	let navigate = useNavigate()
-	
-  const [visible6, setVisible6] = useState(false)
-  const [submitLoading, setSubmitLoading] = useState(false)
+
+	const [visible6, setVisible6] = useState(false)
+	const [submitLoading, setSubmitLoading] = useState(false)
+	const [moneyList,setMoney]=useState<any>(['50','100','200'])
+	const [active,setActive]=useState<number>(0)
+	const [amount, setAmount] = useState<number | null>(null)
+	const [currentTabKey, setTabKey] = useState('0')
+	const [paysetStyle, setPaysetStyle] = useState('25')
+	const [paysetStyletwovalue, setpaysetStyletwovalue] = useState('')
+	const [scope, setScope] = useState<any>({})
+	function changeTab(e:string) {
+		if(e=='1'){
+			if(paytype.length==1){
+				if(paytype[0]['html']=='1'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])
+				}
+				if(paytype[0]['html']=='2'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])			
+				}
+			}
+			if(paytype.length==2){
+				setPaysetStyle(paytype[1]['defaultValue'][0])
+				const scop=paytype[1]['payset_id'].filter((item:any) => item['value']==paytype[1]['defaultValue'][0])
+				setScope(scop[0])
+			}
+		}else{
+			if(paytype.length==1){
+				if(paytype[0]['html']=='1'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])
+				}
+				if(paytype[0]['html']=='2'){
+					setPaysetStyle(paytype[0]['defaultValue'][0])
+					const scop=paytype[0]['payset_id'].filter((item:any) => item['value']==paytype[0]['defaultValue'][0])
+					setScope(scop[0])		
+				}
+			}
+			if(paytype.length==2){
+				setPaysetStyle(paytype[e]['defaultValue'][0])
+				const scop=paytype[e]['payset_id'].filter((item:any) => item['value']==paytype[e]['defaultValue'][0])
+				setScope(scop[0])
+			}
+			
+		}
+	setTabKey(e)
+	}
 	Auth.page(navigate)
 	let html
 
-	const {
-		language_app_user_buy,
-		language_app_recharge_text,
-		language_app_recharge_bank_pls,
-		language_app_recharge_bank,
-		language_app_recharge_pay,
-		language_app_recharge_amount,
-		language_app_recharge_amount_pls,
-		language_app_recharge_search,
-		language_app_recharge_channel,
-		
-	} = useSelector(getDictionary);
 
 	useEffect(() => {
 		getPaytype()
@@ -47,16 +83,7 @@ export default () => {
 		navigate(-1);
 	}
 
-	const getData = function(){
-		dispatch(setLoading(true))
-		Auth.ajax(navigate,'recharge/collection')
-		.then(function (response:any) {
-			dispatch(setLoading(false))
-			setHtmlData(response);
-		}).catch(function (error) {
-			dispatch(setLoading(false))
-		})
-	}
+
 	const paybank = function(){
 		Auth.ajax(navigate,'recharge/paybank')
 		.then(function (response:any) {
@@ -67,8 +94,82 @@ export default () => {
 	const getPaytype = function(){
 		dispatch(setLoading(true))
 		Auth.ajax(navigate,'recharge/paytype')
-		.then(function (response:any) {
+		.then(function(response:any){
 			dispatch(setLoading(false))
+			// const arr:any=[]
+			// for(let i=0;i<response.length;i+=1){
+			// 	if(response[i]['id']!=1){
+			// 		arr.push(response[i])
+			// 	}
+			// }
+		// 	const data:any=
+		// 	[
+		// 	 {
+		// 	 "id": "1",
+		// 	 "name": "银行卡",
+		// 	 "payset_id": [
+		// 		{
+		// 	 "label": "QE",
+		// 	 "value": 25,
+		// 	 "pay_type": "220"
+		// 	 }
+		// 	],
+		// 	 "state": "1",
+		// 	 "html": "1",
+		// 	 "defaultValue": [25]
+		//    }, 
+		//    {
+		// 	 "id": "2",
+		// 	 "name": "快捷支付",
+		// 	 "payset_id": [
+		// 		{
+		// 		"label": "HT",
+		// 		"value": 28,
+		// 		"pay_type": "222",
+		// 		"style": "1",
+		// 		'scope':{
+		// 				min:10,
+		// 				max:20000
+		// 			}
+		// 		},
+		// 	 {
+		// 		"label": "XGS",
+		// 		"value": 29,
+		// 		"pay_type": "222",
+		// 		"style": "2",
+		// 		'scope':{
+		// 			min:50,
+		// 			max:10000
+		// 		}
+		// 	 }
+		//    ],
+		// 	 "state": "1",
+		// 	 "html": "2",
+		// 	 "defaultValue": [28]
+		//    }
+		//  ]
+			if(response.length==1){
+				if(response[0]['html']=='1'){
+					setTabKey('0')
+					setPaysetStyle(response[0]['defaultValue'][0])
+					const scop=response[0]['payset_id'].filter((item:any) => item['value']==response[0]['defaultValue'][0])
+					setScope(scop[0])
+				}
+				if(response[0]['html']=='2'){
+					setTabKey('1')	
+					setPaysetStyle(response[0]['defaultValue'][0])
+					const scop=response[0]['payset_id'].filter((item:any) => item['value']==response[0]['defaultValue'][0])
+					setScope(scop[0])			
+				}
+			}
+			if(response.length==2){
+				setTabKey('1')	
+				setPaysetStyle(response[1]['defaultValue'][0])
+				const scop=response[1]['payset_id'].filter((item:any) => item['value']==response[1]['defaultValue'][0])
+				setScope(scop[0])
+			}
+
+
 			setPaytype(response);
 		}).catch(function (error) {
 			dispatch(setLoading(false))
@@ -76,13 +177,46 @@ export default () => {
 	}
 
 	const submit = function(values:any){
-		if(values.html == 1 && !value.bankname){
-			Toast.show({
-				icon: <ExclamationCircleOutline />,
-				content: language_app_recharge_bank_pls,
-			})
-			return;
+		if(currentTabKey=='0'){
+			console.log(paysetStyle)
+			if(paysetStyle=='25'){
+				if(!values.bankname){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: 'Selecionar um banco de pagamento',
+					})
+					return;
+				}
+				// values.amount = amount
+				console.log( scope['scope']['min'])
+				console.log( scope['scope']['max'])
+				console.log(  values.amount)
+				if(Number(values.amount) < Number(scope['scope']['min']) || Number(values.amount) > Number(scope['scope']['max'])){
+					Toast.show({
+						icon: <ExclamationCircleOutline />,
+						content: `O montante varia entre${scope['scope']['min']} - ${scope['scope']['max']}entre`,
+					})
+					return;
+				}
+			}
+
+		}else{
+			values.amount = paysetStyletwovalue
+			values.payset_id = [paysetStyle]
+			console.log( scope['scope']['min'])
+			console.log( scope['scope']['max'])
+			console.log( paysetStyletwovalue)
+			console.log( paysetStyle)
+			if(Number(paysetStyletwovalue) < Number(scope['scope']['min']) || Number(paysetStyletwovalue) > Number(scope['scope']['max'])){
+				Toast.show({
+					icon: <ExclamationCircleOutline />,
+					content: `O montante varia entre${scope['scope']['min']} - ${scope['scope']['max']}entre`,
+				})
+				return;
+			}
+
 		}
+		console.log(values)
 		setLoading(true)
 		setSubmitLoading(true)
 		values.bankcode = value.bankcode
@@ -136,27 +270,28 @@ export default () => {
 
 	}else{
 		html = (
-			<Empty className='recharge-empty' description={language_app_recharge_text} />
+			<Empty className='recharge-empty' description='Contactar o serviço de apoio ao cliente para efetuar a pré-encomenda' />
 		)
 	}
 	
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>{language_app_user_buy}</NavBar>
+      	<NavBar className='app-header' onBack={back}>Opções de pré-encomenda</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,background:"#fff"}}>
 				{paytype.length == 0?<>
-					<Empty className='recharge-empty' description={language_app_recharge_text} />
+					<Empty className='recharge-empty' description='Contactar o serviço de apoio ao cliente para efetuar a pré-encomenda' />
 				</>:<>
-					<Tabs defaultActiveKey={"0"}>
-						{paytype.map((item:any,index)=>{
-							return <Tabs.Tab title={item.name} key={index}>
+					<Tabs defaultActiveKey={paytype.length == 1? '0' : '1'} onChange={changeTab}>
+						{paytype.map((item:any,index:number)=>{
+							// return <Tabs.Tab title={index==0?'快捷支付':'银行卡'} key={String(index)}>
+							return <Tabs.Tab title={item['name']} key={String(index)}>
 								{item.html == 1?<>
 									<Form
 										footer={
 											<Button block type='submit' color='primary' size='large' loading={submitLoading}>
-												{language_app_recharge_pay}
+												Pagar agora
 											</Button>
 										}
 										onFinish = {submit}
@@ -171,10 +306,10 @@ export default () => {
 										</Form.Item>
 										<Form.Item
 											name='paybank_id'
-											label={language_app_recharge_bank}
+											label='Banco pagador'
 											// trigger='onConfirm'
 											
-											rules={[{ message: language_app_recharge_bank_pls }]}
+											rules={[{ message: 'Selecionar um banco de pagamento' }]}
 											onClick={() => {
 												setVisible6(true)
 											}}
@@ -182,21 +317,45 @@ export default () => {
 										>
 											
 											{value.bankname?value.bankname:(<div style={{color:"#ccc"}}>
-												{language_app_recharge_bank_pls}
+											Selecionar um banco de pagamento
 											</div>)}
 										</Form.Item>
 										<Form.Item
 											name='amount'
-											label={language_app_recharge_amount}
-											rules={[{ required: true, message: language_app_recharge_amount_pls }]}
+											label='Montante'
+											rules={[{ required: true, message: 'Introduzir o montante' }]}
 										>
-											<Input onChange={console.log} placeholder={language_app_recharge_amount_pls} />
+											<Input onChange={console.log} placeholder='Introduzir o montante' autoComplete='off'/>
 										</Form.Item>
-										<Form.Item name='payset_id'  label={language_app_recharge_channel}  initialValue={item.defaultValue}>
-											<Selector
+										{/* <Form.Item name='payset_id'  label='支付通道'  initialValue={item.defaultValue}>
+											<Selector  onChange={(arr,extend:any)=>{
+												if(extend.items.length){
+													setPaysetStyle(extend.items[0]['value'])
+												}
+												console.log(arr, extend.items)
 												// defaultValue={item.defaultValue}
-												options={item.payset_id}
+											}}
+											options={item.payset_id} 
 											/>
+										</Form.Item> */}
+										<Form.Item name='payset_id' label='Canais de pagamento' initialValue={[paysetStyle]}>
+											{
+												item.payset_id.map((val:any,i:number)=>(
+												<div onClick={()=>{setPaysetStyle(val.value)
+													setScope(val)}}
+													style={{
+														padding:'8px 16px',
+														borderRadius:'2px',
+														marginRight:'5px',
+														float:'left',
+														background:paysetStyle==val.value ? '#e7f1ff' : '#f5f5f5',
+														color:paysetStyle==val.value ? '#1677ff' : '',
+														}}>
+													{val.label}
+													</div>
+													)
+														)
+											}
 										</Form.Item>
 									</Form>
 								</>:<></>}
@@ -204,15 +363,16 @@ export default () => {
 								{item.html == 2?<>
 									<Form
 										footer={
-											<Button block type='submit' color='primary' size='large' loading={submitLoading}>
-												{language_app_recharge_pay}
-											</Button>
+											<a href="" target='_blank' style={{ textDecoration:'none'}}>
+												<Button block type='submit' color='primary' size='large' loading={submitLoading}>
+												Pagar agora
+												</Button>
+											</a>
 										}
 										
 										onFinish = {submit}
 									>
 
-										
 										<Form.Item
 											style={{display:"none"}}
 											name='id'
@@ -223,16 +383,76 @@ export default () => {
 										</Form.Item>
 										<Form.Item
 											name='amount'
-											label={language_app_recharge_amount}
-											rules={[{ required: true, message: language_app_recharge_amount_pls }]}
+											label='Montante'
+											style={{display:paysetStyle=='1'? 'block' : 'none'}}
+											rules={[{ required: false, message: 'Selecionar o montante' }]}
 										>
-											<Input onChange={console.log} placeholder={language_app_recharge_amount_pls} />
+											{/* <Input onChange={console.log} placeholder='请输入金额' /> */}
+											{
+												moneyList.map((item:string,i:number)=>
+												(
+												<Button style={{ margin: 5 }} className={i==active ? 'active' : ''} key={i} onClick={(e)=>
+													{
+														setActive(i)
+														setAmount(Number(item))
+													}
+													}
+													>
+														{item}
+												</Button>
+												)
+												)
+											}
 										</Form.Item>
-										<Form.Item name='payset_id' label={language_app_recharge_channel} initialValue={item.defaultValue}>
-											<Selector
+										{
+											item.payset_id.map((result:any,n:number)=>(
+												<Form.Item
+												// name='amount'
+												label='Montante'
+												key={n}
+												style={{display:paysetStyle==result.value ? 'block' : 'none'}}
+												rules={[{ required: true, message: `Introduza o montante, que é limitado a：${result.scope.min}-${result.scope.max}` }]}
+											>
+												<Input type="number" value={paysetStyletwovalue}  onChange={(e)=>{
+													setpaysetStyletwovalue(e)
+												}} 
+												placeholder={`Introduzir o montante(${result.scope.min}-${result.scope.max}entre)`} 
+												/>
+										</Form.Item>
+											))
+										}
+											{/* 二维码功能，目前先注释，后期需要在打开 */}
+											{/* < img style={{display : 'block',margin:'auto',width: 170,height: 170 }} src={active == 0 ? "/sc/button2.png" :  active == 1 ? "/sc/button3.png" : "/sc/button4.png"} alt="这是二维码图片" /> */}
+										{/* <Form.Item name='payset_id' label='支付通道' initialValue={[paysetStyle]}>
+											<Selector onChange={(arr,extend:any)=>{
+												if(extend.items.length){
+													setPaysetStyle(extend.items[0]['value'])
+													setScope(extend.items[0])
+												}
+												console.log(arr, extend.items)
+											}}
 												// defaultValue={item.defaultValue}
 												options={item.payset_id}
 											/>
+										</Form.Item> */}
+										<Form.Item name='payset_id' label='Canais de pagamento' initialValue={[paysetStyle]}>
+											{
+												item.payset_id.map((val:any,i:number)=>(
+												<div onClick={()=>{setPaysetStyle(val.value)
+													setScope(val)}}
+													style={{
+														padding:'8px 16px',
+														borderRadius:'2px',
+														marginRight:'5px',
+														float:'left',
+														background:paysetStyle==val.value ? '#e7f1ff' : '#f5f5f5',
+														color:paysetStyle==val.value ? '#1677ff' : '',
+														}}>
+													{val.label}
+													</div>
+													)
+													)
+											}
 										</Form.Item>
 									</Form>
 								</>:<></>}
@@ -253,7 +473,7 @@ export default () => {
 					<header className="App-header" style={{position: "unset"}} >
 						<NavBar className='app-header' onBack={()=>{
 							setVisible6(false)
-						}}>{language_app_recharge_bank}</NavBar>
+						}}>Banco pagador</NavBar>
 					</header>
 					{/* <Form layout='horizontal'>
 						<Form.Item label='搜索' name='username'>
@@ -262,7 +482,7 @@ export default () => {
 					</Form> */}
 					<Space className='search-input'>
 						<SearchOutline style={{fontSize:20}}/>
-						<Input placeholder={language_app_recharge_search}  onChange={(value:string)=>{
+						<Input placeholder='Pesquisar'  onChange={(value:string)=>{
 							let newList:any[] = [];
 							for(let i=0;i<basicColumns1.length;i++){
 								let str:string = basicColumns1[i].bankname
