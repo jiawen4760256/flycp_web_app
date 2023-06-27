@@ -41,7 +41,22 @@ export default () => {
 			dispatch(setLoading(false))
 			setBasicColumns(response['bankname'])
 			setBasicColumns1(response['accountname'])
-			setBasicColumns2(response['banknumber'])
+			// 银行卡 卡号只显示前四位和四位  开始
+			const cloneData =JSON.stringify(response["banknumber"])
+			const list = JSON.parse(cloneData)
+			for (let i=0;i<list.length;i+=1) {
+				if (list[i].length) {
+					for (let j=0;j<list[i].length;j+=1) {
+						if (list[i][j]['label']) {
+							list[i][j]['label'] = list[i][j]['label'].replace(/(\d{4})\d+(\w{4})/, '$1****$2')
+						}
+					}
+				}
+			}
+			// setBasicColumns2(response['banknumber'])
+			setBasicColumns2(list)
+			// 银行卡 卡号只显示前四位和四位  结束
+			console.log(list)
 			setNotice(response['notice'])
 		}).catch(function (error) {
 			dispatch(setLoading(false))
