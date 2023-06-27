@@ -16,6 +16,7 @@ import {
 	FileOutline,
 } from 'antd-mobile-icons'
 let amountInput:any = {};
+let pwdInput:any={}
 export default () => {
 	
 	const [loading1, setLoading1] = useState(false)
@@ -70,7 +71,7 @@ export default () => {
 	const submit = function(){
 		// console.log(amountInput.nativeElement.value);
 		let amount = amountInput.nativeElement.value
-		// let tradepassword = pwdInput.nativeElement.value
+		let tradepassword = pwdInput.nativeElement.value
 		if(!value[0]){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
@@ -146,9 +147,10 @@ export default () => {
 			<FileOutline />
     </div>
   )
-  let blances=notice.map((item,index)=>{
+  const blances=()=>notice.map((item,index)=>{
 	if(index==0){
 		console.log(item['v'])
+		return <span>{item['v']}</span>
 	}
 })
 	return (
@@ -244,7 +246,7 @@ export default () => {
 					</List.Item> */}
 
 					<List.Item  prefix={(<div className='withdraw-bank'>{'Saldo da conta'}</div>)} >
-						 <span>REAIS </span>
+						 <span>{blances()}&nbsp;REAIS </span>
 					</List.Item>
 					<List.Item  prefix={(<div className='withdraw-bank'>{'Valor da Troca'}</div>)} >
 						<Input
@@ -262,7 +264,7 @@ export default () => {
 								// value={tradepassword}
 								type="password"
 								autoComplete='off'
-								// ref={input => pwdInput = input}
+								ref={input => pwdInput = input}
 							/>
 
 						</form>
