@@ -42,6 +42,12 @@ export default () => {
 		data =  (<Empty description='暂未绑定银行卡，请点击右上角 ‘+’ 添加' />)	
 	}else{
 		data = bankList.map((item, index)=>{
+			// 银行卡 卡号只显示前四位和后四位  开始
+			let idNo:any = item['banknumber']
+			console.log(idNo)
+			let banknumber=idNo.replace(/(\d{4})\d+(\w{4})/, '$1****$2')
+			console.log(banknumber)
+			// 银行卡 卡号只显示前四位和后四位  结束
 			let state = (<></>)
 			if(item['state']==0){
 				state = (<Tag className='bank-state' color='primary' fill='outline'>正在审核</Tag>)
@@ -80,7 +86,7 @@ export default () => {
 							<div>银行卡号：</div>
 						</Grid.Item>
 						<Grid.Item span={2}>
-							<div>{item['banknumber']}</div>
+							<div>{banknumber}</div>
 						</Grid.Item>
 					</Grid>
 				</Card>
