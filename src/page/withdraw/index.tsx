@@ -17,6 +17,7 @@ import {
 } from 'antd-mobile-icons'
 let amountInput:any = {};
 let pwdInput:any={}
+let cpfInput:any={}
 export default () => {
 	
 	const [loading1, setLoading1] = useState(false)
@@ -71,17 +72,20 @@ export default () => {
 	const submit = function(){
 		// console.log(amountInput.nativeElement.value);
 		let amount = amountInput.nativeElement.value
+		let cpf_number = cpfInput.nativeElement.value
 		let tradepassword = pwdInput.nativeElement.value
-		if(!value[0]){
-			Toast.show({
-				icon: <ExclamationCircleOutline />,
-				content: language_app_withdraw_bank_pls,
-			})
-			return
-		}
+		// if(!value[0]){
+		// 	Toast.show({
+		// 		icon: <ExclamationCircleOutline />,
+		// 		// 请选择兑换银行卡
+		// 		content: 'Por favor, escolha trocar o cartão do banco',
+		// 	})
+		// 	return
+		// }
 		if(!tradepassword){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
+				// 资金密码
 				content: 'Introduza o seu código de financiamento',
 			})
 			return
@@ -89,13 +93,23 @@ export default () => {
 		if(!amount){
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: language_app_withdraw_amount_pls,
+				// 请输入兑换积分
+				content: 'Insira os pontos de resgate',
+			})
+			return
+		}
+		if(!cpf_number){
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				// 请输入个人税务登记号
+				content: 'Por favor, insira seu número de registro fiscal pessoal',
 			})
 			return
 		}
 		let values = {
 			bankId:value[0],
 			amount:amount,
+			cpf_number:cpf_number,
 			tradepassword:tradepassword,
 		}
 		
@@ -268,6 +282,14 @@ export default () => {
 							/>
 
 						</form>
+					</List.Item>
+					<List.Item  prefix={(<div className='withdraw-bank'>{'CPF'}</div>)} >
+						<Input
+							placeholder={'Por favor, insira seu número de registro fiscal pessoal'}
+							// onChange={setAmount}
+							// value={amount}
+							ref={input => cpfInput = input}
+						/>
 					</List.Item>
 				</List>
 

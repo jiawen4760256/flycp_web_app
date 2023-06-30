@@ -90,9 +90,9 @@ export default () => {
 
 	const sexList = [
 		[
-			{ label: language_app_useredit_sex_1, value: '1' },
-			{ label: language_app_useredit_sex_2, value: '2' },
-			{ label: language_app_useredit_sex_3, value: '3' },
+			{ label: 'macho', value: '1' },
+			{ label: 'fêmea', value: '2' },
+			{ label: 'privacidade', value: '3' },
 		]
 	]
 	let tmpDate:string
@@ -135,7 +135,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-				<NavBar onBack={back}>{language_app_useredit_title}</NavBar>
+				<NavBar onBack={back}>editar informações</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 				<Form
@@ -143,13 +143,13 @@ export default () => {
 						layout='horizontal'
 						footer={
 							<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-								{language_app_useredit_submit}
+								enviar
 							</Button>
 						}
 					>
 					<Form.Item
 						name='face'
-						label={language_app_useredit_face}
+						label='Avatar'
 						onClick={selectAvatar}
 						clickable={false}
 					>
@@ -157,14 +157,14 @@ export default () => {
 					</Form.Item>
 					<Form.Item
 						name='nickname'
-						label={language_app_useredit_nick}
+						label='Apelido'
 						initialValue={userInfo['nickname']}
 					>
-						<Input  placeholder={language_app_useredit_nick_pls}/>
+						<Input  placeholder='por favor insira um apelido'/>
 					</Form.Item>
 					<Form.Item
 						name='sex'
-						label={language_app_useredit_sex}
+						label='gênero'
 						onClick={() => {
 							setVisible(true)
 						}}
@@ -172,8 +172,8 @@ export default () => {
 						<Picker
 							columns={sexList}
 							visible={visible}
-							cancelText={language_app_hall_cancel}
-							confirmText={language_app_hall_confirm}
+							cancelText='Cancelar'
+							confirmText='confirme'
 							onClose={() => {
 								setVisible(false)
 							}}
@@ -208,10 +208,10 @@ export default () => {
 					</Form.Item> */}
 					<Form.Item
 						name='phone'
-						label={language_app_useredit_phone}
+						label='número de telefone'
 						initialValue={userInfo['phone']}
 					>
-						<Input placeholder={language_app_useredit_phone_pls} />
+						<Input placeholder='Por favor, digite seu número de telefone' />
 					</Form.Item>
 				</Form>
 			</div>
