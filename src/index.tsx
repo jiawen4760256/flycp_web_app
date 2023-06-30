@@ -10,8 +10,6 @@ import { ConfigProvider } from "antd-mobile";
 import enUS from 'antd-mobile/es/locales/en-US'
 import zhCN from 'antd-mobile/es/locales/zh-CN'
 import zhTW from 'antd-mobile/es/locales/zh-TW'
-// import ptBR from 'antd/locale/pt_BR';
-import ptBR from '../src/local/pt-BR';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -24,6 +22,9 @@ if(window.location.href.indexOf('https://') != -1){
 
 function selectLanguage(){
   let language1 = navigator.language
+  if(language1){
+    return "pt_BR"
+  }
   if(language1 == "zh-CN"){
     return "zh-CN"
   }
