@@ -237,7 +237,7 @@ export default () => {
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/activity")}}>
 							<Image className='sc-button-img' src="/sc/button2.png" />
-							<div>中酒网</div>
+							<div>万酒网</div>
 						</Grid.Item>
 						<Grid.Item className='sc-button' onClick={()=>{Auth.navigate(navigate,"/record")}}>
 							<Image className='sc-button-img' src="/sc/button4.png" />
