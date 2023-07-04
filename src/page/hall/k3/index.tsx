@@ -300,8 +300,8 @@ export default () => {
 					})}
 				</div>
 			</>,
-			cancelText:language_app_hall_cancel,
-			confirmText:language_app_hall_confirm,
+			cancelText:'Cancelar',
+			confirmText:'confirme',
 			onConfirm: submit
 		})
 	}
