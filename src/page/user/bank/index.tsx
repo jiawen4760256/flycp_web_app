@@ -39,7 +39,7 @@ export default () => {
   )
 	let data
 	if(bankList.length == 0){
-		data =  (<Empty description='暂未绑定银行卡，请点击右上角 ‘+’ 添加' />)	
+		data =  (<Empty description='暂未添加银行卡，请点击右上角 ‘+’ 添加' />)
 	}else{
 		data = bankList.map((item, index)=>{
 			let state = (<></>)

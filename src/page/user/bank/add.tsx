@@ -64,7 +64,7 @@ export default () => {
 
 			Toast.show({
 				icon: 'success',
-				content: '绑定成功！',
+				content: '添加成功！',
 			})
 			setTimeout(()=>{
 				navigate(-1)
@@ -81,7 +81,7 @@ export default () => {
 	return (
 		<div className='App-main'>
 			<header className="App-header"  >
-      	<NavBar className='app-header' onBack={back}>绑定银行卡</NavBar>
+      	<NavBar className='app-header' onBack={back}>添加银行卡</NavBar>
 			</header>
 			<div className='App-content' style={{height:window.innerHeight-45,backgroundColor: "#fff"}}>
 			<Form
@@ -89,7 +89,7 @@ export default () => {
 					layout='horizontal'
 					footer={
 						<Button block loading={loading} type='submit' color='danger' size='large' style={{backgroundColor: "#e53333"}}>
-							确认绑定
+							确认添加
 						</Button>
 					}
 					className='prefix-width'
