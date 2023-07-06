@@ -13,7 +13,7 @@ import {
 import Api from '../../../lib/Api';
 import Auth from '../../../lib/Auth';
 import { Action } from 'antd-mobile/es/components/popover'
-import { ExclamationCircleOutline} from 'antd-mobile-icons'
+import { ExclamationCircleOutline,UndoOutline} from 'antd-mobile-icons'
 
 import { useSelector } from 'react-redux';
 import {
@@ -355,6 +355,27 @@ export default () => {
 		})
 	}
 
+	// 刷新余额功能开始
+	const updateBalance = ()=>{
+		setLoading(true)
+		Auth.ajax(navigate,'user/ping')
+		.then(function (response:any) {
+			setLoading(false)
+			setBalance(response.balance)
+			
+			userInfo.balance = response.balance
+			localStorage.setItem("userInfo", JSON.stringify(userInfo))
+		})
+		.catch(function (error) {
+			setLoading(false)
+			Toast.show({
+				icon: <ExclamationCircleOutline />,
+				content: '服务繁忙，稍后再试！'+"("+error.message+")",
+			})
+		})
+	}
+	// 刷新余额功能结束
+
 	// 清空、机选
 	const clearTouzhu = ()=>{
 		if(Object.keys(touzhu).length == 0){
@@ -594,6 +615,7 @@ export default () => {
 						}}>
 							<div>余额：</div>
 							<div className='touzhu-button-number'>{balance}</div>
+							<div onClick={updateBalance}><UndoOutline /></div>
 						</Space>
 					</div>
 				</Grid.Item>
