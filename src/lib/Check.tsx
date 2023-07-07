@@ -15,13 +15,13 @@ export default (navigate:any)=>{
     localStorage.setItem('p',p)
   }
 
-  // if(!localStorage.getItem("checkCode")){
-  //   let checkCode = getQueryVariable('c')
-  //   if(checkCode){
-  //     localStorage.setItem('checkCode','1')
-  //     return
-  //   }
-  //   navigate('/check/code')
-  // }
+  if(!localStorage.getItem("checkCode")){
+    let checkCode = getQueryVariable('c')
+    if(checkCode){
+      localStorage.setItem('checkCode','1')
+      return
+    }
+    navigate('/check/code')
+  }
 }
 

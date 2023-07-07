@@ -23,9 +23,11 @@ export default () => {
   useEffect(() => {
 		dispatch(setLoading(false))
   },[])
-  const demoSrc = '/app/map.png'
+//   const demoSrc = '/app/map.png'
+  const demoSrc_1 = '/app/map-1.png'
   const titleImg = '/app/title_img.png'
-  const ztImg = '/app/zt_img.png'
+//   const ztImg = '/app/zt_img.png'
+  const ztImg_1 = '/app/zt_img-1.png'
 	const onFinish = () => {
     console.log(value)
 		if(md5(value) == checkCode){
@@ -35,17 +37,18 @@ export default () => {
 
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "vip编号错误！",
+				content: "vip邀请码错误！",
 			})
 		}
   }
   return (
 		<div className='App-main code-body' style={{"backgroundColor": "#e02c2c"}}>
-			<div style={{backgroundImage:`url(${demoSrc})`,backgroundSize:'100% 100%',width: "100%",height: "200px",marginTop:40}}>
+			{/* <div style={{backgroundImage:`url(${demoSrc_1})`,backgroundSize:'100% 100%',width: "100%",height: "200px",marginTop:40}}> */}
+			<div style={{backgroundImage:`url(${demoSrc_1})`,backgroundSize:'100% 100%',width: "180px",height: "68px",margin:'40px auto 140px'}}>
 				<div  className='check-title-img'>
 					{/* <Image src={titleImg} fit='scale-down' /> */}
 					<div className='code-title'>
-						<CheckShieldFill /> vip编号
+						<CheckShieldFill /> vip邀请码
 						 
 					</div>
 				</div>
@@ -58,7 +61,7 @@ export default () => {
           <Grid.Item span={3}>
 						<Input
 							style={{height: '40px',lineHeight: '40px'}}
-							placeholder='请输入vip编号'
+							placeholder='请输入vip邀请码'
 							value={value}
 							onChange={val => {
 								setValue(val)
@@ -71,7 +74,8 @@ export default () => {
 				立即加入
 			</div>
 			<div className='check-zt-img' >
-				<Image src={ztImg} />
+				{/* <Image src={ztImg} /> */}
+				<Image src={ztImg_1} />
 			</div>
 
 		</div>

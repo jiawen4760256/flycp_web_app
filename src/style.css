@@ -1,6 +1,8 @@
 .code-body{
   /* background-color: #d4d0ff !important; */
-  background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB);
+  /* background: linear-gradient(#D4D0FF,#D4D0FF, #E0FFDB); */
+  background-image: url(../public/sc/check-bg.png);
+  background-size: 100% 100%;
 }
 .App-header{
   background-color: #d4d0ff !important;
