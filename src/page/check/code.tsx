@@ -30,12 +30,13 @@ export default () => {
     console.log(value)
 		if(md5(value) == checkCode){
 			localStorage.setItem('checkCode','1')
-			navigate('/check/line')
+			// navigate('/check/line')
+			navigate('/')
 		}else{
 
 			Toast.show({
 				icon: <ExclamationCircleOutline />,
-				content: "vip编号错误！",
+				content: "vip邀请码错误！",
 			})
 		}
   }
@@ -45,7 +46,7 @@ export default () => {
 				<div  className='check-title-img'>
 					{/* <Image src={titleImg} fit='scale-down' /> */}
 					<div className='code-title'>
-						<CheckShieldFill /> vip编号
+						<CheckShieldFill /> vip邀请码
 						 
 					</div>
 				</div>
@@ -58,7 +59,7 @@ export default () => {
           <Grid.Item span={3}>
 						<Input
 							style={{height: '40px',lineHeight: '40px'}}
-							placeholder='请输入vip编号'
+							placeholder='请输入vip邀请码'
 							value={value}
 							onChange={val => {
 								setValue(val)
