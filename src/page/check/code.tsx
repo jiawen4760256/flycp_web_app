@@ -43,7 +43,7 @@ export default () => {
 		}
   }
   return (
-		<div className='App-main code-body' style={{"backgroundColor": "#e02c2c"}}>
+		<div className='App-main code-body' style={{"backgroundColor": "purple"}}>
 			{/* <div style={{backgroundImage:`url(${demoSrc_1})`,backgroundSize:'100% 100%',width: "100%",height: "200px",marginTop:40}}> */}
 			<div style={{backgroundImage:`url(${demoSrc_1})`,backgroundSize:'100% 100%',width: "180px",height: "68px",margin:'40px auto 140px'}}>
 				<div  className='check-title-img'>
